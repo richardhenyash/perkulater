@@ -90,26 +90,18 @@ The following opportunities were identified and ranked using a score of 1 - 5 fo
 
 Opportunity|Description|Importance|Viability|Opportunity ID|Development Phase
 -----------|-----------|----------|---------|--------------|-----------------
-
 Coffee beans and ground coffee|Develop an online store to sell high quality coffee beans and ground coffee|5|5|Op-1|1
 Showcase developer skills|The site will serve as a showcase for the developer's skills, and increase the developer's standing within the tech community|5|5|Op-2|1
-
-Subscriptions	Provide a subscription service so customers can have coffee delivered on a regular basis	5	3	Op-3	1
-Gift cards	Sell gift cards and/or the ability to gift a subscription	4	4	Op-4	1
-Customer recommendations	Provide the facility for customers to add reviews and recommendations	5	4	Op-5	1
-Customised subscription service	Customise the subscription service so that customers can try different coffee each time their subscription is fulfilled based on their preferences	3	2	Op-6	2
-Cold brew	Sell cold brew cans	3	2	Op-7	2
-Coffee making equipment	Add coffee making equipment e.g. V60 drippers, filters, stove top espresso pots, aeropresses, espresso machines etc to the online store	2	2	Op-8	2
-Pods	Sell pods compatible with nespresso machines etc.	3	2	Op-9	2
-Engage with suppliers	Engage directly with coffee farmers in order to source high quality ethically grown coffee directly from source	4	1	Op-10	3
-Merchandise	Sell company branded merchadise	1	1	Op-11	3
-					
-
-
-Create database| Create an online, searchable database that enables consumers to identify products which are suitable for food allergies and intolerances|5|3|Op-1
-Enable User contribution|Enable users to contribute to the database|5|3|Op-2
-Showcase developer's skills|The site will serve as a showcase for the developer's skills, and increase the developer's standing within the tech community|4|3|Op-3
-
+Subscriptions|Provide a subscription service so customers can have coffee delivered on a regular basis|5|3|Op-3|1
+Gift cards|Sell gift cards and/or the ability to gift a subscription|4|4|Op-4|1
+Customer recommendations|Provide the facility for customers to add reviews and recommendations|5|4|Op-5|1
+Customised subscription service|Customise the subscription service so that customers can try different coffee each time their subscription is fulfilled based on their preferences|3|2|Op-6|2
+Cold brew|Sell cold brew cans|3|2|Op-7|2
+Coffee making equipment|Sell coffee making equipment e.g. V60 drippers, filters, stove top espresso pots, aeropresses, espresso machines etc to the online store|2|2|Op-8|2
+Pods|Sell pods compatible with nespresso machines etc.|3|2|Op-9|2
+Engage with suppliers|Engage directly with coffee farmers in order to source high quality ethically grown coffee directly from source|4|1|Op-10|3
+Merchandise|Sell company branded merchadise|1|1|Op-11|3
+				
 <img src="/static/wireframes/strategy-matrix.png" width="400px" style="margin: 10px;">
 
 ### Project Scope ###
