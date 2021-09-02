@@ -15,9 +15,9 @@
     - [Project Scope](#project-scope)
         - [User Demographics](#user-demographics)
         - [User Requirements](#user-requirements)
+        - [Functional Requirements](#functional-requirements)
         - [User Stories](#user-stories)
         - [Constraints](#constraints)
-        - [Functional Requirements](#functional-requirements)
         - [Business Rules](#business-rules)
         - [Key Features](#key-features)
     - [Site Map](#site-map)
@@ -62,7 +62,7 @@ To provide great quality coffee beans and ground coffee delivered to your home.
 The target audience for perkulater are consumers who love great quality coffee and would like to be able to make coffee shop quality coffee at home.
 
 ## Business Objectives ##
-* Provide a high quality, well designed online shop that inspires confidence in the quality of the product, and increases the likelyhood of repeat purchases and subscriptions.
+* Provide a high quality, well designed online shop that enables secure purchases, inspires confidence in the quality of the product, and increases the likelyhood of repeat purchases and subscriptions.
 * Provide the ability for customers to leave positive feedback and reviews on the products, to inspire confidence.
 * Grow the brand over time, starting with coffee beans and ground coffee and scaling up to add more products as the brand grows.
 * Track sales data to inform future business strategy.
@@ -70,16 +70,16 @@ The target audience for perkulater are consumers who love great quality coffee a
 ## User Objectives ##
 * Purchase high quality, great tasting coffee beans or ground coffee for home delivery.
 * Subscribe for a regular delivery of high quality, great tasting coffee beans or ground coffee.
-* Purchase a gift card
-* Customise my subscription service so that I can try different coffees based on my preferences.
+* Purchase a gift card.
 * See other user's positive reviews and feedback to inspire confidence in making a purchase.
 * Review and recommend products.
 * Contact the business about an order.
 * Contact the business with a general enquiry.
-* Purchase high quality cold brew coffee in a can.
-* Purchase high quality coffee making equipment.
-* Purchase high quality, great tasting coffee pods
-* Purchase branded merchadise.
+* Customise my subscription service so that I can try different coffees based on my preferences.
+* Purchase high quality cold brew coffee in a can (this product line will be added in a future development phase).
+* Purchase high quality coffee making equipment (this product line will be added in a future development phase).
+* Purchase high quality, great tasting coffee pods (this product line will be added in a future development phase).
+* Purchase branded merchadise (this product line will be added in a future development phase).
 
 ## UX ##
 
@@ -90,105 +90,95 @@ The following opportunities were identified and ranked using a score of 1 - 5 fo
 
 Opportunity|Description|Importance|Viability|Opportunity ID|Development Phase
 -----------|-----------|----------|---------|--------------|-----------------
-Coffee beans and ground coffee|Develop an online store to sell high quality coffee beans and ground coffee|5|5|Op-1|1
-Showcase developer skills|The site will serve as a showcase for the developer's skills, and increase the developer's standing within the tech community|5|5|Op-2|1
-Subscriptions|Provide a subscription service so customers can have coffee delivered on a regular basis|5|3|Op-3|1
-Gift cards|Sell gift cards and/or the ability to gift a subscription|4|4|Op-4|1
-Customer recommendations|Provide the facility for customers to add reviews and recommendations|5|4|Op-5|1
-Customised subscription service|Customise the subscription service so that customers can try different coffee each time their subscription is fulfilled based on their preferences|3|2|Op-6|2
-Cold brew|Sell cold brew cans|3|2|Op-7|2
-Coffee making equipment|Sell coffee making equipment e.g. V60 drippers, filters, stove top espresso pots, aeropresses, espresso machines etc to the online store|2|2|Op-8|2
-Pods|Sell pods compatible with nespresso machines etc.|3|2|Op-9|2
-Engage with suppliers|Engage directly with coffee farmers in order to source high quality ethically grown coffee directly from source|4|1|Op-10|3
-Merchandise|Sell company branded merchadise|1|1|Op-11|3
+Coffee beans and ground coffee|Develop an online store to sell high quality coffee beans and ground coffee|5|4|<span style="color:red">Op-1</span>|1
+Showcase developer skills|The site will serve as a showcase for the developer's skills, and increase the developer's standing within the tech community|5|4|<span style="color:red">Op-2</span>|1
+Subscriptions|Provide a subscription service so customers can have coffee delivered on a regular basis|5|3|<span style="color:red">Op-3</span>|1
+Gift cards|Sell gift cards and/or the ability to gift a subscription|4|4|<span style="color:red">Op-4</span>|1
+Customer recommendations|Provide the facility to add positive customer feedback and recommendations|5|4|<span style="color:red">Op-5</span>|1
+Customised subscription service|Customise the subscription service so that customers can try different coffee each time their subscription is fulfilled based on their preferences|3|2|<span style="color:grey">Op-6</span>|2
+Cold brew|Add cold brew cans to the product line|3|2|<span style="color:grey">Op-7</span>|2
+Coffee making equipment|Add coffee making equipment e.g. V60 drippers, filters, stove top espresso pots, aeropresses, espresso machines etc to the product line|2|2|<span style="color:grey">Op-8</span>|2
+Pods|Add coffee pods compatible with nespresso machines etc. to the product line|3|2|<span style="color:grey">Op-9</span>|2
+Engage with suppliers|Engage directly with coffee farmers in order to source high quality ethically grown coffee directly from source|4|1|<span style="color:grey">Op-10</span>|3
+Merchandise|Sell company branded merchadise|1|1|<span style="color:grey">Op-11</span>|3
 				
-<img src="/static/wireframes/strategy-matrix.png" width="400px" style="margin: 10px;">
+<img src="static/wireframes/perkulater-strategy-chart.png" width="600px" style="margin: 10px;">
 
 ### Project Scope ###
 #### User Demographics ####
-* The primary users of the site will be consumers with food allergies and intolerances, 
-and consumers with children or relatives who have food allergies and intolerances.
-* A simple, well layed out site with the key information being easy to find and easy 
-to contribute to would suit this demographic.
+* The primary users of the site will be consumers who are looking for high quality coffee beans and ground coffee for home delivery. 
+* A simple, clean and modern looking, well layed out site with the key information being easy to find would suit this demographic.
 
 #### User Requirements ####
 * Simple and well layed out.
+* Clean and modern looking.
 * Easy to find key information.
-* Easy to contribute to.
+* Easy to make a purchase in just a few clicks.
+* The site should inspire the consumer with the confidence to make a purchase.
 * Responsive design is required as users may be viewing the site on Mobile, Tablet or Desktop.
 
+#### Functional Requirements ####
+In order to determine the functional requirements of the site, user stories have been developed.
+
 #### User Stories ####
-* ***As a User, I would like to be able to register on the site.***
-* ***As a User, I would like to be able to sign in to the site.***
-* ***As a User, I would like to be able to sign out of the site.***
-* ***As a User, I am searching for a product which is free from one or more allergens.***
-* ***As a User, I have found a product which is free from one or more allergens, and I want to add it to the database.***
-* ***As a User, I have tried a product and would like to rate it.***
-* ***As a User, I have tried a product and would like to review it.***
-* ***As a User, I would like to edit an existing product.***
-* ***As a User, I would like to delete an existing product.***
-* ***As a User, I would like to add a new product category.***
-* ***As a User, I would like to edit an existing product category.***
-* ***As a User, I would like to delete an existing product category.***
-* ***As a User, I would like to add a new allergen.***
-* ***As a User, I would like to edit an existing allergen.***
-* ***As a User, I would like to delete an existing allergen.***
-* ***As a User, I would like to be able to contact the developer.***
+As a **User**, I would like to be able to:
+* Search for products.
+* Purchase products.
+* Register on the site.
+* Sign in to my account
+* Sign out of my account.
+* Update my personal profile.
+* See a summary of my previous orders.
+* Contact the business about a specific order.
+* Contact the business with a general query.
+
+As a **Business Owner**, I would like to be able to:
+* Add, edit and delete products.
+* Add, edit and delete product categories.
+* Add and update positive customer feedback to display.
+* Track sales data
 
 #### Constraints #####
-* Developer skill set - the Developer is currently learning Python, Flask and MongoDB. 
+* Developer skill set - the Developer is currently learning **Python** and **Django**. 
 This may impact on which features can be succesfully implemented during the phase 1 development.
 * Developer's available time - the developer is working full time whilst studying.
 This coupled with the developer's current skills constraints may impact which features 
 can be succesfully implemented during the phase 1 development.
 
-#### Functional Requirements ####
-* The User needs to be able to register.
-* The User needs to be able to sign in.
-* The User needs to be able to sign out.
-* The User needs to be able to search for products which are free from one or more allergens.
-* The User needs to be able to add products.
-* The User needs to be able to rate products.
-* The User needs to be able to review products.
-* The User needs to be able to edit products.
-* The User needs to be able to delete products (this should be restricted to users with the correct privileges).
-* The User needs to be able to add product categories (this should be restricted to users with the correct privileges).
-* The User needs to be able to edit product categories (this should be restricted to users with the correct privileges).
-* The User needs to be able to delete product categories (this should be restricted to users with the correct privileges).
-* The User needs to be able to add allergens (this should be restricted to users with the correct privileges).
-* The User needs to be able to edit allergens (this should be restricted to users with the correct privileges).
-* The User needs to be able to delete allergens (this should be restricted to users with the correct privileges).
-* The User needs to be able to contact the developer.
-
 #### Business Rules ####
-* It is not envisaged that the site will generate profits. It is intended to be used as an independent source of 
-information for consumers. If the site becomes very popular, it may be possible to generate advertising revenue in the future.
+It is not envisaged at this stage that the **perkulater** will become a real business. The site has been created for the purposes of satifying the ciriteria for the Code Institute Milestone Project 4
 
 #### Key Features ####
-The following key features have been identified and scored from 1 - 5 for importance and viability. 
+The following key features have been identified for development and scored from 1 - 5 for importance and viability. 
 Each feature is mapped back to the [Opportunities Matrix](#opportunities-matrix). 
 The proposed development phase has also been indicated:
 
 Feature|Description|Importance|Viability|Opportunity ID|Development Phase
 -------|-----------|----------|---------|--------------|-----------------
-Registration Form|User registration form|5|3|Op-2|1
-Login/Logout|User login/logout form|5|3|Op-2|1
-Search|Enables users to search the database based on one or more allergies or intolerances|5|3|Op-1|1
-Add Product|Enables users to add a product to the database|3|3|Op-2|1
-Add Category|Enables users with required privileges to add product categories to the database|3|3|Op-1, Op-2|1
-Edit Category|Enables users with required privileges to edit product categories in the database|3|3|Op-1, Op-2|1
-Delete Category|Enables users with required privileges to delete product categories from the database|3|3|Op-1, Op-2|1
-Add Allergen|Enables users with the required privileges to add allergens to the database|3|3|Op-1, Op-2|1
-Edit Allergen|Enables users with the required privileges to edit allergens in the database|3|3|Op-1, Op-2|1
-Delete Allergen|Enables users with the required privileges to delete allergens in the database|3|3|Op-1, Op-2|1
-Rate Product|Enables users to give a star rating to a product|2|2|Op-2|1
-Review Product|Enables users to review a product|2|2|Op-2|1
-Contact Form|Form to contact developer|4|5|Op-3|1
-GitHub Link|Link to developer github page|4|5|Op-3|1
-Upload Pictures|Enables users to add pictures of products and ingredients|1|2|Op-2|2
-Barcode Scanner|Enables users to automatically add products by scanning a product barcode with their device camera|1|1|Op-2|2
+Product Search|Enables users to search the product database|5|4|<span style="color:red">Op-1</span>|1
+Purchase Products|Enables users to purchase a product|5|4|<span style="color:red">Op-1</span>|1
+Registration Form|User registration form|5|4|<span style="color:red">Op-1</span>|1
+Sign In	User|Sign In form|5|4|<span style="color:red">Op-1</span>|1
+Sign Out|User Sign Out|5|4|<span style="color:red">Op-1</span>|1
+Update Profile|Update user profile|5|4|<span style="color:red">Op-1</span>|1
+Order Summary|See a summary of previous orders|5|4|<span style="color:red">Op-1</span>|1
+Order Contact|Contact the business owner about a specific order|5|4|<span style="color:red">Op-1</span>|1
+General Contact|Contact the business owner about a general enquiry|5|4|<span style="color:red">Op-1</span>|1
+Add Product|Enables users with required privelages to add a product|5|4|<span style="color:red">Op-1</span>|1
+Edit Product|Enables users with required privelages to edit a product|5|4|<span style="color:red">Op-1</span>|1
+Delete Product|Enables users with required privelages to delete a product|5|4|<span style="color:red">Op-1</span>|1
+Add Category|Enables users with required privelages to add a category|5|4|<span style="color:red">Op-1</span>|1
+Edit Category|Enables users with required privelages to edit a category|5|4|<span style="color:red">Op-1</span>|1
+Delete Category|Enables users with required privelages to delete a category|5|4|<span style="color:red">Op-1</span>|1
+Add Customer Feedback|Enables users with required privelages to add customer feedback|5|4|<span style="color:red">Op-5</span>|1
+Edit Customer Feedback|Enables users with required privelages to edit customer feedback|5|4|<span style="color:red">Op-5</span>|1
+Delete Customer Feedback|Enables users with required privelages to delete customer feedback|5|4|<span style="color:red">Op-5</span>|1
+Subscribe|Enables users to subscribe for regular coffee delivery|5|3|<span style="color:red">Op-3</span>|1
+Purchase Gift Card|Enables users to purchase a gift card|4|4|<span style="color:red">Op-4</span>|1
+Track sales data|Enables users with required privelages to export sales data from the database|3|2|<span style="color:grey">Op-1</span>|2
+Customised Subscription Service|Customise the subscription service so that customers can try different coffee each time their subscription is fulfilled based on their preferences|3|2|<span style="color:grey">Op-6</span>|2
 
-<img src="/static/wireframes/scope-matrix.png" width="600px" style="margin: 10px;">
+<img src="static/wireframes/perkulater-scope-chart.png" width="600px" style="margin: 10px;">
 
 ### Site Map ###
 An initial [Site Map](/static/wireframes/site-map.png) was produced, and is shown below:  
