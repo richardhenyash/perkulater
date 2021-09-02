@@ -101,7 +101,9 @@ Coffee making equipment|Add coffee making equipment e.g. V60 drippers, filters, 
 Pods|Add coffee pods compatible with nespresso machines etc. to the product line|3|2|<span style="color:grey">Op-9</span>|2
 Engage with suppliers|Engage directly with coffee farmers in order to source high quality ethically grown coffee directly from source|4|1|<span style="color:grey">Op-10</span>|3
 Merchandise|Sell company branded merchadise|1|1|<span style="color:grey">Op-11</span>|3
-				
+
+See **perkulater** strategy chart below, opportunities to be included for phase 1 are shown in red: 
+
 <img src="static/wireframes/perkulater-strategy-chart.png" width="600px" style="margin: 10px;">
 
 ### Project Scope ###
@@ -177,6 +179,8 @@ Subscribe|Enables users to subscribe for regular coffee delivery|5|3|<span style
 Purchase Gift Card|Enables users to purchase a gift card|4|4|<span style="color:red">Op-4</span>|1
 Track sales data|Enables users with required privelages to export sales data from the database|3|2|<span style="color:grey">Op-1</span>|2
 Customised Subscription Service|Customise the subscription service so that customers can try different coffee each time their subscription is fulfilled based on their preferences|3|2|<span style="color:grey">Op-6</span>|2
+
+See **perkulater** scope chart below, opportunities to be included for phase 1 are shown in red: 
 
 <img src="static/wireframes/perkulater-scope-chart.png" width="600px" style="margin: 10px;">
 
