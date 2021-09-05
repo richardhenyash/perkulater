@@ -53,13 +53,20 @@
 - [Acknowledgements](#acknowledgements)
 
 ## Background ##
-With the rise in home working, many former commuters now miss out on a the joy of drinking a high quality morning coffee made with the finest ingredients. **Perkulater** aims to provide great quality coffee beans and ground coffee, delivered to your home.
+With the rise in home working seen in 2020 and 2021 due to the coronavirus pandemic, many former commuters now miss out on a the joy of drinking a high quality morning coffee made with the finest quality ingredients. Specialist, small batch coffee subscription services have been a significant growth market in 2020 and 2021, as the links below show:  
+[CNN Business](https://edition.cnn.com/2020/06/21/business/people-signing-up-for-coffee-subscriptions/index.html)  
+[World Coffee Portal](https://www.worldcoffeeportal.com/Latest/InsightAnalysis/2020/November/Home-Is-Where-the-Coffee-Is)  
+[BBC News](https://www.bbc.com/future/bespoke/made-on-earth/how-the-coffee-trade-survived-Covid-19.html)  
+
+**Perkulater** aims to provide great quality, ethically sourced coffee beans and ground coffee, delivered to your home. The business will initially focus on providing a just a handful of lovingly curated, high quality coffees. If the initial business proves to be successful, the future growth strategy would be to begin to expand into offering **cold brew**, **coffee making equipment** e.g. V60 drippers, stove top espresso pots, AeroPress coffee makers etc., **coffee pods** and eventually **branded merchandise**.
+
+Please note that at this stage, **perkulater** is a ficticious store which has been created for the purposes of satisfying the requirements for the **Code Institute** Full Stack Development Course Milestone Project 4.
 
 ## Mission Statement ##
-To provide great quality coffee beans and ground coffee delivered to your home.
+To provide great quality, ethically sourced coffee beans and ground coffee delivered to your home.
 
 ## Target Audience ##
-The target audience for **perkulater** are consumers who love great quality coffee and would like to be able to make coffee shop quality coffee at home.
+The target audience for **perkulater** are consumers who love great quality, ethically sourced coffee and would like to be able to make coffee shop quality coffee at home. **Perkulater** will be aimed at the higher end of the market, where consumers prioritise high quality and responsibly sourced coffee over low prices.
 
 ## Stakeholder Interviews
 Short interviews were carried out with potential customers.
@@ -72,15 +79,17 @@ Short interviews were carried out with potential customers.
 * "What is the price?"
 * "What are the delivery costs?"
 * "Is there positive feedback from happy customers?"
+* "How do I know that the coffee will be tailored to my taste?"
 
 "Are there any particular features you would like to see in an online coffee beans and ground coffee website?"
 * "I would like to be able to subscribe to get a regular delivery of my favourite coffee beans."
-* "I would like to be able to subscribe to get a regular delivery of different coffee beans selected based on my preferences."
+* "I would like to be able to subscribe to get a regular delivery of different coffee beans selected based on my taste preferences."
 * "I would like to be able to purchase a gift card."
 
 ## Business Objectives ##
+Although the business is ficticous at this stage, the following business objectives have been considered as part of the overall development strategy:  
 * Provide a high quality, well designed online shop that enables secure purchases, inspires confidence in the quality of the product, and increases the likelyhood of repeat purchases and subscriptions.
-* Provide the ability for customers to leave positive feedback and reviews on the products, to inspire confidence in new customers.
+* Provide the ability and incentivise customers to leave positive feedback and reviews on the products, to inspire confidence in new customers.
 * Grow the brand over time, starting with coffee beans and ground coffee and scaling up to add more products as the brand grows.
 * Track sales data to inform future business strategy.
 
@@ -92,11 +101,11 @@ Short interviews were carried out with potential customers.
 * Review and recommend products.
 * Contact the business about an order.
 * Contact the business with a general enquiry.
-* Customise my subscription service so that I can try different coffees based on my preferences.
-* Purchase high quality cold brew coffee in a can (this product line will be added in a future development phase).
-* Purchase high quality coffee making equipment (this product line will be added in a future development phase).
-* Purchase high quality, great tasting coffee pods (this product line will be added in a future development phase).
-* Purchase branded merchadise (this product line will be added in a future development phase).
+* Customise my subscription service so that I can try different coffees specifically tailored to my taste preferences.
+* Purchase high quality cold brew coffee in a can (this product line could potentially be added in a future development phase).
+* Purchase high quality coffee making equipment (this product line could potentially be added in a future development phase).
+* Purchase high quality, great tasting coffee pods (this product line could potentially be added in a future development phase).
+* Purchase branded merchadise (this product line could potentially be added in a future development phase).
 
 ## UX ##
 
@@ -107,16 +116,16 @@ The following opportunities were identified and ranked using a score of 1 - 5 fo
 
 Opportunity|Description|Importance|Viability|Opportunity ID|Development Phase
 -----------|-----------|----------|---------|--------------|-----------------
-Coffee beans and ground coffee|Develop an online store to sell high quality coffee beans and ground coffee|5|4|Op-1|1
-Showcase developer skills|The site will serve as a showcase for the developer's skills, and increase the developer's standing within the tech community|5|4|Op-2|1
-Subscriptions|Provide a subscription service so customers can have coffee delivered on a regular basis|5|3|Op-3|1
-Gift cards|Sell gift cards and/or the ability to gift a subscription|4|4|Op-4|1
-Customer recommendations|Provide the facility to add positive customer feedback and recommendations|5|4|Op-5|1
-Customised subscription service|Customise the subscription service so that customers can try different coffee each time their subscription is fulfilled based on their preferences|3|2|Op-6|2
-Cold brew|Add cold brew cans to the product line|3|2|Op-7|2
-Coffee making equipment|Add coffee making equipment e.g. V60 drippers, filters, stove top espresso pots, aeropresses, espresso machines etc to the product line|2|2|Op-8|2
-Pods|Add coffee pods compatible with popular coffee machines to the product line|3|2|Op-9|2
-Engage with suppliers|Engage directly with coffee farmers in order to source high quality ethically grown coffee directly from source|4|1|Op-10|3
+Engage with suppliers|Engage directly with coffee farmers in order to source high quality ethically grown coffee directly from source|5|3|Op-1|1
+Coffee beans and ground coffee|Develop an online store to sell high quality, ethically sourced coffee beans and ground coffee|5|4|Op-2|1
+Showcase developer skills|The site will serve as a showcase for the developer's skills, and increase the developer's standing within the tech community|5|4|Op-3|1
+Subscriptions|Provide a subscription service so customers can have coffee delivered on a regular basis|5|3|Op-4|1
+Customer reviews|Provide the facility for customers to add reviews to products|5|4|Op-5|1
+Gift cards|Sell gift cards and/or the ability to gift a subscription|4|4|Op-6|1
+Customised subscription service|Customise the subscription service so that customers can try different coffee each time their subscription is fulfilled tailored to their specific taste preferences|3|2|Op-7|2
+Cold brew|Add cold brew to the product line|3|2|Op-8|2
+Coffee making equipment|Add coffee making equipment e.g. V60 drippers, filters, stove top espresso pots, AeroPresses, espresso machines etc to the product line|2|2|Op-9|2
+Pods|Add coffee pods compatible with popular coffee machines to the product line|3|2|Op-10|2
 Merchandise|Add company branded merchadise to the product line|1|1|Op-11|3
 
 See **perkulater** strategy chart below. Opportunities to be included for phase 1 are shown in *Red*, and opportunities to be deferred to a future development phase are shown in *Grey*: 
@@ -125,40 +134,50 @@ See **perkulater** strategy chart below. Opportunities to be included for phase 
 
 ### Project Scope ###
 #### User Demographics ####
-* The primary users of the site will be consumers who are looking for high quality coffee beans and ground coffee for home delivery. 
-* A simple, clean and modern looking, well layed out site with the key information being easy to find would suit this demographic.
+* The primary users of the site will be consumers who are looking for high quality, etically sourced coffee beans and ground coffee for home delivery. 
+* A simple, clean and modern looking, well layed out site with the key information being easy to find and purchases being easy to make in a few clicks would suit this demographic.
 
 #### User Requirements ####
 * Simple and well layed out.
+* Visually appealing.
+* Intuitive.
 * Clean and modern looking.
 * Easy to find key information.
 * Easy to make a purchase in just a few clicks.
 * The site should inspire the consumer with the confidence to make a purchase.
+* The site should be secure as the consumer is handing over credit card information.
 * Responsive design is required as users may be viewing the site on Mobile, Tablet or Desktop.
 
 #### Functional Requirements ####
 In order to determine the functional requirements of the site, the following user stories have been developed.
 
 #### User Stories ####
-As a **User**, I would like to be able to:
+As a **Potential Customer**, I would like to be able to:
 * Immediately understand the intent of the site.
 * View and navigate the site on all devices.
-* Search for products.
-* Purchase products.
-* Register on the site.
-* Sign in to my account
-* Sign out of my account.
-* Recover a forgotten password.
-* View and update my personal profile.
-* See a summary of my previous orders.
-* Contact the business about a specific order.
+* Learn about the coffees on offer, including a description of the flavours, so I can make an informed purchasing decision.
+* Learn about where the coffee beans are sourced from, so I can make an informed purchasing decision.
+* Understand the delivery charges, and how much I need to spend to get free delivery, so I can make an informed purchasing decision.
+* Add products to my cart, so I can make a purchase.
+* Subscribe for a regular purchase of a product.
+* Receive confirmation of my purchase via email, so I can be confident that the purchase has been made succesfully.
+* Register on the site, so I can make a repeat purchase more easily.
 * Contact the business with a general query.
 
+As a **Registered User**, I would like to be able to:
+* Sign in to my account.
+* Sign out of my account.
+* Recover a forgotten password.
+* View and update my personal profile, including default delivery details.
+* See a summary of my previous orders.
+* Contact the business about a specific order.
+* Add reviews to products, to help other customers make informed purchasing decisions.
+
 As a **Business Owner**, I would like to be able to:
+* Incentivise customers to add reviews to products, so that other customers will feel more confident about making a purchase.
 * Add, edit and delete products.
 * Add, edit and delete product categories.
-* Add and update positive customer feedback to display.
-* Track sales data.
+* Track sales data, to inform future purchasing decisions.
 
 #### Constraints #####
 * Developer skill set - the Developer is currently learning **Python** and **Django**. 
@@ -168,7 +187,7 @@ This coupled with the developer's current skills constraints may impact which fe
 can be succesfully implemented during the phase 1 development.
 
 #### Business Rules ####
-It is not envisaged at this stage that the **perkulater** will become a real business. The site has been created for the purposes of satisfying the criteria for the Code Institute Full Stack Development Course Milestone Project 4.
+It is not envisaged at this stage that the **perkulater** will become a real business. The site has been created for the purposes of satisfying the criteria for the **Code Institute** Full Stack Development Course Milestone Project 4.
 
 #### Key Features ####
 The following key features have been identified for development and scored from 1 - 5 for importance and viability. 
@@ -177,37 +196,35 @@ The proposed development phase has also been indicated:
 
 Feature ID|Feature|Description|Importance|Viability|Opportunity ID|Development Phase|
 ----------|-------|-----------|----------|---------|--------------|-----------------|
-F01|Product Search|Enables users to search the product database|5|4|Op-1|1
-F02|Purchase Products|Enables users to purchase a product|5|4|Op-1|1
-F02|Registration Form|User registration form|5|4|Op-1|1
-F03|Sign In	User|Sign In form|5|4|Op-1|1
-F04|Sign Out|User Sign Out|5|4|Op-1|1
-F05|Update Profile|Update user profile|5|4|Op-1|1
-F06|Recover Password|Recover a forgotten user password|5|4|Op-1|1
-F07|Order Summary|See a summary of previous orders|5|4|Op-1|1
-F08|Order Contact|Contact the business owner about a specific order|5|4|Op-1|1
-F09|General Contact|Contact the business owner about a general enquiry|5|4|Op-1|1
-F10|Add Product|Enables users with required privelages to add a product|5|4|Op-1|1
-F11|Edit Product|Enables users with required privelages to edit a product|5|4|Op-1|1
-F12|Delete Product|Enables users with required privelages to delete a product|5|4|Op-1|1
-F13|Add Category|Enables users with required privelages to add a category|5|4|Op-1|1
-F14|Edit Category|Enables users with required privelages to edit a category|5|4|Op-1|1
-F15|Delete Category|Enables users with required privelages to delete a category|5|4|Op-1|1
-F16|Add Customer Feedback|Enables users with required privelages to add customer feedback|5|4|Op-5|1
-F17|Edit Customer Feedback|Enables users with required privelages to edit customer feedback|5|4|Op-5|1
-F18|Delete Customer Feedback|Enables users with required privelages to delete customer feedback|5|4|Op-5|1
-F19|Subscribe|Enables users to subscribe for regular coffee delivery|5|3|Op-3|1
-F20|Purchase Gift Card|Enables users to purchase a gift card|4|4|Op-4|1
-F21|Track sales data|Enables users with required privelages to export sales data from the database|3|2|Op-1|2
-F22|Customised Subscription Service|Customise the subscription service so that customers can try different coffee each time their subscription is fulfilled based on their preferences|3|2|Op-6|2
+F01|Product Detail|Description of the products on offer, including a description of the coffee flavours and a description of where the coffee beans are sourced from, sizes etc|5|5|Op-2|1
+F02|Purchase Products|Enables users to purchase a product, including secure card verification and confirmation email|5|4|Op-2|1
+F03|Registration Form|User registration form|5|4|Op-2|1
+F04|Sign In|Sign in to User Profile|5|4|Op-2|1
+F05|Sign Out|Sign out of User Profile|5|4|Op-2|1
+F06|Update Profile|Update user profile|5|4|Op-2|1
+F07|Recover Password|Recover a forgotten user profile password|5|4|Op-2|1
+F08|Order Summary|See a summary of previous orders|5|4|Op-2|1
+F09|Order Contact|Contact the business owner about a specific order|5|4|Op-2|1
+F10|Review Product|Review a product I have purchased|5|4|Op-2|1
+F11|Reward for Reviewing Product|Give a customer a reward for reviewing a product|5|4|Op-2|1
+F12|Subscribe|Enables users to subscribe for regular coffee delivery|5|3|Op-4|1
+F13|Add Product|Enables users with required privelages to add a product|5|4|Op-2|1
+F14|Edit Product|Enables users with required privelages to edit a product|5|4|Op-2|1
+F15|Delete Product|Enables users with required privelages to delete a product|5|4|Op-2|1
+F16|Add Category|Enables users with required privelages to add a category|2|4|Op-2|2
+F17|Edit Category|Enables users with required privelages to edit a category|2|4|Op-2|2
+F18|Delete Category|Enables users with required privelages to delete a category|2|4|Op-2|2
+F19|Purchase Gift Card|Enables users to purchase a gift card|2|3|Op-4|2
+F20|Track sales data|Enables users with required privelages to export sales data from the database|3|2|Op-2|2
+F21|Customised Subscription Service|Customise the subscription service so that customers can try different coffee each time their subscription is fulfilled tailored to their specific taste preferences|3|2|Op-6|2
 
 See **perkulater** scope chart below. Opportunities to be included for phase 1 are shown in *Red*, and opportunities to be deferred to a future development phase are shown in *Grey*: 
 
 <img src="static/wireframes/perkulater-scope-chart.png" width="600px" style="margin: 10px;">
 
 ### Site Map ###
-An initial [Site Map](/static/wireframes/site-map.png) was produced, and is shown below:  
-<img src="/static/wireframes/site-map.png" width="400px" style="margin: 10px;">
+A preliminary [Site Map](static/wireframes/perkulater-site-map.png) was produced for the **Phase 1** development, and is shown below:  
+<img src="static/wireframes/perkulater-site-map.png" width="400px" style="margin: 10px;">
 
 ### Wireframes ### 
 [Initial Wireframes](/static/wireframes/rev0) were produced showing the **Home**, **Sign In**, **Register**, **View Product**, 
