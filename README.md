@@ -224,7 +224,7 @@ See **perkulater** scope chart below. Opportunities to be included for phase 1 a
 
 ### Site Map ###
 A preliminary [Site Map](static/wireframes/perkulater-site-map.png) was produced for the **Phase 1** development, and is shown below:  
-<img src="static/wireframes/perkulater-site-map.png" width="400px" style="margin: 10px;">
+<img src="static/wireframes/perkulater-site-map.png" width="600px" style="margin: 10px;">
 
 ### Wireframes ### 
 [Initial Wireframes](/static/wireframes/rev0) were produced showing the **Home**, **Sign In**, **Register**, **View Product**, 
@@ -326,10 +326,9 @@ For further information please see  the **Browser Compatibility** section in [TE
 [Mongo DB](https://www.mongodb.com/) is a non relational [NoSQL](https://www.mongodb.com/nosql-explained) database hosting platform, 
 which provides an easily scalable platform to base the [FreeFrom](https://freefrom.herokuapp.com/) site on.  
 
-The project data schema 
-was modelled using [Moon Modeller](https://www.datensen.com/data-modeling/moon-modeler-for-databases.html) and is shown below:  
+The project data schema has modelled using [dbdiagram.io](https://dbdiagram.io/home), and is shown below:  
 
-<img src="/static/wireframes/schema.png" width="800px" style="margin: 10px;"> 
+<img src="static/wireframes/perkulater-data-model.png" width="800px" style="margin: 10px;"> 
 
 As shown in the schema diagram, there are four collections, **Users**, **Products**, **Categories** and **Allergens**.  
 
