@@ -121,7 +121,7 @@ Coffee beans and ground coffee|Develop an online store to sell high quality, eth
 Showcase developer skills|The site will serve as a showcase for the developer's skills, and increase the developer's standing within the tech community|5|4|Op-3|1
 Subscriptions|Provide a subscription service so customers can have coffee delivered on a regular basis|5|3|Op-4|1
 Customer reviews|Provide the facility for customers to add reviews to products|5|4|Op-5|1
-Gift cards|Sell gift cards and/or the ability to gift a subscription|4|4|Op-6|2
+Gift cards|Sell gift cards and/or the ability to gift a subscription|3|2|Op-6|2
 Customised subscription service|Customise the subscription service so that customers can try different coffee each time their subscription is fulfilled tailored to their specific taste preferences|3|2|Op-7|2
 Cold brew|Add cold brew to the product line|3|2|Op-8|2
 Coffee making equipment|Add coffee making equipment e.g. V60 drippers, filters, stove top espresso pots, AeroPresses, espresso machines etc to the product line|2|2|Op-9|2
@@ -206,7 +206,7 @@ F07|Recover Password|Recover a forgotten user profile password|5|4|Op-2|1
 F08|Order Summary|See a summary of previous orders|5|4|Op-2|1
 F09|Order Contact|Contact the business owner about a specific order|5|4|Op-2|1
 F10|Review Product|Review a product I have purchased|5|4|Op-2|1
-F11|Reward for Reviewing Product|Give a customer a reward for reviewing a product|5|4|Op-2|1
+F11|Reward for Reviewing Product|Give a customer a reward for reviewing a product, to incentivise reviews|5|4|Op-2|1
 F12|Subscribe|Enables users to subscribe for regular coffee delivery|5|3|Op-4|1
 F13|Add Product|Enables users with required privelages to add a product|5|4|Op-2|1
 F14|Edit Product|Enables users with required privelages to edit a product|5|4|Op-2|1
