@@ -53,26 +53,27 @@
 - [Acknowledgements](#acknowledgements)
 
 ## Background ##
-With the rise in home working seen in 2020 and 2021 due to the coronavirus pandemic, many former commuters now miss out on a the joy of drinking a high quality morning coffee made with the finest quality ingredients. Specialist, small batch coffee subscription services have been a significant growth market in 2020 and 2021, as the links below show:  
+With the rise in home working seen in 2020 and 2021 due to the coronavirus pandemic, many former commuters now miss out on a the joy of drinking a high quality morning coffee made with the finest quality ingredients. Specialist, small batch coffee roasters and coffee subscription services have been a significant growth market in 2020 and 2021, as the links below show:  
 [CNN Business](https://edition.cnn.com/2020/06/21/business/people-signing-up-for-coffee-subscriptions/index.html)  
 [World Coffee Portal](https://www.worldcoffeeportal.com/Latest/InsightAnalysis/2020/November/Home-Is-Where-the-Coffee-Is)  
 [BBC News](https://www.bbc.com/future/bespoke/made-on-earth/how-the-coffee-trade-survived-Covid-19.html)  
 
-**Perkulater** aims to provide great quality, ethically sourced coffee beans and ground coffee, delivered to your home. The business will initially focus on providing a just a handful of lovingly curated, high quality coffees. If the initial business proves to be successful, the future growth strategy would be to begin to expand into offering **cold brew**, **coffee making equipment** e.g. V60 drippers, stove top espresso pots, AeroPress coffee makers etc., **coffee pods** and eventually **branded merchandise**.
+**Perkulater** aims to provide great quality, ethically sourced and expertly roasted coffee beans and ground coffee, delivered to your home. The business will initially focus on providing a just a handful of lovingly curated, high quality coffees. If the initial business proves to be successful, the future growth strategy would be to begin to expand into offering **cold brew**, **coffee making equipment** e.g. V60 drippers, stove top espresso pots, AeroPress coffee makers etc., **coffee pods** and eventually **branded merchandise**.
 
 Please note that at this stage, **perkulater** is a ficticious store which has been created for the purposes of satisfying the requirements for the **Code Institute** Full Stack Development Course Milestone Project 4.
 
 ## Mission Statement ##
-To provide great quality, ethically sourced coffee beans and ground coffee delivered to your home.
+To provide great quality, ethically sourced and expertly roasted coffee beans and ground coffee, delivered to your home.
 
 ## Target Audience ##
-The target audience for **perkulater** are consumers who love great quality, ethically sourced coffee and would like to be able to make coffee shop quality coffee at home. **Perkulater** will be aimed at the higher end of the market, where consumers prioritise high quality and responsibly sourced coffee over low prices.
+The target audience for **perkulater** are consumers who love great quality coffee, are concerned at how the coffee beans are sourced, and would like to be able to make coffee shop quality coffee at home. **Perkulater** will be aimed at the higher end of the market, where consumers prioritise high quality and responsibly sourced coffee over low prices.
 
 ## Stakeholder Interviews
 Short interviews were carried out with potential customers.
 
 "What information would you need in order to make a purchase from an online coffee beans and ground coffee website?"
 * "What variety are the coffee beans?"
+* "Are the beans roasted by perkulater?"
 * "Are the coffee beans responsibly sourced?"
 * "Are the coffee beans available in whole beans and ground?"
 * "Which coffee machines are the ground coffees and coffe beans suitable for?"
@@ -84,7 +85,7 @@ Short interviews were carried out with potential customers.
 "Are there any particular features you would like to see in an online coffee beans and ground coffee website?"
 * "I would like to be able to subscribe to get a regular delivery of my favourite coffee beans."
 * "I would like to be able to subscribe to get a regular delivery of different coffee beans selected based on my taste preferences."
-* "I would like to be able to purchase a gift card."
+* "I would like to be able to purchase a gift card for friends or family."
 
 ## Business Objectives ##
 Although the business is ficticous at this stage, the following business objectives have been considered as part of the overall development strategy:  
@@ -100,7 +101,6 @@ Although the business is ficticous at this stage, the following business objecti
 * See other user's positive reviews and feedback to inspire confidence in making a purchase.
 * Review and recommend products.
 * Contact the business about an order.
-* Contact the business with a general enquiry.
 * Customise my subscription service so that I can try different coffees specifically tailored to my taste preferences.
 * Purchase high quality cold brew coffee in a can (this product line could potentially be added in a future development phase).
 * Purchase high quality coffee making equipment (this product line could potentially be added in a future development phase).
@@ -121,7 +121,7 @@ Coffee beans and ground coffee|Develop an online store to sell high quality, eth
 Showcase developer skills|The site will serve as a showcase for the developer's skills, and increase the developer's standing within the tech community|5|4|Op-3|1
 Subscriptions|Provide a subscription service so customers can have coffee delivered on a regular basis|5|3|Op-4|1
 Customer reviews|Provide the facility for customers to add reviews to products|5|4|Op-5|1
-Gift cards|Sell gift cards and/or the ability to gift a subscription|4|4|Op-6|1
+Gift cards|Sell gift cards and/or the ability to gift a subscription|4|4|Op-6|2
 Customised subscription service|Customise the subscription service so that customers can try different coffee each time their subscription is fulfilled tailored to their specific taste preferences|3|2|Op-7|2
 Cold brew|Add cold brew to the product line|3|2|Op-8|2
 Coffee making equipment|Add coffee making equipment e.g. V60 drippers, filters, stove top espresso pots, AeroPresses, espresso machines etc to the product line|2|2|Op-9|2
