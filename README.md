@@ -227,17 +227,22 @@ A preliminary [Site Map](static/wireframes/perkulater-site-map.png) was produced
 <img src="static/wireframes/perkulater-site-map.png" width="600px" style="margin: 10px;">
 
 ### Wireframes ### 
-[Initial Wireframes](/static/wireframes/rev0) were produced showing the **Home**, **Sign In**, **Register**, **View Product**, 
-**Edit Product**, **Add Product**, **Add Category**, **Edit Category**, **Delete Category**, **Add Allergen**, **Edit Allergen**, **Delete Allergen** and 
-**Contact Developer** page layouts. The **Home** page is shown below:  
+[Initial Wireframes](static/wireframes/rev0) were produced showing the **Home**, **Product Detail**, **Create Plan**, **Basket**, **Basket (Plan)**, **Sign In**, **Register**, **Checkout**, **User Profile**, **Orders**, **Order Detail**, **Contact** and **Review** page layouts.  
+The **Home** and **Product Detail** page layouts are shown below:  
 
-<img src="/static/wireframes/rev0/home.png" width="600px" style="margin: 10px;">
+<img src="static/wireframes/rev0/home.png" width="600px" style="margin: 10px;">  
 
-[Responsive design wireframes](/static/wireframes/rev1) were then produced showing the **Home** page layout on **Tablet** and **Phone**. 
-The [Responsive design wireframes](/static/wireframes/rev1) are shown below:  
+<img src="static/wireframes/rev0/product-detail.png" width="600px" style="margin: 10px;">
 
-<img src="/static/wireframes/rev1/home-tablet.png" width="300px" align="left" style="margin: 10px;">
-<img src="/static/wireframes/rev1/home-phone.png" width="300px" style="margin: 10px;">
+[Responsive design wireframes](static/wireframes/rev1) were then produced showing the **Home**, **Product Detail**, **Create Plan**, **Basket**, **Checkout** and **Order Detail** page layouts on **Tablet** and **Phone**. 
+The [Responsive design wireframes](static/wireframes/rev1) for the **Home** and **Product Detail** page layouts are shown below: 
+
+<img src="static/wireframes/rev1/home-tablet.png" width="400px" style="margin: 10px;">
+<img src="static/wireframes/rev1/product-detail-tablet.png" width="400px" style="margin: 10px;">  
+<br>
+<img src="static/wireframes/rev1/home-phone.png" width="300px" style="margin: 10px; margin-bottom: 80px">
+<img src="static/wireframes/rev1/product-detail-phone.png" width="300px" style="margin: 10px;">  
+
 
 ### Design Choices ###
 
