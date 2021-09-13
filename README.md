@@ -242,31 +242,23 @@ The [Responsive design wireframes](/static/wireframes/rev1) are shown below:
 ### Design Choices ###
 
 #### Fonts ####
-[Architect's Daughter](https://fonts.google.com/specimen/Architects+Daughter) has been chosen as the logo font for the [FreeFrom logo](/static/testing/logo.png). 
-The font has a hand drawn appearence, looks very attractive with the dove logo and fits well with the overall site theme.  
-* font-family: "Architects Daughter", sans-serif;
+[Teko](https://fonts.google.com/specimen/Teko) has been chosen as the logo font for the [perkulater logo](static/testing/logo.png).  
+[Teko](https://fonts.google.com/specimen/Teko) looks modern and, attractive and chunky and fits well with the overall theme of the site.  
+* font-family: "Teko", sans-serif;
 
-[Montserrat](https://fonts.google.com/specimen/Montserrat) has been chosen as the title font and is used for the 
-navigation menu, controls, forms and footer links. [Montserrat](https://fonts.google.com/specimen/Montserrat) has 
-a simple, clean, rounded look and is available in a good selection of weights.
+[Titillium Web](https://fonts.google.com/specimen/Titillium+Web) has been chosen as the title font for headings and sub headings.  
+[Titillium Web](https://fonts.google.com/specimen/Titillium+Web) has a simple, clear, chunky look and pairs well with the logo font.  
+[Titillium Web](https://fonts.google.com/specimen/Titillium+Web) is also available in a good selection of weights.
+* font-family: "Tittilium Web", sans-serif;
+
+[Montserrat](https://fonts.google.com/specimen/Montserrat) has been chosen as the body font.  
+[Montserrat](https://fonts.google.com/specimen/Montserrat) has a simple, clean, rounded look and is available in a good selection of weights.
 * font-family: "Montserrat", sans-serif;
 
-[Open Sans](https://fonts.google.com/specimen/Montserrat) has been chosen as the body font and is used for the search results and review tables. 
-[Open Sans](https://fonts.google.com/specimen/Montserrat) is complimentary to [Montserrat](https://fonts.google.com/specimen/Montserrat) and has 
-a similar clean look and feel but is not quite as wide, which will allow for more information to be displayed in the search results and review tables. 
-[Open Sans](https://fonts.google.com/specimen/Montserrat) is also available in a good selection of weights.
-* font-family: "Open Sans", sans-serif;
-
-
-[Architect's Daughter](https://fonts.google.com/specimen/Architects+Daughter) and [Montserrat](https://fonts.google.com/specimen/Montserrat) 
-are available from [Google Fonts](https://fonts.google.com/) and are licensed under the [Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).  
-[Open Sans](https://fonts.google.com/specimen/Montserrat) is available from [Google Fonts](https://fonts.google.com/) and is licensed under the 
-[Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.html).
-
 #### Colours ####
-White was chosen as the background colour to enable a simple and clear design to be implemented.  
-Bright foreground colours were chosen to contrast with the white background. Colour ideas were generated 
-using the [ColorSpace](https://mycolor.space/) **Colour Palette** generator. The final **Colour Palette** selected 
+A "Dark Theme" was chosen for the site, to enable a simple, modern and clear design to be implemented.
+A very dark grey was chosen as the background colour. Various dark grey shades are layered over the background to convey depth, and highlighting colours are used for foreground elements. Colour ideas were generated using the 
+using the [Coolors](https://coolors.co/) **Colour Palette** generator. The final **Colour Palette** selected 
 is shown below: 
 
 <img src="/static/wireframes/colour-palette.png" width="800px" style="margin: 10px;">  
