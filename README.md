@@ -130,7 +130,7 @@ Merchandise|Add company branded merchadise to the product line|1|1|Op-11|3
 
 See **perkulater** strategy chart below. Opportunities to be included for phase 1 are shown in *Red*, and opportunities to be deferred to a future development phase are shown in *Grey*: 
 
-<img src="static/wireframes/perkulater-strategy-chart.png" width="600px" style="margin: 10px;">
+<img src="media/wireframes/perkulater-strategy-chart.png" width="600px" style="margin: 10px;">
 
 ### Project Scope ###
 #### User Demographics ####
@@ -220,28 +220,28 @@ F21|Customised Subscription Service|Customise the subscription service so that c
 
 See **perkulater** scope chart below. Opportunities to be included for phase 1 are shown in *Red*, and opportunities to be deferred to a future development phase are shown in *Grey*: 
 
-<img src="static/wireframes/perkulater-scope-chart.png" width="600px" style="margin: 10px;">
+<img src="media/wireframes/perkulater-scope-chart.png" width="600px" style="margin: 10px;">
 
 ### Site Map ###
-A preliminary [Site Map](static/wireframes/perkulater-site-map.png) was produced for the **Phase 1** development, and is shown below:  
-<img src="static/wireframes/perkulater-site-map.png" width="600px" style="margin: 10px;">
+A preliminary [Site Map](media/wireframes/perkulater-site-map.png) was produced for the **Phase 1** development, and is shown below:  
+<img src="media/wireframes/perkulater-site-map.png" width="600px" style="margin: 10px;">
 
 ### Wireframes ### 
-[Initial Wireframes](static/wireframes/rev0) were produced showing the **Home**, **Product Detail**, **Create Plan**, **Basket**, **Basket (Plan)**, **Sign In**, **Register**, **Checkout**, **User Profile**, **Orders**, **Order Detail**, **Contact** and **Review** page layouts.  
+[Initial Wireframes](media/wireframes/rev0) were produced showing the **Home**, **Product Detail**, **Create Plan**, **Basket**, **Basket (Plan)**, **Sign In**, **Register**, **Checkout**, **User Profile**, **Orders**, **Order Detail**, **Contact** and **Review** page layouts.  
 The **Home** and **Product Detail** page layouts are shown below:  
 
-<img src="static/wireframes/rev0/home.png" width="600px" style="margin: 10px;">  
+<img src="media/wireframes/rev0/home.png" width="600px" style="margin: 10px;">  
 
-<img src="static/wireframes/rev0/product-detail.png" width="600px" style="margin: 10px;">
+<img src="media/wireframes/rev0/product-detail.png" width="600px" style="margin: 10px;">
 
-[Responsive design wireframes](static/wireframes/rev1) were then produced showing the **Home**, **Product Detail**, **Create Plan**, **Basket**, **Checkout** and **Order Detail** page layouts on **Tablet** and **Phone**. 
-The [Responsive design wireframes](static/wireframes/rev1) for the **Home** and **Product Detail** page layouts are shown below: 
+[Responsive design wireframes](media/wireframes/rev1) were then produced showing the **Home**, **Product Detail**, **Create Plan**, **Basket**, **Checkout** and **Order Detail** page layouts on **Tablet** and **Phone**. 
+The [Responsive design wireframes](media/wireframes/rev1) for the **Home** and **Product Detail** page layouts are shown below: 
 
-<img src="static/wireframes/rev1/home-tablet.png" width="400px" style="margin: 10px;">
-<img src="static/wireframes/rev1/product-detail-tablet.png" width="400px" style="margin: 10px;">  
+<img src="media/wireframes/rev1/home-tablet.png" width="400px" style="margin: 10px;">
+<img src="media/wireframes/rev1/product-detail-tablet.png" width="400px" style="margin: 10px;">  
 <br>
-<img src="static/wireframes/rev1/home-phone.png" width="300px" style="margin: 10px; margin-bottom: 80px">
-<img src="static/wireframes/rev1/product-detail-phone.png" width="300px" style="margin: 10px;">  
+<img src="media/wireframes/rev1/home-phone.png" width="300px" style="margin: 10px; margin-bottom: 80px">
+<img src="media/wireframes/rev1/product-detail-phone.png" width="300px" style="margin: 10px;">  
 
 
 ### Design Choices ###
@@ -266,7 +266,7 @@ A very dark grey was chosen as the background colour. Various dark grey shades a
 using the [Coolors](https://coolors.co/) **Colour Palette** generator. The final **Colour Palette** selected 
 is shown below: 
 
-<img src="/static/wireframes/colour-palette.png" width="800px" style="margin: 10px;">  
+<img src="/media/wireframes/colour-palette.png" width="800px" style="margin: 10px;">  
 
 * #FFFFFF - "White" - used for the background.
 * #009EA3 - "Vividian Green" - used for results and review table links.
@@ -325,7 +325,7 @@ which provides an easily scalable platform to base the [FreeFrom](https://freefr
 
 The project data schema has modelled using [dbdiagram.io](https://dbdiagram.io/home), and is shown below:  
 
-<img src="static/wireframes/perkulater-data-model.png" width="800px" style="margin: 10px;"> 
+<img src="media/wireframes/perkulater-data-model.png" width="800px" style="margin: 10px;"> 
 
 As shown in the schema diagram, there are four collections, **Users**, **Products**, **Categories** and **Allergens**.  
 
@@ -506,22 +506,22 @@ The **Python Code** for the project has been split into the following modules, u
 * [User Authentication](userauth.py) - Flask routes and functions related to **User Authentication**.
 * [Mail](/mail.py) - Flask routes and functions related to sending an email via the **Contact Developer** form.
 
-The high level code logic is explained in the [UML Diagrams](/static/wireframes/uml/) below: 
+The high level code logic is explained in the [UML Diagrams](/media/wireframes/uml/) below: 
 
-#### [Products](/static/wireframes/uml/products-logic.png) ####
-<img src="/static/wireframes/uml/products-logic.png" width="800px" style="margin: 10px;">  
+#### [Products](/media/wireframes/uml/products-logic.png) ####
+<img src="/media/wireframes/uml/products-logic.png" width="800px" style="margin: 10px;">  
 
-#### [Allergens](/static/wireframes/uml/allergens-logic.png) ####
-<img src="/static/wireframes/uml/allergens-logic.png" width="700px" style="margin: 10px;">  
+#### [Allergens](/media/wireframes/uml/allergens-logic.png) ####
+<img src="/media/wireframes/uml/allergens-logic.png" width="700px" style="margin: 10px;">  
 
-#### [Categories](/static/wireframes/uml/categories-logic.png) ####
-<img src="/static/wireframes/uml/categories-logic.png" width="700px" style="margin: 10px;">  
+#### [Categories](/media/wireframes/uml/categories-logic.png) ####
+<img src="/media/wireframes/uml/categories-logic.png" width="700px" style="margin: 10px;">  
 
-#### [User Authentication](/static/wireframes/uml/userauth-logic.png) ####
-<img src="/static/wireframes/uml/userauth-logic.png" width="700px" style="margin: 10px;">  
+#### [User Authentication](/media/wireframes/uml/userauth-logic.png) ####
+<img src="/media/wireframes/uml/userauth-logic.png" width="700px" style="margin: 10px;">  
 
-#### [Mail](/static/wireframes/uml/mail-logic.png) ####
-<img src="/static/wireframes/uml/mail-logic.png" width="400px" style="margin: 10px;"> 
+#### [Mail](/media/wireframes/uml/mail-logic.png) ####
+<img src="/media/wireframes/uml/mail-logic.png" width="400px" style="margin: 10px;"> 
 
 ### Python Code Refactoring ###
 After attending an online [Code Institute](https://codeinstitute.net/) seminar on [Python Classes](https://www.w3schools.com/python/python_classes.asp) 
@@ -584,9 +584,9 @@ between 1 and 5 using the **JavaScript** on click event handlers defined in the 
 * When the **Product View** form is ready, the hidden form input with id "Rating" is read and the **Rating** star icons 
 are updated to reflect the correct rating value.
 
-See [UML Diagram](/static/wireframes/uml/) below:  
+See [UML Diagram](/media/wireframes/uml/) below:  
 
-<img src="/static/wireframes/uml/events-logic.png" width="300px" style="margin: 10px;">  
+<img src="/media/wireframes/uml/events-logic.png" width="300px" style="margin: 10px;">  
 
 ## Testing ##
 

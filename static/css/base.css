@@ -1,0 +1,31 @@
+/*-- Global Variable Declarations--*/
+:root {
+    /*-- Fonts--*/
+        --logofont: "Teko", sans-serif;
+        --titlefont: "Titillium Web", sans-serif;
+        --bodyfont: "Montserrat", sans-serif;
+    /*-- Colour Palette--*/
+        --background-lvl0: #121212;
+        --background-lvl1: #1F1F1F;
+        --background-lvl2: #292929;
+        --yellow: #FDDE86;
+        --green: #BEE788;
+        --pink: #FD8E86;
+        --blue: #62D7E4;
+        --white: #FFFFFF;
+    }
+    
+/*-- HTML--*/
+html {
+    font-size: 62.5%;
+}
+    
+/*-- Body--*/
+body {
+    font-family: var(--bodyfont);
+    color: var(--white);
+    font-size: 1.6rem;
+    min-height: 100vh;
+    background: url('/media/pexels-juan-pablo-serrano-arenas-894695.jpg') fixed center;
+    /*-- background: var(--background-lvl0); --*/
+}
