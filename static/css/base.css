@@ -26,6 +26,57 @@ body {
     color: var(--white);
     font-size: 1.6rem;
     min-height: 100vh;
-    background: url('/media/pexels-juan-pablo-serrano-arenas-894695.jpg') fixed center;
-    /*-- background: var(--background-lvl0); --*/
+    background:
+        /* top, transparent black, faked with gradient */ 
+        linear-gradient(
+            rgba(18, 18, 18, 1.0), 
+            rgba(18, 18, 18, 0.3)
+        ),
+        /* bottom, image */
+        url('/media/pexels-juan-pablo-serrano-arenas-894695.jpg') no-repeat center fixed;    
+    background-size: cover;
+    background-color: var(--background-lvl0);
+}
+
+/*-- Logo--*/
+.logo-text {
+    font-family: var(--logofont);
+    font-size: 6.0rem;
+}
+
+.logo-image {
+    width: 35px;
+}
+
+/*-- Tagline--*/
+.tagline-text {
+    font-family: var(--titlefont);
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+    
+/*-- Custom Utility Classes--*/
+/*-- Black Background, level 0 --*/
+.bg-black-0 {
+    background-color: var(--background-lvl0);
+}
+
+/*-- Black Background, level 1 --*/
+.bg-black-1 {
+    background-color: var(--background-lvl1);
+}
+
+/*-- Black Background, level 2 --*/
+.bg-black-2 {
+    background-color: var(--background-lvl2);
+}
+
+/*-- Media Queries --*/
+@media (max-width: 350px) {
+    .logo-text {
+        font-size: 5.0rem;
+    }
+    .logo-image {
+        width: 30px;
+    }
 }
