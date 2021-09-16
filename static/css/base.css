@@ -1,44 +1,49 @@
-/*-- Global Variable Declarations--*/
+/*-- Global Variable Declarations --*/
 :root {
-    /*-- Fonts--*/
+    /*-- Fonts --*/
         --logofont: "Teko", sans-serif;
         --titlefont: "Titillium Web", sans-serif;
         --bodyfont: "Montserrat", sans-serif;
-    /*-- Colour Palette--*/
+    /*-- Colour Palette --*/
         --background-lvl0: #121212;
         --background-lvl1: #1F1F1F;
         --background-lvl2: #292929;
+        --background-lvl3: #292929;
+        --background-lvl4: #333333;
         --yellow: #FDDE86;
-        --green: #BEE788;
-        --pink: #FD8E86;
-        --blue: #62D7E4;
-        --white: #FFFFFF;
+        --yellowhighlight: #FDD25E;
+        --green: #4ED0AD;
+        --greenhighlight: #33C19C;
+        --pink: #FFAD99;
+        --pinkhighlight: #FF8D70;
+        --blue: #73DCE7;
+        --white: #FAFAFA;
     }
     
-/*-- HTML--*/
+/*-- HTML --*/
 html {
     font-size: 62.5%;
 }
     
-/*-- Body--*/
+/*-- Body --*/
 body {
     font-family: var(--bodyfont);
     color: var(--white);
     font-size: 1.6rem;
     min-height: 100vh;
     background:
-        /* top, transparent black, faked with gradient */ 
+        /* top, transparent black, with gradient */ 
         linear-gradient(
-            rgba(18, 18, 18, 1.0), 
-            rgba(18, 18, 18, 0.3)
+            rgba(31, 31, 31, 1.0), 
+            rgba(31, 31, 31, 0.3)
         ),
         /* bottom, image */
         url('/media/pexels-juan-pablo-serrano-arenas-894695.jpg') no-repeat center fixed;    
     background-size: cover;
-    background-color: var(--background-lvl0);
+    background-color: var(--background-lvl1);
 }
 
-/*-- Logo--*/
+/*-- Logo --*/
 .logo-text {
     font-family: var(--logofont);
     font-size: 6.0rem;
@@ -51,8 +56,29 @@ body {
 /*-- Tagline--*/
 .tagline-text {
     font-family: var(--titlefont);
-    font-weight: bold;
+    font-weight: 600;
     font-size: 1.6rem;
+}
+
+/*-- Containers --*/
+
+/*-- Products --*/
+.product-text {
+    font-family: var(--titlefont);
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.price-text {
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+/*-- Dividers--*/
+.divider-nav hr {
+    height: 2px;
+    background-color: var(--white);
+    opacity: 1;
 }
     
 /*-- Custom Utility Classes--*/
@@ -71,6 +97,86 @@ body {
     background-color: var(--background-lvl2);
 }
 
+/*-- Yellow Background --*/
+.bg-yellow {
+    background-color: var(--yellow);
+}
+
+/*-- Green Background --*/
+.bg-green {
+    background-color: var(--green);
+}
+
+/*-- Pink Background --*/
+.bg-pink {
+    background-color: var(--pink);
+}
+
+/*-- Blue Background --*/
+.bg-blue {
+    background-color: var(--blue);
+}
+
+/*-- Black Foreground, level 0 --*/
+.fg-black-0 {
+    color: var(--background-lvl0);
+}
+
+/*-- Black Foreground, level 1 --*/
+.fg-black-1 {
+    color: var(--background-lvl1);
+}
+
+/*-- Black Foreground, level 2 --*/
+.fg-black-2 {
+    color: var(--background-lvl2);
+}
+
+/*-- Black Foreground, level 2 --*/
+.fg-white {
+    color: var(--white);
+}
+
+/*-- Buttons --*/
+.btn-pink {
+    background-color: var(--pink);
+    border-color: var(--pink);
+    color: var(--background-lvl2);
+    font-weight: 600;
+}
+
+.btn-pink:hover {
+    background-color: var(--pinkhighlight);
+    border-color: var(--pinkhighlight);
+    color: var(--background-lvl0);
+}
+
+.btn-green {
+    background-color: var(--green);
+    border-color: var(--green);
+    color: var(--background-lvl2);
+    font-weight: 600;
+}
+
+.btn-green:hover {
+    background-color: var(--greenhighlight);
+    border-color: var(--greenhighlight);
+    color: var(--background-lvl0);
+}
+
+.btn-yellow {
+    background-color: var(--yellow);
+    border-color: var(--yellow);
+    color: var(--background-lvl2);
+    font-weight: 600;
+}
+
+.btn-yellow:hover {
+    background-color: var(--yellowhighlight);
+    border-color: var(--yellowhighlight);
+    color: var(--background-lvl0);
+}
+
 /*-- Media Queries --*/
 @media (max-width: 350px) {
     .logo-text {
@@ -79,4 +185,10 @@ body {
     .logo-image {
         width: 30px;
     }
+    .product-text {
+        font-size: 1.3rem;
+    }
+    .price-text {
+        font-size: 1.3rem;
+    }    
 }
