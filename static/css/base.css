@@ -54,6 +54,20 @@ body {
     width: 35px;
 }
 
+/*-- Navigation --*/
+
+.navbar-dark .navbar-brand {
+    color: var(--white);
+}
+
+.nav-item i {
+    color: var(--whitehighlight);
+}
+
+.nav-item i:hover {
+    color: var(--white);
+}
+
 /*-- Tagline--*/
 .tagline-text {
     font-family: var(--titlefont);
@@ -212,25 +226,25 @@ body {
 }
 
 .btn-white {
-    background-color: var(--white);
-    border-color: var(--white);
+    background-color: var(--whitehighlight);
+    border-color: var(--whitehighlight);
     color: var(--background-lvl2);
     font-weight: 600;
 }
 
 .btn-white:hover {
-    background-color: var(--whitehighlight);
+    background-color: var(--white);
     border-color: var(--green);
     color: var(--background-lvl0);
 }
 
 /*-- Footer --*/
 .footer-links a {
-    color: var(--white);
+    color: var(--whitehighlight);
 }
 
 .footer-links a:hover {
-    color: var(--whitehighlight);
+    color: var(--white);
 }
 
 /*-- Media Queries --*/
