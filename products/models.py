@@ -1,0 +1,75 @@
+from django.db import models
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=254)
+    friendly_name = models.CharField(max_length=254, blank=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_friendly_name(self):
+        return self.friendly_name
+
+
+class Product(models.Model):
+    category = models.ForeignKey(
+        'Category', null=True, blank=True, on_delete=models.SET_NULL)
+    sku = models.CharField(max_length=254)
+    name = models.CharField(max_length=254)
+    friendly_name = models.CharField(max_length=254, blank=True)
+    description_full = models.TextField(blank=True)
+    description_short = models.CharField(max_length=254)
+    rating = models.DecimalField(
+        max_digits=6, decimal_places=2, null=True, blank=True)
+    image_url = models.URLField(max_length=1024, blank=True)
+    image = models.ImageField(null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_friendly_name(self):
+        return self.friendly_name
+
+
+class Size(models.Model):
+    category = models.ForeignKey(
+        'Category', null=True, blank=True, on_delete=models.SET_NULL)
+    size = models.CharField(max_length=254)
+
+    def __str__(self):
+        return self.size
+
+
+class Type(models.Model):
+    category = models.ForeignKey(
+        'Category', null=True, blank=True, on_delete=models.SET_NULL)
+    type = models.CharField(max_length=254)
+
+    def __str__(self):
+        return self.type
+
+
+class Price(models.Model):
+    size = models.ForeignKey(
+        'Size', null=True, blank=True, on_delete=models.SET_NULL)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+
+    def __str__(self):
+        return str(self.size)
+
+
+class Coffee(models.Model):
+    product = models.ForeignKey(
+        'Product', null=True, blank=True, on_delete=models.SET_NULL)
+    country = models.CharField(max_length=254, blank=True)
+    farm = models.CharField(max_length=100, blank=True)
+    owner = models.CharField(max_length=100, blank=True)
+    variety = models.CharField(max_length=100, blank=True)
+    altitude = models.CharField(max_length=20, blank=True)
+    town = models.CharField(max_length=100, blank=True)
+    region = models.CharField(max_length=100, blank=True)
+    flavour_profile = models.CharField(max_length=254, blank=True)
+
+    def __str__(self):
+        return str(self.product)
