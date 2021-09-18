@@ -56,12 +56,14 @@ class Type(models.Model):
 
 
 class Price(models.Model):
+    product = models.ForeignKey(
+        'Product', null=True, blank=True, on_delete=models.SET_NULL)
     size = models.ForeignKey(
         'Size', null=True, blank=True, on_delete=models.SET_NULL)
     price = models.DecimalField(max_digits=6, decimal_places=2)
 
     def __str__(self):
-        return str(self.size)
+        return str(self.product) + ", " + str(self.size)
 
 
 class Coffee(models.Model):

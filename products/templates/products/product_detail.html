@@ -16,6 +16,18 @@
     </div>
     <div class="container-sm pt-2">
         {{ product }}
-        {{ coffee_detail }}
+        {{ product_sizes }}
+        {{ product_types }}
+        {% for prices in product_prices %}
+            {{ prices.price }}
+        {% endfor %}
+        {{ coffee_detail.country }}
+        {{ coffee_detail.farm }}
+        {{ coffee_detail.owner }}
+        {{ coffee_detail.variety }}
+        {{ coffee_detail.altitude }}
+        {{ coffee_detail.town }}
+        {{ coffee_detail.region }}
+        {{ coffee_detail.flavour_profile }}
     </div>        
-{% endblock %}<p class="my-0 pb-1">£7.50</p>
+{% endblock %}
