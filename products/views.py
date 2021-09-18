@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Product, Size, Type, Price
+from .models import Product, Size, Type, Price, Coffee
 
 # Create your views here.
 
@@ -21,8 +21,15 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
 
-    context = {
-        'product': product,
-    }
+    coffee_detail = get_object_or_404(Coffee, pk=product_id)
+    if coffee_detail:
+        context = {
+            'product': product,
+            'coffee_detail': coffee_detail,
+        }
+    else:
+        context = {
+            'product': product,
+        }
 
     return render(request, 'products/product_detail.html', context)
