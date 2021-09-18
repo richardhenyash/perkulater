@@ -22,6 +22,7 @@ class Product(models.Model):
     sku = models.CharField(max_length=254)
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, blank=True)
+    friendly_price = models.CharField(max_length=100, blank=True)
     description_full = models.TextField(blank=True)
     description_short = models.CharField(max_length=254)
     rating = models.DecimalField(
