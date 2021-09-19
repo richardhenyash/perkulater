@@ -2,6 +2,9 @@ from django.db import models
 
 
 class Category(models.Model):
+    """
+    A model for product categories.
+    """
 
     class Meta:
         verbose_name_plural = "Categories"
@@ -17,6 +20,9 @@ class Category(models.Model):
 
 
 class Product(models.Model):
+    """
+    A model for products.
+    """
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254)
@@ -38,6 +44,9 @@ class Product(models.Model):
 
 
 class Size(models.Model):
+    """
+    A model for product sizes.
+    """
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     size = models.CharField(max_length=254)
@@ -47,6 +56,9 @@ class Size(models.Model):
 
 
 class Type(models.Model):
+    """
+    A model for product types.
+    """
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     type = models.CharField(max_length=254)
@@ -56,6 +68,9 @@ class Type(models.Model):
 
 
 class Price(models.Model):
+    """
+    A model for product prices.
+    """
     product = models.ForeignKey(
         'Product', null=True, blank=True, on_delete=models.SET_NULL)
     size = models.ForeignKey(
@@ -67,6 +82,10 @@ class Price(models.Model):
 
 
 class Coffee(models.Model):
+    """
+    A model for coffees. Contains specific information for coffees
+    which is not required on other products.
+    """
     product = models.ForeignKey(
         'Product', null=True, blank=True, on_delete=models.SET_NULL)
     country = models.CharField(max_length=254, blank=True)
