@@ -5,29 +5,63 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid container-tagline bg-green">
-        <div class="row pt-3">
-            <h5 class="tagline-text text-center fg-black-2">
-                Free UK delivery on all plans     
-                |   Free UK delivery on orders over £30  
-                |   Add a review to get free delivery on your next order 
-            <h5>
+{% include 'products/includes/product_offers.html' %}
+
+<section id="product-detail" class="container-sm">
+    <div class="row py-3">
+        <div class="col-sm-12 col-md-6 p-3">
+            <div class="image-container">
+                <a href="{% url 'product_detail' product.id %}">
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="w-100">
+                </a>
+            </div>
+            <h6 class="product-text text-center pt-2">{{ product.name }}</h6>
+            <h6 class="product-text text-center pt-2">{{ coffee_detail.flavour_profile }}</h6>
+        </div>
+        <div class="col-sm-12 col-md-6 p-3">
+            <div class="product-detail-container p-3">
+                <p class="">Country: {{ coffee_detail.country }}</p>
+                <p class="">Farm: {{ coffee_detail.farm }}</p>
+                <p class="">Owner: {{ coffee_detail.owner }}</p>
+                <p class="">Variety: {{ coffee_detail.variety }}</p>
+                <p class="">Altitude: {{ coffee_detail.altitude }}</p>
+                <p class="">Town: {{ coffee_detail.town }}</p>
+                <p class="">Region: {{ coffee_detail.region }}</p>
+            </div>
+            <div class="py-3">
+                <button type="button" class="btn btn-outline-light rounded-pill btn-lg btn-outline-green"
+                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    More Information
+                </button>
+            </div>
         </div>
     </div>
-    <div class="container-sm pt-2">
-        {{ product }}
-        {{ product_sizes }}
-        {{ product_types }}
-        {% for prices in product_prices %}
-            {{ prices.price }}
-        {% endfor %}
-        {{ coffee_detail.country }}
-        {{ coffee_detail.farm }}
-        {{ coffee_detail.owner }}
-        {{ coffee_detail.variety }}
-        {{ coffee_detail.altitude }}
-        {{ coffee_detail.town }}
-        {{ coffee_detail.region }}
-        {{ coffee_detail.flavour_profile }}
-    </div>        
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-black-3">
+                    <h5 class="modal-title" id="exampleModalLabel">{{product.name}}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body bg-black-3">
+                    {{ product.description_full }}
+                </div>
+                <div class="modal-footer bg-black-3">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ product }}
+    {{ product_sizes }}
+    {{ product_types }}
+    {% for prices in product_prices %}
+    {{ prices.price }}
+    {% endfor %}
+    <div class="divider-thin">
+        <hr>
+    </div>
+</section>
 {% endblock %}
