@@ -80,15 +80,13 @@ body {
 /*-- Products --*/
 .product-container,
 .product-detail-container {
-    background-color: rgba(41, 41, 41, 0.6);
+    background-color: rgba(41, 41, 41, 0.7);
     border: 1px solid rgba(250, 250, 250, 0.6);
-    opacity: 0.8;
 }
 
 .product-container:hover {
-    background-color: var(--background-lvl3);
+    background-color: rgba(41, 41, 41, 0.8);
     border: 1px solid var(--green);
-    opacity: 0.9;
 }
 
 .product-text {
@@ -269,6 +267,14 @@ body {
 }
 
 /*-- Media Queries --*/
+/*-- Cudstom Container--*/
+@media (min-width: 768px) {
+    .container-custom {
+        width: 720px;
+    }
+} 
+
+
 @media (max-width: 350px) {
     .logo-text {
         font-size: 5.0rem;
