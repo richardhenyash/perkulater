@@ -36,9 +36,13 @@
             </div>
         </div>
         {% if forloop.counter|divisibleby:2 %}
-        <div class="divider-thin">
-            <hr>
-        </div>
+            {% if product == products.last %}
+                <div></div>
+            {% else %}
+                <div class="divider-thin">
+                    <hr>
+                </div>
+            {% endif %}
         {% endif %}
         {% endfor %}
     </div>

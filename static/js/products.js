@@ -7,7 +7,6 @@
 
 /* Set product rating stars for all divs with the class product-rating-stars */
 /* Note - reads the product rating from the product-rating data attribute */
-
 $('.product-rating-stars').each(function () {
     let productRating = $(this).data("product-rating")
     if ((productRating == "None") || (productRating == null) || (productRating == ""))
