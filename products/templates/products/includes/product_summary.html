@@ -10,43 +10,13 @@
                 </div>
             </div>
             <h6 class="product-text pt-2">{{ product.name }}</h6>
-            {% if product.rating|floatformat:"0" == "5" %}
-                <i id="star-1" class="fas fa-star fg-yellow"></i>
-                <i id="star-2" class="fas fa-star fg-yellow"></i>
-                <i id="star-3" class="fas fa-star fg-yellow"></i>
-                <i id="star-4" class="fas fa-star fg-yellow"></i>
-                <i id="star-5" class="fas fa-star fg-yellow"></i>
-            {% elif product.rating|floatformat:"0" == "4" %}
-                <i id="star-1" class="fas fa-star fg-yellow"></i>
-                <i id="star-2" class="fas fa-star fg-yellow"></i>
-                <i id="star-3" class="fas fa-star fg-yellow"></i>
-                <i id="star-4" class="fas fa-star fg-yellow"></i>
-                <i id="star-5" class="fas fa-star"></i>
-            {% elif product.rating|floatformat:"0" == "3" %}
-                <i id="star-1" class="fas fa-star fg-yellow"></i>
-                <i id="star-2" class="fas fa-star fg-yellow"></i>
-                <i id="star-3" class="fas fa-star fg-yellow"></i>
-                <i id="star-4" class="fas fa-star"></i>
-                <i id="star-5" class="fas fa-star"></i>
-            {% elif product.rating|floatformat:"0" == "2" %}
-                <i id="star-1" class="fas fa-star fg-yellow"></i>
-                <i id="star-2" class="fas fa-star fg-yellow"></i>
-                <i id="star-3" class="fas fa-star"></i>
-                <i id="star-4" class="fas fa-star"></i>
-                <i id="star-5" class="fas fa-star"></i>
-            {% elif product.rating|floatformat:"0" == "1" %}
-                <i id="star-1" class="fas fa-star fg-yellow"></i>
-                <i id="star-2" class="fas fa-star"></i>
-                <i id="star-3" class="fas fa-star"></i>
-                <i id="star-4" class="fas fa-star"></i>
-                <i id="star-5" class="fas fa-star"></i>
-            {% elif product.rating|floatformat:"0" == "0" %}
+            <div id="product-rating-stars" class="product-rating-stars" data-product-rating="{{ product.rating }}">
                 <i id="star-1" class="fas fa-star"></i>
                 <i id="star-2" class="fas fa-star"></i>
                 <i id="star-3" class="fas fa-star"></i>
                 <i id="star-4" class="fas fa-star"></i>
                 <i id="star-5" class="fas fa-star"></i>
-            {% endif %}
+            </div>           
             <p class="my-0 pb-1 price-text">{{ product.friendly_price }}</p>
             <div class="row pb-4 px-3">
                 <div class="col-2 d-none d-md-block"></div>

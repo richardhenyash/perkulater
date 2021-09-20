@@ -8,3 +8,7 @@
 {% include 'products/includes/product_offers.html' %}
 {% include 'products/includes/product_summary.html' %}
 {% endblock %}
+
+{% block extrapostloadjs %}
+    <script src="{% static 'js/products.js' %}"></script>
+{% endblock %}
