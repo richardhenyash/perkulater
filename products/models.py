@@ -99,3 +99,22 @@ class Coffee(models.Model):
 
     def __str__(self):
         return str(self.product)
+
+
+class Offer(models.Model):
+    """
+    A model for current offers.
+    """
+    product = models.ForeignKey(
+        'Product', null=True, blank=True, on_delete=models.SET_NULL)
+    description = models.CharField(max_length=254, blank=True)
+    description_full = models.CharField(max_length=254, blank=True)
+    display_in_banner = models.BooleanField(default=False)
+    product_multiple = models.IntegerField(null=True, blank=True)
+    discount = models.DecimalField(
+        max_digits=4, decimal_places=2, null=True, blank=True)
+    free_delivery_amount = models.DecimalField(
+        max_digits=4, decimal_places=2, null=True, blank=True)
+
+    def __str__(self):
+        return str(self.description)
