@@ -1,0 +1,38 @@
+/*-- Products --*/
+.product-container,
+.product-detail-container {
+    background-color: rgba(41, 41, 41, 0.6);
+    border: 2px solid rgba(250, 250, 250, 0.6);
+}
+
+.product-container:hover {
+    background-color: rgba(41, 41, 41, 0.8);
+    border: 2px solid var(--green);
+}
+
+.product-text {
+    font-family: var(--titlefont);
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.product-rating-text {
+    font-size: 1.3rem;
+}
+
+.price-text {
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 350px) {  
+    .product-text {
+        font-size: 1.3rem;
+    }
+    .price-text {
+        font-size: 1.3rem;
+    } 
+    .product-rating-text {
+        font-size: 1.2rem;
+    }   
+}
