@@ -32,6 +32,9 @@
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
+    {% block extracss %}
+    {% endblock %}
+
     {% block corejs %}
         <!-- Link to Font Awesome Kit -->
         <script src="https://kit.fontawesome.com/7863bec69d.js" crossorigin="anonymous"></script>
@@ -86,7 +89,7 @@
             <div class="col-12">
                 <div class="tagline-text text-center bg-black-1 px-3 pb-1">
                     <p>Ethically sourced and expertly roasted coffee beans and ground coffee, delivered to your home</p>
-                    <div class="divider-thick">
+                    <div class="divider-solid">
                         <hr>
                     </div>
                 </div>
@@ -104,7 +107,7 @@
 
         <!-- Footer -->
         <footer class="container-sm">
-            <div class="divider-thin">
+            <div class="divider-opaque">
                 <hr>
             </div>
             <div class="row py-3">
@@ -114,7 +117,7 @@
                     All of our beans are ethically sourced direct from the growers.
                 </p>
             </div>
-            <div class="divider-thin">
+            <div class="divider-opaque">
                 <hr>
             </div>
             <div class="pt-3 pb-4 text-center footer-links">
