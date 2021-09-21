@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extracss %}
+    <!-- Link to Products Custom CSS -->
+    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
 {% block page_header %}
 {% endblock %}
 
