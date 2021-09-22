@@ -20,6 +20,12 @@
     font-size: 1.3rem;
 }
 
+.product-offers-text {
+    font-family: var(--titlefont);
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
 .price-text {
     font-weight: 500;
     font-size: 1.5rem;
@@ -27,6 +33,9 @@
 
 @media (max-width: 350px) {  
     .product-text {
+        font-size: 1.3rem;
+    }
+    .product-offers-text {
         font-size: 1.3rem;
     }
     .price-text {

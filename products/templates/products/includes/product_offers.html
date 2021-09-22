@@ -1,13 +1,12 @@
 <section id="product-offers" class="container-fluid container-tagline bg-green">
-    <div class="row pt-3">
-            <h5 class="tagline-text text-center fg-black-2">
-                {% for product_offer in product_offers %}
-                    {% if forloop.last %}
-                        {{ product_offer.description_full }}
-                    {% else %}
-                        {{ product_offer.description_full }} |
-                    {% endif %}
-                {% endfor %}
-            <h5>
+    <div class="row pt-3 pb-2">
+        <div class="col-12 d-none d-md-block">
+            <h5 class="product-offers-text text-center fg-black-2">- {{ product_offer_str }} -</h5>
+        </div>
+        <div class="col-12 d-block d-md-none">
+            {% for product_offer in product_offers %}
+                <h5 class="product-offers-text text-center fg-black-2">- {{product_offer.description_full}} -</h5>                
+            {% endfor %}
+        </div>
     </div>
 </section>

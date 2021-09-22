@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_list_or_404
 from products.models import Product, Offer
+from products.helpers import get_product_offer_str
 
 
 def index(request):
@@ -7,9 +8,11 @@ def index(request):
 
     products = Product.objects.all()
     product_offers = get_list_or_404(Offer, display_in_banner=True)
+    product_offer_str = get_product_offer_str(product_offers, "  -  ")
 
     context = {
         'products': products,
-        'product_offers': product_offers,
+        'product_offers' : product_offers,
+        'product_offer_str': product_offer_str,
     }
     return render(request, 'home/index.html', context)
