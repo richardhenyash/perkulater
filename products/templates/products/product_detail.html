@@ -65,7 +65,7 @@
             <div class="p-3"></div>
             <div class="product-detail-container p-3">
                 <div class="row">
-                    <div class="col-2">
+                    <div class="col-4">
                         <div class="row py-3 my-1">
                             <div class="col">
                                 <p class="product-detail-title-text">Size</p>
@@ -77,21 +77,22 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-10">
+                    <div class="col-8">
                         <div class="row py-3">
                             <div class="col">
-                                <div id="product-size" class="col-12 btn-group" role="group" aria-label="Basic example">
+                                <div id="product-size" class="col btn-group-vertical" role="group" aria-label="Basic example">
                                     {% for product_size in product_sizes %}
-                                        <button type="button" class="btn btn-outline-light rounded-pill btn-lg btn-outline-green mx-2">{{product_size}}</button>
+                                        <button type="button" class="btn btn-outline-light rounded-pill btn-lg btn-outline-green mx-2 btn-block">{{product_size}}</button>
                                     {% endfor %}
                                 </div>
                             </div>
                         </div>
                         <div class="col">
                             <div class="row py-3">
-                                <div id="product-type" class="col-12 btn-group" role="group" aria-label="Basic example">
+                                <div id="product-type" class="col btn-group-vertical" role="group" aria-label="Basic example">
                                     {% for product_type in product_types %}
-                                        <button type="button" class="btn btn-outline-light rounded-pill btn-lg btn-outline-green mx-2">{{product_type}}</button>
+                                        <button type="button" class="btn btn-outline-light rounded-pill btn-lg btn-outline-green mx-2 btn-block">{{product_type}}</button>
+                                        <p class="product-detail-text">grind at home</p>
                                     {% endfor %}
                                 </div>
                             </div>
