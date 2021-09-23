@@ -23,6 +23,7 @@ def product_detail(request, product_id):
     """ A view to show individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
+    product_description_full = product.description_full
     product_sizes = get_list_or_404(Size, category=product.category)
     product_types = get_list_or_404(Type, category=product.category)
     product_prices = get_list_or_404(Price, product=product.id)
