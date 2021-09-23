@@ -31,6 +31,7 @@ class Product(models.Model):
     friendly_price = models.CharField(max_length=100, blank=True)
     description_full = models.TextField(blank=True)
     description_short = models.CharField(max_length=254)
+    description_full_delimiter = models.CharField(max_length=3, blank=True)
     rating = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, blank=True)
@@ -110,6 +111,7 @@ class Offer(models.Model):
     description = models.CharField(max_length=254, blank=True)
     description_full = models.CharField(max_length=254, blank=True)
     display_in_banner = models.BooleanField(default=False)
+    banner_delimiter = models.CharField(max_length=3, blank=True)
     product_multiple = models.IntegerField(null=True, blank=True)
     discount = models.DecimalField(
         max_digits=4, decimal_places=2, null=True, blank=True)
