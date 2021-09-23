@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Category(models.Model):
     """
     A model for product categories.
@@ -42,6 +41,10 @@ class Product(models.Model):
 
     def get_friendly_name(self):
         return self.friendly_name
+    
+    def get_description_array(self):
+        delim = self.description_full_delimiter
+        return self.description_full.split(";")
 
 
 class Size(models.Model):
@@ -111,7 +114,6 @@ class Offer(models.Model):
     description = models.CharField(max_length=254, blank=True)
     description_full = models.CharField(max_length=254, blank=True)
     display_in_banner = models.BooleanField(default=False)
-    banner_delimiter = models.CharField(max_length=3, blank=True)
     product_multiple = models.IntegerField(null=True, blank=True)
     discount = models.DecimalField(
         max_digits=4, decimal_places=2, null=True, blank=True)
@@ -120,3 +122,5 @@ class Offer(models.Model):
 
     def __str__(self):
         return str(self.description)
+
+
