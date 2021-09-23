@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extracss %}
+    <!-- Link to Products Custom CSS -->
+    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
 {% block page_header %}
 {% endblock %}
 
@@ -10,58 +15,81 @@
 <section id="product-detail" class="container-sm">
     <div class="row py-3">
         <div class="col-sm-12 col-md-6 p-3">
-            <div class="image-container">
-                <a href="{% url 'product_detail' product.id %}">
+            <div class="product-container">
+                <a href="" data-bs-toggle="modal" data-bs-target="#productDetailModal">
                     <img src="{{ product.image.url }}" alt="{{ product.name }}" class="w-100">
                 </a>
             </div>
-            <h6 class="product-text text-center pt-2">{{ product.name }}</h6>
+            <h6 class="product-text-lg text-center pt-2">{{ product.name }}</h6>
             <h6 class="product-text text-center pt-2">{{ coffee_detail.flavour_profile }}</h6>
         </div>
-        <div class="col-sm-12 col-md-6 p-3">
+        <div class="col-sm-6 col-md-6 p-3">
             <div class="product-detail-container p-3">
-                <p class="">Country: {{ coffee_detail.country }}</p>
-                <p class="">Farm: {{ coffee_detail.farm }}</p>
-                <p class="">Owner: {{ coffee_detail.owner }}</p>
-                <p class="">Variety: {{ coffee_detail.variety }}</p>
-                <p class="">Altitude: {{ coffee_detail.altitude }}</p>
-                <p class="">Town: {{ coffee_detail.town }}</p>
-                <p class="">Region: {{ coffee_detail.region }}</p>
+                <table>
+                    <tr>
+                        <td class="product-detail-title-text px-3">Country</td>
+                        <td class="product-detail-text px-3">{{ coffee_detail.country }}</td>
+                    </tr>
+                    <tr>
+                        <td class="product-detail-title-text px-3">Farm</td>
+                        <td class="product-detail-text px-3">{{ coffee_detail.farm }}</td>
+                    </tr>
+                    <tr>
+                        <td class="product-detail-title-text px-3">Owner</td>
+                        <td class="product-detail-text px-3">{{ coffee_detail.owner }}</td>
+                    </tr>
+                    <tr>
+                        <td class="product-detail-title-text px-3">Variety</td>
+                        <td class="product-detail-text px-3">{{ coffee_detail.variety }}</td>
+                    </tr>
+                    <tr>
+                        <td class="product-detail-title-text px-3">Altitude</td>
+                        <td class="product-detail-text px-3">{{ coffee_detail.altitude }}</td>
+                    </tr>
+                    <tr>
+                        <td class="product-detail-title-text px-3">Town</td>
+                        <td class="product-detail-text px-3">{{ coffee_detail.town }}</td>
+                    </tr>
+                    <tr>
+                        <td class="product-detail-title-text px-3">Region</td>
+                        <td class="product-detail-text px-3">{{ coffee_detail.region }}</td>
+                    </tr>
+                </table>
+                <div class="text-center pt-3">
+                    <button type="button" class="btn btn-outline-light rounded-pill btn-lg btn-outline-green"
+                        data-bs-toggle="modal" data-bs-target="#productDetailModal">
+                        More Information
+                    </button>
+                </div>
             </div>
-            <div class="py-3">
-                <button type="button" class="btn btn-outline-light rounded-pill btn-lg btn-outline-green"
-                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    More Information
-                </button>
+            <div class="p-3"></div>
+            <div class="product-detail-container p-3">
+                {{ product_sizes }}
+                {{ product_types }}
+                {% for prices in product_prices %}
+                {{ prices.price }}
+                {% endfor %}
             </div>
         </div>
     </div>
-    </div>
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    <!-- Product Detail Modal -->
+    <div class="modal fade" id="productDetailModal" tabindex="-1" aria-labelledby="productDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-black-3">
-                    <h5 class="modal-title" id="exampleModalLabel">{{product.name}}</h5>
+                    <h5 class="modal-title" id="productDetailModalLabel">{{product.name}}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body bg-black-3">
-                    {{ product.description_full }}
+                    {% for description_p in product.get_description_array %}
+                        <p>{{ description_p }}</p>
+                    {% endfor %}
                 </div>
                 <div class="modal-footer bg-black-3">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
-    </div>
-    {{ product }}
-    {{ product_sizes }}
-    {{ product_types }}
-    {% for prices in product_prices %}
-    {{ prices.price }}
-    {% endfor %}
-    <div class="divider-thin">
-        <hr>
     </div>
 </section>
 {% endblock %}

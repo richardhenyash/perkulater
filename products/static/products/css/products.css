@@ -16,6 +16,12 @@
     font-size: 1.5rem;
 }
 
+.product-text-lg {
+    font-family: var(--titlefont);
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+
 .product-rating-text {
     font-size: 1.3rem;
 }
@@ -26,6 +32,16 @@
     font-size: 1.4rem;
 }
 
+
+.product-detail-title-text {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.product-detail-text {
+    font-size: 1.4rem;
+}
+
 .price-text {
     font-weight: 500;
     font-size: 1.5rem;
@@ -33,6 +49,15 @@
 
 @media (max-width: 350px) {  
     .product-text {
+        font-size: 1.3rem;
+    }
+    .product-text-lg {
+        font-size: 1.6rem;
+    }
+    .product-detail-title-text {
+        font-size: 1.3rem;
+    }    
+    .product-detail-text {
         font-size: 1.3rem;
     }
     .product-offers-text {
