@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_list_or_404, get_object_or_404
-from .models import Product, Size, Type, Price, Coffee, Offer
+from .models import Category, Product, Size, Type, Price, Coffee, Offer
 from .helpers import get_product_offer_str
 
 # Create your views here.
@@ -23,6 +23,10 @@ def product_detail(request, product_id):
     """ A view to show individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
+    product_category = get_object_or_404(Category, name=product.category)
+    print(product_category)
+    print(product_category.size_description)
+    print(product_category.type_description)
     product_sizes = get_list_or_404(Size, category=product.category)
     product_types = get_list_or_404(Type, category=product.category)
     product_prices = get_list_or_404(Price, product=product.id)
@@ -31,6 +35,7 @@ def product_detail(request, product_id):
 
     context = {
         'product': product,
+        'product_category': product_category,
         'product_sizes': product_sizes,
         'product_types': product_types,
         'product_prices': product_prices,

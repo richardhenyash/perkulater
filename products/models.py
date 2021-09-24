@@ -10,12 +10,26 @@ class Category(models.Model):
 
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, blank=True)
+    size_description = models.CharField(max_length=50, blank=True)
+    size_information = models.CharField(max_length=254, blank=True)
+    size_information_delimiter = models.CharField(max_length=3, blank=True)
+    type_description = models.CharField(max_length=50, blank=True)
+    type_information = models.CharField(max_length=254, blank=True)
+    type_information_delimiter = models.CharField(max_length=3, blank=True)
 
     def __str__(self):
         return self.name
 
     def get_friendly_name(self):
         return self.friendly_name
+
+    def get_size_information_array(self):
+        delim = self.size_information_delimiter
+        return self.size_information.split(delim)
+
+    def get_type_information_array(self):
+        delim = self.type_information_delimiter
+        return self.type_information.split(delim)
 
 
 class Product(models.Model):
@@ -44,7 +58,7 @@ class Product(models.Model):
     
     def get_description_array(self):
         delim = self.description_full_delimiter
-        return self.description_full.split(";")
+        return self.description_full.split(delim)
 
 
 class Size(models.Model):
@@ -54,7 +68,6 @@ class Size(models.Model):
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     size = models.CharField(max_length=254, blank=True)
-    description = models.CharField(max_length=254, blank=True)
 
     def __str__(self):
         return self.size
@@ -66,7 +79,6 @@ class Type(models.Model):
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     type = models.CharField(max_length=254, blank=True)
-    description = models.CharField(max_length=254, blank=True)
 
     def __str__(self):
         return self.type
@@ -122,5 +134,4 @@ class Offer(models.Model):
 
     def __str__(self):
         return str(self.description)
-
 
