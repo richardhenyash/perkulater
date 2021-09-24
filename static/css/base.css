@@ -231,6 +231,10 @@ body {
     font-weight: 600;
 }
 
+.btn-xl {
+    font-size: 1.5rem;
+}
+
 /*-- Footer --*/
 .footer-links a {
     color: var(--whitehighlight);

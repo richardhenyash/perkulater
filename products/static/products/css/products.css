@@ -47,8 +47,31 @@
     font-size: 1.5rem;
 }
 
-.btn {
-    width: 10rem;
+.product-detail-title-text i {
+    color: var(--whitehighlight);
+}
+
+.product-detail-title-text i:hover {
+    color: var(--white);
+}
+
+
+/*-- Modals --*/
+.modal-content {
+    border: var(--white) 1px solid;
+}
+
+.modal-header h5 {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.modal-body p {
+    font-size: 1.4rem;
+}
+
+.btn-close {
+    color: var(--green);
 }
 
 @media (max-width: 350px) {  

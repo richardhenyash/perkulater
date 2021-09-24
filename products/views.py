@@ -24,9 +24,6 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     product_category = get_object_or_404(Category, name=product.category)
-    print(product_category)
-    print(product_category.size_description)
-    print(product_category.type_description)
     product_sizes = get_list_or_404(Size, category=product.category)
     product_types = get_list_or_404(Type, category=product.category)
     product_prices = get_list_or_404(Price, product=product.id)
