@@ -48,11 +48,11 @@
 }
 
 .product-detail-title-text i {
-    color: var(--whitehighlight);
+    color: var(--green);
 }
 
 .product-detail-title-text i:hover {
-    color: var(--white);
+    color: var(--greenhighlight);
 }
 
 

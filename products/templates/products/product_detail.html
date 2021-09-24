@@ -12,7 +12,7 @@
 {% block content %}
 {% include 'products/includes/product_offers.html' %}
 
-<section id="product-detail" class="container-sm">
+<section id="product-detail" class="container-sm container-custom">
     <div class="row py-3">
         <div class="col-sm-12 col-md-6 p-3">
             <div class="product-container">
@@ -27,55 +27,56 @@
             <div class="product-detail-container p-3">
                 <table>
                     <tr>
+                        <td class="col-4 product-detail-title-text px-3">Coffee
+                            <a href="" data-bs-toggle="modal" data-bs-target="#productDetailModal">
+                                <i class="fas fa-lg fa-info-circle px-1"></i>
+                            </a>
+                        </td>
+                        <td class="col-8 product-detail-text">{{ product.name }}</td>
+                    </tr>
+                    <tr>
                         <td class="product-detail-title-text px-3">Country</td>
-                        <td class="product-detail-text px-3">{{ coffee_detail.country }}</td>
+                        <td class="product-detail-text">{{ coffee_detail.country }}</td>
                     </tr>
                     <tr>
                         <td class="product-detail-title-text px-3">Farm</td>
-                        <td class="product-detail-text px-3">{{ coffee_detail.farm }}</td>
+                        <td class="product-detail-text">{{ coffee_detail.farm }}</td>
                     </tr>
                     <tr>
                         <td class="product-detail-title-text px-3">Owner</td>
-                        <td class="product-detail-text px-3">{{ coffee_detail.owner }}</td>
+                        <td class="product-detail-text">{{ coffee_detail.owner }}</td>
                     </tr>
                     <tr>
                         <td class="product-detail-title-text px-3">Variety</td>
-                        <td class="product-detail-text px-3">{{ coffee_detail.variety }}</td>
+                        <td class="product-detail-text">{{ coffee_detail.variety }}</td>
                     </tr>
                     <tr>
                         <td class="product-detail-title-text px-3">Altitude</td>
-                        <td class="product-detail-text px-3">{{ coffee_detail.altitude }}</td>
+                        <td class="product-detail-text">{{ coffee_detail.altitude }}</td>
                     </tr>
                     <tr>
                         <td class="product-detail-title-text px-3">Town</td>
-                        <td class="product-detail-text px-3">{{ coffee_detail.town }}</td>
+                        <td class="product-detail-text">{{ coffee_detail.town }}</td>
                     </tr>
                     <tr>
                         <td class="product-detail-title-text px-3">Region</td>
-                        <td class="product-detail-text px-3">{{ coffee_detail.region }}</td>
+                        <td class="product-detail-text">{{ coffee_detail.region }}</td>
                     </tr>
                 </table>
-                <div class="text-center pt-3">
-                    <button type="button" class="btn btn-outline-light rounded-pill btn-lg btn-outline-green"
-                        data-bs-toggle="modal" data-bs-target="#productDetailModal">
-                        More Information
-                    </button>
-                </div>
             </div>
             <div class="p-3"></div>
             <form class="product-detail-container">
                 <div class="form-row">
-                    <div id="product-size-selector" class="input-group col-12 p-3 pt-3">
-                        <div class="col-4 col-md-3 pt-3">
-                            <p>{{ category }}</p>
+                    <div id="product-size-selector" class="input-group col-12 p-3">
+                        <div class="col-4 text-left">
                             <p class="product-detail-title-text mt-2 px-4">{{ product_category.size_description }}
                                 <a href="" data-bs-toggle="modal" data-bs-target="#sizeInformationModal">
                                     <i class="fas fa-lg fa-info-circle px-1"></i>
                                 </a>
                             </p>
                         </div>
-                        <div class="col-8 col-md-9 pt-3">
-                            <select class="custom-select btn btn-lg btn-outline-light btn-outline-green rounded-pill text-left"
+                        <div class="col-8">
+                            <select class="custom-select btn btn-lg btn-outline-light btn-outline-green"
                                 required>
                                 {% for product_size in product_sizes %}
                                     <option value="{{ product_size }}">{{ product_size.size }}</option>
@@ -85,16 +86,16 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div id="product-type-selector" class="input-group col-12 p-3">
-                        <div class="col-4 col-md-3">
+                    <div id="product-type-selector" class="input-group col-12 px-3">
+                        <div class="col-4 text-left">
                             <p class="product-detail-title-text mt-2 px-4">{{ product_category.type_description }}
                                 <a href="" data-bs-toggle="modal" data-bs-target="#typeInformationModal">
                                     <i class="fas fa-lg fa-info-circle px-1"></i>
                                 </a>
                             </p>
                         </div>
-                        <div class="col-8 col-md-9">
-                            <select class="custom-select btn btn-lg btn-outline-light btn-outline-green rounded-pill text-left"
+                        <div class="col-8">
+                            <select class="custom-select btn btn-lg btn-outline-light btn-outline-green"
                                 required>
                                 {% for product_type in product_types %}
                                     <option value="{{ product_type }}">{{ product_type }}</option>
@@ -104,7 +105,41 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="row p-3">
+                    <div id="product-quantity-selector" class="input-group col-12 p-3">
+                        <div class="col-4 text-left">
+                            <p class="product-detail-title-text mt-2 px-4">Quantity</p>
+                        </div>
+                        <div class="col-8">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="1" aria-label="Quantity">
+                                        <button id="quantity-plus" class="btn btn-lg btn-outline-light btn-outline-green" type="button">-</button>
+                                        <button id="quantity-minus" class="btn btn-lg btn-outline-light btn-outline-green" type="button">+</button>
+                                    </div>
+                                </div>
+                                <div class="col-6"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-12 py-1 px-3">
+                        <div class="row">
+                            <div class="col-4">
+                                <p class="product-detail-title-text px-4">Price</p>
+                            </div>
+                            <div class="col-8">
+                                <p id="product-price" class="product-detail-title-text">$7.50</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="divider-opaque px-3">
+                    <hr>
+                </div>
+                <div class="form-row p-3">
+                    <div class="row px-3">
                         <div class="col-6">
                             <button type="submit" class="btn btn-outline-light btn-xl btn-outline-green rounded-pill px-2 w-100">
                                 Add To Basket
@@ -118,12 +153,10 @@
                     </div>
                 </div>
             <form>
-               <br>
-                {% for prices in product_prices %}
-                {{ prices.price }}
-                {% endfor %}
-            </div>
         </div>
+        {% for prices in product_prices %}
+        {{ prices.price }}
+        {% endfor %}
     </div>
     <!-- Product Detail Modal -->
     <div class="modal fade" id="productDetailModal" tabindex="-1" aria-labelledby="productDetailModalLabel" aria-hidden="true">
