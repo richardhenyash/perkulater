@@ -53,23 +53,23 @@ class Size(models.Model):
     """
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
-    size = models.CharField(max_length=254)
+    size = models.CharField(max_length=254, blank=True)
+    description = models.CharField(max_length=254, blank=True)
 
     def __str__(self):
         return self.size
-
-
+    
 class Type(models.Model):
     """
     A model for product types.
     """
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
-    type = models.CharField(max_length=254)
+    type = models.CharField(max_length=254, blank=True)
+    description = models.CharField(max_length=254, blank=True)
 
     def __str__(self):
         return self.type
-
 
 class Price(models.Model):
     """
