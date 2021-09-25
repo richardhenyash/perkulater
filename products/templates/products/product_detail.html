@@ -16,7 +16,7 @@
     <div class="row py-3">
         <div class="col-sm-12 col-md-6 p-3">
             <div class="product-container">
-                <a href="" data-bs-toggle="modal" data-bs-target="#productDetailModal">
+                <a id="productInformationImgLink" href="#informationModal">
                     <img src="{{ product.image.url }}" alt="{{ product.name }}" class="w-100">
                 </a>
             </div>
@@ -27,8 +27,10 @@
             <div class="product-detail-container p-3">
                 <table>
                     <tr>
+                        {{ product.get_description_array|json_script:"product-description-array" }}
                         <td class="col-4 product-detail-title-text px-3">Coffee
-                            <a href="" data-bs-toggle="modal" data-bs-target="#productDetailModal">
+                            <a id="productInformationBtn" href="#InformationModal"
+                                data-information-modal-title="{{ product_category.type_description }}">
                                 <i class="fas fa-lg fa-info-circle px-1"></i>
                             </a>
                         </td>
@@ -69,8 +71,10 @@
                 <div class="form-row">
                     <div id="product-size-selector" class="input-group col-12 p-3">
                         <div class="col-4 text-left">
+                            {{ product_category.get_size_information_array|json_script:"size-information-array" }}
                             <p class="product-detail-title-text mt-2 px-4">{{ product_category.size_description }}
-                                <a href="" data-bs-toggle="modal" data-bs-target="#sizeInformationModal">
+                                <a id="sizeInformationBtn" href="#informationModal"
+                                    data-information-modal-title="{{ product_category.size_description }}">
                                     <i class="fas fa-lg fa-info-circle px-1"></i>
                                 </a>
                             </p>
@@ -88,8 +92,10 @@
                 <div class="form-row">
                     <div id="product-type-selector" class="input-group col-12 px-3">
                         <div class="col-4 text-left">
+                            {{ product_category.get_type_information_array|json_script:"type-information-array" }}
                             <p class="product-detail-title-text mt-2 px-4">{{ product_category.type_description }}
-                                <a href="" data-bs-toggle="modal" data-bs-target="#typeInformationModal">
+                                <a id="typeInformationBtn" href="#informationModal"
+                                    data-information-modal-title="{{ product_category.type_description }}">
                                     <i class="fas fa-lg fa-info-circle px-1"></i>
                                 </a>
                             </p>
@@ -158,63 +164,25 @@
         {{ prices.price }}
         {% endfor %}
     </div>
-    <!-- Product Detail Modal -->
-    <div class="modal fade" id="productDetailModal" tabindex="-1" aria-labelledby="productDetailModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-black-3">
-                    <h5 class="modal-title" id="productDetailModalLabel">{{product.name}}</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body bg-black-4">
-                    {% for description_p in product.get_description_array %}
-                        <p>{{ description_p }}</p>
-                    {% endfor %}
-                </div>
-                <div class="modal-footer bg-black-4">
-                    <button type="button" class="btn btn-lg btn-outline-light btn-outline-green rounded-pill" data-bs-dismiss="modal">Close</button>
-                </div>
+    <!-- Information Modal -->
+    <div class="modal fade" id="informationModal" tabindex="-1" aria-labelledby="informationModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-black-3">
+                <h5 id="informationModalTitle" class="modal-title" id="informationModalLabel"></h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="informationModalContent" class="modal-body bg-black-4"></div>
+            <div class="modal-footer bg-black-4">
+                <button type="button" class="btn btn-lg btn-outline-light btn-outline-green rounded-pill" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
-    <!-- Size Information Modal -->
-    <div class="modal fade" id="sizeInformationModal" tabindex="-1" aria-labelledby="sizeInformationModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-black-3">
-                    <h5 class="modal-title" id="sizeInformationModalLabel">{{ product_category.size_description }}</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body bg-black-3">
-                    {% for information_p in product_category.get_size_information_array %}
-                    <p>{{ information_p }}</p>
-                    {% endfor %}
-                </div>
-                <div class="modal-footer bg-black-3">
-                    <button type="button" class="btn btn-lg btn-outline-light btn-outline-green rounded-pill" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Type Information Modal -->
-    <div class="modal fade" id="typeInformationModal" tabindex="-1" aria-labelledby="typeInformationModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-md modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-black-3">
-                    <h5 class="modal-title" id="typeInformationModalLabel">{{ product_category.type_description }}</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body bg-black-4">
-                    {% for information_p in product_category.get_type_information_array %}
-                    <p>{{ information_p }}</p>
-                    {% endfor %}
-                </div>
-                <div class="modal-footer bg-black-4">
-                    <button type="button" class="btn btn-lg btn-outline-light btn-outline-green rounded-pill" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
 </section>
+{% endblock %}
+{% block extrapostloadjs %}
+    <!-- Link to Products JavaScript -->
+    <script src="{% static 'products/js/products.js' %}"></script>
 {% endblock %}
