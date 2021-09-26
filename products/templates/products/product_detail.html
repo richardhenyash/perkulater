@@ -31,7 +31,7 @@
                 </a>
             </div>
         </div>
-        <div class="col-sm-6 col-md-6 p-3">
+        <div class="col-sm-12 col-md-6 p-3">
             <div class="product-detail-container p-3">
                 <table>
                     <tr>
@@ -81,7 +81,7 @@
                     <div id="product-size-selector" class="input-group col-12 p-3">
                         <div class="col-4 text-left">
                             {{ product_category.get_size_information_array|json_script:"size-information-array" }}
-                            <p class="product-detail-title-text mt-2 px-4">{{ product_category.size_description }}
+                            <p class="product-detail-title-text mt-2 px-3">{{ product_category.size_description }}
                                 <a id="sizeInformationBtn" href="#" role="button"
                                     data-information-modal-size=""
                                     data-information-modal-title="{{ product_category.size_description }}">
@@ -103,7 +103,7 @@
                     <div id="product-type-selector" class="input-group col-12 px-3">
                         <div class="col-4 text-left">
                             {{ product_category.get_type_information_array|json_script:"type-information-array" }}
-                            <p class="product-detail-title-text mt-2 px-4">{{ product_category.type_description }}
+                            <p class="product-detail-title-text mt-2 px-3">{{ product_category.type_description }}
                                 <a id="typeInformationBtn" href="#" role="button"
                                     data-information-modal-size=""
                                     data-information-modal-title="{{ product_category.type_description }}">
@@ -124,7 +124,7 @@
                 <div class="form-row">
                     <div id="product-quantity-selector" class="input-group col-12 p-3">
                         <div class="col-4 text-left">
-                            <p class="product-detail-title-text mt-2 px-4">Quantity</p>
+                            <p class="product-detail-title-text mt-2 px-3">Quantity</p>
                         </div>
                         <div class="col-8">
                             <div class="row">
@@ -144,7 +144,7 @@
                     <div class="col-12 py-1 px-3">
                         <div class="row">
                             <div class="col-4">
-                                <p class="product-detail-title-text px-4">Price</p>
+                                <p class="product-detail-title-text px-3">Price</p>
                             </div>
                             <div class="col-8">
                                 <p id="product-price" class="product-detail-title-text">£{{ product_prices.0.get_price }}</p>
