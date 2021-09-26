@@ -16,12 +16,20 @@
     <div class="row py-3">
         <div class="col-sm-12 col-md-6 p-3">
             <div class="product-container">
-                <a id="productInformationImgLink" href="#informationModal">
+                <a id="productInformationImgLink" href="#" role="button"
+                    data-information-modal-title="{{ product.name }}"
+                    data-information-modal-size="modal-xl">
                     <img src="{{ product.image.url }}" alt="{{ product.name }}" class="w-100">
                 </a>
             </div>
             <h6 class="product-text-lg text-center pt-2">{{ product.name }}</h6>
             <h6 class="product-text text-center pt-2">{{ coffee_detail.flavour_profile }}</h6>
+            <div class="text-center pt-3">
+                <a href="{% url 'products' %}"
+                    class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-50">
+                    Back
+                </a>
+            </div>
         </div>
         <div class="col-sm-6 col-md-6 p-3">
             <div class="product-detail-container p-3">
@@ -29,8 +37,9 @@
                     <tr>
                         {{ product.get_description_array|json_script:"product-description-array" }}
                         <td class="col-4 product-detail-title-text px-3">Coffee
-                            <a id="productInformationBtn" href="#InformationModal"
-                                data-information-modal-title="{{ product_category.type_description }}">
+                            <a id="productInformationBtn" href="#" role="button"
+                                data-information-modal-size="modal-xl"
+                                data-information-modal-title="{{ product.name }}">
                                 <i class="fas fa-lg fa-info-circle px-1"></i>
                             </a>
                         </td>
@@ -73,7 +82,8 @@
                         <div class="col-4 text-left">
                             {{ product_category.get_size_information_array|json_script:"size-information-array" }}
                             <p class="product-detail-title-text mt-2 px-4">{{ product_category.size_description }}
-                                <a id="sizeInformationBtn" href="#informationModal"
+                                <a id="sizeInformationBtn" href="#" role="button"
+                                    data-information-modal-size=""
                                     data-information-modal-title="{{ product_category.size_description }}">
                                     <i class="fas fa-lg fa-info-circle px-1"></i>
                                 </a>
@@ -94,7 +104,8 @@
                         <div class="col-4 text-left">
                             {{ product_category.get_type_information_array|json_script:"type-information-array" }}
                             <p class="product-detail-title-text mt-2 px-4">{{ product_category.type_description }}
-                                <a id="typeInformationBtn" href="#informationModal"
+                                <a id="typeInformationBtn" href="#" role="button"
+                                    data-information-modal-size=""
                                     data-information-modal-title="{{ product_category.type_description }}">
                                     <i class="fas fa-lg fa-info-circle px-1"></i>
                                 </a>
@@ -117,14 +128,14 @@
                         </div>
                         <div class="col-8">
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-7">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="1" aria-label="Quantity">
-                                        <button id="quantity-plus" class="btn btn-lg btn-outline-light btn-outline-green" type="button">-</button>
-                                        <button id="quantity-minus" class="btn btn-lg btn-outline-light btn-outline-green" type="button">+</button>
+                                        <input id="product-quantity" type="text" class="product-quantity-input form-control text-center" placeholder="1" value="1" aria-label="Quantity">
+                                        <button id="product-quantity-minus-btn" class="btn btn-lg btn-outline-light btn-outline-green" type="button" disabled><i class="fas fa-minus fa-sm"></i></button>
+                                        <button id="product-quantity-plus-btn" class="btn btn-lg btn-outline-light btn-outline-green" type="button"><i class="fas fa-plus fa-sm"></i></button>
                                     </div>
                                 </div>
-                                <div class="col-6"></div>
+                                <div class="col-5"></div>
                             </div>
                         </div>
                     </div>
@@ -166,20 +177,20 @@
     </div>
     <!-- Information Modal -->
     <div class="modal fade" id="informationModal" tabindex="-1" aria-labelledby="informationModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-md modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-black-3">
-                <h5 id="informationModalTitle" class="modal-title" id="informationModalLabel"></h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div id="informationModalContent" class="modal-body bg-black-4"></div>
-            <div class="modal-footer bg-black-4">
-                <button type="button" class="btn btn-lg btn-outline-light btn-outline-green rounded-pill" data-bs-dismiss="modal">Close</button>
+        aria-hidden="true">
+        <div id="informationModalSize" class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-black-3">
+                    <h5 id="informationModalTitle" class="modal-title" id="informationModalLabel"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="informationModalContent" class="modal-body bg-black-4"></div>
+                <div class="modal-footer bg-black-4">
+                    <button type="button" class="btn btn-lg btn-outline-light btn-outline-green rounded-pill" data-bs-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </section>
 {% endblock %}
 {% block extrapostloadjs %}

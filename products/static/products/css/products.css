@@ -1,4 +1,6 @@
 /*-- Products --*/
+
+/*-- Product Containers --*/
 .product-container,
 .product-detail-container {
     background-color: rgba(41, 41, 41, 0.6);
@@ -10,6 +12,7 @@
     border: 2px solid var(--green);
 }
 
+/*-- Product Text --*/
 .product-text {
     font-family: var(--titlefont);
     font-weight: 600;
@@ -32,7 +35,6 @@
     font-size: 1.4rem;
 }
 
-
 .product-detail-title-text {
     font-size: 1.4rem;
     font-weight: 600;
@@ -47,6 +49,7 @@
     font-size: 1.5rem;
 }
 
+/*-- Product Information Icons --*/
 .product-detail-title-text i {
     color: var(--green);
 }
@@ -55,6 +58,13 @@
     color: var(--greenhighlight);
 }
 
+/*-- Product Quantity Input --*/
+.product-quantity-input {
+    border: 2px solid rgba(250, 250, 250, 0.5);
+    background-color: var(--background-lvl3);
+    color: var(--white);
+    font-weight: 600;
+}
 
 /*-- Modals --*/
 .modal-content {
