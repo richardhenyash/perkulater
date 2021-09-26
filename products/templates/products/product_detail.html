@@ -147,7 +147,7 @@
                                 <p class="product-detail-title-text px-4">Price</p>
                             </div>
                             <div class="col-8">
-                                <p id="product-price" class="product-detail-title-text">$7.50</p>
+                                <p id="product-price" class="product-detail-title-text">£{{ product_prices.0.get_price }}</p>
                             </div>
                         </div>
                     </div>
@@ -171,9 +171,7 @@
                 </div>
             <form>
         </div>
-        {% for prices in product_prices %}
-        {{ prices.price }}
-        {% endfor %}
+        {{ product_price_dict|json_script:"product-price-dict" }}
     </div>
     <!-- Information Modal -->
     <div class="modal fade" id="informationModal" tabindex="-1" aria-labelledby="informationModalLabel"

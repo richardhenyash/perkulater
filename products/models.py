@@ -92,9 +92,17 @@ class Price(models.Model):
     size = models.ForeignKey(
         'Size', null=True, blank=True, on_delete=models.SET_NULL)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-
     def __str__(self):
         return str(self.product) + ", " + str(self.size)
+
+    def get_product(self):
+        return str(self.product)
+
+    def get_size(self):
+        return str(self.size)
+
+    def get_price(self):
+        return (self.price)
 
 
 class Coffee(models.Model):

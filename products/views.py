@@ -27,6 +27,12 @@ def product_detail(request, product_id):
     product_sizes = get_list_or_404(Size, category=product.category)
     product_types = get_list_or_404(Type, category=product.category)
     product_prices = get_list_or_404(Price, product=product.id)
+
+    # Build dictionary of sizes and prices for the product
+    product_price_dict = {}
+    for priceobj in product_prices:
+        product_price_dict[priceobj.get_size()] = priceobj.get_price()
+
     product_offers = get_list_or_404(Offer, display_in_banner=True)
     product_offer_str = get_product_offer_str(product_offers, "  -  ")
 
@@ -36,6 +42,7 @@ def product_detail(request, product_id):
         'product_sizes': product_sizes,
         'product_types': product_types,
         'product_prices': product_prices,
+        'product_price_dict': product_price_dict,
         'product_offers': product_offers,
         'product_offer_str': product_offer_str,
     }
