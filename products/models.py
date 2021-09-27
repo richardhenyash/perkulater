@@ -124,6 +124,16 @@ class Coffee(models.Model):
     def __str__(self):
         return str(self.product)
 
+    def get_all_fields(self):
+        """
+        Returns a list of all field names apart from id on the instance.
+        """
+        fields = []
+        for field in self._meta.fields:
+            if (field.name != "id"):
+                fields.append(field.name)
+        return fields
+
 
 class Offer(models.Model):
     """
