@@ -34,7 +34,7 @@
             <h6 class="price-text text-center pt-2">{{ product.friendly_price }}</h6>
         </div>
         <div class="col-sm-12 col-md-6 p-3">
-            <div class="product-detail-container p-3 px-3">
+            <div class="product-detail-container px-3">
                 <table class="table table-dark table-borderless">
                     <thead>
                         <tr>
@@ -44,42 +44,42 @@
                       </thead>
                     <tr>
                         {{ product.get_description_array|json_script:"product-description-array" }}
-                        <td class="product-detail-title-text px-3">Coffee
+                        <td class="product-detail-title-text px-3 py-1">Coffee
                             <a id="productInformationBtn" href="#" role="button"
                                 data-information-modal-size="modal-xl"
                                 data-information-modal-title="{{ product.name }}">
                                 <i class="fas fa-lg fa-info-circle px-1"></i>
                             </a>
                         </td>
-                        <td class="product-detail-text">{{ product.name }}</td>
+                        <td class="product-detail-text py-1">{{ product.name }}</td>
                     </tr>
                     <tr>
-                        <td class="product-detail-title-text px-3">Country</td>
-                        <td class="product-detail-text">{{ coffee_detail.country }}</td>
+                        <td class="product-detail-title-text px-3 py-1">Country</td>
+                        <td class="product-detail-text py-1">{{ coffee_detail.country }}</td>
                     </tr>
                     <tr>
-                        <td class="product-detail-title-text px-3">Farm</td>
-                        <td class="product-detail-text">{{ coffee_detail.farm }}</td>
+                        <td class="product-detail-title-text px-3 py-1">Farm</td>
+                        <td class="product-detail-text py-1">{{ coffee_detail.farm }}</td>
                     </tr>
                     <tr>
-                        <td class="product-detail-title-text px-3">Owner</td>
-                        <td class="product-detail-text">{{ coffee_detail.owner }}</td>
+                        <td class="product-detail-title-text px-3 py-1">Owner</td>
+                        <td class="product-detail-text py-1">{{ coffee_detail.owner }}</td>
                     </tr>
                     <tr>
-                        <td class="product-detail-title-text px-3">Variety</td>
-                        <td class="product-detail-text">{{ coffee_detail.variety }}</td>
+                        <td class="product-detail-title-text px-3 py-1">Variety</td>
+                        <td class="product-detail-text py-1">{{ coffee_detail.variety }}</td>
                     </tr>
                     <tr>
-                        <td class="product-detail-title-text px-3">Altitude</td>
-                        <td class="product-detail-text">{{ coffee_detail.altitude }}</td>
+                        <td class="product-detail-title-text px-3 py-1">Altitude</td>
+                        <td class="product-detail-text py-1">{{ coffee_detail.altitude }}</td>
                     </tr>
                     <tr>
-                        <td class="product-detail-title-text px-3">Town</td>
-                        <td class="product-detail-text">{{ coffee_detail.town }}</td>
+                        <td class="product-detail-title-text px-3 py-1">Town</td>
+                        <td class="product-detail-text py-1">{{ coffee_detail.town }}</td>
                     </tr>
                     <tr>
-                        <td class="product-detail-title-text px-3">Region</td>
-                        <td class="product-detail-text">{{ coffee_detail.region }}</td>
+                        <td class="product-detail-title-text px-3 py-1">Region</td>
+                        <td class="product-detail-text py-1">{{ coffee_detail.region }}</td>
                     </tr>
                 </table>
             </div>
