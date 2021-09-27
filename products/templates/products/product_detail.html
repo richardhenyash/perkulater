@@ -32,12 +32,6 @@
                 <i id="star-5" class="fas fa-star"></i>
             </div>
             <h6 class="price-text text-center pt-2">{{ product.friendly_price }}</h6>
-            <div class="text-center pt-3">
-                <a href="{% url 'products' %}"
-                    class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-50">
-                    Back
-                </a>
-            </div>
         </div>
         <div class="col-sm-12 col-md-6 p-3">
             <div class="product-detail-container p-3 px-3">
@@ -84,100 +78,108 @@
                 </table>
             </div>
             <div class="p-3"></div>
-            <form class="product-detail-container">
-                <div class="form-row">
-                    <div id="product-size-selector" class="input-group col-12 p-3">
-                        <div class="col-4 text-left">
-                            {{ product_category.get_size_information_array|json_script:"size-information-array" }}
-                            <p class="product-detail-title-text mt-2 px-3">{{ product_category.size_description }}
-                                <a id="sizeInformationBtn" href="#" role="button"
-                                    data-information-modal-size=""
-                                    data-information-modal-title="{{ product_category.size_description }}">
-                                    <i class="fas fa-lg fa-info-circle px-1"></i>
-                                </a>
-                            </p>
-                        </div>
-                        <div class="col-8">
-                            <select id="selector-size" class="custom-select btn btn-lg btn-outline-light btn-outline-green"
-                                required>
-                                {% for product_size in product_sizes %}
-                                    <option value="{{ product_size }}">{{ product_size.size }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div id="product-type-selector" class="input-group col-12 px-3">
-                        <div class="col-4 text-left">
-                            {{ product_category.get_type_information_array|json_script:"type-information-array" }}
-                            <p class="product-detail-title-text mt-2 px-3">{{ product_category.type_description }}
-                                <a id="typeInformationBtn" href="#" role="button"
-                                    data-information-modal-size=""
-                                    data-information-modal-title="{{ product_category.type_description }}">
-                                    <i class="fas fa-lg fa-info-circle px-1"></i>
-                                </a>
-                            </p>
-                        </div>
-                        <div class="col-8">
-                            <select class="custom-select btn btn-lg btn-outline-light btn-outline-green"
-                                required>
-                                {% for product_type in product_types %}
-                                    <option value="{{ product_type }}">{{ product_type }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div id="product-quantity-selector" class="input-group col-12 p-3">
-                        <div class="col-4 text-left">
-                            <p class="product-detail-title-text mt-2 px-3">Quantity</p>
-                        </div>
-                        <div class="col-8">
-                            <div class="row">
-                                <div class="col-7">
-                                    <div class="input-group">
-                                        <input id="product-quantity" type="text" class="product-quantity-input form-control text-center" placeholder="1" value="1" aria-label="Quantity">
-                                        <button id="product-quantity-minus-btn" class="btn btn-lg btn-outline-light btn-outline-green" type="button" disabled><i class="fas fa-minus fa-sm"></i></button>
-                                        <button id="product-quantity-plus-btn" class="btn btn-lg btn-outline-light btn-outline-green" type="button"><i class="fas fa-plus fa-sm"></i></button>
-                                    </div>
-                                </div>
-                                <div class="col-5"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-12 py-1 px-3">
-                        <div class="row">
-                            <div class="col-4">
-                                <p class="product-detail-title-text px-3">Price</p>
+            <div class="product-detail-container">
+                <form>
+                    <div class="form-row">
+                        <div id="product-size-selector" class="input-group col-12 p-3">
+                            <div class="col-4 text-left">
+                                {{ product_category.get_size_information_array|json_script:"size-information-array" }}
+                                <p class="product-detail-title-text mt-2 px-3">{{ product_category.size_description }}
+                                    <a id="sizeInformationBtn" href="#" role="button"
+                                        data-information-modal-size=""
+                                        data-information-modal-title="{{ product_category.size_description }}">
+                                        <i class="fas fa-lg fa-info-circle px-1"></i>
+                                    </a>
+                                </p>
                             </div>
                             <div class="col-8">
-                                <p id="product-price" class="product-detail-title-text">£{{ product_prices.0.get_price }}</p>
+                                <select id="selector-size" class="custom-select btn btn-lg btn-outline-light btn-outline-green"
+                                    required>
+                                    {% for product_size in product_sizes %}
+                                        <option value="{{ product_size }}">{{ product_size.size }}</option>
+                                    {% endfor %}
+                                </select>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="divider-opaque px-3">
-                    <hr>
-                </div>
-                <div class="form-row p-3">
-                    <div class="row px-3">
-                        <div class="col-6">
-                            <button type="submit" class="btn btn-outline-light btn-xl btn-outline-green rounded-pill px-2 w-100">
-                                Add To Basket
-                            </button>
-                        </div>
-                        <div class="col-6">
-                            <button type="button" class="btn btn-outline-light btn-xl btn-outline-green rounded-pill px-2 w-100">
-                                Create Plan
-                            </button>
+                    <div class="form-row">
+                        <div id="product-type-selector" class="input-group col-12 px-3">
+                            <div class="col-4 text-left">
+                                {{ product_category.get_type_information_array|json_script:"type-information-array" }}
+                                <p class="product-detail-title-text mt-2 px-3">{{ product_category.type_description }}
+                                    <a id="typeInformationBtn" href="#" role="button"
+                                        data-information-modal-size=""
+                                        data-information-modal-title="{{ product_category.type_description }}">
+                                        <i class="fas fa-lg fa-info-circle px-1"></i>
+                                    </a>
+                                </p>
+                            </div>
+                            <div class="col-8">
+                                <select class="custom-select btn btn-lg btn-outline-light btn-outline-green"
+                                    required>
+                                    {% for product_type in product_types %}
+                                        <option value="{{ product_type }}">{{ product_type }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
                         </div>
                     </div>
+                    <div class="form-row">
+                        <div id="product-quantity-selector" class="input-group col-12 p-3">
+                            <div class="col-4 text-left">
+                                <p class="product-detail-title-text mt-2 px-3">Quantity</p>
+                            </div>
+                            <div class="col-8">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <div class="input-group">
+                                            <input id="product-quantity" type="text" class="product-quantity-input form-control text-center" placeholder="1" value="1" aria-label="Quantity">
+                                            <button id="product-quantity-minus-btn" class="btn btn-lg btn-outline-light btn-outline-green" type="button" disabled><i class="fas fa-minus fa-sm"></i></button>
+                                            <button id="product-quantity-plus-btn" class="btn btn-lg btn-outline-light btn-outline-green" type="button"><i class="fas fa-plus fa-sm"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="col-5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-12 py-1 px-3">
+                            <div class="row">
+                                <div class="col-4">
+                                    <p class="product-detail-title-text px-3">Price</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="product-price" class="product-detail-title-text">£{{ product_prices.0.get_price }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divider-opaque px-3">
+                        <hr>
+                    </div>
+                    <div class="form-row p-3">
+                        <div class="row px-3">
+                            <div class="col-6">
+                                <button type="submit" class="btn btn-outline-light btn-xl btn-outline-green rounded-pill px-2 w-100">
+                                    Add To Basket
+                                </button>
+                            </div>
+                            <div class="col-6">
+                                <button type="button" class="btn btn-outline-light btn-xl btn-outline-green rounded-pill px-2 w-100">
+                                    Create Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                <form>
                 </div>
-            <form>
+                <div class="text-center pt-4">
+                    <a href="{% url 'products' %}"
+                        class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-50">
+                        Keep Shopping
+                    </a>
+                </div>
         </div>
         {{ product_price_dict|json_script:"product-price-dict" }}
     </div>
