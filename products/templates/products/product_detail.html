@@ -98,7 +98,7 @@
                             </p>
                         </div>
                         <div class="col-8">
-                            <select class="custom-select btn btn-lg btn-outline-light btn-outline-green"
+                            <select id="selector-size" class="custom-select btn btn-lg btn-outline-light btn-outline-green"
                                 required>
                                 {% for product_size in product_sizes %}
                                     <option value="{{ product_size }}">{{ product_size.size }}</option>

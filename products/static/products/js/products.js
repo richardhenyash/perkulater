@@ -42,14 +42,21 @@ $("#typeInformationBtn").click(function() {
     (buildModal("#typeInformationBtn", "information-modal-title", "#type-information-array", "#informationModal", ""));
 });
 
-// On click event handler added to minus button to decrease product quantity
+// On click event handler added to minus button to decrease product quantity and update price
 $("#product-quantity-minus-btn").click(function() {
     (incrementQuantity("#product-quantity", "#product-quantity-minus-btn", "#product-quantity-plus-btn", -1, 1, 99));
+    (updatePrice("#selector-size", "#product-quantity", "#product-price-dict", '#product-price'))
 });
 
-// On click event handler added to plus button to decrease product quantity
+// On click event handler added to plus button to decrease product quantity and update price
 $("#product-quantity-plus-btn").click(function() {
     (incrementQuantity("#product-quantity", "#product-quantity-minus-btn", "#product-quantity-plus-btn", 1, 1, 99));
+    (updatePrice("#selector-size", "#product-quantity", "#product-price-dict", '#product-price'));
+});
+
+// On change event handler added to size selector to update price
+$("#selector-size").change(function() {
+    (updatePrice("#selector-size", "#product-quantity", "#product-price-dict", '#product-price'));
 });
 
 /**
@@ -83,7 +90,7 @@ function buildModal(btnId, titleAttribute, scriptId, modalId, modalSize) {
 }
 
 /**
-* [Function to increment product quantities given quantityId, positive or negative increment, minimum value and mximum value]
+* [Function to increment product quantities given quantityId, positive or negative increment, minimum value and maximum value]
 * @return {[newQuantity]}                     [New Quantity, string]          
 */
 function incrementQuantity(quantityId, btnMinusID, btnPlusID, inc, minValue, maxValue){
@@ -112,4 +119,19 @@ function incrementQuantity(quantityId, btnMinusID, btnPlusID, inc, minValue, max
         $(btnPlusID).removeAttr('disabled')
     }
     return newQuantity
+}
+
+/**
+* [Function to update price based on size and quantity selected]
+* @return {[price]}                     [price, string]          
+*/
+function updatePrice(sizeId, quantityId, scriptId, priceId) {
+    let size = $(sizeId).val()
+    let quantity = parseInt($(quantityId).val())
+    // Get price object
+    let priceDict = JSON.parse($(scriptId).text());
+    let price = priceDict[size]
+    let pricestr = ("£" + (price * quantity).toFixed(2))
+    $(priceId).text(pricestr)
+    return pricestr
 }
