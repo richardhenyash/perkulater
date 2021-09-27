@@ -45,6 +45,11 @@
     font-size: 1.4rem;
 }
 
+.table-dark th,
+.table-dark td {
+    background-color: rgba(41, 41, 41, 0.0);
+}
+
 /*-- Product Information Icons --*/
 .product-detail-title-text i {
     color: var(--green);

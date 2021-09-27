@@ -35,17 +35,23 @@
         </div>
         <div class="col-sm-12 col-md-6 p-3">
             <div class="product-detail-container p-3 px-3">
-                <table>
+                <table class="table table-dark table-borderless">
+                    <thead>
+                        <tr>
+                          <th scope="col-4"></th>
+                          <th scope="col-8"></th>
+                        </tr>
+                      </thead>
                     <tr>
                         {{ product.get_description_array|json_script:"product-description-array" }}
-                        <td class="col-4 product-detail-title-text px-3">Coffee
+                        <td class="product-detail-title-text px-3">Coffee
                             <a id="productInformationBtn" href="#" role="button"
                                 data-information-modal-size="modal-xl"
                                 data-information-modal-title="{{ product.name }}">
                                 <i class="fas fa-lg fa-info-circle px-1"></i>
                             </a>
                         </td>
-                        <td class="col-8 product-detail-text">{{ product.name }}</td>
+                        <td class="product-detail-text">{{ product.name }}</td>
                     </tr>
                     <tr>
                         <td class="product-detail-title-text px-3">Country</td>
@@ -82,7 +88,7 @@
                 <form>
                     <div class="form-row">
                         <div id="product-size-selector" class="input-group col-12 p-3">
-                            <div class="col-4 text-left">
+                            <div class="col-4">
                                 {{ product_category.get_size_information_array|json_script:"size-information-array" }}
                                 <p class="product-detail-title-text mt-2 px-3">{{ product_category.size_description }}
                                     <a id="sizeInformationBtn" href="#" role="button"
@@ -92,7 +98,7 @@
                                     </a>
                                 </p>
                             </div>
-                            <div class="col-8">
+                            <div class="col-8 px-2">
                                 <select id="selector-size" class="custom-select btn btn-lg btn-outline-light btn-outline-green"
                                     required>
                                     {% for product_size in product_sizes %}
@@ -104,7 +110,7 @@
                     </div>
                     <div class="form-row">
                         <div id="product-type-selector" class="input-group col-12 px-3">
-                            <div class="col-4 text-left">
+                            <div class="col-4">
                                 {{ product_category.get_type_information_array|json_script:"type-information-array" }}
                                 <p class="product-detail-title-text mt-2 px-3">{{ product_category.type_description }}
                                     <a id="typeInformationBtn" href="#" role="button"
@@ -114,7 +120,7 @@
                                     </a>
                                 </p>
                             </div>
-                            <div class="col-8">
+                            <div class="col-8 px-2">
                                 <select class="custom-select btn btn-lg btn-outline-light btn-outline-green"
                                     required>
                                     {% for product_type in product_types %}
@@ -126,10 +132,10 @@
                     </div>
                     <div class="form-row">
                         <div id="product-quantity-selector" class="input-group col-12 p-3">
-                            <div class="col-4 text-left">
+                            <div class="col-4">
                                 <p class="product-detail-title-text mt-2 px-3">Quantity</p>
                             </div>
-                            <div class="col-8">
+                            <div class="col-8 px-2">
                                 <div class="row">
                                     <div class="col-7">
                                         <div class="input-group">
