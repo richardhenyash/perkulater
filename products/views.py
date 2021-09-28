@@ -19,6 +19,21 @@ def all_products(request):
     return render(request, 'products/products.html', context)
 
 
+def coffees(request):
+    """ A view to show coffees """
+
+    products = get_list_or_404(Product, category=1)
+    product_offers = get_list_or_404(Offer, display_in_banner=True)
+    product_offer_str = get_product_offer_str(product_offers, "  -  ")
+    context = {
+        'products': products,
+        'product_offers': product_offers,
+        'product_offer_str': product_offer_str,
+    }
+
+    return render(request, 'products/products.html', context)
+
+
 def product_detail(request, product_id):
     """ A view to show individual product details """
 

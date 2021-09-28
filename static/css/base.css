@@ -59,11 +59,13 @@ body {
     color: var(--white);
 }
 
-.nav-item i {
+.nav-item i,
+.navbar-dark .navbar-nav .nav-link {
     color: var(--whitehighlight);
 }
 
-.nav-item i:hover {
+.nav-item i:hover,
+.navbar-dark .navbar-nav .nav-link:hover {
     color: var(--white);
 }
 
