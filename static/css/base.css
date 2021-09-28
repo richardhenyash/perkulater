@@ -59,6 +59,37 @@ body {
     color: var(--white);
 }
 
+
+.navbar-dark .navbar-toggler {
+    color: rgba(250, 250, 250, 0.6);
+    border: 2px solid rgba(250, 250, 250, 0.6);
+}
+
+.navbar-nav .form-control {
+    background-color: var(--background-lvl0);
+    border: 2px solid rgba(250, 250, 250, 0.6);
+    color: var(--white); 
+}
+
+.navbar-nav .form-control::placeholder {
+    color: var(--white);
+    opacity: 1;
+}
+
+.navbar-nav .form-control:-ms-input-placeholder {
+    color: var(--white);
+    opacity: 1;
+}
+
+.navbar-nav .form-control::-ms-input-placeholder {
+    color: var(--white);
+    opacity: 1;
+}
+
+.navbar-nav .form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgb(78 208 173 / 25%);
+}
+
 .nav-item i,
 .navbar-dark .navbar-nav .nav-link {
     color: var(--whitehighlight);

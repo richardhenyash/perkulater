@@ -58,17 +58,21 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-                        <ul class="navbar-nav ms-auto px-2">
-                            <li class="nav-item px-1">
-                                <a href="{% url 'coffees' %}" class="nav-link px-1">Coffees</a>
+                        <ul class="navbar-nav ms-auto px-3">
+                            <form class="d-flex p-1">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-light btn-outline-green" type="submit"><i class="fas fa-search"></i></button>
+                            </form>
+                            <li class="nav-item p-1">
+                                <a href="{% url 'coffees' %}" class="nav-link">Coffees</a>
                             </li>
-                            <li class="nav-item dropdown px-1">
-                                <a href="" class="nav-link px-1">
+                            <li class="nav-item dropdown">
+                                <a href="" class="nav-link">
                                     <i class="fas fa-lg fa-shopping-basket"></i>
                                 </a>
                             </li>
-                            <li class="nav-item dropdown px-1">
-                                <a href="" class="nav-link dropdown-toggle px-1" id="navbarUserMenu"
+                            <li class="nav-item dropdown">
+                                <a href="" class="nav-link dropdown-toggle" id="navbarUserMenu"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fas fa-lg fa-user-circle"></i>
                                 </a>
