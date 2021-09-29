@@ -59,14 +59,14 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
                         <ul class="navbar-nav ms-auto px-3">
-                            <form class="d-flex p-1">
+                            <form method="GET" action="{% url 'products' %}"  class="d-flex p-1">
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-light btn-outline-green" type="submit"><i class="fas fa-search"></i></button>
                             </form>
-                            <!--
-                            <li class="nav-item p-1">
-                                <a href="{% url 'coffees' %}" class="nav-link">Coffees</a>
-                            </li>
+                            <!-- Add product categories here, when more product categories are added to site
+                                <li class="nav-item p-1">
+                                    <a href="{% url 'coffees' %}" class="nav-link">Coffees</a>
+                                </li>
                             !-->
                             <li class="nav-item dropdown">
                                 <a href="" class="nav-link">

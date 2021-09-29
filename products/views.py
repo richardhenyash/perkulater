@@ -1,4 +1,6 @@
-from django.shortcuts import render, get_list_or_404, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_list_or_404, get_object_or_404
+from django.contrib import messages
+from django.db.models import Q
 from .models import Category, Product, Size, Type, Price, Coffee, Offer
 from .helpers import get_product_offer_str
 
@@ -8,12 +10,24 @@ def all_products(request):
     """ A view to show all products """
 
     products = Product.objects.all()
+    query = None
     product_offers = get_list_or_404(Offer, display_in_banner=True)
     product_offer_str = get_product_offer_str(product_offers, "  -  ")
+
+    if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, "Please enter search criteria!")
+                return redirect(reverse('products'))
+            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            products = products.filter(queries)
+
     context = {
         'products': products,
         'product_offers': product_offers,
         'product_offer_str': product_offer_str,
+        'product_search': query,
     }
 
     return render(request, 'products/products.html', context)
