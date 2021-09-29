@@ -59,19 +59,19 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
                         <ul class="navbar-nav ms-auto px-3">
+                            <!-- There is currently only one category, Coffee -->
+                            <!-- Category selection is functional but hidden until more categories are added to the site by the admin -->
+                            {% if categories_all|length > 1 %}
+                                {% for category in categories_all %}
+                                <li class="nav-item p-1">
+                                    <a href="{% url 'products' %}?category={{ category.name }}" class="nav-link">{{ category.name }}</a>
+                                </li>
+                                {% endfor %}
+                            {% endif %}
                             <form method="GET" action="{% url 'products' %}"  class="d-flex p-1">
                                 <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-light btn-outline-green" type="submit"><i class="fas fa-search"></i></button>
                             </form>
-                            <!-- There is currently only one category, Coffee -->
-                            <!-- Category selection is functional but hidden until more categories are added to the site -->
-                            {% if categories_all|length > 1 %}
-                                {% for category in categories_all %}
-                                <li class="nav-item p-1">
-                                    <a href="{% url 'products' %}?category={{ category.name }}" class="nav-link">Coffees</a>
-                                </li>
-                                {% endfor %}
-                            {% endif %}
                             <li class="nav-item dropdown">
                                 <a href="" class="nav-link">
                                     <i class="fas fa-lg fa-shopping-basket"></i>
