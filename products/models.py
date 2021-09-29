@@ -44,7 +44,7 @@ class Product(models.Model):
     friendly_price = models.CharField(max_length=100, blank=True)
     description_full = models.TextField(blank=True)
     description_short = models.CharField(max_length=254)
-    description_full_delimiter = models.CharField(max_length=3, blank=True)
+    description_delimiter = models.CharField(max_length=3, blank=True)
     rating = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, blank=True)
@@ -55,9 +55,13 @@ class Product(models.Model):
 
     def get_friendly_name(self):
         return self.friendly_name
+
+    def get_short_description(self):
+        delim = self.description_delimiter
+        return self.description_short.split(delim)[0]
     
     def get_description_array(self):
-        delim = self.description_full_delimiter
+        delim = self.description_delimiter
         return self.description_full.split(delim)
 
 

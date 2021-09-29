@@ -13,21 +13,22 @@ def all_products(request):
     query = None
     product_offers = get_list_or_404(Offer, display_in_banner=True)
     product_offer_str = get_product_offer_str(product_offers, "  -  ")
-
+    print("test1")
     if request.GET:
+        print("test2")
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
                 messages.error(request, "Please enter search criteria!")
                 return redirect(reverse('products'))
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | Q(description_short__icontains=query)
             products = products.filter(queries)
 
     context = {
         'products': products,
         'product_offers': product_offers,
         'product_offer_str': product_offer_str,
-        'product_search': query,
+        'search_term': query,
     }
 
     return render(request, 'products/products.html', context)
