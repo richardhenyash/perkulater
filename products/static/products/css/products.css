@@ -55,6 +55,10 @@
     background-color: rgba(41, 41, 41, 0.0);
 }
 
+.table-dark .th {
+    white-space: nowrap
+}
+
 /*-- Product Information Icons --*/
 .product-detail-title-text i {
     color: var(--green);
