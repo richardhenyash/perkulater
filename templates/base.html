@@ -63,10 +63,15 @@
                                 <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-light btn-outline-green" type="submit"><i class="fas fa-search"></i></button>
                             </form>
-                            <!-- Add product categories here, when more product categories are added to site -->
-                            <li class="nav-item p-1">
-                                <a href="{% url 'products' %}?category=Coffee" class="nav-link">Coffees</a>
-                            </li>
+                            <!-- There is currently only one category, Coffee -->
+                            <!-- Category selection is functional but hidden until more categories are added to the site -->
+                            {% if categories_all|length > 1 %}
+                                {% for category in categories_all %}
+                                <li class="nav-item p-1">
+                                    <a href="{% url 'products' %}?category={{ category.name }}" class="nav-link">Coffees</a>
+                                </li>
+                                {% endfor %}
+                            {% endif %}
                             <li class="nav-item dropdown">
                                 <a href="" class="nav-link">
                                     <i class="fas fa-lg fa-shopping-basket"></i>
