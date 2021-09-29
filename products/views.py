@@ -11,11 +11,17 @@ def all_products(request):
 
     products = Product.objects.all()
     query = None
+    categories = None
     product_offers = get_list_or_404(Offer, display_in_banner=True)
     product_offer_str = get_product_offer_str(product_offers, "  -  ")
-    print("test1")
     if request.GET:
-        print("test2")
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            products = products.filter(category__name__in=categories)
+            categories = Category.objects.filter(name__in=categories)
+            category = categories[0]
+            print(category)
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -29,21 +35,7 @@ def all_products(request):
         'product_offers': product_offers,
         'product_offer_str': product_offer_str,
         'search_term': query,
-    }
-
-    return render(request, 'products/products.html', context)
-
-
-def coffees(request):
-    """ A view to show coffees """
-
-    products = get_list_or_404(Product, category=1)
-    product_offers = get_list_or_404(Offer, display_in_banner=True)
-    product_offer_str = get_product_offer_str(product_offers, "  -  ")
-    context = {
-        'products': products,
-        'product_offers': product_offers,
-        'product_offer_str': product_offer_str,
+        'category': category,
     }
 
     return render(request, 'products/products.html', context)

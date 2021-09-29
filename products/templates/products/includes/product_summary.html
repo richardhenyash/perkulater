@@ -1,4 +1,11 @@
 <section id="product-summary" class="container-sm container-custom pt-2">
+    {% if category %}
+    <div class="row pt-3">
+        <div class="col-12">
+            <h6 class="product-text text-center pt-2">{{ category.get_friendly_name }}</h6>
+        </div>
+    </div>
+    {% endif %}
     <div class="row py-4">
         {% for product in products %}
         <div class="col-sm-12 col-md-6 text-center pt-4 px-5">
