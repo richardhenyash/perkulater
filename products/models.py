@@ -12,10 +12,9 @@ class Category(models.Model):
     friendly_name = models.CharField(max_length=254, blank=True)
     size_description = models.CharField(max_length=50, blank=True)
     size_information = models.CharField(max_length=254, blank=True)
-    size_information_delimiter = models.CharField(max_length=3, blank=True)
     type_description = models.CharField(max_length=50, blank=True)
     type_information = models.CharField(max_length=254, blank=True)
-    type_information_delimiter = models.CharField(max_length=3, blank=True)
+    information_delimiter = models.CharField(max_length=3, blank=True)
 
     def __str__(self):
         return self.name
@@ -24,11 +23,11 @@ class Category(models.Model):
         return self.friendly_name
 
     def get_size_information_array(self):
-        delim = self.size_information_delimiter
+        delim = self.information_delimiter
         return self.size_information.split(delim)
 
     def get_type_information_array(self):
-        delim = self.type_information_delimiter
+        delim = self.information_delimiter
         return self.type_information.split(delim)
 
 
