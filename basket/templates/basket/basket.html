@@ -2,6 +2,8 @@
 {% load static %}
 
 {% block extracss %}
+    <!-- Link to Products Custom CSS -->
+    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
     <!-- Link to Basket Custom CSS -->
     <link rel="stylesheet" href="{% static 'basket/css/basket.css' %}">
 {% endblock %}
@@ -10,6 +12,59 @@
 {% endblock %}
 
 {% block content %}
+<section id="basket-contents" class="container-sm container-custom pt-2">
+    <div class="row py-4">
+        <div class="d-none d-md-block col-md-3"></div>
+        <div class="col-sm-12 col-md-6 text-center pt-4 px-5">
+            <div class="row">
+                <div class="col-12">
+                    <h6 class="product-text-lg text-left pt-2">Basket</h6>
+                </div>
+                <div class="divider-opaque">
+                    <hr>
+                </div>
+                {% if basket_items %}
+                    <div class="col-4 product-container">
+                        <div class="image-container px-1">
+                            <a href="{% url 'product_detail' product.id %}">
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="w-100 p-1">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-8 product-container">
+                        {{ product.size }}
+                        {{ product.type }}
+                        {{ product.quantity }}
+                        {{ product.cost }}
+                    </div>
+                    <div class="divider-opaque">
+                        <hr>
+                    </div>
+                    <div class="col-12">
+                        <p>Subtotal: {{ order.order_total }}</p>
+                        <p>Delivery: {{ order.delivery_cost }}</p>
+                        <p>Spend another <span>£00.00</span> to qualify for free UK delivery</p>
+                        <p>Grand Total: {{ order.grand_total }}</p>
+                    </div>
+                    <div class="divider-opaque">
+                        <hr>
+                    </div>
+                {% else %}
+                    <div class="col-12">
+                        <p class="product-text-lg text-left pt-2">Your basket is currrently empty</p>
+                        <div class="text-center pt-4">
+                            <a href="{% url 'products' %}"
+                                class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-50">
+                                Keep Shopping
+                            </a>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="d-none d-md-block col-md-3"></div>
+    </div>
+</section>
 
 {% endblock %}
 
