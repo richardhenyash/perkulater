@@ -32,6 +32,8 @@ def all_products(request):
             queries = Q(name__icontains=query) | Q(description_short__icontains=query)
             products = products.filter(queries)
 
+    products = products.order_by("name")
+    
     context = {
         'products': products,
         'product_offers': product_offers,
