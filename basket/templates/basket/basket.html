@@ -52,6 +52,8 @@
                 {% else %}
                     <div class="col-12">
                         <p class="product-text-lg text-left pt-2">Your basket is currrently empty</p>
+                        <p>Free delivery on orders over £{{ free_delivery_amount }}</p>
+                        <p>Delivery Percentage: {{ delivery_percentage }}</p>
                         <div class="text-center pt-4">
                             <a href="{% url 'products' %}"
                                 class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-50">
