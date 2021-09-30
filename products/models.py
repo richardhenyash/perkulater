@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Category(models.Model):
     """
     A model for product categories.
@@ -58,7 +59,7 @@ class Product(models.Model):
     def get_short_description(self):
         delim = self.description_delimiter
         return self.description_short.split(delim)[0]
-    
+
     def get_description_array(self):
         delim = self.description_delimiter
         return self.description_full.split(delim)
@@ -74,7 +75,8 @@ class Size(models.Model):
 
     def __str__(self):
         return self.size
-    
+
+
 class Type(models.Model):
     """
     A model for product types.
@@ -86,6 +88,7 @@ class Type(models.Model):
     def __str__(self):
         return self.type
 
+
 class Price(models.Model):
     """
     A model for product prices.
@@ -95,6 +98,7 @@ class Price(models.Model):
     size = models.ForeignKey(
         'Size', null=True, blank=True, on_delete=models.SET_NULL)
     price = models.DecimalField(max_digits=6, decimal_places=2)
+
     def __str__(self):
         return str(self.product) + ", " + str(self.size)
 
@@ -155,4 +159,3 @@ class Offer(models.Model):
 
     def __str__(self):
         return str(self.description)
-
