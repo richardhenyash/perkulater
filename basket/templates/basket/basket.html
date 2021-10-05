@@ -14,8 +14,8 @@
 {% block content %}
 <section id="basket-contents" class="container-sm pt-2">
     <div class="row py-4">
-        <div class="d-none d-md-block col-md-3"></div>
-        <div class="col-sm-12 col-md-6 pt-4 px-5">
+        <div class="d-none d-md-block col-md-2"></div>
+        <div class="col-sm-12 col-md-8 pt-4 px-5">
             <div class="row">
                 <div class="col-12">
                     <h6 class="product-text-lg text-center pt-2">Basket</h6>
@@ -26,43 +26,47 @@
                 {% if basket_items %}
                     {% for basket_item in basket_items %}
                         <div class="row">
-                            <div class="col-3 product-container">                   
-                                <div class="image-container">
-                                    <a href="{% url 'product_detail' basket_item.product_id %}">
-                                        <img src="{{ basket_item.product.image.url }}" alt="{{ basket_item.product.name }}" class="w-100 p-1">
-                                    </a>
+                            <div class="col-3 p-3">
+                                <div class="product-container">
+                                    <div class="image-container">
+                                        <a href="{% url 'product_detail' basket_item.product_id %}">
+                                            <img src="{{ basket_item.product.image.url }}" alt="{{ basket_item.product.name }}" class="w-100 p-1">
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-8 product-detail-container">
-                                <table class="table table-dark table-borderless">
-                                    <thead>
+                            <div class="col-8 p-3">
+                                <div class="product-detail-container">
+                                    <table class="table table-dark table-borderless">
+                                        <thead>
+                                            <tr>
+                                            <th scope="col-3"></th>
+                                            <th scope="col-9"></th>
+                                            </tr>
+                                        </thead>
                                         <tr>
-                                          <th scope="col-3"></th>
-                                          <th scope="col-9"></th>
+                                        <tr>
+                                            <td class="product-detail-title-text px-3 pt-0 pb-1">Product: </td>
+                                            <td class="product-detail-text pt-0 pb-1">{{basket_item.product.name}}</td>
                                         </tr>
-                                      </thead>
-                                    <tr>
-                                    <tr>
-                                        <td class="product-detail-title-text px-3 pt-0 pb-1">Product: </td>
-                                        <td class="product-detail-text pt-0 pb-1">{{basket_item.product.name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="product-detail-title-text px-3 pt-0 pb-1">Quantity: </td>
-                                        <td class="product-detail-text pt-0 pb-1">{{basket_item.product_quantity}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="product-detail-title-text px-3 pt-0 pb-1">{{ basket_item.product_category.size_description }}: </td>
-                                        <td class="product-detail-text pt-0 pb-1">{{basket_item.product_size}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="product-detail-title-text px-3 pt-0 pb-1">{{ basket_item.product_category.type_description }}: </td>
-                                        <td class="product-detail-text pt-0 pb-1">{{basket_item.product_type}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="product-detail-title-text px-3 pt-0 pb-1">Price: </td>
-                                        <td class="product-detail-text pt-0 pb-1">£{{basket_item.line_item_price}}</td>
-                                    </tr>
-                                </table>
+                                        <tr>
+                                            <td class="product-detail-title-text px-3 pt-0 pb-1">Quantity: </td>
+                                            <td class="product-detail-text pt-0 pb-1">{{basket_item.product_quantity}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="product-detail-title-text px-3 pt-0 pb-1">{{ basket_item.product_category.size_description }}: </td>
+                                            <td class="product-detail-text pt-0 pb-1">{{basket_item.product_size}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="product-detail-title-text px-3 pt-0 pb-1">{{ basket_item.product_category.type_description }}: </td>
+                                            <td class="product-detail-text pt-0 pb-1">{{basket_item.product_type}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="product-detail-title-text px-3 pt-0 pb-1">Price: </td>
+                                            <td class="product-detail-text pt-0 pb-1">£{{basket_item.line_item_price}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                             <div class="divider-opaque">
                                 <hr>
@@ -90,7 +94,7 @@
                 {% endif %}
             </div>
         </div>
-        <div class="d-none d-md-block col-md-3"></div>
+        <div class="d-none d-md-block col-md-2"></div>
     </div>
 </section>
 
