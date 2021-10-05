@@ -26,7 +26,7 @@
                 {% if basket_items %}
                     {% for basket_item in basket_items %}
                         <div class="row">
-                            <div class="col-4 product-container">                   
+                            <div class="col-3 product-container">                   
                                 <div class="image-container">
                                     <a href="{% url 'product_detail' basket_item.product_id %}">
                                         <img src="{{ basket_item.product.image.url }}" alt="{{ basket_item.product.name }}" class="w-100 p-1">
