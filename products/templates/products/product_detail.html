@@ -64,7 +64,8 @@
             </div>
             <div class="p-3"></div>
             <div class="product-detail-container">
-                <form>
+                <form action="{% url 'add_to_basket' product.id %}" method="POST">
+                    {% csrf_token %}
                     <div class="form-row">
                         <div id="product-size-selector" class="input-group col-12 p-3">
                             <div class="col-4">
@@ -78,7 +79,7 @@
                                 </p>
                             </div>
                             <div class="col-8 px-2">
-                                <select id="selector-size" class="custom-select btn btn-lg btn-outline-light btn-outline-green"
+                                <select id="product-size" name="product-size" class="custom-select btn btn-lg btn-outline-light btn-outline-green"
                                     required>
                                     {% for product_size in product_sizes %}
                                         <option value="{{ product_size }}">{{ product_size.size }}</option>
@@ -100,7 +101,7 @@
                                 </p>
                             </div>
                             <div class="col-8 px-2">
-                                <select class="custom-select btn btn-lg btn-outline-light btn-outline-green"
+                                <select id="product-type" name="product-type" class="custom-select btn btn-lg btn-outline-light btn-outline-green"
                                     required>
                                     {% for product_type in product_types %}
                                         <option value="{{ product_type }}">{{ product_type }}</option>
@@ -118,7 +119,7 @@
                                 <div class="row">
                                     <div class="col-7">
                                         <div class="input-group">
-                                            <input id="product-quantity" type="text" class="product-quantity-input form-control text-center" placeholder="1" value="1" aria-label="Quantity">
+                                            <input id="product-quantity" name="product-quantity" type="number" class="product-quantity-input form-control text-center" placeholder="1" value="1" aria-label="Quantity">
                                             <button id="product-quantity-minus-btn" class="btn btn-lg btn-outline-light btn-outline-green" type="button" disabled><i class="fas fa-minus fa-sm"></i></button>
                                             <button id="product-quantity-plus-btn" class="btn btn-lg btn-outline-light btn-outline-green" type="button"><i class="fas fa-plus fa-sm"></i></button>
                                         </div>
@@ -157,14 +158,15 @@
                             </div>
                         </div>
                     </div>
-                <form>
-                </div>
-                <div class="text-center pt-4">
-                    <a href="{% url 'products' %}"
-                        class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-50">
-                        Keep Shopping
-                    </a>
-                </div>
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                </form>
+            </div>
+            <div class="text-center pt-4">
+                <a href="{% url 'products' %}"
+                    class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-50">
+                    Keep Shopping
+                </a>
+            </div>
         </div>
         {{ product_price_dict|json_script:"product-price-dict" }}
     </div>

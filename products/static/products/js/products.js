@@ -45,18 +45,18 @@ $("#typeInformationBtn").click(function() {
 // On click event handler added to minus button to decrease product quantity and update price
 $("#product-quantity-minus-btn").click(function() {
     (incrementQuantity("#product-quantity", "#product-quantity-minus-btn", "#product-quantity-plus-btn", -1, 1, 99));
-    (updatePrice("#selector-size", "#product-quantity", "#product-price-dict", '#product-price'))
+    (updatePrice("#product-size", "#product-quantity", "#product-price-dict", '#product-price'))
 });
 
 // On click event handler added to plus button to decrease product quantity and update price
 $("#product-quantity-plus-btn").click(function() {
     (incrementQuantity("#product-quantity", "#product-quantity-minus-btn", "#product-quantity-plus-btn", 1, 1, 99));
-    (updatePrice("#selector-size", "#product-quantity", "#product-price-dict", '#product-price'));
+    (updatePrice("#product-size", "#product-quantity", "#product-price-dict", '#product-price'));
 });
 
 // On change event handler added to size selector to update price
-$("#selector-size").change(function() {
-    (updatePrice("#selector-size", "#product-quantity", "#product-price-dict", '#product-price'));
+$("#product-size").change(function() {
+    (updatePrice("#product-size", "#product-quantity", "#product-price-dict", '#product-price'));
 });
 
 /**
