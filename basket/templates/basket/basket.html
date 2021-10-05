@@ -24,7 +24,17 @@
                     <hr>
                 </div>
                 {% if basket_items %}
+                    {% for basket_item in basket_items %}
+                        {{ basket_item.product}}
+                        {{ basket_item.product_id}}
+                        {{ basket_item.product_quantity}}
+                        {{ basket_item.product_size}}
+                        {{ basket_item.product_type}}
+                        {{ basket_item.product_price}}
+                    {% endfor %}
+                    <!--
                     <div class="col-4 product-container">
+                   
                         <div class="image-container px-1">
                             <a href="{% url 'product_detail' product.id %}">
                                 <img src="{{ product.image.url }}" alt="{{ product.name }}" class="w-100 p-1">
@@ -32,10 +42,6 @@
                         </div>
                     </div>
                     <div class="col-8 product-container">
-                        {{ product.size }}
-                        {{ product.type }}
-                        {{ product.quantity }}
-                        {{ product.cost }}
                     </div>
                     <div class="divider-opaque">
                         <hr>
@@ -49,6 +55,7 @@
                     <div class="divider-opaque">
                         <hr>
                     </div>
+                    -->
                 {% else %}
                     <div class="col-12">
                         <p class="product-text-lg text-left pt-2">Your basket is currrently empty</p>
