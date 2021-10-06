@@ -39,8 +39,18 @@
                         <div class="col-8 col-md-9 p-1">
                             <table class="table table-dark table-borderless">
                                 <tr>
-                                    <td class="product-detail-title-text basket-table-title px-2 pt-3 pb-1">Quantity</td>
-                                    <td class="product-detail-text pt-3 pb-1">{{ basket_item.product_quantity }}</td>
+                                    <td class="product-detail-title-text basket-table-title px-2 pt-4 pb-1">Quantity</td>
+                                    <td class="product-detail-text pt-3 pb-1">
+                                        <form class="form" action="">
+                                            {% csrf_token %}
+                                            <div class="input-group">
+                                                <input id="{{ basket_item.product_key }}-quantity" name="product-quantity" type="number" class="product-quantity-input form-control text-center" placeholder="{{ basket_item.product_quantity }}" value="{{ basket_item.product_quantity }}" aria-label="Quantity">
+                                                <button id="{{ basket_item.product_key }}-quantity-minus-btn" class="btn btn-lg btn-outline-light btn-outline-green" type="button"><i class="fas fa-minus fa-sm"></i></button>
+                                                <button id="{{ basket_item.product_key }}-quantity-plus-btn" class="btn btn-lg btn-outline-light btn-outline-green" type="button"><i class="fas fa-plus fa-sm"></i></button>
+                                            </div>
+                                            <input type="hidden" name="product_key" value="{{ basket_item.product_key }}">
+                                        </form>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="product-detail-title-text basket-table-title px-2 pt-0 pb-1">{{ basket_item.product_category.size_description }}</td>
@@ -133,4 +143,6 @@
 {% block extrapostloadjs %}
     <!-- Link to Basket JavaScript -->
     <script src="{% static 'basket/js/basket.js' %}"></script>
+    <!-- Link to Products JavaScript -->
+    <script src="{% static 'products/js/products.js' %}"></script>
 {% endblock %}

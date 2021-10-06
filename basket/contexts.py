@@ -26,6 +26,7 @@ def basket_contents(request):
         basket_items.append({
             'product': product,
             'product_id': product.id,
+            'product_key': product_key,
             'product_category': product_category,
             'product_quantity': product_quantity,
             'product_size': product_size,
