@@ -1,5 +1,5 @@
-from django.shortcuts import redirect, render
-
+from django.shortcuts import redirect, render, get_object_or_404
+from products.models import Product, Size, Type
 
 def view_basket(request):
     """ A view to return the basket contents page """
@@ -14,8 +14,12 @@ def add_to_basket(request, product_id):
     """
     product_size = request.POST.get('product-size')
     product_type = request.POST.get('product-type')
+    size = get_object_or_404(Size, size=product_size)
+    type = get_object_or_404(Type, type=product_type)
+    size_id = str(size.id)
+    type_id = str(type.id)
     product_quantity = int(request.POST.get('product-quantity'))
-    product_key = product_id + "_" + product_size + "_" + product_type
+    product_key = product_id + "_" + size_id + "_" + type_id
 
     redirect_url = request.POST.get('redirect_url')
 
