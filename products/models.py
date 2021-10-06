@@ -156,6 +156,8 @@ class Offer(models.Model):
         max_digits=4, decimal_places=2, null=True, blank=True)
     free_delivery_amount = models.DecimalField(
         max_digits=4, decimal_places=2, null=True, blank=True)
+    delivery_minimum = models.DecimalField(
+        max_digits=4, decimal_places=2, null=True, blank=True)
     delivery_percentage = models.DecimalField(
         max_digits=4, decimal_places=2, null=True, blank=True)
 
@@ -167,3 +169,6 @@ class Offer(models.Model):
 
     def get_delivery_percentage(self):
         return (self.delivery_percentage)
+
+    def get_delivery_minimum(self):
+        return (self.delivery_minimum)

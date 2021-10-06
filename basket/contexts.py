@@ -34,9 +34,14 @@ def basket_contents(request):
     offer = get_object_or_404(Offer, description="Delivery")
     free_delivery_amount = offer.get_free_delivery_amount()
     delivery_percentage = offer.get_delivery_percentage()
+    delivery_minimum = offer.get_delivery_minimum()
 
     if total < free_delivery_amount:
         delivery = total * (Decimal(delivery_percentage / 100))
+        if delivery < delivery_minimum:
+            delivery = delivery_minimum
+        else:
+            delivery = round(delivery, 2)
         free_delivery_delta = free_delivery_amount - total
     else:
         delivery = 0
@@ -49,7 +54,6 @@ def basket_contents(request):
         'total': total,
         'delivery': delivery,
         'free_delivery_amount': free_delivery_amount,
-        'delivery_percentage': delivery_percentage,
         'free_delivery_delta': free_delivery_delta,
         'grand_total': grand_total,
     }

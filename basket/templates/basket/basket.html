@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block content %}
-<section id="basket-contents" class="container-sm container-custom pt-2">
+<section id="basket-contents" class="container-sm container-custom-sm pt-2">
     <div class="row py-4">
         <div class="col-12 pt-4 px-5">
             <div class="row">
@@ -27,7 +27,7 @@
                 {% for basket_item in basket_items %}
                     <div class="row">
                         <p class="product-detail-title-text text-center pt-0">{{ basket_item.product.name }}</p>
-                        <div class="col-4 col-md-2 p-3">
+                        <div class="col-4 col-md-3 p-3">
                             <div class="product-container">
                                 <div class="image-container">
                                     <a href="{% url 'product_detail' basket_item.product_id %}">
@@ -36,7 +36,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-8 col-md-10 p-1">
+                        <div class="col-8 col-md-9 p-1">
                             <table class="table table-dark table-borderless">
                                 <tr>
                                     <td class="product-detail-title-text basket-table-title px-2 pt-3 pb-1">Quantity</td>
@@ -64,7 +64,7 @@
                     </div>
                     {% endfor %}
                     <div class="row">
-                        <div class="col-12 col-md-6">
+                        <div class="col-12">
                             <table class="table table-dark table-borderless">
                                 <tr>
                                     <td class="product-detail-title-text total-table-title px-2 pt-3 pb-1">Total</td>
@@ -84,7 +84,7 @@
                                 </tr>
                             </table>
                             {% if delivery > 0 %}
-                                <p class="product-detail-title-text">Spend another <span>{{ free_delivery_delta }}</span> to qualify for free UK delivery!</p>
+                                <p class="product-detail-title-text px-2 pt-0 pb-1">Spend another <span>£{{ free_delivery_delta }}</span> to qualify for free UK delivery!</p>
                             {% endif %}
                         </div>
                     </div>
@@ -92,17 +92,38 @@
                     <div class="row">
                         <div class="col-12">
                             <p class="product-text-lg text-left pt-2">Your basket is currrently empty</p>
-                            <p>Free delivery on orders over £{{ free_delivery_amount }}</p>
-                            <p>Delivery Percentage: {{ delivery_percentage }}</p>
-                            <div class="text-center pt-4">
-                                <a href="{% url 'products' %}"
-                                    class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-50">
-                                    Keep Shopping
-                                </a>
-                            </div>
                         </div>
                     </div>
                 {% endif %}
+                <div class="row">
+                    {% if basket_items %}
+                    <div class="col-6">           
+                        <div class="text-center pt-4">
+                            <a href="{% url 'products' %}"
+                                class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
+                                Keep Shopping
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="text-center pt-4">
+                            <a href="{% url 'products' %}"
+                                class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
+                                Checkout
+                            </a>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="col-12">                        
+                        <div class="text-center pt-4">
+                            <a href="{% url 'products' %}"
+                                class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-50">
+                                Keep Shopping
+                            </a>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>

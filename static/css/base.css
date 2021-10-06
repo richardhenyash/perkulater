@@ -280,12 +280,16 @@ body {
 }
 
 /*-- Media Queries --*/
-/*-- Custom Container--*/
+
+/*-- Custom Containers--*/
 @media (min-width: 768px) {
     .container-custom {
         width: 720px;
     }
-} 
+    .container-custom-sm {
+        width: 500px;
+    }
+}
 
 @media (max-width: 350px) {
     .logo-text {
