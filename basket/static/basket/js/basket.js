@@ -15,3 +15,19 @@ $("#basket-quantity-minus-btn").click(function() {
 $("#basket-quantity-plus-btn").click(function() {
     (incrementQuantity("#basket-quantity", "#basket-quantity-minus-btn", "#basket-quantity-plus-btn", 1, 1, 99));
 });
+
+$('.basket-quantity-input').each(function () {
+    let currentQuantity = parseInt($(this).val())
+    let quantityInputId = "#" + $(this).attr('id')
+    let quantityMinusBtnId = "#" + $(this).next().attr('id')
+    let quantityPlusBtnId = "#" + $(this).next().next().attr('id')
+    console.log(quantityInputId)
+    console.log(quantityMinusBtnId)
+    console.log(quantityPlusBtnId)
+    $(quantityMinusBtnId).click(function() {
+        (incrementQuantity(quantityInputId, quantityMinusBtnId, quantityPlusBtnId, -1, 1, 99));
+    });
+    $(quantityPlusBtnId).click(function() {
+        (incrementQuantity(quantityInputId, quantityMinusBtnId, quantityPlusBtnId, 1, 1, 99));
+    });
+});
