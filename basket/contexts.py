@@ -21,6 +21,7 @@ def basket_contents(request):
         queryset = Price.objects.filter(product=product_id, size=size.id)
         product_price = get_object_or_404(queryset)
         line_item_price = product_price.price * product_quantity
+        product_sku = product_price.sku
         total = total + line_item_price
         basket_items.append({
             'product': product,
@@ -30,6 +31,7 @@ def basket_contents(request):
             'product_size': product_size,
             'product_type': product_type,
             'product_price': product_price.price,
+            'product_sku': product_sku,
             'line_item_price': line_item_price,
         })
     offer = get_object_or_404(Offer, description="Delivery")

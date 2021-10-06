@@ -38,7 +38,6 @@ class Product(models.Model):
     """
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
-    sku = models.CharField(max_length=254)
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, blank=True)
     friendly_price = models.CharField(max_length=100, blank=True)
@@ -98,6 +97,7 @@ class Price(models.Model):
     size = models.ForeignKey(
         'Size', null=True, blank=True, on_delete=models.SET_NULL)
     price = models.DecimalField(max_digits=6, decimal_places=2)
+    sku = models.CharField(null=True, blank=True, max_length=254)
 
     def __str__(self):
         return str(self.product) + ", " + str(self.size)
@@ -110,6 +110,9 @@ class Price(models.Model):
 
     def get_price(self):
         return (self.price)
+    
+    def get_sku(self):
+        return (self.sku)
 
 
 class Coffee(models.Model):

@@ -4,14 +4,13 @@ from.models import Category, Product, Size, Type, Price, Coffee, Offer
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
-        'sku',
         'name',
         'category',
         'rating',
         'image',
     )
 
-    ordering = ('sku',)
+    ordering = ('name',)
 
 
 class CategoryAdmin(admin.ModelAdmin):
