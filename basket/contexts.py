@@ -8,7 +8,6 @@ def basket_contents(request):
 
     basket_items = []
     total = 0
-    product_count = 0
     basket = request.session.get('basket', {})
     for product_key, product_quantity in basket.items():
         product_info_array = product_key.split("_")
@@ -21,6 +20,7 @@ def basket_contents(request):
         queryset = Price.objects.filter(product=product_id, size=size.id)
         product_price = get_object_or_404(queryset)
         line_item_price = product_price.price * product_quantity
+        total = total + line_item_price
         basket_items.append({
             'product': product,
             'product_id': product.id,
@@ -31,7 +31,6 @@ def basket_contents(request):
             'product_price': product_price.price,
             'line_item_price': line_item_price,
         })
-    print(basket_items)
     offer = get_object_or_404(Offer, description="Delivery")
     free_delivery_amount = offer.get_free_delivery_amount()
     delivery_percentage = offer.get_delivery_percentage()
@@ -48,7 +47,6 @@ def basket_contents(request):
     context = {
         'basket_items': basket_items,
         'total': total,
-        'product_count': product_count,
         'delivery': delivery,
         'free_delivery_amount': free_delivery_amount,
         'delivery_percentage': delivery_percentage,

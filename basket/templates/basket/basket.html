@@ -26,7 +26,7 @@
             {% if basket_items %}
                 {% for basket_item in basket_items %}
                     <div class="row">
-                        <p class="product-detail-title-text text-center pt-0">{{basket_item.product.name}}</p>
+                        <p class="product-detail-title-text text-center pt-0">{{ basket_item.product.name }}</p>
                         <div class="col-4 col-md-2 p-3">
                             <div class="product-container">
                                 <div class="image-container">
@@ -37,26 +37,24 @@
                             </div>
                         </div>
                         <div class="col-8 col-md-10 p-1">
-                            <div class="">
-                                <table class="table table-dark table-borderless basket-table">
-                                    <tr>
-                                        <td class="product-detail-title-text basket-table-title px-2 pt-3 pb-1">Quantity</td>
-                                        <td class="product-detail-text pt-3 pb-1">{{basket_item.product_quantity}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="product-detail-title-text basket-table-title px-2 pt-0 pb-1">{{ basket_item.product_category.size_description }}</td>
-                                        <td class="product-detail-text pt-0 pb-1">{{basket_item.product_size}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="product-detail-title-text basket-table-title px-2 pt-0 pb-1">{{ basket_item.product_category.type_description }}</td>
-                                        <td class="product-detail-text pt-0 pb-1">{{basket_item.product_type}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="product-detail-title-text basket-table-title px-2 pt-0 pb-1">Price</td>
-                                        <td class="product-detail-text pt-0 pb-1">£{{basket_item.line_item_price}}</td>
-                                    </tr>
-                                </table>
-                            </div>
+                            <table class="table table-dark table-borderless">
+                                <tr>
+                                    <td class="product-detail-title-text basket-table-title px-2 pt-3 pb-1">Quantity</td>
+                                    <td class="product-detail-text pt-3 pb-1">{{ basket_item.product_quantity }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="product-detail-title-text basket-table-title px-2 pt-0 pb-1">{{ basket_item.product_category.size_description }}</td>
+                                    <td class="product-detail-text pt-0 pb-1">{{ basket_item.product_size }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="product-detail-title-text basket-table-title px-2 pt-0 pb-1">{{ basket_item.product_category.type_description }}</td>
+                                    <td class="product-detail-text pt-0 pb-1">{{ basket_item.product_type }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="product-detail-title-text basket-table-title px-2 pt-0 pb-1">Subtotal</td>
+                                    <td class="product-detail-text pt-0 pb-1">£{{ basket_item.line_item_price }}</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                     <div class="row">
@@ -66,13 +64,30 @@
                     </div>
                     {% endfor %}
                     <div class="row">
-                        <div class="col-12">
-                            <p>Subtotal: </p>
-                            <p>Delivery: </p>
-                            <p>Spend another <span>£00.00</span> to qualify for free UK delivery</p>
-                            <p>Grand Total: </p>
-                        </div> 
-                    </div>       
+                        <div class="col-12 col-md-6">
+                            <table class="table table-dark table-borderless">
+                                <tr>
+                                    <td class="product-detail-title-text total-table-title px-2 pt-3 pb-1">Total</td>
+                                    <td class="product-detail-title-text pt-3 pb-1">£{{ total }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="product-detail-title-text total-table-title px-2 pt-0 pb-1">Delivery</td>
+                                    {% if delivery > 0 %}
+                                        <td class="product-detail-title-text pt-0 pb-1">£{{ delivery }}</td>
+                                    {% else %}
+                                        <td class="product-detail-title-text pt-0 pb-1">Free!</td>
+                                    {% endif %}
+                                </tr>                                
+                                <tr>
+                                    <td class="product-detail-title-text total-table-title px-2 pt-0 pb-1">Grand Total</td>
+                                    <td class="product-detail-title-text pt-0 pb-1">£{{ grand_total }}</td>
+                                </tr>
+                            </table>
+                            {% if delivery > 0 %}
+                                <p class="product-detail-title-text">Spend another <span>{{ free_delivery_delta }}</span> to qualify for free UK delivery!</p>
+                            {% endif %}
+                        </div>
+                    </div>
                 {% else %}
                     <div class="row">
                         <div class="col-12">

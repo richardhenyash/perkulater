@@ -1,9 +1,13 @@
-/*-- Basket Custom CSS--*/
+/*-- Basket Custom CSS --*/
 
 
-/*-- Basket Table--*/
+/*-- Basket Tables --*/
 .basket-table-title {
     width: 8rem;
+}
+
+.total-table-title {
+    width: 11rem;
 }
 
 /*-- Media Queries--*/
