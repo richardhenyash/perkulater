@@ -12,10 +12,9 @@
 {% endblock %}
 
 {% block content %}
-<section id="basket-contents" class="container-sm pt-2">
+<section id="basket-contents" class="container-sm container-custom pt-2">
     <div class="row py-4">
-        <div class="d-none d-md-block col-md-2"></div>
-        <div class="col-sm-12 col-md-8 pt-4 px-5">
+        <div class="col-12 pt-4 px-5">
             <div class="row">
                 <div class="col-12">
                     <h6 class="product-text-lg text-center pt-2">Basket</h6>
@@ -23,78 +22,74 @@
                 <div class="divider-opaque">
                     <hr>
                 </div>
-                {% if basket_items %}
-                    {% for basket_item in basket_items %}
-                        <div class="row">
-                            <div class="col-3 p-3">
-                                <div class="product-container">
-                                    <div class="image-container">
-                                        <a href="{% url 'product_detail' basket_item.product_id %}">
-                                            <img src="{{ basket_item.product.image.url }}" alt="{{ basket_item.product.name }}" class="w-100 p-1">
-                                        </a>
-                                    </div>
+            </div>
+            {% if basket_items %}
+                {% for basket_item in basket_items %}
+                    <div class="row">
+                        <p class="product-detail-title-text text-center pt-0">{{basket_item.product.name}}</p>
+                        <div class="col-4 col-md-2 p-3">
+                            <div class="product-container">
+                                <div class="image-container">
+                                    <a href="{% url 'product_detail' basket_item.product_id %}">
+                                        <img src="{{ basket_item.product.image.url }}" alt="{{ basket_item.product.name }}" class="w-100 p-1">
+                                    </a>
                                 </div>
-                            </div>
-                            <div class="col-8 p-3">
-                                <div class="product-detail-container">
-                                    <table class="table table-dark table-borderless">
-                                        <thead>
-                                            <tr>
-                                            <th scope="col-3"></th>
-                                            <th scope="col-9"></th>
-                                            </tr>
-                                        </thead>
-                                        <tr>
-                                        <tr>
-                                            <td class="product-detail-title-text px-3 pt-0 pb-1">Product: </td>
-                                            <td class="product-detail-text pt-0 pb-1">{{basket_item.product.name}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="product-detail-title-text px-3 pt-0 pb-1">Quantity: </td>
-                                            <td class="product-detail-text pt-0 pb-1">{{basket_item.product_quantity}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="product-detail-title-text px-3 pt-0 pb-1">{{ basket_item.product_category.size_description }}: </td>
-                                            <td class="product-detail-text pt-0 pb-1">{{basket_item.product_size}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="product-detail-title-text px-3 pt-0 pb-1">{{ basket_item.product_category.type_description }}: </td>
-                                            <td class="product-detail-text pt-0 pb-1">{{basket_item.product_type}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="product-detail-title-text px-3 pt-0 pb-1">Price: </td>
-                                            <td class="product-detail-text pt-0 pb-1">£{{basket_item.line_item_price}}</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="divider-opaque">
-                                <hr>
                             </div>
                         </div>
+                        <div class="col-8 col-md-10 p-1">
+                            <div class="">
+                                <table class="table table-dark table-borderless basket-table">
+                                    <tr>
+                                        <td class="product-detail-title-text basket-table-title px-2 pt-3 pb-1">Quantity</td>
+                                        <td class="product-detail-text pt-3 pb-1">{{basket_item.product_quantity}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="product-detail-title-text basket-table-title px-2 pt-0 pb-1">{{ basket_item.product_category.size_description }}</td>
+                                        <td class="product-detail-text pt-0 pb-1">{{basket_item.product_size}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="product-detail-title-text basket-table-title px-2 pt-0 pb-1">{{ basket_item.product_category.type_description }}</td>
+                                        <td class="product-detail-text pt-0 pb-1">{{basket_item.product_type}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="product-detail-title-text basket-table-title px-2 pt-0 pb-1">Price</td>
+                                        <td class="product-detail-text pt-0 pb-1">£{{basket_item.line_item_price}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="divider-opaque">
+                            <hr>
+                        </div>
+                    </div>
                     {% endfor %}
-                    <div class="col-12">
-                        <p>Subtotal: </p>
-                        <p>Delivery: </p>
-                        <p>Spend another <span>£00.00</span> to qualify for free UK delivery</p>
-                        <p>Grand Total: </p>
-                    </div>           
+                    <div class="row">
+                        <div class="col-12">
+                            <p>Subtotal: </p>
+                            <p>Delivery: </p>
+                            <p>Spend another <span>£00.00</span> to qualify for free UK delivery</p>
+                            <p>Grand Total: </p>
+                        </div> 
+                    </div>       
                 {% else %}
-                    <div class="col-12">
-                        <p class="product-text-lg text-left pt-2">Your basket is currrently empty</p>
-                        <p>Free delivery on orders over £{{ free_delivery_amount }}</p>
-                        <p>Delivery Percentage: {{ delivery_percentage }}</p>
-                        <div class="text-center pt-4">
-                            <a href="{% url 'products' %}"
-                                class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-50">
-                                Keep Shopping
-                            </a>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="product-text-lg text-left pt-2">Your basket is currrently empty</p>
+                            <p>Free delivery on orders over £{{ free_delivery_amount }}</p>
+                            <p>Delivery Percentage: {{ delivery_percentage }}</p>
+                            <div class="text-center pt-4">
+                                <a href="{% url 'products' %}"
+                                    class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-50">
+                                    Keep Shopping
+                                </a>
+                            </div>
                         </div>
                     </div>
                 {% endif %}
             </div>
         </div>
-        <div class="d-none d-md-block col-md-2"></div>
     </div>
 </section>
 

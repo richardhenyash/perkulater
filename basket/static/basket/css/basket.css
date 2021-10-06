@@ -1,1 +1,14 @@
 /*-- Basket Custom CSS--*/
+
+
+/*-- Basket Table--*/
+.basket-table-title {
+    width: 8rem;
+}
+
+/*-- Media Queries--*/
+@media (min-width: 768px) {
+    .basket-table-title {
+        width: 9rem;
+    }
+}
