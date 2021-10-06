@@ -9,6 +9,7 @@ def basket_contents(request):
     basket_items = []
     total = 0
     basket = request.session.get('basket', {})
+    # basket = {}
     for product_key, product_quantity in basket.items():
         product_info_array = product_key.split("_")
         product_id = product_info_array[0]
@@ -53,7 +54,6 @@ def basket_contents(request):
         'basket_items': basket_items,
         'total': total,
         'delivery': delivery,
-        'free_delivery_amount': free_delivery_amount,
         'free_delivery_delta': free_delivery_delta,
         'grand_total': grand_total,
     }
