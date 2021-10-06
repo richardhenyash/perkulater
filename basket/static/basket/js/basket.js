@@ -17,17 +17,28 @@ $("#basket-quantity-plus-btn").click(function() {
 });
 
 $('.basket-quantity-input').each(function () {
-    let currentQuantity = parseInt($(this).val())
     let quantityInputId = "#" + $(this).attr('id')
-    let quantityMinusBtnId = "#" + $(this).next().attr('id')
-    let quantityPlusBtnId = "#" + $(this).next().next().attr('id')
+    let btnMinusID = "#" + $(this).next().attr('id')
+    let btnPlusID = "#" + $(this).next().next().attr('id')
+    let currentQuantity = parseInt($(this).val())
+    console.log(currentQuantity)
+    if (currentQuantity == 1){
+        $(btnMinusID).attr("disabled", true)
+    } else {
+        $(btnMinusID).removeAttr('disabled')
+    }
+    if (currentQuantity == 99){
+        $(btnPlusID).attr("disabled", true)
+    } else {
+        $(btnPlusID).removeAttr('disabled')
+    }
     console.log(quantityInputId)
-    console.log(quantityMinusBtnId)
-    console.log(quantityPlusBtnId)
-    $(quantityMinusBtnId).click(function() {
-        (incrementQuantity(quantityInputId, quantityMinusBtnId, quantityPlusBtnId, -1, 1, 99));
+    console.log(btnMinusID)
+    console.log(btnPlusID)
+    $(btnMinusID).click(function() {
+        (incrementQuantity(quantityInputId, btnMinusID, btnPlusID, -1, 1, 99));
     });
-    $(quantityPlusBtnId).click(function() {
-        (incrementQuantity(quantityInputId, quantityMinusBtnId, quantityPlusBtnId, 1, 1, 99));
+    $(btnPlusID).click(function() {
+        (incrementQuantity(quantityInputId, btnMinusID, btnPlusID, 1, 1, 99));
     });
 });
