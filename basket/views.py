@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404, HttpResponse, redirect, render, reverse
+from django.contrib import messages
 from products.models import Product, Size, Type
 
 def view_basket(request):
@@ -12,6 +13,7 @@ def add_to_basket(request, product_id):
     Add a product to the basket based on product id,
     product size and product type
     """
+    product = Product.objects.get(pk=product_id)
     product_size = request.POST.get('product-size')
     product_type = request.POST.get('product-type')
     size = get_object_or_404(Size, size=product_size)
@@ -29,6 +31,7 @@ def add_to_basket(request, product_id):
         basket[product_key] += product_quantity
     else:
         basket[product_key] = product_quantity
+        messages.success(request, f'Added {product.name} to your bag')
 
     request.session['basket'] = basket
     # request.session['basket'] = {}

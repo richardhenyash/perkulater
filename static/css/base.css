@@ -270,6 +270,22 @@ body {
     font-size: 1.5rem;
 }
 
+/*-- Toast Messages --*/
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
 /*-- Footer --*/
 .footer-links a {
     color: var(--whitehighlight);

@@ -21,8 +21,8 @@
         <!-- Link to Coffee Favicon -->
         <link rel="shortcut icon" href="/media/coffee-favicon.ico" type="image/x-icon">  
         <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
-            rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+            rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
             crossorigin="anonymous">
         <!-- Link to Google Fonts - Teko, Titillium Web and Montserrat -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -108,8 +108,14 @@
                 </div>
             </div>
         </header>
+
         {% if messages %}
-            <div class="message-container"></div>
+            <section class="message-container">
+                {% for message in messages %}
+                    {{ message }}
+                    {% include 'includes/toasts/toast_success.html' %}
+                {% endfor %}
+            </section>
         {% endif %}
 
         {% block page_header %}
@@ -152,10 +158,14 @@
                 integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
                 crossorigin="anonymous"></script>
             </script>
-            <!--Bootstrap JavaScript -->
+            <!-- Bootstrap JavaScript -->
             <script 
-                src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+                src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous">
+            </script>
+            <!-- Show toast messages -->
+            <script type="text/javascript">
+                $('.toast').toast('show');
             </script>
         {% endblock %}
 
