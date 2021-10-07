@@ -1,5 +1,5 @@
 /**
-* @fileOverview JavaScript Basket Function Library.
+* @fileOverview Basket JavaScript Function Library.
 * @author <a href="https://github.com/richardhenyash">Richard Ash</a>
 * @version 1.1.1
 */
@@ -24,9 +24,13 @@ $('.basket-quantity-input').each(function () {
     } else {
         $(btnPlusID).removeAttr('disabled')
     }
+    // Add on click event handler to quantity minus button
+    // Using incrementQuantity function from Products JavaScript Function Library
     $(btnMinusID).click(function() {
         (incrementQuantity(quantityInputId, btnMinusID, btnPlusID, -1, 1, 99));
     });
+    // Add on click event handler to quantity plus button
+    // Using incrementQuantity function from Products JavaScript Function Library
     $(btnPlusID).click(function() {
         (incrementQuantity(quantityInputId, btnMinusID, btnPlusID, 1, 1, 99));
     });

@@ -1,5 +1,5 @@
 /**
-* @fileOverview JavaScript Products Function Library.
+* @fileOverview Products JavaScript Function Library.
 * @author <a href="https://github.com/richardhenyash">Richard Ash</a>
 * @version 1.1.1
 */
