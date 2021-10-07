@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render, get_object_or_404
+from django.shortcuts import redirect, render, reverse, get_object_or_404
 from products.models import Product, Size, Type
 
 def view_basket(request):
@@ -33,3 +33,21 @@ def add_to_basket(request, product_id):
     request.session['basket'] = basket
     # request.session['basket'] = {}
     return redirect(redirect_url)
+
+
+def adjust_basket(request, product_key):
+    """
+    Update the quantity of a specific product in the basket
+    """
+    product_quantity = int(request.POST.get('product-quantity'))
+    print(product_quantity)
+    basket = request.session.get('basket', {})
+
+    if product_quantity > 0:
+        basket[product_key] = product_quantity
+    else:
+        basket.pop(product_key)
+
+    request.session['basket'] = basket
+    # request.session['basket'] = {}
+    return redirect(reverse('view_basket'))

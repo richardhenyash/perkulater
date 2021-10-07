@@ -21,6 +21,7 @@
 
 .basket-link:hover {
     color: var(--greenhighlight);
+    cursor: pointer;
 }
 
 /*-- Media Queries--*/

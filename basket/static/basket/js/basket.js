@@ -13,7 +13,7 @@ $('.basket-quantity-input').each(function () {
     let btnPlusID = "#" + $(this).next().next().attr('id')
     // Disable minus button if current quantity is 1
     let currentQuantity = parseInt($(this).val())
-    if (currentQuantity == 1){
+    if (currentQuantity == 0){
         $(btnMinusID).attr("disabled", true)
     } else {
         $(btnMinusID).removeAttr('disabled')
@@ -27,26 +27,24 @@ $('.basket-quantity-input').each(function () {
     // Add on click event handler to quantity minus button
     // Using incrementQuantity function from Products JavaScript Function Library
     $(btnMinusID).click(function() {
-        (incrementQuantity(quantityInputId, btnMinusID, btnPlusID, -1, 1, 99));
+        (incrementQuantity(quantityInputId, btnMinusID, btnPlusID, -1, 0, 99));
     });
     // Add on click event handler to quantity plus button
     // Using incrementQuantity function from Products JavaScript Function Library
     $(btnPlusID).click(function() {
-        (incrementQuantity(quantityInputId, btnMinusID, btnPlusID, 1, 1, 99));
+        (incrementQuantity(quantityInputId, btnMinusID, btnPlusID, 1, 0, 99));
     });
 });
 
 // Update quantity on click
-$('.basket-quantity-update').click(function(e) {
-    let linkId = $(this).attr('id')
-    console.log(linkId)
+$('.basket-quantity-update').each(function() {   
     let form = $(this).prev('.basket-update-form');
-    let formId = form.attr('id')
-    console.log(formId)
-    // form.submit();
+    $(this).click(function() {
+        form.submit()
+    });
 })
 
-// Remove item and reload on click
+// Remove product and reload on click
 $('.basket-remove').click(function(e) {
     let csrfToken = "{{ csrf_token }}";
     let productKey = $(this).data('product-key');
@@ -55,8 +53,8 @@ $('.basket-remove').click(function(e) {
     console.log(url)
     let data = {'csrfmiddlewaretoken': csrfToken};
     console.log(data)
-    //$.post(url, data)
-    //    .done(function() {
-    //        location.reload();
-    //   });
+    $.post(url, data)
+        .done(function() {
+            location.reload();
+       });
 })
