@@ -26,8 +26,10 @@
             {% if basket_items %}
                 {% for basket_item in basket_items %}
                     <div class="row">
-                        <p class="basket-detail-title-text text-center pt-0">{{ basket_item.product.name }}</p>
-                        <div class="col-4 col-md-3 py-4 px-2">
+                        <div class="col-12 pt-4">
+                            <p class="basket-detail-title-text text-center">{{ basket_item.product.name }}</p>
+                        </div>
+                        <div class="col-4 col-md-3 px-2 pt-2">
                             <div class="product-container">
                                 <div class="image-container">
                                     <a href="{% url 'product_detail' basket_item.product_id %}">
@@ -36,11 +38,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-8 col-md-9 p-1 pt-2">
+                        <div class="col-8 col-md-9 p-1">
                             <table class="table table-dark table-borderless">
                                 <tr>
-                                    <td class="basket-detail-quantity-title-text basket-detail-title-text basket-table-title px-2 pt-4 pb-1">Quantity</td>
-                                    <td class="basket-detail-text pt-3 pb-1">
+                                    <td class="basket-detail-quantity-title-text basket-detail-title-text basket-table-title pt-3 px-2 pb-1">Quantity</td>
+                                    <td class="basket-detail-text">
                                         <form action="{% url 'adjust_basket' basket_item.product_key  %}" method="POST" class="form basket-update-form" id="{{ basket_item.product_key }}-update-form">
                                             {% csrf_token %}
                                             <div class="input-group">
@@ -69,12 +71,12 @@
                             </table>
                         </div>
                     </div>
+                    {% endfor %}
                     <div class="row">
                         <div class="divider-opaque">
                             <hr>
                         </div>
                     </div>
-                    {% endfor %}
                     <div class="row">
                         <div class="col-12">
                             <table class="table table-dark table-borderless">
