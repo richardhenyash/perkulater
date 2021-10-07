@@ -10,6 +10,19 @@
     width: 11rem;
 }
 
+/*-- Basket Links --*/
+.basket-link {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--green);
+    text-decoration: None;
+    text-align: right;
+}
+
+.basket-link:hover {
+    color: var(--greenhighlight);
+}
+
 /*-- Media Queries--*/
 @media (min-width: 768px) {
     .basket-table-title {

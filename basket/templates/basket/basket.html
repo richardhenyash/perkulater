@@ -41,7 +41,7 @@
                                 <tr>
                                     <td class="product-detail-title-text basket-table-title px-2 pt-4 pb-1">Quantity</td>
                                     <td class="product-detail-text pt-3 pb-1">
-                                        <form class="form" action="">
+                                        <form class="form basket-update-form" id="{{ basket_item.product_key }}-update-form" action="">
                                             {% csrf_token %}
                                             <div class="input-group">
                                                 <input id="{{ basket_item.product_key }}-quantity" name="product-quantity" type="text" inputmode="numeric" readonly class="product-quantity-input basket-quantity-input form-control text-center" placeholder="{{ basket_item.product_quantity }}" value="{{ basket_item.product_quantity }}" aria-label="Quantity">
@@ -50,6 +50,8 @@
                                             </div>
                                             <input type="hidden" name="product_key" value="{{ basket_item.product_key }}">
                                         </form>
+                                        <a href="" id="{{ basket_item.product_key }}-update" class="basket-link basket-quantity-update px-1" data-product-key="{{ basket_item.product_key }}">Update</a>
+                                        <a href="" id="{{ basket_item.product_key }}-remove" class="basket-link basket-remove px-1" data-product-key="{{ basket_item.product_key }}">Remove</a>
                                     </td>
                                 </tr>
                                 <tr>

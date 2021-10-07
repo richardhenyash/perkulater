@@ -35,3 +35,28 @@ $('.basket-quantity-input').each(function () {
         (incrementQuantity(quantityInputId, btnMinusID, btnPlusID, 1, 1, 99));
     });
 });
+
+// Update quantity on click
+$('.basket-quantity-update').click(function(e) {
+    let linkId = $(this).attr('id')
+    console.log(linkId)
+    let form = $(this).prev('.basket-update-form');
+    let formId = form.attr('id')
+    console.log(formId)
+    // form.submit();
+})
+
+// Remove item and reload on click
+$('.basket-remove').click(function(e) {
+    let csrfToken = "{{ csrf_token }}";
+    let productKey = $(this).data('product-key');
+    console.log(productKey)
+    let url = `/bag/remove/${productKey}`;
+    console.log(url)
+    let data = {'csrfmiddlewaretoken': csrfToken};
+    console.log(data)
+    //$.post(url, data)
+    //    .done(function() {
+    //        location.reload();
+    //   });
+})
