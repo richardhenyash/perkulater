@@ -36,25 +36,10 @@ $('.basket-quantity-input').each(function () {
     });
 });
 
-// Update quantity on click
+// Update product quantity on click
 $('.basket-quantity-update').each(function() {   
     let form = $(this).prev('.basket-update-form');
     $(this).click(function() {
         form.submit()
     });
-})
-
-// Remove product and reload on click
-$('.basket-remove').click(function(e) {
-    let csrfToken = "{{ csrf_token }}";
-    let productKey = $(this).data('product-key');
-    console.log(productKey)
-    let url = `/bag/remove/${productKey}`;
-    console.log(url)
-    let data = {'csrfmiddlewaretoken': csrfToken};
-    console.log(data)
-    $.post(url, data)
-        .done(function() {
-            location.reload();
-       });
 })

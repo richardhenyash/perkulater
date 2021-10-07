@@ -147,4 +147,21 @@
     <script src="{% static 'basket/js/basket.js' %}"></script>
     <!-- Link to Products JavaScript -->
     <script src="{% static 'products/js/products.js' %}"></script>
+    <!-- JavaScript function added to basket remove links -->
+    <!-- Added in basket.html due to csrf token -->
+    <script type="text/javascript">
+        // Remove product and reload on click
+        $('.basket-remove').each(function (e) {
+            $(this).click(function() {
+                let csrfToken = "{{ csrf_token }}";
+                let productKey = $(this).data('product-key');
+                let url = `/basket/remove/${productKey}/`;
+                let data = {'csrfmiddlewaretoken': csrfToken};
+                $.post(url, data)
+                    .done(function() {
+                        location.reload();
+                    });
+            });
+        })
+    </script>
 {% endblock %}
