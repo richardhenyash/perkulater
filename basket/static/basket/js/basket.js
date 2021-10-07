@@ -5,36 +5,25 @@
 */
 /*jshint esversion: 6 */
 
-
-// On click event handler added to minus button to decrease product quantity and update price
-$("#basket-quantity-minus-btn").click(function() {
-    (incrementQuantity("#basket-quantity", "#basket-quantity-minus-btn", "#basket-quantity-plus-btn", -1, 1, 99));
-});
-
-// On click event handler added to plus button to decrease product quantity and update price
-$("#basket-quantity-plus-btn").click(function() {
-    (incrementQuantity("#basket-quantity", "#basket-quantity-minus-btn", "#basket-quantity-plus-btn", 1, 1, 99));
-});
-
+// On click event handler added to basket quantity minus and plus buttons to increase or decrease product quantity
 $('.basket-quantity-input').each(function () {
+    // Get input and button id's
     let quantityInputId = "#" + $(this).attr('id')
     let btnMinusID = "#" + $(this).next().attr('id')
     let btnPlusID = "#" + $(this).next().next().attr('id')
+    // Disable minus button if current quantity is 1
     let currentQuantity = parseInt($(this).val())
-    console.log(currentQuantity)
     if (currentQuantity == 1){
         $(btnMinusID).attr("disabled", true)
     } else {
         $(btnMinusID).removeAttr('disabled')
     }
+    // Disable plus button if current quantity is 99
     if (currentQuantity == 99){
         $(btnPlusID).attr("disabled", true)
     } else {
         $(btnPlusID).removeAttr('disabled')
     }
-    console.log(quantityInputId)
-    console.log(btnMinusID)
-    console.log(btnPlusID)
     $(btnMinusID).click(function() {
         (incrementQuantity(quantityInputId, btnMinusID, btnPlusID, -1, 1, 99));
     });

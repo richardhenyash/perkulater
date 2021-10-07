@@ -76,6 +76,11 @@
     font-weight: 600;
 }
 
+/*-- Product Quantity Input Disabled Stlying --*/
+.product-quantity-input[readonly] {
+    background-color: var(--background-lvl3);
+}
+
 /*-- Modals --*/
 .modal-content {
     border: var(--white) 1px solid;
