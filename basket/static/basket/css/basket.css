@@ -1,6 +1,15 @@
 /*-- Basket Custom CSS --*/
 
 
+.basket-detail-title-text {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.basket-detail-text {
+    font-size: 1.4rem;
+}
+
 /*-- Basket Tables --*/
 .basket-table-title {
     width: 8rem;
@@ -28,5 +37,23 @@
 @media (min-width: 768px) {
     .basket-table-title {
         width: 9rem;
+    }
+}
+
+@media (max-width: 370px) {
+    .basket-table-title {
+        width: 7rem;
+    }
+    .basket-detail-quantity-title-text {
+        padding-top: 1.7rem!important
+    }
+    .basket-detail-title-text {
+        font-size: 1.2rem;
+    }
+    .basket-detail-text {
+        font-size: 1.2rem;
+    }
+    .basket-link {
+        font-size: 1.0rem;
     }
 }

@@ -26,8 +26,8 @@
             {% if basket_items %}
                 {% for basket_item in basket_items %}
                     <div class="row">
-                        <p class="product-detail-title-text text-center pt-0">{{ basket_item.product.name }}</p>
-                        <div class="col-4 col-md-3 p-3">
+                        <p class="basket-detail-title-text text-center pt-0">{{ basket_item.product.name }}</p>
+                        <div class="col-4 col-md-3 py-4 px-2">
                             <div class="product-container">
                                 <div class="image-container">
                                     <a href="{% url 'product_detail' basket_item.product_id %}">
@@ -36,11 +36,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-8 col-md-9 p-1">
+                        <div class="col-8 col-md-9 p-1 pt-2">
                             <table class="table table-dark table-borderless">
                                 <tr>
-                                    <td class="product-detail-title-text basket-table-title px-2 pt-4 pb-1">Quantity</td>
-                                    <td class="product-detail-text pt-3 pb-1">
+                                    <td class="basket-detail-quantity-title-text basket-detail-title-text basket-table-title px-2 pt-4 pb-1">Quantity</td>
+                                    <td class="basket-detail-text pt-3 pb-1">
                                         <form action="{% url 'adjust_basket' basket_item.product_key  %}" method="POST" class="form basket-update-form" id="{{ basket_item.product_key }}-update-form">
                                             {% csrf_token %}
                                             <div class="input-group">
@@ -55,16 +55,16 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="product-detail-title-text basket-table-title px-2 pt-0 pb-1">{{ basket_item.product_category.size_description }}</td>
-                                    <td class="product-detail-text pt-0 pb-1">{{ basket_item.product_size.size }}</td>
+                                    <td class="basket-detail-title-text basket-table-title px-2 pt-0 pb-1">{{ basket_item.product_category.size_description }}</td>
+                                    <td class="basket-detail-text pt-0 pb-1">{{ basket_item.product_size.size }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="product-detail-title-text basket-table-title px-2 pt-0 pb-1">{{ basket_item.product_category.type_description }}</td>
-                                    <td class="product-detail-text pt-0 pb-1">{{ basket_item.product_type.type }}</td>
+                                    <td class="basket-detail-title-text basket-table-title px-2 pt-0 pb-1">{{ basket_item.product_category.type_description }}</td>
+                                    <td class="basket-detail-text pt-0 pb-1">{{ basket_item.product_type.type }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="product-detail-title-text basket-table-title px-2 pt-0 pb-1">Subtotal</td>
-                                    <td class="product-detail-text pt-0 pb-1">£{{ basket_item.line_item_price }}</td>
+                                    <td class="basket-detail-title-text basket-table-title px-2 pt-0 pb-1">Subtotal</td>
+                                    <td class="basket-detail-text pt-0 pb-1">£{{ basket_item.line_item_price }}</td>
                                 </tr>
                             </table>
                         </div>
@@ -79,24 +79,24 @@
                         <div class="col-12">
                             <table class="table table-dark table-borderless">
                                 <tr>
-                                    <td class="product-detail-title-text total-table-title px-2 pt-3 pb-1">Total</td>
-                                    <td class="product-detail-title-text pt-3 pb-1">£{{ total }}</td>
+                                    <td class="basket-detail-title-text total-table-title px-2 pt-3 pb-1">Total</td>
+                                    <td class="basket-detail-title-text pt-3 pb-1">£{{ total }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="product-detail-title-text total-table-title px-2 pt-0 pb-1">Delivery</td>
+                                    <td class="basket-detail-title-text total-table-title px-2 pt-0 pb-1">Delivery</td>
                                     {% if delivery > 0 %}
-                                        <td class="product-detail-title-text pt-0 pb-1">£{{ delivery }}</td>
+                                        <td class="basket-detail-title-text pt-0 pb-1">£{{ delivery }}</td>
                                     {% else %}
-                                        <td class="product-detail-title-text pt-0 pb-1">Free!</td>
+                                        <td class="basket-detail-title-text pt-0 pb-1">Free!</td>
                                     {% endif %}
                                 </tr>                                
                                 <tr>
-                                    <td class="product-detail-title-text total-table-title px-2 pt-0 pb-1">Grand Total</td>
-                                    <td class="product-detail-title-text pt-0 pb-1">£{{ grand_total }}</td>
+                                    <td class="basket-detail-title-text total-table-title px-2 pt-0 pb-1">Grand Total</td>
+                                    <td class="basket-detail-title-text pt-0 pb-1">£{{ grand_total }}</td>
                                 </tr>
                             </table>
                             {% if delivery > 0 %}
-                                <p class="product-detail-title-text px-2 pt-0 pb-1">Spend another <span>£{{ free_delivery_delta }}</span> to qualify for free UK delivery!</p>
+                                <p class="basket-detail-title-text px-2 pt-0 pb-1">Spend another <span>£{{ free_delivery_delta }}</span> to qualify for free UK delivery!</p>
                             {% endif %}
                         </div>
                     </div>

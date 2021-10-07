@@ -74,6 +74,7 @@
     background-color: var(--background-lvl3);
     color: var(--white);
     font-weight: 600;
+    max-width: 5rem;
 }
 
 /*-- Product Quantity Input Disabled Stlying --*/
