@@ -80,6 +80,14 @@
 /*-- Product Quantity Input Disabled Stlying --*/
 .product-quantity-input[readonly] {
     background-color: var(--background-lvl3);
+    color: var(--white);
+}
+
+.product-quantity-input[readonly]:focus {
+    border: 2px solid rgba(250, 250, 250, 0.5);
+    background-color: var(--background-lvl3);
+    color: var(--white);
+    box-shadow: None;
 }
 
 /*-- Modals --*/
