@@ -46,7 +46,10 @@
 }
 
 @media (max-width: 370px) {
-    .basket-table-title {
+    .basket-image-container {
+        padding-top: 1rem!important;
+    }
+    }.basket-table-title {
         width: 7rem;
     }
     .basket-detail-quantity-title-text {
