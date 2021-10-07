@@ -29,6 +29,7 @@ def add_to_basket(request, product_id):
 
     if product_key in list(basket.keys()):
         basket[product_key] += product_quantity
+        messages.success(request, f'Added another {product.name} to your bag')
     else:
         basket[product_key] = product_quantity
         messages.success(request, f'Added {product.name} to your bag')
