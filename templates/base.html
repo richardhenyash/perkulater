@@ -110,12 +110,11 @@
         </header>
 
         {% if messages %}
-            <section class="message-container">
+            <aside class="message-container">
                 {% for message in messages %}
-                    {{ message }}
                     {% include 'includes/toasts/toast_success.html' %}
                 {% endfor %}
-            </section>
+            </aside>
         {% endif %}
 
         {% block page_header %}
@@ -163,10 +162,8 @@
                 src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous">
             </script>
-            <!-- Show toast messages -->
-            <script type="text/javascript">
-                $('.toast').show();
-            </script>
+            <!-- Link to Base JavaScript -->
+            <script src="{% static 'js/base.js' %}"></script>
         {% endblock %}
 
         {% block extrapostloadjs %}
