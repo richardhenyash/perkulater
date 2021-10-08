@@ -272,6 +272,10 @@ body {
 
 /*-- Toast Messages --*/
 
+.toast-container {
+    z-index: 11
+}
+
 .toast-header{
     border: var(--white) 1px solid;
     background-clip: unset;
@@ -292,9 +296,24 @@ body {
     font-size: 1.4rem;
 }
 
+.toast-error i,
+.toast-error h5 {
+    color: var(--pink);
+}
+
+.toast-info i,
+.toast-info h5 {
+    color: var(--blue);
+}
+
 .toast-success i,
 .toast-success h5 {
     color: var(--green);
+}
+
+.toast-warning i,
+.toast-warning h5 {
+    color: var(--yellow);
 }
 
 /*-- Footer --*/
