@@ -275,7 +275,7 @@ body {
 .toast-container {
     position: fixed;
     top: 8rem;
-    right: 1rem;
+    right: 1.5rem;
     z-index: 11
 }
 
