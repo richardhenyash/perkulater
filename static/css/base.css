@@ -110,6 +110,12 @@ body {
 }
 
 /*-- Containers --*/
+.basket-notification-container {
+    height: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 
 /*-- Dividers--*/
 .divider-solid hr {

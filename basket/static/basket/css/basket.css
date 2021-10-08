@@ -5,6 +5,13 @@
     background-color: rgba(41, 41, 41, 0.6);
 }
 
+.basket-notification-container {
+    height: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
 /*-- Basket Text --*/
 .basket-detail-title-text {
     font-size: 1.4rem;
