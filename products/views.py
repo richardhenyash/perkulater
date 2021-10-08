@@ -31,6 +31,11 @@ def all_products(request):
                 return redirect(reverse('products'))
             queries = Q(name__icontains=query) | Q(description_short__icontains=query)
             products = products.filter(queries)
+            if (len(products)) == 0:
+                messages.warning(request, "Your search didn't return any products.")
+                return redirect(reverse('products'))
+
+
 
     products = products.order_by("name")
     

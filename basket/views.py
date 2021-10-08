@@ -76,4 +76,5 @@ def remove_from_basket(request, product_key):
 
     except Exception as e:
         return HttpResponse(status=500)
+        messages.error(request, f'Error removing item: (e)')
    
