@@ -13,7 +13,7 @@ def add_to_basket(request, product_id):
     Add a product to the basket based on product id,
     product size and product type
     """
-    product = Product.objects.get(pk=product_id)
+    product = get_object_or_404(Product, pk=product_id)
     product_size = request.POST.get('product-size')
     product_type = request.POST.get('product-type')
     size = get_object_or_404(Size, size=product_size)
@@ -43,13 +43,17 @@ def adjust_basket(request, product_key):
     """
     Update the quantity of the specified product in the basket
     """
+    product_id = int(product_key.split("_")[0])
+    product = get_object_or_404(Product, pk=product_id)
     product_quantity = int(request.POST.get('product-quantity'))
     basket = request.session.get('basket', {})
 
     if product_quantity > 0:
         basket[product_key] = product_quantity
+        messages.success(request, f'Updated quantity of {product.name} in your basket')
     else:
         basket.pop(product_key)
+        messages.success(request, f'Removed {product.name} from your basket')
 
     request.session['basket'] = basket
     # request.session['basket'] = {}
@@ -60,9 +64,11 @@ def remove_from_basket(request, product_key):
     """
     Remove the specified product from the basket
     """
+    product_id = int(product_key.split("_")[0])
+    product = get_object_or_404(Product, pk=product_id)
     basket = request.session.get('basket', {})
-    print(product_key)
     basket.pop(product_key)
+    messages.success(request, f'Removed {product.name} from your basket')
     request.session['basket'] = basket
 
     try:
