@@ -273,6 +273,9 @@ body {
 /*-- Toast Messages --*/
 
 .toast-container {
+    position: fixed;
+    top: 8rem;
+    right: 1rem;
     z-index: 11
 }
 
