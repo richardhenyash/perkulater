@@ -276,7 +276,7 @@ body {
     position: fixed;
     top: 8rem;
     right: 1.5rem;
-    z-index: 11
+    z-index: 11;
 }
 
 .toast-header{
