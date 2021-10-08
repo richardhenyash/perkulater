@@ -110,12 +110,6 @@ body {
 }
 
 /*-- Containers --*/
-.basket-notification-container {
-    height: 250px;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
 
 /*-- Dividers--*/
 .divider-solid hr {
@@ -360,6 +354,6 @@ body {
         font-size: 1.4rem;
     }  
     .toast {
-        max-width: 250px;
+        max-width: 300px;
     }
 }

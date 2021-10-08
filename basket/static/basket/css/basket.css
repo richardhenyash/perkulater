@@ -18,7 +18,8 @@
     font-weight: 600;
 }
 
-.basket-detail-text {
+.basket-detail-text, 
+.basket-preview-quantity-text {
     font-size: 1.4rem;
 }
 
@@ -60,12 +61,15 @@
         width: 7rem;
     }
     .basket-detail-quantity-title-text {
-        padding-top: 1.3rem!important;
+        padding-top: 1.0rem!important;
     }
     .basket-detail-title-text {
         font-size: 1.2rem;
     }
     .basket-detail-text {
+        font-size: 1.2rem;
+    }
+    .basket-preview-quantity-text {
         font-size: 1.2rem;
     }
     .basket-link {
