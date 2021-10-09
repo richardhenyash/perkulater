@@ -6,7 +6,7 @@
 }
 
 .basket-notification-container {
-    height: 250px;
+    max-height: 250px;
     overflow-x: hidden;
     overflow-y: auto;
 }
