@@ -686,6 +686,9 @@ will be automatically pushed to **Heroku**.
 
 * [Pin Clip Art](https://www.pinclipart.com/) for the coffee bean logo.
 
+
+* Thanks to help from Shaun at code instutute, [https://getbootstrap.com/docs/5.0/components/toasts/#usage], and [https://stackoverflow.com/questions/63515279/how-to-initialize-toasts-with-javascript-in-bootstrap-5]
+
 * [Vector Stock](https://www.vectorstock.com/) for the attractive dove logo.
 * [DataTables](https://datatables.net/) for the brilliant tables plug in.
 * [WTForms](https://wtforms.readthedocs.io/en/2.3.x/) for the excellent form validation library and 

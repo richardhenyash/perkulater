@@ -271,8 +271,6 @@ body {
 }
 
 /*-- Toast Messages --*/
-
-
 .toast {
     border-bottom-left-radius: 1rem 1rem;
     border-bottom-right-radius: 1rem 1rem;
@@ -325,6 +323,26 @@ body {
 .toast-warning i,
 .toast-warning h5 {
     color: var(--yellow);
+}
+
+/*-- User Forms --*/
+.form-user h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.form-user p {
+    font-size: 1.4rem;
+}
+
+.form-user-link {
+    font-weight: 600;
+    color: var(--green);
+
+}
+
+.form-user-link:hover {
+    color: var(--greenhighlight);
 }
 
 /*-- Footer --*/
