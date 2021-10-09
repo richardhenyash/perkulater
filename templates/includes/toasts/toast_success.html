@@ -88,6 +88,14 @@
                             <p class="basket-detail-title-text px-2 pt-0 pb-1">Spend another <span>£{{ free_delivery_delta }}</span> to qualify for free UK delivery!</p>
                         {% endif %}
                     </div>
+                    <div class="col-12 pb-2">
+                        <div class="text-center">
+                            <a href="{% url 'products' %}"
+                                class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-50">
+                                Checkout
+                            </a>
+                        </div>
+                    </div>
                 </div>
             {% endif %}
         </div>
