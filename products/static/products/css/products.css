@@ -91,6 +91,22 @@
 }
 
 /*-- Modals --*/
+
+.modal-content {
+    border-radius: 0rem;
+}
+
+.modal-header {
+    border-top-left-radius: 0rem 0rem;
+    border-top-right-radius: 0rem 0rem;  
+
+}
+.modal-content,
+.modal-footer { 
+    border-bottom-left-radius: 1rem 1rem;
+    border-bottom-right-radius: 1rem 1rem;
+}
+
 .modal-content {
     border: var(--white) 1px solid;
 }

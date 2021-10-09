@@ -272,6 +272,12 @@ body {
 
 /*-- Toast Messages --*/
 
+
+.toast {
+    border-bottom-left-radius: 1rem 1rem;
+    border-bottom-right-radius: 1rem 1rem;
+}
+
 .toast-container {
     position: fixed;
     top: 8rem;
@@ -288,6 +294,8 @@ body {
 .toast-body {
     border: var(--white) 1px solid;
     background-clip: unset;
+    border-bottom-left-radius: 1rem 1rem;
+    border-bottom-right-radius: 1rem 1rem;
 }
 
 .toast h5 {
