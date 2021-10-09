@@ -75,6 +75,9 @@
     .basket-link {
         font-size: 1.0rem;
     }
+    .basket-notification-container {
+        max-height: 150px;
+    }
 }
 
 @media (max-width: 300px) {
