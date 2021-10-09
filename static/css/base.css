@@ -340,7 +340,7 @@ body {
     }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 370px) {
     .logo-text {
         font-size: 5.0rem;
     }
@@ -354,6 +354,6 @@ body {
         font-size: 1.4rem;
     }  
     .toast {
-        max-width: 300px;
+        max-width: 90vw;
     }
 }

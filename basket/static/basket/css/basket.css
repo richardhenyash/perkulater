@@ -76,3 +76,9 @@
         font-size: 1.0rem;
     }
 }
+
+@media (max-width: 300px) {
+    .basket-notification-container {
+        overflow-x: auto;
+    }
+}
