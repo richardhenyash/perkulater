@@ -2,10 +2,8 @@
 {% load account %}
 
 {% user_display user as user_display %}
-<section id="already-signed-in" class="container-sm container-custom-sm form-user py-4 px-3">
-    <div class="row">
-        <div class="col-12">
-            <p class="py-2"><strong>{% trans "Note" %}:</strong> {% blocktrans %}you are already logged in as {{ user_display }}.{% endblocktrans %}</p>
-        </div>
+<div id="already-signed-in" class="row">
+    <div class="col-12">
+        <p class="py-2"><strong>{% trans "Note" %}: </strong> {% blocktrans %} you are already logged in as <strong>{{ user_display }}.{% endblocktrans %}</strong></p>
     </div>
-</section>
+</div>
