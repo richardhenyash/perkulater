@@ -326,8 +326,8 @@ body {
 }
 
 /*-- User Forms --*/
-.form-user h2 {
-    font-size: 1.6rem;
+.form-user h1 {
+    font-size: 2.0rem;
     font-weight: 600;
 }
 
@@ -336,13 +336,21 @@ body {
 }
 
 .form-user-link {
-    font-weight: 600;
+    font-weight: 700;
     color: var(--green);
-
+    text-decoration: None;
 }
 
 .form-user-link:hover {
     color: var(--greenhighlight);
+}
+
+.form-user label {
+    font-size: 1.4rem;
+}
+
+.form-user input {
+    font-size: 1.4rem;
 }
 
 /*-- Footer --*/
