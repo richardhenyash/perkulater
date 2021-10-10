@@ -387,6 +387,23 @@ body {
     box-shadow: 0 0 0 0.25rem rgb(78 208 173 / 25%);
 }
 
+.form-check-label {
+    font-size: 1.2rem !important;
+}
+
+.form-check-input {
+    margin-top: .6em;
+}
+
+.form-check-input:checked {
+    background-color: var(--green);
+    border-color: var(--green);
+}
+
+.form-check-input:focus {
+    border-color: var(--green)
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
   transition: background-color 600000s 0s, color 600000s 0s;
