@@ -195,6 +195,16 @@ body {
     color: var(--yellow);
 }
 
+/*-- Pink Foreground --*/
+.fg-pink {
+    color: var(--pink);
+}
+
+/*-- Green Foreground --*/
+.fg-green {
+    color: var(--green);
+}
+
 /*-- Buttons --*/
 .btn-pink {
     background-color: var(--pink);
