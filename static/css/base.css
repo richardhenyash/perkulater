@@ -335,7 +335,7 @@ body {
     color: var(--yellow);
 }
 
-/*-- User Forms --*/
+/*-- Forms --*/
 .form-user h1 {
     font-size: 2.0rem;
     font-weight: 600;
@@ -355,12 +355,47 @@ body {
     color: var(--greenhighlight);
 }
 
-.form-user label {
+.form-user label,
+.field-label {
     font-size: 1.4rem;
+    font-weight: 600;
 }
 
 .form-user input {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    background-color: var(--background-lvl3);
+    border: 2px solid rgba(250, 250, 250, 0.6);
+    color: var(--white);
+}
+
+.form-user input::placeholder {
+    color: var(--white);
+    opacity: 1;
+}
+
+.form-user input:-ms-input-placeholder {
+    color: var(--white);
+    opacity: 1;
+}
+
+.form-user input::-ms-input-placeholder {
+    color: var(--white);
+    opacity: 1;
+}
+
+.form-user input:focus {
+    box-shadow: 0 0 0 0.25rem rgb(78 208 173 / 25%);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+.form-control:focus {
+    background-color: var(--background-lvl2);
+    border: 2px solid var(--green);
+    color: var(--white);
 }
 
 /*-- Footer --*/

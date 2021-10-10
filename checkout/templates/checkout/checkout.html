@@ -14,7 +14,7 @@
 {% endblock %}
 
 {% block content %}
-<section id="checkout" class="container-sm pt-2">
+<section id="checkout" class="container-sm container-custom pt-2">
     <div class="row py-4">
         <div class="col-12 basket-container pt-4 px-5">
             <div class="row">
@@ -26,16 +26,16 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 col-md-6 px-3">
-                    <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                <div class="col-12 col-md-5 px-3">
+                    <form class="form-user" action="{% url 'checkout' %}" method="POST" id="payment-form">
                         {% csrf_token %}
                         <fieldset class="">
-                            <legend class="fieldset-label">Your Details</legend>
+                            <legend class="field-label">Your Details</legend>
                             {{ order_form.full_name | as_crispy_field }}
                             {{ order_form.email | as_crispy_field }}
                         </fieldset>
-                        <fieldset class="">
-                            <legend class="fieldset-label">Delivery</legend>
+                        <fieldset>
+                            <legend class="field-label">Delivery</legend>
                             {{ order_form.phone_number | as_crispy_field }}
                             {{ order_form.address_1 | as_crispy_field }}
                             {{ order_form.address_2 | as_crispy_field }}
@@ -55,7 +55,7 @@
                                 {% endif %}
                             </div>
                         </fieldset>
-                        <fieldset class="">
+                        <fieldset class="checkout-form">
                             <legend class="fieldset-label">Payment</legend>
                             <!-- A Stripe card element will go here -->
                             <div class="" id="card-element"></div>    
@@ -93,6 +93,7 @@
                         </div>
                     </form>                  
                 </div>
+                <div class="col-md-1"></div>
                 <div class="col-12 col-md-6 px-3">
                     <p class="basket-detail-title-text text-center pt-2">Product Summary</p>
                     <div class="divider-opaque">
@@ -103,7 +104,7 @@
                         <div class="col-12">
                             <p class="basket-detail-title-text text-center">{{ basket_item.product.name }}</p>
                         </div>
-                        <div class="basket-image-container col-3 col-md-2 px-2 pt-2">
+                        <div class="basket-image-container col-3 px-2 pt-3">
                             <div class="product-detail-container">
                                 <div class="image-container">
                                     <img src="{{ basket_item.product.image.url }}" alt="{{ basket_item.product.name }}"
@@ -111,7 +112,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-9 col-md-10 p-1">
+                        <div class="col-9 p-1">
                             <table class="table table-dark table-borderless">
                                 <thead>
                                     <tr>
