@@ -89,6 +89,7 @@ body {
 }
 
 .navbar-nav .form-control:focus {
+    border: 2px solid var(--green);
     box-shadow: 0 0 0 0.25rem rgb(78 208 173 / 25%);
 }
 
@@ -361,7 +362,8 @@ body {
     font-weight: 600;
 }
 
-.form-user input {
+.form-user input,
+.form-user select {
     font-size: 1.2rem;
     background-color: var(--background-lvl3);
     border: 2px solid rgba(250, 250, 250, 0.6);
@@ -381,10 +383,6 @@ body {
 .form-user input::-ms-input-placeholder {
     color: var(--white);
     opacity: 1;
-}
-
-.form-user input:focus {
-    box-shadow: 0 0 0 0.25rem rgb(78 208 173 / 25%);
 }
 
 .form-user input:-webkit-autofill,
@@ -411,11 +409,13 @@ body {
     border-color: var(--green)
 }
 
-
-.form-user .form-control:focus {
-    background-color: var(--background-lvl2);
-    border: 2px solid var(--green);
+.form-user input:focus,
+.form-user .form-control:focus,
+.form-user .form-select:focus {
+    background-color: var(--background-lvl3);
     color: var(--white);
+    border: 2px solid var(--green);
+    box-shadow: 0 0 0 0.25rem rgb(78 208 173 / 25%);
 }
 
 .form-text-small p {
