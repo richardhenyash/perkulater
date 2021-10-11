@@ -357,10 +357,13 @@ body {
 }
 
 .form-label,
-.field-label,
-.primary_email {
+.field-label {
     font-size: 1.4rem;
     font-weight: 600;
+}
+
+.blockLabels {
+    font-size: 1.4rem;
 }
 
 .form-user input,
@@ -430,7 +433,7 @@ body {
     font-weight: 500;
 }
 
-.form-user .primary_email span {
+.blockLabels span {
     color: var(--pink);
     font-size: 1.2rem;
     font-weight: 500;
