@@ -56,11 +56,11 @@
 
 /*-- Product Information Icons --*/
 .product-detail-title-text i {
-    color: var(--green);
+    color: var(--blue);
 }
 
 .product-detail-title-text i:hover {
-    color: var(--greenhighlight);
+    color: var(--bluehighlight);
 }
 
 /*-- Product Quantity Input --*/

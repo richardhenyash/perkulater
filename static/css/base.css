@@ -19,6 +19,7 @@
         --pink: #FFAD99;
         --pinkhighlight: #FF8D70;
         --blue: #73DCE7;
+        --bluehighlight: #3FCFDE;
         --white: #FAFAFA;
         --whitehighlight: #CCCCCC;
     }
@@ -208,6 +209,11 @@ body {
 /*-- Green Foreground --*/
 .fg-green {
     color: var(--green);
+}
+
+/*-- Green Foreground --*/
+.fg-blue {
+    color: var(--blue);
 }
 
 /*-- Buttons --*/
