@@ -378,10 +378,14 @@ body {
 
 .form-user input,
 .form-user select {
-    font-size: 1.2rem;
+    box-sizing: border-box;
+    font-size: 1.4rem;
     background-color: var(--background-lvl3);
     border: 2px solid rgba(250, 250, 250, 0.6);
     color: var(--white);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.7rem;
 }
 
 .form-user input::placeholder {
@@ -401,10 +405,12 @@ body {
 
 .form-user input:-webkit-autofill,
 .form-user input:-webkit-autofill:focus {
-  transition: background-color 600000s 0s, color 600000s 0s;
+    -webkit-text-fill-color: var(--white);
+    opacity: 1;
+    transition: background-color 600000s 0s, color 600000s 0s;
 }
 
-
+ 
 .form-check-label {
     font-size: 1.2rem;
     font-weight: 600;
