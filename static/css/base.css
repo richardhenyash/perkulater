@@ -357,7 +357,8 @@ body {
 }
 
 .form-label,
-.field-label {
+.field-label,
+.primary_email {
     font-size: 1.4rem;
     font-weight: 600;
 }
@@ -426,7 +427,13 @@ body {
 
 .form-text-small p {
     font-size: 1.2rem;
-    font-weight: 00;
+    font-weight: 500;
+}
+
+.form-user .primary_email span {
+    color: var(--pink);
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 
 /*-- Modals --*/
