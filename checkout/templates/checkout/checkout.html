@@ -27,7 +27,7 @@
             </div>
             <div class="row">
                 <div class="col-12 col-md-6 px-3 px-md-4">
-                    <form class="form-user" action="{% url 'checkout' %}" method="POST" id="payment-form">
+                    <form class="form-user dark" action="{% url 'checkout' %}" method="POST" id="payment-form">
                         {% csrf_token %}
                         <fieldset class="pt-2">
                             <legend class="field-label">Your Details</legend>
@@ -46,7 +46,7 @@
                             <div class="form-check form-check-inline float-right mr-0">
                                 {% if user.is_authenticated %}
                                     <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
-                                    <input class="form-check-input mt-1" type="checkbox" id="id-save-info" name="save-info" checked>
+                                    <input class="form-check-input mt-2" type="checkbox" id="id-save-info" name="save-info" checked>
                                 {% else %}
                                     <label class="form-check-label" for="id-save-info">
                                         <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 

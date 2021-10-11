@@ -356,7 +356,7 @@ body {
     color: var(--greenhighlight);
 }
 
-.form-user label,
+.form-label,
 .field-label {
     font-size: 1.4rem;
     font-weight: 600;
@@ -390,9 +390,15 @@ body {
   transition: background-color 600000s 0s, color 600000s 0s;
 }
 
-.form-user .form-check label,
+
 .form-check-label {
     font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.form-check-input {
+    width: 1.4rem;
+    height: 1.4rem;
 }
 
 .checkboxinput {
