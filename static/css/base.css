@@ -111,6 +111,10 @@ body {
 }
 
 /*-- Containers --*/
+.container-custom,
+.container-custom-sm {
+    min-height: 70vh;
+}
 
 /*-- Dividers--*/
 .divider-solid hr {
