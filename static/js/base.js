@@ -14,7 +14,7 @@ let toastList = toastElList.map(function (toastEl) {
     /* Set toast initialisation options */
     let option = {
         animation: true,
-        autohide: true,
+        autohide: false,
         delay: 5000,
     }
   let bsToast = new bootstrap.Toast(toastEl, option)

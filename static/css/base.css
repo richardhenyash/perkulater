@@ -335,7 +335,7 @@ body {
     color: var(--yellow);
 }
 
-/*-- Forms --*/
+/*-- User Input Forms --*/
 .form-user h1 {
     font-size: 2.0rem;
     font-weight: 600;
@@ -387,33 +387,75 @@ body {
     box-shadow: 0 0 0 0.25rem rgb(78 208 173 / 25%);
 }
 
+.form-user input:-webkit-autofill,
+.form-user input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+.form-user .form-check label,
 .form-check-label {
-    font-size: 1.2rem !important;
+    font-size: 1.2rem;
 }
 
-.form-check-input {
-    margin-top: .6em;
+.checkboxinput {
+    margin-left: 0.5rem;
+    margin-top: 0.6rem;
 }
 
-.form-check-input:checked {
+.form-user .form-check-input:checked {
     background-color: var(--green);
     border-color: var(--green);
 }
 
-.form-check-input:focus {
+.form-user .form-check-input:focus {
     border-color: var(--green)
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:focus {
-  transition: background-color 600000s 0s, color 600000s 0s;
-}
 
-.form-control:focus {
+.form-user .form-control:focus {
     background-color: var(--background-lvl2);
     border: 2px solid var(--green);
     color: var(--white);
 }
+
+.form-text-small p {
+    font-size: 1.2rem;
+    font-weight: 00;
+}
+
+/*-- Modals --*/
+.modal-content {
+    border-radius: 0rem;
+}
+
+.modal-header {
+    border-top-left-radius: 0rem 0rem;
+    border-top-right-radius: 0rem 0rem;  
+
+}
+.modal-content,
+.modal-footer { 
+    border-bottom-left-radius: 1rem 1rem;
+    border-bottom-right-radius: 1rem 1rem;
+}
+
+.modal-content {
+    border: var(--white) 1px solid;
+}
+
+.modal-header h5 {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.modal-body p {
+    font-size: 1.4rem;
+}
+
+.btn-close {
+    color: var(--green);
+}
+
 
 /*-- Footer --*/
 .footer-links a {

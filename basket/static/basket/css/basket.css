@@ -54,14 +54,11 @@
 }
 
 @media (max-width: 370px) {
-    .basket-image-container {
-        padding-top: 1rem!important;
-    }
     .basket-table-title {
         width: 7rem;
     }
     .basket-detail-quantity-title-text {
-        padding-top: 1.0rem!important;
+        padding-top: 1.2rem !important;
     }
     .basket-detail-title-text {
         font-size: 1.2rem;

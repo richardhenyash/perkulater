@@ -16,7 +16,7 @@
 {% block content %}
 <section id="checkout" class="container-sm container-custom pt-2">
     <div class="row py-4">
-        <div class="col-12 basket-container pt-4 px-5">
+        <div class="col-12 basket-container pt-4 px-3">
             <div class="row">
                 <div class="col-12">
                     <h6 class="product-text-lg text-center pt-2">Checkout</h6>
@@ -26,15 +26,15 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 col-md-5 px-3">
+                <div class="col-12 col-md-6 px-3 px-md-4">
                     <form class="form-user" action="{% url 'checkout' %}" method="POST" id="payment-form">
                         {% csrf_token %}
-                        <fieldset class="">
+                        <fieldset class="pt-2">
                             <legend class="field-label">Your Details</legend>
                             {{ order_form.full_name | as_crispy_field }}
                             {{ order_form.email | as_crispy_field }}
                         </fieldset>
-                        <fieldset>
+                        <fieldset class="pt-2">
                             <legend class="field-label">Delivery</legend>
                             {{ order_form.phone_number | as_crispy_field }}
                             {{ order_form.address_1 | as_crispy_field }}
@@ -46,7 +46,7 @@
                             <div class="form-check form-check-inline float-right mr-0">
                                 {% if user.is_authenticated %}
                                     <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
-                                    <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                                    <input class="form-check-input mt-1" type="checkbox" id="id-save-info" name="save-info" checked>
                                 {% else %}
                                     <label class="form-check-label" for="id-save-info">
                                         <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
@@ -55,8 +55,8 @@
                                 {% endif %}
                             </div>
                         </fieldset>
-                        <fieldset class="checkout-form">
-                            <legend class="fieldset-label">Payment</legend>
+                        <fieldset class="pt-2">
+                            <legend class="field-label">Payment</legend>
                             <!-- A Stripe card element will go here -->
                             <div class="" id="card-element"></div>    
                             <!-- Used to display form errors -->
@@ -65,8 +65,8 @@
                             <input type="hidden" value="{{ client_secret}}" name="client_secret">
                         </fieldset>
                         <div class="row">
-                            <div class="col-12">
-                                <p class="small fg-green">
+                            <div class="col-12 form-text-small">
+                                <p class="fg-green">
                                     <span class="icon">
                                         <i class="fas fa-exclamation-circle"></i>
                                     </span>
@@ -93,9 +93,8 @@
                         </div>
                     </form>                  
                 </div>
-                <div class="col-md-1"></div>
-                <div class="col-12 col-md-6 px-3">
-                    <p class="basket-detail-title-text text-center pt-2">Product Summary</p>
+                <div class="col-12 col-md-6 px-3 px-md-4 pt-2">
+                    <p class="basket-detail-title-text text-center">Product Summary</p>
                     <div class="divider-opaque">
                         <hr>
                     </div>

@@ -34,7 +34,7 @@
   </div>
   <div class="row pb-3">
     <div class="col-12">
-      <form class="login" method="POST" action="{% url 'account_login' %}">
+      <form class="login form-user" method="POST" action="{% url 'account_login' %}">
         {% csrf_token %}
         {{ form|crispy }}
         {% if redirect_field_value %}
