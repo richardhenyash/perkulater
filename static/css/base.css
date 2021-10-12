@@ -216,6 +216,20 @@ body {
     color: var(--blue);
 }
 
+/*-- Text --*/
+.text-medium {
+    font-size: 1.4rem;
+}
+
+.text-medium-semi-bold {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+.text-medium-bold {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
 /*-- Buttons --*/
 .btn-pink {
     background-color: var(--pink);
