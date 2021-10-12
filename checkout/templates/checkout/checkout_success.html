@@ -116,6 +116,12 @@
                         <hr>
                     </div>
                 </div>
+                {% for lineitem in order.lineitems.all %}
+                    {{ lineitem.product.name }}
+                    {{ lineitem.price.price }}
+                    {{ lineitem.size.size }}
+                    {{ lineitem.type.type }}
+                {% endfor %}
                 <div class="row">
                     <div class="col-12">
                         <table class="table table-dark table-borderless">
