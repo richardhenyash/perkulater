@@ -27,7 +27,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <p class="basket-detail-text text-center">
+                    <p class="text-medium text-center">
                         Your order information is below. 
                         A confirmation email has been sent to <strong class="fg-pink">{{ order.email }}</strong>.
                     </p>
@@ -38,16 +38,16 @@
                     <div class="col-12">
                         <table class="table table-dark table-borderless">
                             <tr>
-                                <td class="basket-detail-title-text checkout-table-title py-0">Order Number</th>
+                                <td class="text-large text-bold checkout-table-title py-0">Order Number</th>
                             </tr>
                             <tr>
-                                <td class="basket-detail-text px-2 py-0">{{ order.order_number }}</td>
+                                <td class="text-medium px-2 py-0">{{ order.order_number }}</td>
                             </tr>
                             <tr>
-                                <td class="basket-detail-title-text checkout-table-title px-2 py-0">Order Date</td>
+                                <td class="text-large text-bold checkout-table-title px-2 py-0 pt-3">Order Date</td>
                             </tr>
                             <tr>
-                                <td class="basket-detail-text px-2 py-0">{{ order.date }}</td>
+                                <td class="text-medium px-2 py-0">{{ order.date }}</td>
                             </tr>
                         </table>
                     </div>                   
@@ -58,20 +58,20 @@
                         <div class="col-12">
                             <table class="table table-dark table-borderless">
                                 <tr>
-                                    <th scope="col" class="basket-detail-title-text checkout-table-title py-1">Your Details</th>
+                                    <th scope="col" class="text-large text-bold checkout-table-title py-1">Your Details</th>
                                     <th scope="col"></th>
                                 </tr>
                                 <tr>
-                                    <td class="basket-detail-title-text checkout-table-title px-2 py-0">Name</td>
-                                    <td class="basket-detail-text px-2 py-0">{{ order.full_name }}</td>
+                                    <td class="text-medium text-bold checkout-table-title px-2 py-0">Name</td>
+                                    <td class="text-medium px-2 py-0">{{ order.full_name }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="basket-detail-title-text checkout-table-title px-2 py-0">Email</td>
-                                    <td class="basket-detail-text px-2 py-0">{{ order.email }}</td>
+                                    <td class="text-medium text-bold checkout-table-title px-2 py-0">Email</td>
+                                    <td class="text-medium px-2 py-0">{{ order.email }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="basket-detail-title-text checkout-table-title px-2 py-0">Phone Number</td>
-                                    <td class="basket-detail-text px-2 py-0">{{ order.phone_number }}</td>
+                                    <td class="text-medium text-bold checkout-table-title px-2 py-0">Phone Number</td>
+                                    <td class="text-medium px-2 py-0">{{ order.phone_number }}</td>
                                 </tr>
                             </table>
                         </div>
@@ -80,7 +80,7 @@
                         <div class="col-12">
                             <table class="table table-dark table-borderless">
                                 <tr>
-                                    <th scope="col" class="basket-detail-title-text checkout-table-title py-1">Delivery Details</th>
+                                    <th scope="col" class="text-large text-bold checkout-table-title py-1">Delivery Details</th>
                                     <th scope="col"></th>
                                 </tr>
                                 <tr>
@@ -116,65 +116,46 @@
                         <hr>
                     </div>
                 </div>
+                <div class="row">
                 {% for lineitem in order.lineitems.all %}
-                    <div class="row">
-                        <div class="col-12 pt-4 px-3 text-center">
-                            <p class="basket-detail-title-text">{{ lineitem.product.name }}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="basket-image-container col-3 col-md-2 px-3 px-md-4">
-                            <div class="product-container">
-                                <div class="image-container">
-                                    <a href="{% url 'product_detail' lineitem.product.id %}">
-                                        <img src="{{ lineitem.product.image.url }}" alt="{{ lineitem.product.name }}" class="w-100 p-1">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-9 col-md-10">
-                            <table class="table table-dark table-borderless">
-                                <tr>
-                                    <td class="basket-detail-title-text basket-table-title px-2 py-0">{{ lineitem.size.category.size_description }}</td>
-                                    <td class="basket-detail-text px-2 py-0">{{ lineitem.size.size }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="basket-detail-title-text basket-table-title px-2 py-0">{{ lineitem.type.category.type_description }}</td>
-                                    <td class="basket-detail-text px-2 py-0">{{ lineitem.type.type }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="basket-detail-title-text basket-table-title px-2 py-0">Quantity</td>
-                                    <td class="basket-detail-text px-2 py-0">{{ lineitem.quantity }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="basket-detail-title-text basket-table-title px-2 py-0">Subtotal</td>
-                                    <td class="basket-detail-title-text px-2 py-0">£{{ lineitem.lineitem_total }}</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="card bg-black-3" style="width: 50%;">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">{{ lineitem.product.name }}</h5>
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="image-container">
-                                        <a href="{% url 'product_detail' lineitem.product.id %}">
-                                            <img src="{{ lineitem.product.image.url }}" alt="{{ lineitem.product.name }}" class="w-100 p-1">
-                                        </a>
-                                    </div>                              
-                                </div> 
-                                <div class="col-6">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">{{ lineitem.size.size }} x {{ lineitem.quantity }}</li>
-                                        <li class="list-group-item">{{ lineitem.type.type }}</li>
-                                        <li class="list-group-item">£{{ lineitem.lineitem_total }}</li>
-                                    </ul>
+                    <div class="col-12 col-md-6">
+                        <div class="card bg-black-3">
+                            <div class="card-body">
+                                <h5 class="card-title text-center text-large text-bold">{{ lineitem.product.name }}</h5>
+                                <div class="row">
+                                    <div class="col-4 p-3">
+                                        <div class="product-container image-container">
+                                            <a href="{% url 'product_detail' lineitem.product.id %}">
+                                                <img src="{{ lineitem.product.image.url }}" alt="{{ lineitem.product.name }}" class="w-100 p-1">
+                                            </a>                             
+                                        </div>
+                                    </div>
+                                    <div class="col-8 text-medium pt-4">
+                                        <table class="table table-dark table-borderless text-medium">
+                                            <tr>
+                                                <td class="px-2 pt-3 pb-0 text-bold">{{ lineitem.size.category.size_description }}</td>
+                                                <td class="px-2 pt-3 pb-0">{{ lineitem.size.size }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-2 py-0 text-bold">{{ lineitem.type.category.type_description }}</td>
+                                                <td class="px-2 py-0">{{ lineitem.type.type }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-2 py-0 text-bold">Quantity</td>
+                                                <td class="px-2 py-0">{{ lineitem.quantity }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-2 py-3 text-bold">Subtotal</td>
+                                                <td class="px-2 py-3">£{{ lineitem.lineitem_total }}</td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 {% endfor %}
+                </div>
                 <div class="row pt-3">
                     <div class="divider-opaque">
                         <hr>
@@ -184,20 +165,20 @@
                     <div class="col-12">
                         <table class="table table-dark table-borderless">
                             <tr>
-                                <td class="basket-detail-title-text checkout-table-title px-2 pt-3 pb-1">Total</td>
+                                <td class="text-medium text-bold checkout-table-title px-2 pt-3 pb-1">Total</td>
                                 <td class="basket-detail-title-text pt-3 pb-1">£{{ order.order_total }}</td>
                             </tr>
                             <tr class="">
-                                <td class="basket-detail-title-text checkout-table-title px-2 pt-0 pb-1">Delivery</td>                                
+                                <td class="text-medium text-bold checkout-table-title px-2 pt-0 pb-1">Delivery</td>                                
                                 {% if order.delivery_cost > 0 %}
-                                    <td class="basket-detail-title-text pt-0 pb-1">£{{ order.delivery_cost }}</td>
+                                    <td class="text-medium text-bold pt-0 pb-1">£{{ order.delivery_cost }}</td>
                                 {% else %}
-                                    <td class="basket-detail-title-text pt-0 pb-1">Free!</td>
+                                    <td class="text-medium text-bold pt-0 pb-1">Free!</td>
                                 {% endif %}
                             </tr>
                             <tr>
-                                <td class="basket-detail-title-text checkout-table-title px-2 pt-0 pb-1">Grand Total</td>
-                                <td class="basket-detail-title-text pt-0 pb-1">£{{ order.grand_total }}</td>
+                                <td class="text-large text-bold checkout-table-title px-2 py-2">Grand Total</td>
+                                <td class="text-large text-bold py-2">£{{ order.grand_total }}</td>
                             </tr>
                         </table>
                     </div>
