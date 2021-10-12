@@ -548,4 +548,13 @@ body {
     .toast {
         max-width: 90vw;
     }
+    .text-small {
+        font-size: 1.0rem;
+    }
+    .text-medium {
+        font-size: 1.2rem;
+    }   
+    .text-large {
+        font-size: 1.4rem;
+    }
 }

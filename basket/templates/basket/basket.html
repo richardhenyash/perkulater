@@ -26,47 +26,51 @@
             {% if basket_items %}
                 {% for basket_item in basket_items %}
                     <div class="row">
-                        <div class="col-12 pt-4">
-                            <p class="text-large text-bold text-center">{{ basket_item.product.name }}</p>
-                        </div>
-                        <div class="basket-image-container col-4 col-md-3 px-2 pt-3 pt-md-2">
-                            <div class="product-container">
-                                <a href="{% url 'product_detail' basket_item.product_id %}">
-                                    <img src="{{ basket_item.product.image.url }}" alt="{{ basket_item.product.name }}" class="w-100 p-1">
-                                </a>
+                        <div class="row pt-4">
+                            <div class="col-12">
+                                <p class="text-large text-bold text-center">{{ basket_item.product.name }}</p>
                             </div>
                         </div>
-                        <div class="col-8 col-md-9 p-1">
-                            <table class="table table-dark table-borderless">
-                                <tr>
-                                    <td class="text-medium text-bold basket-table-title pt-3 px-2 pb-1">Quantity</td>
-                                    <td class="text-medium">
-                                        <form action="{% url 'adjust_basket' basket_item.product_key  %}" method="POST" class="form basket-update-form" id="{{ basket_item.product_key }}-update-form">
-                                            {% csrf_token %}
-                                            <div class="input-group">
-                                                <input id="{{ basket_item.product_key }}-quantity" name="product-quantity" type="text" inputmode="numeric" readonly class="product-quantity-input basket-quantity-input form-control text-center" placeholder="{{ basket_item.product_quantity }}" value="{{ basket_item.product_quantity }}" aria-label="Quantity">
-                                                <button id="{{ basket_item.product_key }}-quantity-minus-btn" class="btn btn-lg btn-outline-light btn-outline-green" type="button"><i class="fas fa-minus fa-sm"></i></button>
-                                                <button id="{{ basket_item.product_key }}-quantity-plus-btn" class="btn btn-lg btn-outline-light btn-outline-green" type="button"><i class="fas fa-plus fa-sm"></i></button>
-                                            </div>
-                                            <input type="hidden" name="product_key" value="{{ basket_item.product_key }}">
-                                        </form>
-                                        <a id="{{ basket_item.product_key }}-update" class="basket-link basket-quantity-update px-1" data-product-key="{{ basket_item.product_key }}">Update</a>
-                                        <a id="{{ basket_item.product_key }}-remove" class="basket-link basket-remove px-1" data-product-key="{{ basket_item.product_key }}">Remove</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="text-medium text-bold px-2 pt-0 pb-1">{{ basket_item.product_category.size_description }}</td>
-                                    <td class="text-medium pt-0 pb-1">{{ basket_item.product_size.size }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-medium text-bold px-2 pt-0 pb-1">{{ basket_item.product_category.type_description }}</td>
-                                    <td class="text-medium pt-0 pb-1">{{ basket_item.product_type.type }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-medium text-bold px-2 pt-0 pb-1">Subtotal</td>
-                                    <td class="text-medium pt-0 pb-1">£{{ basket_item.line_item_price }}</td>
-                                </tr>
-                            </table>
+                        <div class="row d-flex align-items-center pb-4">
+                            <div class="basket-image-container col-4 col-md-3 p-1">
+                                <div class="product-container">
+                                    <a href="{% url 'product_detail' basket_item.product_id %}">
+                                        <img src="{{ basket_item.product.image.url }}" alt="{{ basket_item.product.name }}" class="w-100 p-1">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-8 col-md-9 p-1">
+                                <table class="table table-dark table-borderless">
+                                    <tr>
+                                        <td class="text-medium text-bold basket-table-title pt-3 px-2 pb-1">Quantity</td>
+                                        <td class="text-medium">
+                                            <form action="{% url 'adjust_basket' basket_item.product_key  %}" method="POST" class="form basket-update-form" id="{{ basket_item.product_key }}-update-form">
+                                                {% csrf_token %}
+                                                <div class="input-group">
+                                                    <input id="{{ basket_item.product_key }}-quantity" name="product-quantity" type="text" inputmode="numeric" readonly class="product-quantity-input basket-quantity-input form-control text-center px-1" placeholder="{{ basket_item.product_quantity }}" value="{{ basket_item.product_quantity }}" aria-label="Quantity">
+                                                    <button id="{{ basket_item.product_key }}-quantity-minus-btn" class="btn btn-lg btn-outline-light btn-outline-green" type="button"><i class="fas fa-minus fa-sm"></i></button>
+                                                    <button id="{{ basket_item.product_key }}-quantity-plus-btn" class="btn btn-lg btn-outline-light btn-outline-green" type="button"><i class="fas fa-plus fa-sm"></i></button>
+                                                </div>
+                                                <input type="hidden" name="product_key" value="{{ basket_item.product_key }}">
+                                            </form>
+                                            <a id="{{ basket_item.product_key }}-update" class="basket-link basket-quantity-update px-1" data-product-key="{{ basket_item.product_key }}">Update</a>
+                                            <a id="{{ basket_item.product_key }}-remove" class="basket-link basket-remove px-1" data-product-key="{{ basket_item.product_key }}">Remove</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-medium text-bold px-2 pt-0 pb-1">{{ basket_item.product_category.size_description }}</td>
+                                        <td class="text-medium pt-0 pb-1">{{ basket_item.product_size.size }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-medium text-bold px-2 pt-0 pb-1">{{ basket_item.product_category.type_description }}</td>
+                                        <td class="text-medium pt-0 pb-1">{{ basket_item.product_type.type }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-medium text-bold px-2 pt-0 pb-1">Subtotal</td>
+                                        <td class="text-medium pt-0 pb-1">£{{ basket_item.line_item_price }}</td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
                     {% endfor %}
