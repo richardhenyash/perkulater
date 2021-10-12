@@ -104,7 +104,7 @@
                                     <td class="basket-detail-text px-2 py-0">{{ order.postcode }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="basket-detail-title-text checkout-table-title px-2 py-0">Country Code</td>
+                                    <td class="basket-detail-title-text checkout-table-title px-2 py-0">Country</td>
                                     <td class="basket-detail-text px-2 py-0">{{ order.country }}</td>
                                 </tr>
                             </table>
@@ -117,11 +117,48 @@
                     </div>
                 </div>
                 {% for lineitem in order.lineitems.all %}
-                    {{ lineitem.product.name }}
-                    {{ lineitem.price.price }}
-                    {{ lineitem.size.size }}
-                    {{ lineitem.type.type }}
+                    <div class="row">
+                        <div class="col-12 pt-4 px-3 text-center">
+                            <p class="basket-detail-title-text">{{ lineitem.product.name }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="basket-image-container col-3 col-md-2 px-3 px-md-4">
+                            <div class="product-container">
+                                <div class="image-container">
+                                    <a href="{% url 'product_detail' lineitem.product.id %}">
+                                        <img src="{{ lineitem.product.image.url }}" alt="{{ lineitem.product.name }}" class="w-100 p-1">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-9 col-md-10">
+                            <table class="table table-dark table-borderless">
+                                <tr>
+                                    <td class="basket-detail-title-text basket-table-title px-2 py-0">{{ lineitem.size.category.size_description }}</td>
+                                    <td class="basket-detail-text px-2 py-0">{{ lineitem.size.size }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="basket-detail-title-text basket-table-title px-2 py-0">{{ lineitem.type.category.type_description }}</td>
+                                    <td class="basket-detail-text px-2 py-0">{{ lineitem.type.type }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="basket-detail-title-text basket-table-title px-2 py-0">Quantity</td>
+                                    <td class="basket-detail-text px-2 py-0">{{ lineitem.quantity }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="basket-detail-title-text basket-table-title px-2 py-0">Subtotal</td>
+                                    <td class="basket-detail-title-text px-2 py-0">£{{ lineitem.lineitem_total }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                 {% endfor %}
+                <div class="row pt-3">
+                    <div class="divider-opaque">
+                        <hr>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-12">
                         <table class="table table-dark table-borderless">
@@ -139,7 +176,7 @@
                             </tr>
                             <tr>
                                 <td class="basket-detail-title-text checkout-table-title px-2 pt-0 pb-1">Grand Total</td>
-                                <td class="basket-detail-title-text pt-0 pb-1">£{{ order.delivery_cost }}</td>
+                                <td class="basket-detail-title-text pt-0 pb-1">£{{ order.grand_total }}</td>
                             </tr>
                         </table>
                     </div>
