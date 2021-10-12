@@ -30,7 +30,7 @@
                             <p class="text-large text-bold text-center">{{ basket_item.product.name }}</p>
                         </div>
                         <div class="basket-image-container col-4 col-md-3 px-2 pt-3 pt-md-2">
-                            <div class="product-container image-container">
+                            <div class="product-container">
                                 <a href="{% url 'product_detail' basket_item.product_id %}">
                                     <img src="{{ basket_item.product.image.url }}" alt="{{ basket_item.product.name }}" class="w-100 p-1">
                                 </a>
@@ -39,7 +39,7 @@
                         <div class="col-8 col-md-9 p-1">
                             <table class="table table-dark table-borderless">
                                 <tr>
-                                    <td class="basket-detail-quantity-title-text basket-detail-title-text basket-table-title pt-3 px-2 pb-1">Quantity</td>
+                                    <td class="text-medium text-bold basket-table-title pt-3 px-2 pb-1">Quantity</td>
                                     <td class="text-medium">
                                         <form action="{% url 'adjust_basket' basket_item.product_key  %}" method="POST" class="form basket-update-form" id="{{ basket_item.product_key }}-update-form">
                                             {% csrf_token %}
@@ -96,7 +96,13 @@
                                 </tr>
                             </table>
                             {% if delivery > 0 %}
-                                <p class="text-medium text-bold px-2 pt-0 pb-1">Spend another <span>£{{ free_delivery_delta }}</span> to qualify for free UK delivery!</p>
+                                <p class="text-medium fg-blue px-2 pt-0 pb-1">
+                                    <span class="icon">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                    </span>
+                                    Spend another 
+                                    <span>£{{ free_delivery_delta }}</span> 
+                                    to qualify for free UK delivery!</p>
                             {% endif %}
                         </div>
                     </div>

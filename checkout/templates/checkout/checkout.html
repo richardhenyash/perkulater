@@ -107,10 +107,8 @@
                         </div>
                         <div class="basket-image-container col-3 px-2 pt-3">
                             <div class="product-detail-container">
-                                <div class="image-container">
-                                    <img src="{{ basket_item.product.image.url }}" alt="{{ basket_item.product.name }}"
-                                        class="w-100 p-1">
-                                </div>
+                                <img src="{{ basket_item.product.image.url }}" alt="{{ basket_item.product.name }}"
+                                    class="w-100 p-1">
                             </div>
                         </div>
                         <div class="col-9 p-1">
@@ -139,8 +137,7 @@
                                 </tr>
                                 <tr>
                                     <td class="text-medium text-bold basket-table-title px-2 pt-0 pb-1">Subtotal</td>
-                                    <td class="text-medium text-bold pt-0 pb-1">£{{ basket_item.line_item_price }}
-                                    </td>
+                                    <td class="text-medium pt-0 pb-1">£{{ basket_item.line_item_price }}</td>
                                 </tr>
                             </table>
                         </div>
