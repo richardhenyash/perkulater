@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extracss %}
+    <!-- Link to Products Custom CSS -->
+    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+    <!-- Link to Basket Custom CSS -->
+    <link rel="stylesheet" href="{% static 'basket/css/basket.css' %}">
+    <!-- Link to Checkout Custom CSS -->
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+<section id="checkout" class="container-sm container-custom pt-2">
+    <div class="row py-4">
+        <div class="col-12 basket-container pt-4 px-3">
+            <div class="row">
+                <div class="col-12">
+                    <h6 class="product-text-lg text-center pt-2">Thank You For Your Order!</h6>
+                </div>
+                <div class="divider-opaque">
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p class="basket-detail-text">
+                        Your order information is below. 
+                        A confirmation email has been sent to <strong class="fg-pink">{{ order.email }}</strong>.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p class="basket-detail-text">
+                        
+                    </p>
+                </div>
+            </div>           
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-12 col-md-6">       
+                    <div class="text-center py-4">
+                        <a href="{% url 'products' %}"
+                            class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-50">
+                            Keep Shopping
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extrapostloadjs %}
+{% endblock %}

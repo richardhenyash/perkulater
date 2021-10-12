@@ -5,27 +5,27 @@
 */
 /*jshint esversion: 6 */
 
-var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
-var clientSecret = $('#id_client_secret').text().slice(1, -1);
-var stripe = Stripe(stripePublicKey);
+// Accepting a payment in Stripe: https://stripe.com/docs/payments/accept-a-payment
+// Stripe.js and Stripe elements: https://stripe.com/docs/stripe-js
+// Using google fonts with stripe: https://stackoverflow.com/questions/43824382/custom-font-src-with-stripe/56985340
 
-
-//https://stackoverflow.com/questions/43824382/custom-font-src-with-stripe/56985340
-
-var elements = stripe.elements({
+let stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
+let clientSecret = $('#id_client_secret').text().slice(1, -1);
+let stripe = Stripe(stripePublicKey);
+let elements = stripe.elements({
   fonts: [
     {
       // integrate Google Fonts Montserrat into stripe
-      cssSrc: 'https://fonts.googleapis.com/css?family=Montserrat:400',
+      cssSrc: 'https://fonts.googleapis.com/css?family=Montserrat:400,500,600',
     }
   ]
 });
-
-var style = {
+let style = {
     base: {
         color: '#FAFAFA',
         fontFamily: 'Montserrat, sans-serif',  // set integrated font family
         fontSmoothing: 'antialiased',
+        fontWeight: '500',
         fontSize: '14px',
         '::placeholder': {
           color: '#FAFAFA'
@@ -36,14 +36,14 @@ var style = {
         iconColor: '#FFAD99'
     }
 };
-var card = elements.create('card', {style: style});
+let card = elements.create('card', {style: style});
 card.mount('#card-element');
 
 // Handle realtime validation errors on the card element
 card.addEventListener('change', function (event) {
-    var errorDiv = document.getElementById('card-errors');
+    let errorDiv = document.getElementById('card-errors');
     if (event.error) {
-        var html = `
+        let html = `
             <p><span class="icon" role="alert">
                 <i class="fas fa-times"></i>
             </span>
@@ -56,7 +56,7 @@ card.addEventListener('change', function (event) {
 });
 
 // Handle form submit
-var form = document.getElementById('payment-form');
+let form = document.getElementById('payment-form');
 form.addEventListener('submit', function(ev) {
   ev.preventDefault();
   card.update({ 'disabled': true});
@@ -67,8 +67,8 @@ form.addEventListener('submit', function(ev) {
       }
   }).then(function(result) {
       if (result.error) {
-          var errorDiv = document.getElementById('card-errors');
-          var html = `
+          let errorDiv = document.getElementById('card-errors');
+          let html = `
               <p><span class="icon" role="alert">
               <i class="fas fa-times"></i>
               </span>
