@@ -153,6 +153,27 @@
                             </table>
                         </div>
                     </div>
+                    <div class="card bg-black-3" style="width: 50%;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{{ lineitem.product.name }}</h5>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="image-container">
+                                        <a href="{% url 'product_detail' lineitem.product.id %}">
+                                            <img src="{{ lineitem.product.image.url }}" alt="{{ lineitem.product.name }}" class="w-100 p-1">
+                                        </a>
+                                    </div>                              
+                                </div> 
+                                <div class="col-6">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">{{ lineitem.size.size }} x {{ lineitem.quantity }}</li>
+                                        <li class="list-group-item">{{ lineitem.type.type }}</li>
+                                        <li class="list-group-item">£{{ lineitem.lineitem_total }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 {% endfor %}
                 <div class="row pt-3">
                     <div class="divider-opaque">
