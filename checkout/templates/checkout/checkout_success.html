@@ -27,19 +27,118 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <p class="basket-detail-text">
+                    <p class="basket-detail-text text-center">
                         Your order information is below. 
                         A confirmation email has been sent to <strong class="fg-pink">{{ order.email }}</strong>.
                     </p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <p class="basket-detail-text">
-                        
-                    </p>
+            {% if order %}
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-dark table-borderless">
+                            <tr>
+                                <td class="basket-detail-title-text checkout-table-title py-0">Order Number</th>
+                            </tr>
+                            <tr>
+                                <td class="basket-detail-text px-2 py-0">{{ order.order_number }}</td>
+                            </tr>
+                            <tr>
+                                <td class="basket-detail-title-text checkout-table-title px-2 py-0">Order Date</td>
+                            </tr>
+                            <tr>
+                                <td class="basket-detail-text px-2 py-0">{{ order.date }}</td>
+                            </tr>
+                        </table>
+                    </div>                   
+                    <div class="divider-opaque">
+                        <hr>
+                    </div>
+                    <div class="col-12 col-md-6 text-left">
+                        <div class="col-12">
+                            <table class="table table-dark table-borderless">
+                                <tr>
+                                    <th scope="col" class="basket-detail-title-text checkout-table-title py-1">Your Details</th>
+                                    <th scope="col"></th>
+                                </tr>
+                                <tr>
+                                    <td class="basket-detail-title-text checkout-table-title px-2 py-0">Name</td>
+                                    <td class="basket-detail-text px-2 py-0">{{ order.full_name }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="basket-detail-title-text checkout-table-title px-2 py-0">Email</td>
+                                    <td class="basket-detail-text px-2 py-0">{{ order.email }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="basket-detail-title-text checkout-table-title px-2 py-0">Phone Number</td>
+                                    <td class="basket-detail-text px-2 py-0">{{ order.phone_number }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 text-left">
+                        <div class="col-12">
+                            <table class="table table-dark table-borderless">
+                                <tr>
+                                    <th scope="col" class="basket-detail-title-text checkout-table-title py-1">Delivery Details</th>
+                                    <th scope="col"></th>
+                                </tr>
+                                <tr>
+                                    <td class="basket-detail-title-text checkout-table-title px-2 py-0">Street Address 1</td>
+                                    <td class="basket-detail-text px-2 py-0">{{ order.address_1 }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="basket-detail-title-text checkout-table-title px-2 py-0">Street Address 2</td>
+                                    <td class="basket-detail-text px-2 py-0">{{ order.address_2 }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="basket-detail-title-text checkout-table-title px-2 py-0">Town Or City</td>
+                                    <td class="basket-detail-text px-2 py-0">{{ order.town_or_city }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="basket-detail-title-text checkout-table-title px-2 py-0">County</td>
+                                    <td class="basket-detail-text px-2 py-0">{{ order.county }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="basket-detail-title-text checkout-table-title px-2 py-0">Post Code</td>
+                                    <td class="basket-detail-text px-2 py-0">{{ order.postcode }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="basket-detail-title-text checkout-table-title px-2 py-0">Country Code</td>
+                                    <td class="basket-detail-text px-2 py-0">{{ order.country }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-            </div>           
+                <div class="row">
+                    <div class="divider-opaque">
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-dark table-borderless">
+                            <tr>
+                                <td class="basket-detail-title-text checkout-table-title px-2 pt-3 pb-1">Total</td>
+                                <td class="basket-detail-title-text pt-3 pb-1">£{{ order.order_total }}</td>
+                            </tr>
+                            <tr class="">
+                                <td class="basket-detail-title-text checkout-table-title px-2 pt-0 pb-1">Delivery</td>                                
+                                {% if order.delivery_cost > 0 %}
+                                    <td class="basket-detail-title-text pt-0 pb-1">£{{ order.delivery_cost }}</td>
+                                {% else %}
+                                    <td class="basket-detail-title-text pt-0 pb-1">Free!</td>
+                                {% endif %}
+                            </tr>
+                            <tr>
+                                <td class="basket-detail-title-text checkout-table-title px-2 pt-0 pb-1">Grand Total</td>
+                                <td class="basket-detail-title-text pt-0 pb-1">£{{ order.delivery_cost }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            {% endif %}       
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-12 col-md-6">       

@@ -20,3 +20,8 @@
     background-color: var(--background-lvl3)!important;
 }
 
+
+/*-- Tables --*/
+.checkout-table-title {
+    width: 15rem;
+}
