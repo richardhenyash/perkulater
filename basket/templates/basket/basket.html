@@ -14,7 +14,7 @@
 {% block content %}
 <section id="basket-contents" class="container-sm container-custom-sm pt-2">
     <div class="row py-4">
-        <div class="col-12 basket-container pt-4 px-5">
+        <div class="col-12 basket-container pt-4 px-3">
             <div class="row">
                 <div class="col-12">
                     <h6 class="product-text-lg text-center pt-2">Basket</h6>
@@ -32,7 +32,7 @@
                             </div>
                         </div>
                         <div class="row d-flex align-items-center pb-4">
-                            <div class="basket-image-container col-4 col-md-3 p-1">
+                            <div class="basket-image-container col-4 col-md-3 p-3">
                                 <div class="product-container">
                                     <a href="{% url 'product_detail' basket_item.product_id %}">
                                         <img src="{{ basket_item.product.image.url }}" alt="{{ basket_item.product.name }}" class="w-100 p-1">
