@@ -311,6 +311,16 @@ body {
     font-size: 1.5rem;
 }
 
+
+/*-- Information Button Icons --*/
+.button-info i {
+    color: var(--blue);
+}
+
+.button-info i:hover {
+    color: var(--bluehighlight);
+}
+
 /*-- Toast Messages --*/
 .toast {
     border-bottom-left-radius: 1rem 1rem;
@@ -475,6 +485,16 @@ body {
 .card {
     border: None;
     background-color: rgba(41, 41, 41, 0.0);
+}
+
+/*-- Tables --*/
+.table-dark th,
+.table-dark td {
+    background-color: rgba(41, 41, 41, 0.0);
+}
+
+.table-dark .th {
+    white-space: nowrap
 }
 
 /*-- Modals --*/

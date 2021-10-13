@@ -11,18 +11,6 @@
     overflow-y: auto;
 }
 
-
-/*-- Basket Text --*/
-.basket-detail-title-text {
-    font-size: 1.4rem;
-    font-weight: 600;
-}
-
-.basket-detail-text, 
-.basket-preview-quantity-text {
-    font-size: 1.4rem;
-}
-
 /*-- Basket Tables --*/
 .basket-table-title {
     width: 8rem;
@@ -57,20 +45,8 @@
     .basket-table-title {
         width: 7rem;
     }
-    .basket-detail-quantity-title-text {
-        padding-top: 1.2rem !important;
-    }
-    .basket-detail-title-text {
-        font-size: 1.2rem;
-    }
-    .basket-detail-text {
-        font-size: 1.2rem;
-    }
-    .basket-preview-quantity-text {
-        font-size: 1.2rem;
-    }
     .basket-link {
-        font-size: 0.9rem;
+        font-size: 1.0rem;
     }
     .basket-notification-container {
         max-height: 150px;
