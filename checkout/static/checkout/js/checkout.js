@@ -77,7 +77,7 @@ form.addEventListener('submit', function(ev) {
               <span>${result.error.message}</span></p>`;
           $(errorDiv).html(html);
           $('#payment-form').fadeToggle(100);
-          $('#loading-overlay').fadeToggle(100);
+          $('#loader-overlay').fadeToggle(100);
           card.update({ 'disabled': false});
           $('#submit-button').attr('disabled', false);
       } else {

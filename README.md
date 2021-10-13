@@ -690,6 +690,8 @@ will be automatically pushed to **Heroku**.
 * Thanks to help from Shaun at code instutute, [https://getbootstrap.com/docs/5.0/components/toasts/#usage], and [https://stackoverflow.com/questions/63515279/how-to-initialize-toasts-with-javascript-in-bootstrap-5]
 * Accepting a payment in Stripe: https://stripe.com/docs/payments/accept-a-payment.
 * Using google fonts with stripe: https://stackoverflow.com/questions/43824382/custom-font-src-with-stripe/56985340.
+* CSS loader - loading.io https://loading.io/css/
+* loading overlay - boutique ado project.
 
 * [Vector Stock](https://www.vectorstock.com/) for the attractive dove logo.
 * [DataTables](https://datatables.net/) for the brilliant tables plug in.
