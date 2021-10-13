@@ -87,18 +87,22 @@
                                     <td class="text-medium text-bold checkout-table-title px-2 py-0">Street Address 1</td>
                                     <td class="text-medium px-2 py-0">{{ order.address_1 }}</td>
                                 </tr>
+                                {% if order.address_2 %}
                                 <tr>
                                     <td class="text-medium text-bold checkout-table-title px-2 py-0">Street Address 2</td>
                                     <td class="text-medium px-2 py-0">{{ order.address_2 }}</td>
                                 </tr>
+                                {% endif %}
                                 <tr>
                                     <td class="text-medium text-bold checkout-table-title px-2 py-0">Town Or City</td>
                                     <td class="text-medium px-2 py-0">{{ order.town_or_city }}</td>
                                 </tr>
+                                {% if order.county %}
                                 <tr>
                                     <td class="text-medium text-bold checkout-table-title px-2 py-0">County</td>
                                     <td class="text-medium px-2 py-0">{{ order.county }}</td>
                                 </tr>
+                                {% endif %}
                                 <tr>
                                     <td class="text-medium text-bold checkout-table-title px-2 py-0">Post Code</td>
                                     <td class="text-medium px-2 py-0">{{ order.postcode }}</td>
