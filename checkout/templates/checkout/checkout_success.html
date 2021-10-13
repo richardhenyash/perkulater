@@ -167,17 +167,17 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <table class="table table-dark table-borderless">
+                        <table class="table table-dark table-borderless text-medium">
                             <tr>
-                                <td class="text-medium text-bold checkout-table-title px-2 pt-3 pb-1">Total</td>
+                                <td class="text-bold checkout-table-title px-2 pt-3 pb-1">Total</td>
                                 <td class="text-bold pt-3 pb-1">£{{ order.order_total }}</td>
                             </tr>
                             <tr class="">
-                                <td class="text-medium text-bold checkout-table-title px-2 pt-0 pb-1">Delivery</td>                                
+                                <td class="text-bold checkout-table-title px-2 pt-0 pb-1">Delivery</td>                                
                                 {% if order.delivery_cost > 0 %}
-                                    <td class="text-medium text-bold pt-0 pb-1">£{{ order.delivery_cost }}</td>
+                                    <td class="text-bold pt-0 pb-1">£{{ order.delivery_cost }}</td>
                                 {% else %}
-                                    <td class="text-medium text-bold pt-0 pb-1">Free!</td>
+                                    <td class="text-bold pt-0 pb-1">Free!</td>
                                 {% endif %}
                             </tr>
                             <tr>

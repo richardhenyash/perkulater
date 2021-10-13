@@ -14,6 +14,7 @@
 {% endblock %}
 
 {% block content %}
+<div class="overlay"></div>
 <section id="checkout" class="container-sm container-custom pt-2">
     <div class="row py-4">
         <div class="col-12 basket-container pt-4 px-3">
@@ -184,6 +185,15 @@
         </div>
     </div>
 </section>
+
+<div id="loader-overlay">
+    <div class="row loader-container">
+        <div class="col-12 text-center">
+            <div id="loader" class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
 
 {% block extrapostloadjs %}
