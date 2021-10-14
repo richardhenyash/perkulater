@@ -1,7 +1,7 @@
 from django.test import TestCase
 
-from django.shortcuts import get_object_or_404
-from .models import Category, Product, Size, Type, Price
+from .models import Category, Coffee, Product
+
 
 class TestProductModel(TestCase):
 
@@ -50,3 +50,28 @@ class TestCategoryModel(TestCase):
                 "Test Type Information Line 3"]
             )
 
+
+class TestCoffeeModel(TestCase):
+    def test_get_all_fields(self):
+        coffee = Coffee.objects.create(
+            country="Country",
+            farm="Farm",
+            owner="Owner",
+            variety="Variety",
+            altitude="Altitude",
+            town="Town",
+            region="Region",
+            flavour_profile="Flavour Profile")
+        self.assertEqual(
+            coffee.get_all_fields(), [
+                "product",
+                "country",
+                "farm",
+                "owner",
+                "variety",
+                "altitude",
+                "town",
+                "region",
+                "flavour_profile"
+                ]
+            )
