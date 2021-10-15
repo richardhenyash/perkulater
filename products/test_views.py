@@ -1,11 +1,29 @@
 from django.test import TestCase
 from django.urls import resolve
-from .models import Product
+from .models import Category, Offer, Product
 from . import views
 
 
 class TestProductViews(TestCase):
     """A class to test product views"""
+    @classmethod
+    def setUpTestData(cls):
+        Product.objects.create(
+            name="Test Coffee"
+        )
+        Category.objects.create(
+            name="Coffee"
+        )
+        Offer.objects.create(
+            description="Test Offer 1",
+            description_full="Test Offer 1 Description Full",
+            display_in_banner=True
+        )
+        Offer.objects.create(
+            description="Test Offer 2",
+            description_full="Test Offer 2 Description Full",
+            display_in_banner=True
+        )
 
     def test_resolve_products(self):
         """Test resolving products view"""
@@ -18,6 +36,11 @@ class TestProductViews(TestCase):
             name="Test Coffee")
         found = resolve(f'/products/{product.id}/')
         self.assertEqual(found.url_name, "product_detail")
+
+    def test_get_all_products(self):
+        """Test returning all products view"""
+        response = self.client.get('/products/')
+        self.assertEqual(response.status_code, 200)
 
 
 ## Note - the below tests are commented out as they are returning an unexected 404 error
