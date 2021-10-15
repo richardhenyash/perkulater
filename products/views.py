@@ -22,7 +22,6 @@ def all_products(request):
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
             category = categories[0]
-            print(category)
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -34,8 +33,6 @@ def all_products(request):
             if (len(products)) == 0:
                 messages.warning(request, "Your search didn't return any products.")
                 return redirect(reverse('products'))
-
-
 
     products = products.order_by("name")
     
