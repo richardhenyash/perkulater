@@ -692,6 +692,12 @@ will be automatically pushed to **Heroku**.
 * Using google fonts with stripe: https://stackoverflow.com/questions/43824382/custom-font-src-with-stripe/56985340.
 * CSS loader - loading.io https://loading.io/css/
 * loading overlay - boutique ado project.
+* Stripe webhook handler - code referenced from: https://stripe.com/docs/payments/handling-payment-events
+* Django test client issues:
+https://stackoverflow.com/questions/45533539/django-test-client-get-returns-404-instead-of-200
+https://stackoverflow.com/questions/29425256/django-test-client-gets-404-but-browser-works
+https://stackoverflow.com/questions/23447685/false-404-from-django-test
+
 
 * [Vector Stock](https://www.vectorstock.com/) for the attractive dove logo.
 * [DataTables](https://datatables.net/) for the brilliant tables plug in.
