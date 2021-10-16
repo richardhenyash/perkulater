@@ -85,11 +85,13 @@ class TestProductViews(TestCase):
         """Test returning all products view"""
         response = self.client.get('/products/')
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "products/products.html")
 
     def test_get_product_query(self):
         """Test returning a product query"""
         response = self.client.get('/products/', {'q': 'Coffee'})
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "products/products.html")
 
     def test_get_product_query_blank(self):
         """Test returning a blank product query"""
@@ -107,3 +109,4 @@ class TestProductViews(TestCase):
         url = f'/products/{product.id}/'
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "products/product_detail.html")
