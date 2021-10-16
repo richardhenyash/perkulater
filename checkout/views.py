@@ -89,6 +89,7 @@ def checkout(request):
             return redirect(
                 reverse('checkout_success', args=[order.order_number]))
         else:
+            return redirect(reverse('checkout'))
             messages.error(request, 'There was an error submitting your form. \
                 Please check the information provided.')
 

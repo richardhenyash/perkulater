@@ -1,11 +1,37 @@
 from django.test import TestCase
+from django.shortcuts import get_object_or_404
 
 from .models import Order, OrderLineItem
 from products.models import Category, Offer, Product, Price, Size, Type
 
 
 class TestOrderModel(TestCase):
-    """A class to test the Product model"""
+    """A class to test the Order model"""
+    @classmethod
+    def setUpTestData(cls):
+        product = Product.objects.create(
+            name="Test Coffee")
+        category = Category.objects.create(
+            name="Coffee"
+        )
+        Offer.objects.create(
+            description="Delivery",
+            free_delivery_amount=30.00,
+            delivery_minimum=2.00,
+            delivery_percentage=10.00
+        )
+        Type.objects.create(
+            category=category,
+            type="Whole Bean"
+        )
+        size= Size.objects.create(
+            category=category,
+            size="250g")
+        Price.objects.create(
+            product=product,
+            size=size,
+            price=7.50,
+            sku="TEST SKU")
 
     def test_order_generate_order_number(self):
         """Test get short description method"""
@@ -25,8 +51,8 @@ class TestOrderModel(TestCase):
 
 
 class TestOrderLineItemModel(TestCase):
-    def test_order_lineitem_total(self):
-        """Test lineitem_total method"""
+    @classmethod
+    def setUpTestData(cls):
         product = Product.objects.create(
             name="Test Coffee")
         category = Category.objects.create(
@@ -38,17 +64,25 @@ class TestOrderLineItemModel(TestCase):
             delivery_minimum=2.00,
             delivery_percentage=10.00
         )
-        type = Type.objects.create(
+        Type.objects.create(
             category=category,
             type="Whole Bean"
         )
-        price = Price.objects.create(
-            product=product,
-            price=7.50,
-            sku="TEST SKU")
-        size = Size.objects.create(
+        size= Size.objects.create(
             category=category,
             size="250g")
+        Price.objects.create(
+            product=product,
+            size=size,
+            price=7.50,
+            sku="TEST SKU")
+
+    def test_order_lineitem_total(self):
+        """Test lineitem_total method"""
+        product = get_object_or_404(Product, name="Test Coffee")
+        typeobj = get_object_or_404(Type, type="Whole Bean")
+        size = get_object_or_404(Size, size="250g")
+        price = get_object_or_404(Price, product=product, size=size)
         order = Order.objects.create(
             full_name="Test Name",
             email="test@gmail.com",
@@ -65,34 +99,16 @@ class TestOrderLineItemModel(TestCase):
             product=product,
             price=price,
             size=size,
-            type=type,
+            type=typeobj,
             quantity=3)
         self.assertEqual(orderlineitem.lineitem_total, 22.5)
 
     def test_order_lineitem_str(self):
         """Test string method"""
-        product = Product.objects.create(
-            name="Test Coffee")
-        category = Category.objects.create(
-            name="Coffee"
-        )
-        Offer.objects.create(
-            description="Delivery",
-            free_delivery_amount=30.00,
-            delivery_minimum=2.00,
-            delivery_percentage=10.00
-        )
-        type = Type.objects.create(
-            category=category,
-            type="Whole Bean"
-        )
-        price = Price.objects.create(
-            product=product,
-            price=7.50,
-            sku="TEST SKU")
-        size = Size.objects.create(
-            category=category,
-            size="250g")
+        product = get_object_or_404(Product, name="Test Coffee")
+        typeobj = get_object_or_404(Type, type="Whole Bean")
+        size = get_object_or_404(Size, size="250g")
+        price = get_object_or_404(Price, product=product, size=size)
         order = Order.objects.create(
             full_name="Test Name",
             email="test@gmail.com",
@@ -109,6 +125,6 @@ class TestOrderLineItemModel(TestCase):
             product=product,
             price=price,
             size=size,
-            type=type,
+            type=typeobj,
             quantity=3)
         self.assertEqual((str(orderlineitem)), f"SKU TEST SKU on order {order.order_number}")
