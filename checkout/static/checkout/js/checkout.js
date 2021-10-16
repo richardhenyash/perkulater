@@ -28,7 +28,7 @@ let style = {
         fontWeight: '500',
         fontSize: '14px',
         '::placeholder': {
-          color: '#FAFAFA'
+          color: '#CCCCCC'
         }
     },
     invalid: {

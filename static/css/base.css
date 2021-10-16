@@ -416,17 +416,17 @@ body {
 }
 
 .form-user input::placeholder {
-    color: var(--white);
+    color: var(--whitehighlight);
     opacity: 1;
 }
 
 .form-user input:-ms-input-placeholder {
-    color: var(--white);
+    color: var(--whitehighlight);
     opacity: 1;
 }
 
 .form-user input::-ms-input-placeholder {
-    color: var(--white);
+    color: var(--whitehighlight);
     opacity: 1;
 }
 
@@ -439,7 +439,7 @@ body {
 
 .form-user select:invalid,
 .form-user select option[value=""] {
-    color: var(--whitehighlightdark);
+    color: var(--whitehighlight);
 }
 
 .form-check-label {

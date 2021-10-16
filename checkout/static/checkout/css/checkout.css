@@ -7,8 +7,11 @@
     padding: 0.7rem;
     border-radius: .25rem;
     background-color: var(--background-lvl3);
-    color: var(--white);
     border: 2px solid rgba(250, 250, 250, 0.6);
+}
+
+.StripeElement Input {
+    color: var(--white);
 }
 
 .StripeElement--focus {
@@ -19,7 +22,6 @@
 .StripeElement--webkit-autofill {
     background-color: var(--background-lvl3)!important;
 }
-
 
 /*-- Tables --*/
 .checkout-table-title {
