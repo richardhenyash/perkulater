@@ -5,10 +5,13 @@ from django.db.models import Sum
 from django_countries.fields import CountryField
 from django.shortcuts import get_object_or_404
 from products.models import Offer, Price, Product, Size, Type
+from profiles.models import UserProfile
 
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
+    user_profile = models.ForeignKey(
+        UserProfile, on_delete=models.SET_NULL,null=True, blank=True, related_name='orders')
     date = models.DateTimeField(auto_now_add=True)
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
