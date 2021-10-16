@@ -22,6 +22,7 @@
         --bluehighlight: #3FCFDE;
         --white: #FAFAFA;
         --whitehighlight: #CCCCCC;
+        --whitehighlightdark: #B8B8B8;
     }
     
 /*-- HTML --*/
@@ -434,6 +435,10 @@ body {
     -webkit-text-fill-color: var(--white);
     opacity: 1;
     transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+.form-user select:invalid {
+    color: var(--whitehighlightdark);
 }
 
 .form-check-label {
