@@ -14,8 +14,8 @@ def all_products(request):
     categories = None
     category = None
     categories_all = Category.objects.all()
-    #product_offers = get_list_or_404(Offer, display_in_banner=True)
-    #product_offer_str = get_product_offer_str(product_offers, "  -  ")
+    product_offers = get_list_or_404(Offer, display_in_banner=True)
+    product_offer_str = get_product_offer_str(product_offers, "  -  ")
     if request.GET:
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
@@ -38,8 +38,8 @@ def all_products(request):
     
     context = {
         'products': products,
-        #'product_offers': product_offers,
-        #'product_offer_str': product_offer_str,
+        'product_offers': product_offers,
+        'product_offer_str': product_offer_str,
         'search_term': query,
         'category': category,
         'categories_all': categories_all,
