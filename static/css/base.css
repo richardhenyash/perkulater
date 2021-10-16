@@ -437,7 +437,8 @@ body {
     transition: background-color 600000s 0s, color 600000s 0s;
 }
 
-.form-user select:invalid {
+.form-user select:invalid,
+.form-user select option[value=""] {
     color: var(--whitehighlightdark);
 }
 
