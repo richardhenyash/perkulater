@@ -110,6 +110,7 @@ class TestBasketViews(TestCase):
         """Test returning basket view"""
         response = self.client.get('/basket/')
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "basket/basket.html")
 
     def test_add_to_basket(self):
         """Test add to basket"""
@@ -160,3 +161,4 @@ class TestBasketViews(TestCase):
         url = f'/basket/remove/{product_key}/'
         response = self.client.post(url)
         self.assertEqual(response.status_code, 200)
+
