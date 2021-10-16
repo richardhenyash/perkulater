@@ -4,34 +4,20 @@ from django.shortcuts import get_object_or_404
 from .models import Order, OrderLineItem
 from products.models import Category, Offer, Product, Price, Size, Type
 
+from products.test_data import build_test_data
+
+
+class TestCheckoutViews(TestCase):
+    """A class to test checkout views"""
+    @classmethod
+    def setUpTestData(cls):
+        build_test_data()
 
 class TestOrderModel(TestCase):
     """A class to test the Order model"""
     @classmethod
     def setUpTestData(cls):
-        product = Product.objects.create(
-            name="Test Coffee")
-        category = Category.objects.create(
-            name="Coffee"
-        )
-        Offer.objects.create(
-            description="Delivery",
-            free_delivery_amount=30.00,
-            delivery_minimum=2.00,
-            delivery_percentage=10.00
-        )
-        Type.objects.create(
-            category=category,
-            type="Whole Bean"
-        )
-        size= Size.objects.create(
-            category=category,
-            size="250g")
-        Price.objects.create(
-            product=product,
-            size=size,
-            price=7.50,
-            sku="TEST SKU")
+        build_test_data()
 
     def test_order_generate_order_number(self):
         """Test get short description method"""
@@ -53,29 +39,7 @@ class TestOrderModel(TestCase):
 class TestOrderLineItemModel(TestCase):
     @classmethod
     def setUpTestData(cls):
-        product = Product.objects.create(
-            name="Test Coffee")
-        category = Category.objects.create(
-            name="Coffee"
-        )
-        Offer.objects.create(
-            description="Delivery",
-            free_delivery_amount=30.00,
-            delivery_minimum=2.00,
-            delivery_percentage=10.00
-        )
-        Type.objects.create(
-            category=category,
-            type="Whole Bean"
-        )
-        size= Size.objects.create(
-            category=category,
-            size="250g")
-        Price.objects.create(
-            product=product,
-            size=size,
-            price=7.50,
-            sku="TEST SKU")
+        build_test_data()
 
     def test_order_lineitem_total(self):
         """Test lineitem_total method"""

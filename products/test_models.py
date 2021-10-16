@@ -1,6 +1,8 @@
 from django.shortcuts import get_object_or_404
 from django.test import TestCase
 
+from .test_data import build_test_data
+
 from .models import Category, Coffee, Product
 
 
@@ -8,27 +10,7 @@ class TestProductModel(TestCase):
     """A class to test the Product model"""
     @classmethod
     def setUpTestData(cls):
-        category = Category.objects.create(
-            name="Coffee",
-            friendly_name="All of our top quality coffees",
-            size_description="Size",
-            size_information="Test Size Information Line 1;Test Size Information Line 2;Test Size Information Line 3",
-            type_description="Grind",
-            type_information="Test Type Information Line 1;Test Type Information Line 2;Test Type Information Line 3",
-            information_delimiter=";"
-        )
-        product = Product.objects.create(
-            category=category,
-            name="Test Coffee",
-            friendly_name="Test Coffee Friendly Name",
-            friendly_price="£7.50 - 250g",
-            description_full="Test Full Description Paragraph 1;Test Full Description Paragraph 2;Test Full Description Paragraph 3",
-            description_short="Test Short Description Line 1;Test Short Description Line 2",
-            description_delimiter=";",
-            rating=4.50,
-            image_url="jump-leads-front-transparent.png",
-            image="jump-leads-front-transparent.png",
-        )
+        build_test_data()
 
     def test_product_get_short_description(self):
         """Test get short description method"""
@@ -50,15 +32,7 @@ class TestCategoryModel(TestCase):
     """A class to test the Category model"""
     @classmethod
     def setUpTestData(cls):
-        Category.objects.create(
-            name="Coffee",
-            friendly_name="All of our top quality coffees",
-            size_description="Size",
-            size_information="Test Size Information Line 1;Test Size Information Line 2;Test Size Information Line 3",
-            type_description="Grind",
-            type_information="Test Type Information Line 1;Test Type Information Line 2;Test Type Information Line 3",
-            information_delimiter=";"
-        )
+        build_test_data()
 
     def test_category_get_size_information_array(self):
         """Test get size information array method"""
@@ -85,38 +59,7 @@ class TestCoffeeModel(TestCase):
     """A class to test the Coffee model"""
     @classmethod
     def setUpTestData(cls):
-        category = Category.objects.create(
-            name="Coffee",
-            friendly_name="All of our top quality coffees",
-            size_description="Size",
-            size_information="Test Size Information Line 1;Test Size Information Line 2;Test Size Information Line 3",
-            type_description="Grind",
-            type_information="Test Type Information Line 1;Test Type Information Line 2;Test Type Information Line 3",
-            information_delimiter=";"
-        )
-        product = Product.objects.create(
-            category=category,
-            name="Test Coffee",
-            friendly_name="Test Coffee Friendly Name",
-            friendly_price="£7.50 - 250g",
-            description_full="Test Full Description Paragraph 1;Test Full Description Paragraph 2;Test Full Description Paragraph 3",
-            description_short="Test Short Description Line 1;Test Short Description Line 2",
-            description_delimiter=";",
-            rating=4.50,
-            image_url="jump-leads-front-transparent.png",
-            image="jump-leads-front-transparent.png",
-        )
-        Coffee.objects.create(
-            product=product,
-            country="Test Country",
-            farm="Test Farm",
-            owner="Test Owner",
-            variety="Test Variety",
-            altitude="Test Variety",
-            town="Test Town",
-            region="Test Region",
-            flavour_profile="Test Flavour Profile"
-        )
+        build_test_data()
 
     def test_get_all_fields(self):
         """Test get all fields method"""
