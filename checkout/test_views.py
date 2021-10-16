@@ -2,7 +2,6 @@ from django.test import TestCase
 from django.urls import resolve
 
 from .models import Order
-from products.models import Category, Coffee, Offer, Product, Price, Size, Type
 
 from products.test_data import build_test_data
 

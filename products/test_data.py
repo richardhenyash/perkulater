@@ -1,6 +1,8 @@
 from .models import Category, Coffee, Offer, Price, Product, Size, Type
 
+
 def build_test_data():
+    """Function to buld the test database, run before unit tests"""
     category = Category.objects.create(
         name="Coffee",
         friendly_name="All of our top quality coffees",

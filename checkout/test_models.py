@@ -2,16 +2,10 @@ from django.test import TestCase
 from django.shortcuts import get_object_or_404
 
 from .models import Order, OrderLineItem
-from products.models import Category, Offer, Product, Price, Size, Type
+from products.models import Product, Price, Size, Type
 
 from products.test_data import build_test_data
 
-
-class TestCheckoutViews(TestCase):
-    """A class to test checkout views"""
-    @classmethod
-    def setUpTestData(cls):
-        build_test_data()
 
 class TestOrderModel(TestCase):
     """A class to test the Order model"""

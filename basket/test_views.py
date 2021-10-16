@@ -2,9 +2,10 @@ from django.test import TestCase
 from django.urls import resolve
 from django.shortcuts import get_object_or_404
 
-from products.models import Category, Coffee, Offer, Product, Price, Size, Type
+from products.models import Product, Size, Type
 
 from products.test_data import build_test_data
+
 
 class TestBasketViews(TestCase):
     """A class to test basket views"""
@@ -103,4 +104,3 @@ class TestBasketViews(TestCase):
         url = f'/basket/remove/{product_key}/'
         response = self.client.post(url)
         self.assertEqual(response.status_code, 200)
-
