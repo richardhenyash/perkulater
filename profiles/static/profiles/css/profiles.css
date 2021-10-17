@@ -1,1 +1,9 @@
 /*-- Profiles Custom CSS --*/
+
+#id_country option:not(:first-child) {
+    color: var(--white)!important;
+}
+
+#id_country option:first-child {
+    color: var(--whitehighlight)!important;
+}

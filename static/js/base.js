@@ -21,3 +21,19 @@ let toastList = toastElList.map(function (toastEl) {
   /* Show toasts */
   bsToast.show();
 })
+
+/**
+* [Function to set the correct colour on a select element
+* @return {[modalTitle]}                     [Modal title, string]          
+*/
+function setSelectColour(selectId, unSelectedColour, selectedColour) {
+  selectSelected = $(selectId).val();
+  if(!selectSelected) {
+      returnColour = unSelectedColour
+      $(selectId).css('color', unSelectedColour);
+  } else {
+      returnColour = selectedColour
+      $(selectId).css('color', selectedColour);
+  }
+  return returnColour
+}
