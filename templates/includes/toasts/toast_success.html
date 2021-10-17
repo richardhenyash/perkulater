@@ -11,7 +11,7 @@
                     <p class="text-medium mb-0">{{ message }}</p>
                 </div>
             </div>
-            {% if basket_items %}
+            {% if basket_items and not on_profile_page %}
                 <div class="row">
                     <div class="divider-opaque">
                         <hr>
