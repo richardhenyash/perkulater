@@ -105,6 +105,11 @@ body {
     color: var(--white);
 }
 
+.navbar-dark .navbar-nav .dropdown-menu a:active {
+    color: var(--background-lvl0)!important;
+    background-color: var(--green)!important;
+}
+
 /*-- Tagline--*/
 .tagline-text {
     font-family: var(--titlefont);
