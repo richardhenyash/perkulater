@@ -17,7 +17,7 @@
         <div class="col-12 basket-container pt-4">
             <div class="row">
                 <div class="col-12">
-                    <h6 class="product-text-lg text-center pt-2">Basket</h6>
+                    <h6 class="title-text-large text-center pt-2">Basket</h6>
                 </div>
                 <div class="divider-opaque">
                     <hr>
@@ -35,7 +35,7 @@
                                             <div class="product-container image-container">
                                                 <a href="{% url 'product_detail' basket_item.product_id %}">
                                                     <img src="{{ basket_item.product.image.url }}" alt="{{ basket_item.product.name }}" class="w-100 p-1">
-                                                </a>                             
+                                                </a>
                                             </div>
                                         </div>
                                         <div class="col-8 text-medium pt-2">
@@ -120,7 +120,7 @@
                 {% else %}
                     <div class="row">
                         <div class="col-12">
-                            <p class="product-text-lg text-center pt-2">Your basket is currrently empty</p>
+                            <p class="title-text-large text-center pt-2">Your basket is currrently empty</p>
                         </div>
                     </div>
                 {% endif %}

@@ -10,7 +10,7 @@
 $('.product-rating-stars').each(function () {
     let productRating = $(this).data("product-rating")
     if ((productRating == "None") || (productRating == null) || (productRating == ""))
-        $(this).html("<i class=product-rating-text>Not Rated</i>")
+        $(this).html("<i class=rating-text>Not Rated</i>")
     else {
         let productRatingRounded = (Math.round(productRating));
         stars = $(this).children();

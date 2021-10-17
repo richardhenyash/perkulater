@@ -2,7 +2,7 @@
     {% if category %}
     <div class="row pt-3">
         <div class="col-12">
-            <h6 class="product-text text-center pt-2">{{ category.get_friendly_name }}</h6>
+            <h6 class="title-text-medium text-center pt-2">{{ category.get_friendly_name }}</h6>
         </div>
     </div>
     {% endif %}
@@ -16,7 +16,7 @@
                     </a>
                 </div>
             </div>
-            <h6 class="product-text pt-2">{{ product.name }}</h6>
+            <h6 class="title-text-medium pt-2">{{ product.name }}</h6>
             <div id="product-rating-stars" class="product-rating-stars" data-product-rating="{{ product.rating }}">
                 <i id="star-1" class="fas fa-star"></i>
                 <i id="star-2" class="fas fa-star"></i>
