@@ -4,6 +4,8 @@
 {% block extracss %}
     <!-- Link to Products Custom CSS -->
     <link rel="stylesheet" href="{% static 'profiles/css/profiles.css' %}">
+    <!-- Link to Basket Custom CSS -->
+    <link rel="stylesheet" href="{% static 'basket/css/basket.css' %}">
 {% endblock %}
 
 {% block page_header %}
@@ -21,40 +23,40 @@
                         <hr>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-6 px-3 px-md-4">
-                <form class="form-user dark" action="{% url 'profile' %}" method="POST" id="profile-form">
-                    {% csrf_token %}
-                    <fieldset class="pt-2">
-                        <legend class="field-label">Your Details</legend>
-                        {{ user_form.first_name | as_crispy_field }}
-                        {{ user_form.last_name | as_crispy_field }}
-                        {{ user_profile_form.phone_number | as_crispy_field }}
-                    </fieldset>
-                    <fieldset class="pt-2">
-                        <legend class="field-label">Delivery Details</legend>
-                        {{ user_profile_form.address_1 | as_crispy_field }}
-                        {{ user_profile_form.address_2 | as_crispy_field }}
-                        {{ user_profile_form.town_or_city | as_crispy_field }}
-                        {{ user_profile_form.county | as_crispy_field }}
-                        {{ user_profile_form.postcode | as_crispy_field }}
-                        {{ user_profile_form.country | as_crispy_field }}
-                    </fieldset>
-                    <div class="col-6 pb-4">
-                        <div class="text-center py-2">
-                            <button id="profile-form-submit-button"
-                                class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
-                                Update Profile
-                            </button>
-                        </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 px-3 px-md-4">
+                        <form class="form-user dark" action="{% url 'profile' %}" method="POST" id="profile-form">
+                            {% csrf_token %}
+                            <fieldset class="pt-2">
+                                <legend class="field-label">Your Details</legend>
+                                {{ user_form.first_name | as_crispy_field }}
+                                {{ user_form.last_name | as_crispy_field }}
+                                {{ user_profile_form.phone_number | as_crispy_field }}
+                            </fieldset>
+                            <fieldset class="pt-2">
+                                <legend class="field-label">Delivery Details</legend>
+                                {{ user_profile_form.address_1 | as_crispy_field }}
+                                {{ user_profile_form.address_2 | as_crispy_field }}
+                                {{ user_profile_form.town_or_city | as_crispy_field }}
+                                {{ user_profile_form.county | as_crispy_field }}
+                                {{ user_profile_form.postcode | as_crispy_field }}
+                                {{ user_profile_form.country | as_crispy_field }}
+                            </fieldset>
+                            <div class="col-6 pt-2 pb-4">
+                                <div class="text-center py-2">
+                                    <button type="submit" id="profile-form-submit-button"
+                                        class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
+                                        Update Profile
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                </form>
-            </div>
-            <div class="col-12 col-md-6 px-3 px-md-4">
-                <h1 class="text-large text-bold">Order History</h1>
-                {{ orders }}
+                    <div class="col-12 col-md-6 px-3 px-md-4">
+                        <h1 class="text-large text-bold">Order History</h1>
+                        {{ orders }}
+                    </div>
+                </div>
             </div>
         </div>
     </section>
