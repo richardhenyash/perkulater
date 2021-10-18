@@ -67,7 +67,7 @@
                                     <div id="accordionOrder{{ order.id }}" class="accordion-collapse collapse p-3"
                                         aria-labelledby="accordionOrderHeading{{ order.id }}" data-bs-parent="#accordionOrders">
                                         <div>
-                                            <a href="" title="{{ order.order_number }}" class="p-2">
+                                            <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}" class="p-2">
                                                 {{ order.order_number|truncatechars:25 }}
                                             </a>
                                             <table class="table table-dark table-borderless text-medium">

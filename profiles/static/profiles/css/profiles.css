@@ -10,6 +10,11 @@
 }
 
 /*-- Order Accordion --*/
+.accordion {
+    max-height: 50rem;
+    overflow-y: auto;
+}
+
 .accordion-header,
 .accordion-button,
 .accordion-collapse {

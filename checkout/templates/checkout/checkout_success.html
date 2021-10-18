@@ -190,13 +190,22 @@
             {% endif %}       
             <div class="row">
                 <div class="col-md-3"></div>
-                <div class="col-12 col-md-6">       
-                    <div class="text-center py-4">
-                        <a href="{% url 'products' %}"
-                            class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-50">
-                            Keep Shopping
-                        </a>
-                    </div>
+                <div class="col-12 col-md-6">  
+                    {% if from_profile %}     
+                        <div class="text-center py-4">
+                            <a href="{% url 'profile' %}"
+                                class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-50">
+                                Back To Profile
+                            </a>
+                        </div>
+                    {% else %}
+                        <div class="text-center py-4">
+                            <a href="{% url 'products' %}"
+                                class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-50">
+                                Keep Shopping
+                            </a>
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="col-md-3"></div>
             </div>
