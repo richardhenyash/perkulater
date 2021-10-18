@@ -9,6 +9,7 @@ from .forms import OrderForm
 from basket.contexts import basket_contents
 from .models import Order, OrderLineItem
 from products.models import Product, Price, Size, Type
+from profiles.models import UserProfile
 
 import stripe
 import json
@@ -52,6 +53,7 @@ def checkout(request):
             'postcode': request.POST['postcode'],
             'country': request.POST['country'],
         }
+
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
@@ -111,7 +113,26 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-        order_form = OrderForm()
+
+        # if user is signed in get information from user profile
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                order_form = OrderForm(initial={
+                    'full_name': profile.user.get_full_name(),
+                    'email': profile.user.email,
+                    'phone_number': profile.phone_number,
+                    'address_1': profile.address_1,
+                    'address_2': profile.address_2,
+                    'town_or_city': profile.town_or_city,
+                    'county': profile.county,
+                    'postcode': profile.postcode,
+                    'country': profile.country,
+                })
+            except UserProfile.DoesNotExist:
+                order_form = OrderForm()
+        else:
+            order_form = OrderForm()
 
         if not stripe_public_key:
             messages.warning(request, 'Stripe public key is missing. \
