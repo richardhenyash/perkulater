@@ -11,7 +11,7 @@
 
 /*-- Order Accordion --*/
 .accordion {
-    max-height: 50rem;
+    max-height: 49rem;
     overflow-y: auto;
 }
 
