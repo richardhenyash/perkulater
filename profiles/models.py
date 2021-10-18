@@ -21,15 +21,24 @@ class UserProfile(models.Model):
     county = models.CharField(max_length=80, null=True, blank=True)
     country = CountryField(blank_label='Country', null=True, blank=True)
 
+    def __str__(self):
+        """
+        Return username of linked user
+        """
+        return self.user.username
+
     @admin.display(description='Full Name')
     def full_name(self):
+        """
+        Display full name of linked user
+        """
         return self.user.get_full_name()
 
     @admin.display(description='username')
     def user_name(self):
-        return self.user.username
-
-    def __str__(self):
+        """
+        Display username of linked user
+        """
         return self.user.username
 
 @receiver(post_save, sender=User)
