@@ -64,11 +64,31 @@
                                             {{ order.date }}
                                         </button>
                                     </h2>
-                                    <div id="accordionOrder{{ order.id }}" class="accordion-collapse collapse p-2"
+                                    <div id="accordionOrder{{ order.id }}" class="accordion-collapse collapse p-3"
                                         aria-labelledby="accordionOrderHeading{{ order.id }}" data-bs-parent="#accordionOrders">
                                         <div>
-                                            <a href="" class="p-2">{{ order.order_number }}</a>
-                                            <p class="text-medium text-bold p-2 mb-0">Grand Total: £{{ order.grand_total }}</p>
+                                            <a href="" title="{{ order.order_number }}" class="p-2">
+                                                {{ order.order_number|truncatechars:25 }}
+                                            </a>
+                                            <table class="table table-dark table-borderless text-medium">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col" class="text-bold pt-3 pb-1">Product</th>
+                                                        <th scope="col" class="text-bold py-1 text-center">Quantity</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for lineitem in order.lineitems.all %}
+                                                    <tr>
+                                                        <td class="px-2 py-1 pb-0">{{ lineitem.product.name }}<a class="text-small px-2">Review</a></td>
+                                                        <td class="px-2 py-1 pb-0 text-center">{{ lineitem.quantity }}</td>
+                                                    </tr>
+                                                {% endfor %}
+                                                    <tr>
+                                                        <td class="text-bold px-2 pt-3 pb-0 mb-0">Grand Total: £{{ order.grand_total }}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>

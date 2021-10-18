@@ -35,10 +35,16 @@
     font-weight: 700;
     color: var(--green);
     text-decoration: None;
+    cursor: pointer;
 }
 
 .accordion a:hover {
     color: var(--greenhighlight);
+}
+
+.accordion-item:last-of-type .accordion-collapse {
+    border-bottom-right-radius: 0rem;
+    border-bottom-left-radius: 0rem;
 }
 
 /*-- https://stackoverflow.com/questions/66335238/changing-the-color-arrow-in-bootstrap --*/
