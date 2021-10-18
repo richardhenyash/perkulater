@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib import admin
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -19,6 +20,17 @@ class UserProfile(models.Model):
     town_or_city = models.CharField(max_length=40, null=True, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
     country = CountryField(blank_label='Country', null=True, blank=True)
+
+    @admin.display(description='Full Name')
+    def full_name(self):
+        return self.user.get_full_name()
+
+    @admin.display(description='username')
+    def user_name(self):
+        return self.user.username
+
+    def __str__(self):
+        return self.user.username
 
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
