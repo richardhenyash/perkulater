@@ -54,7 +54,26 @@
                     </div>
                     <div class="col-12 col-md-6 px-3 px-md-4">
                         <h1 class="text-large text-bold">Order History</h1>
-                        {{ orders }}
+                        <div class="accordion accordion-flush pt-2" id="accordionOrders">
+                            {% for order in orders %}
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header py-2 bg-black-3 fg-white" id="accordionOrderHeading{{ order.id }}">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#accordionOrder{{ order.id }}" aria-expanded="false"
+                                            aria-controls="accordionOrder{{ order.id }}">
+                                            {{ order.date }}
+                                        </button>
+                                    </h2>
+                                    <div id="accordionOrder{{ order.id }}" class="accordion-collapse collapse p-2"
+                                        aria-labelledby="accordionOrderHeading{{ order.id }}" data-bs-parent="#accordionOrders">
+                                        <div>
+                                            <a href="" class="p-2">{{ order.order_number }}</a>
+                                            <p class="text-medium text-bold p-2 mb-0">Grand Total: £{{ order.grand_total }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 /*-- Profiles Custom CSS --*/
 
+/*-- Country Selecor --*/
 #id_country option:not(:first-child) {
     color: var(--white)!important;
 }
@@ -7,3 +8,41 @@
 #id_country option:first-child {
     color: var(--whitehighlight)!important;
 }
+
+/*-- Order Accordion --*/
+.accordion-header,
+.accordion-button,
+.accordion-collapse {
+    font-size: 1.4rem;
+    color: var(--white);
+    background-color: var(--background-lvl4);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--white);
+    background-color: var(--background-lvl4);
+    border: 2px solid var(--green);
+    box-shadow: 0 0 0 0.25rem rgb(78 208 173 / 25%);
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgb(78 208 173 / 25%);
+}
+
+.accordion a {
+    font-weight: 700;
+    color: var(--green);
+    text-decoration: None;
+}
+
+.accordion a:hover {
+    color: var(--greenhighlight);
+}
+
+/*-- https://stackoverflow.com/questions/66335238/changing-the-color-arrow-in-bootstrap --*/
+.accordion-button:after {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23FAFAFA'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+}
+
