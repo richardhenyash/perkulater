@@ -23,7 +23,7 @@
             </div>
             <div class="row">
                 <div class="col-12 px-3 px-md-4">
-                    <form class="form-user dark" action="{% url 'add_product' %}" method="POST" id="payment-form">
+                    <form class="form-user dark" action="{% url 'add_product' %}" method="POST" enctype="multipart/form-data" id="payment-form">
                         {% csrf_token %}
                         <fieldset class="pt-2">
                             <legend class="field-label">Add A Product</legend>
