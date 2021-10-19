@@ -1,11 +1,17 @@
 from django.shortcuts import get_object_or_404, HttpResponse, redirect, render, reverse
 from django.contrib import messages
-from products.models import Product, Size, Type
+from products.models import Category, Product, Size, Type
+
 
 def view_basket(request):
     """ A view to return the basket contents page """
 
-    return render(request, 'basket/basket.html')
+    categories_all = Category.objects.all()
+    template = 'basket/basket.html'
+    context = {
+        'categories_all': categories_all,
+    }
+    return render(request, template, context)
 
 
 def add_to_basket(request, product_id):

@@ -52,6 +52,7 @@ def product_detail(request, product_id):
     """ A view to show individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
+    categories_all = Category.objects.all()
     product_category = get_object_or_404(Category, name=product.category)
     product_sizes = get_list_or_404(Size, category=product.category)
     product_types = get_list_or_404(Type, category=product.category)
@@ -74,6 +75,7 @@ def product_detail(request, product_id):
         'product_price_dict': product_price_dict,
         'product_offers': product_offers,
         'product_offer_str': product_offer_str,
+        'categories_all': categories_all,
     }
 
     coffee_detail = get_object_or_404(Coffee, pk=product_id)

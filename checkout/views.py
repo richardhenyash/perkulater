@@ -8,7 +8,7 @@ from django.conf import settings
 from .forms import OrderForm
 from basket.contexts import basket_contents
 from .models import Order, OrderLineItem
-from products.models import Product, Price, Size, Type
+from products.models import Category, Product, Price, Size, Type
 from profiles.models import UserProfile
 from profiles.forms import UserForm, UserProfileForm
 from django.contrib.auth.models import User
@@ -38,7 +38,7 @@ def checkout(request):
     """
     Display the checkout page and allow checkout
     """
-    
+    categories_all = Category.objects.all()
     stripe_public_key = settings.STRIPE_PUBLIC_KEY    
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -145,6 +145,7 @@ def checkout(request):
             'order_form': order_form,
             'stripe_public_key': stripe_public_key,
             'client_secret': intent.client_secret,
+            'categories_all': categories_all,
         }
         return render(request, template, context)
 
@@ -155,6 +156,7 @@ def checkout_success(request, order_number):
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+    categories_all = Category.objects.all()
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
@@ -196,6 +198,7 @@ def checkout_success(request, order_number):
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
+        'categories_all': categories_all,        
     }
 
     return render(request, template, context)
