@@ -1,10 +1,6 @@
 /*-- Basket Custom CSS --*/
 
 /*-- Basket Containers --*/
-.basket-container {
-    background-color: rgba(41, 41, 41, 0.6);
-}
-
 .basket-notification-container {
     max-height: 250px;
     overflow-x: hidden;

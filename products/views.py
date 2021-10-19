@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_list_or_404, get_obj
 from django.contrib import messages
 from django.db.models import Q
 from .models import Category, Product, Size, Type, Price, Coffee, Offer
+from .forms import ProductForm
 from .helpers import get_product_offer_str
 
 # Create your views here.
@@ -85,3 +86,15 @@ def product_detail(request, product_id):
 
     return render(request, 'products/product_detail.html', context)
 
+
+def add_product(request):
+    """ Add a product """
+
+    categories_all = Category.objects.all()
+    product_form = ProductForm
+    template = "products/add_product.html"
+    context = {
+        'product_form': product_form,
+        'categories_all': categories_all,
+    }
+    return render(request, template, context)

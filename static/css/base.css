@@ -123,6 +123,10 @@ body {
     min-height: 70vh;
 }
 
+.container-dark {
+    background-color: rgba(41, 41, 41, 0.6);
+}
+
 /*-- Dividers--*/
 .divider-solid hr {
     height: 2px;
