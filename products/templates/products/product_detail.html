@@ -19,12 +19,12 @@
         <div class="col-sm-12 col-md-6 p-3">
             <div class="product-container">
                 <a id="productInformationImgLink" href="#" role="button"
-                    data-information-modal-title="{{ product.name }}"
+                    data-information-modal-title="{{ product.friendly_name }}"
                     data-information-modal-size="modal-xl">
-                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="w-100">
+                    <img src="{{ product.image.url }}" alt="{{ product.friendly_name }}" class="w-100">
                 </a>
             </div>
-            <h6 class="title-text-large text-center pt-2">{{ product.name }}</h6>
+            <h6 class="title-text-large text-center pt-2">{{ product.friendly_name }}</h6>
             <h6 class="title-text-medium text-center pt-2">{{ coffee_detail.flavour_profile }}</h6>
             <div id="product-rating-stars" class="product-rating-stars text-center" data-product-rating="{{ product.rating }}">
                 <i id="star-1" class="fas fa-star"></i>
@@ -49,11 +49,11 @@
                         <td class="text-bold px-3 text-nowrap pt-1 pb-0">Coffee
                             <a class="button-info" id="productInformationBtn" href="#" role="button"
                                 data-information-modal-size="modal-xl"
-                                data-information-modal-title="{{ product.name }}">
+                                data-information-modal-title="{{ product.friendly_name }}">
                                 <i class="fas fa-lg fa-info-circle px-1"></i>
                             </a>
                         </td>
-                        <td class="text-bold pt-1 pb-0">{{ product.name }}</td>
+                        <td class="text-bold pt-1 pb-0">{{ product.friendly_name }}</td>
                     </tr>
                     <tr>
                         <td class="px-3 pt-0 pb-1"></td>

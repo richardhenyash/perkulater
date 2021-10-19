@@ -64,7 +64,7 @@
                             {% if categories_all|length > 1 %}
                                 {% for category in categories_all %}
                                 <li class="nav-item p-1">
-                                    <a href="{% url 'products' %}?category={{ category.name }}" class="nav-link">{{ category.name }}</a>
+                                    <a href="{% url 'products' %}?category={{ category.name }}" class="nav-link">{{ category.friendly_name }}</a>
                                 </li>
                                 {% endfor %}
                             {% endif %}

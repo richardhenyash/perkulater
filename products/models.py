@@ -11,6 +11,7 @@ class Category(models.Model):
 
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, blank=True)
+    description = models.CharField(max_length=254, blank=True)
     size_description = models.CharField(max_length=50, blank=True)
     size_information = models.CharField(max_length=254, blank=True)
     type_description = models.CharField(max_length=50, blank=True)
@@ -19,6 +20,9 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_description(self):
+        return self.description
 
     def get_friendly_name(self):
         return self.friendly_name
