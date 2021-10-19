@@ -2,10 +2,9 @@ from django.shortcuts import render, redirect, reverse, get_list_or_404, get_obj
 from django.contrib import messages
 from django.db.models import Q
 from .models import Category, Product, Size, Type, Price, Coffee, Offer
-from .forms import ProductForm
+from .forms import CoffeeForm, ProductForm
 from .helpers import get_product_offer_str
 
-# Create your views here.
 
 def all_products(request):
     """ A view to show all products """
@@ -102,11 +101,13 @@ def add_product(request):
             messages.error(request, 'Failed to add product. Please check product form.')
     else:
         product_form = ProductForm
+        coffee_form = CoffeeForm
 
     categories_all = Category.objects.all()
     template = "products/add_product.html"
     context = {
         'product_form': product_form,
+        'coffee_form': coffee_form,
         'categories_all': categories_all,
         'on_admin_page': True,
     }

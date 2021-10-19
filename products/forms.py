@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product, Category
+from .models import Product, Category, Coffee
 
 
 class ProductForm(forms.ModelForm):
@@ -17,7 +17,62 @@ class ProductForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         categories = Category.objects.all()
         friendly_names = [(category.id, category.get_friendly_name()) for category in categories]
-
         self.fields['category'].choices = friendly_names
+        placeholders = {
+            'name': 'Name',
+            'friendly_name': 'Friendly Name',
+            'friendly_price': 'Friendly Price',
+            'description_full': 'Full Description',
+            'description_short': 'Short Description',
+            'description_delimiter': 'Description Delimeter',
+        }
+        self.fields['name'].widget.attrs['autofocus'] = True
+        for field in self.fields:
+            if field != 'category' and field != 'image':
+                if self.fields[field].required:
+                    placeholder = f'{placeholders[field]} *'
+                else:
+                    placeholder = placeholders[field]
+                self.fields[field].widget.attrs['placeholder'] = placeholder
+            if field != 'image':
+                self.fields[field].label = False
+            self.fields[field].widget.attrs['class'] = 'checkout-input'
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'product-input'
+
+
+class CoffeeForm(forms.ModelForm):
+    """
+    A form for Coffees.
+    """
+    class Meta:
+        model = Coffee
+        exclude = ['product']
+
+    def __init__(self, *args, **kwargs):
+        """
+        Add placeholders and classes, remove auto-generated
+        labels and set autofocus on first field
+        """
+        super().__init__(*args, **kwargs)
+        placeholders = {
+            'country': 'Country',
+            'farm': 'Farm',
+            'owner': 'Owner',
+            'variety': 'Variety',
+            'altitude': 'Altitude',
+            'town': 'Town',
+            'region': 'Region',
+            'flavour_profile': 'Flavour Profile',
+        }
+        
+        self.fields['country'].widget.attrs['autofocus'] = True
+        for field in self.fields:
+            if field != 'product':
+                if self.fields[field].required:
+                    placeholder = f'{placeholders[field]} *'
+                else:
+                    placeholder = placeholders[field]
+                self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields[field].widget.attrs['class'] = 'coffee-input'
+            self.fields[field].label = False

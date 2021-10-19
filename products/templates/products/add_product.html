@@ -15,7 +15,7 @@
         <div class="col-12 container-dark pt-4 px-3">
             <div class="row">
                 <div class="col-12">
-                    <h6 class="title-text-large text-center pt-2">Product Management</h6>
+                    <h6 class="title-text-large text-center pt-2">Add Product</h6>
                 </div>
                 <div class="divider-opaque">
                     <hr>
@@ -26,8 +26,12 @@
                     <form class="form-user dark" action="{% url 'add_product' %}" method="POST" enctype="multipart/form-data" id="payment-form">
                         {% csrf_token %}
                         <fieldset class="pt-2">
-                            <legend class="field-label">Add A Product</legend>
+                            <legend class="field-label">Product Details</legend>
                             {{ product_form | crispy }}
+                        </fieldset>
+                        <fieldset class="pt-2" id="coffee-details">
+                            <legend class="field-label">Coffee Details</legend>
+                            {{ coffee_form | crispy }}
                         </fieldset>
                         <div class="row pt-3">
                             <div class="col-6 pb-4">
