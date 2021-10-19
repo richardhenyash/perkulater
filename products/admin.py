@@ -4,6 +4,7 @@ from.models import Category, Product, Size, Type, Price, Coffee, Offer
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
+        'friendly_name',
         'name',
         'category',
         'rating',
