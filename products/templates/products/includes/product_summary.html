@@ -12,7 +12,11 @@
             <div class="product-container">
                 <div class="image-container px-5">
                     <a href="{% url 'product_detail' product.id %}">
-                        <img src="{{ product.image.url }}" alt="{{ product.friendly_name }}" class="w-100 p-3">
+                        {% if  product.image %}
+                            <img src="{{ product.image.url }}" alt="{{ product.friendly_name }}" class="w-100">
+                        {% else %}
+                            <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.friendly_name }}" class="w-100 p-1">
+                        {% endif %}
                     </a>
                 </div>
             </div>

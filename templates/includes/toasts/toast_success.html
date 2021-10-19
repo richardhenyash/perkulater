@@ -11,7 +11,7 @@
                     <p class="text-medium mb-0">{{ message }}</p>
                 </div>
             </div>
-            {% if basket_items and not on_profile_page %}
+            {% if basket_items and not on_admin_page %}
                 <div class="row">
                     <div class="divider-opaque">
                         <hr>
@@ -27,7 +27,11 @@
                                         <div class="row d-flex align-items-center">
                                             <div class="col-4 p-3">
                                                 <div class="product-detail-container">
-                                                    <img src="{{ basket_item.product.image.url }}" alt="{{ basket_item.product.name }}" class="w-100 p-1">                            
+                                                    {% if  basket_item.product.image %}
+                                                        <img src="{{ basket_item.product.image.url }}" alt="{{ basket_item.product.friendly_name }}" class="w-100 p-1">
+                                                    {% else %}
+                                                        <img src="{{ MEDIA_URL }}noimage.png" alt="{{ basket_item.product.friendly_name }}" class="w-100 p-1">
+                                                    {% endif %}                           
                                                 </div>
                                             </div>
                                             <div class="col-8">

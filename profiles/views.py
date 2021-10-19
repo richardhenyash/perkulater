@@ -23,9 +23,11 @@ def profile(request):
             user_form.save()
             user_profile_form.save()
             messages.success(request, "Profile successfully updated")
-
-    user_profile_form = UserProfileForm(instance=user_profile)
-    user_form = UserForm(instance=userobj)
+        else:
+            messages.error(request, "Profile update failed - please check profile form.")
+    else:
+        user_profile_form = UserProfileForm(instance=user_profile)
+        user_form = UserForm(instance=userobj)
     orders = user_profile.orders.all()
 
     template = 'profiles/profile.html'
@@ -33,7 +35,7 @@ def profile(request):
         'user_form': user_form,
         'user_profile_form': user_profile_form,
         'orders': orders,
-        'on_profile_page': True,
+        'on_admin_page': True,
     }
     return render(request, template, context)
 

@@ -57,7 +57,7 @@ def product_detail(request, product_id):
     product_category = get_object_or_404(Category, name=product.category)
     product_sizes = get_list_or_404(Size, category=product.category)
     product_types = get_list_or_404(Type, category=product.category)
-    product_prices = get_list_or_404(Price, product=product.id)
+    product_prices = get_list_or_404(Price, product=product)
 
     # Build dictionary of sizes and prices for the product
     product_price_dict = {}
@@ -79,7 +79,7 @@ def product_detail(request, product_id):
         'categories_all': categories_all,
     }
 
-    coffee_detail = get_object_or_404(Coffee, pk=product_id)
+    coffee_detail = get_object_or_404(Coffee, product=product)
 
     if coffee_detail:
         context['coffee_detail'] = coffee_detail
@@ -90,11 +90,24 @@ def product_detail(request, product_id):
 def add_product(request):
     """ Add a product """
 
+    if request.method == 'POST':
+        product_form = ProductForm(request.POST, request.FILES)
+        if product_form.is_valid():
+            product_form.save()
+            friendly_name = request.POST.get('friendly_name', '')
+            print(friendly_name)
+            messages.success(request, f"Succesfully added product {friendly_name}!")
+            return redirect(reverse('add_product'))
+        else:
+            messages.error(request, 'Failed to add product. Please check product form.')
+    else:
+        product_form = ProductForm
+
     categories_all = Category.objects.all()
-    product_form = ProductForm
     template = "products/add_product.html"
     context = {
         'product_form': product_form,
         'categories_all': categories_all,
+        'on_admin_page': True,
     }
     return render(request, template, context)

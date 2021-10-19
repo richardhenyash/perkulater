@@ -111,8 +111,12 @@
                                     <div class="col-4 p-3">
                                         <div class="product-container image-container">
                                             <a href="{% url 'product_detail' basket_item.product_id %}">
-                                                <img src="{{ basket_item.product.image.url }}" alt="{{ basket_item.product.name }}" class="w-100 p-1">
-                                            </a>                             
+                                                {% if  basket_item.product.image %}
+                                                    <img src="{{ basket_item.product.image.url }}" alt="{{ basket_item.product.friendly_name }}" class="w-100 p-1">
+                                                {% else %}
+                                                    <img src="{{ MEDIA_URL }}noimage.png" alt="{{ basket_item.product.friendly_name }}" class="w-100 p-1">
+                                                {% endif %}
+                                            </a>                           
                                         </div>
                                     </div>
                                     <div class="col-8 text-medium pt-2">
