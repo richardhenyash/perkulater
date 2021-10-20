@@ -142,7 +142,8 @@ def edit_product(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
 
     if request.method == 'POST':
-        product_form = ProductForm(request.POST, request.FILES, instance=product)
+        product_form = ProductForm(
+            request.POST, request.FILES, instance=product)
         coffee_update = False
         product_update = False
         if product_form.is_valid():
@@ -155,16 +156,20 @@ def edit_product(request, product_id):
                     coffee_form.save()
                     coffee_update = True
                 else:
-                    messages.error(request, 'Failed to update Coffee details. Please check product form.')
+                    messages.error(
+                        request, 'Failed to update Coffee details. Please check product form.')
 
             if product_update and coffee_update:
-                messages.success(request, f'Succesfully updated product and coffee details for {product.friendly_name}!')
+                messages.success
+                (request, f'Succesfully updated product and coffee details for {product.friendly_name}!')
             elif product_update:
-                messages.success(request, f'Succesfully updated product details for {product.friendly_name}!')
+                messages.success(
+                    request, f'Succesfully updated product details for {product.friendly_name}!')
 
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to update product. Please check product form.')
+            messages.error(
+                request, 'Failed to update product. Please check product form.')
 
     product_form = ProductForm(instance=product)
     coffee_form = None
@@ -183,5 +188,4 @@ def edit_product(request, product_id):
         'on_admin_page': True,
     }
     return render(request, template, context)
-
 
