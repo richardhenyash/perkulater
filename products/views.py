@@ -177,7 +177,6 @@ def edit_product(request, product_id):
         coffee = get_object_or_404(Coffee, product=product)
         coffee_form = CoffeeForm(instance=coffee)
 
-
     categories_all = Category.objects.all()
     template = "products/edit_product.html"
     context = {
