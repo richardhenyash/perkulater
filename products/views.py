@@ -78,10 +78,10 @@ def product_detail(request, product_id):
         'categories_all': categories_all,
     }
 
-    coffee_details = Coffee.objects.filter(product=product)
+    coffee_details = Coffee.objects.filter(product=product).first()
 
     if coffee_details:
-        context['coffee_detail'] = coffee_details[0]
+        context['coffee_detail'] = coffee_details
 
     return render(request, 'products/product_detail.html', context)
 
