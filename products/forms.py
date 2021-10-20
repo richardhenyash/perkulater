@@ -11,7 +11,15 @@ class ProductForm(forms.ModelForm):
         fields = ('category', 'name', 'friendly_name',
                   'friendly_price', 'description_full',
                   'description_short', 'description_delimiter',
-                  'image')
+                  'image')                
+        labels = {
+            'friendly_name': 'Display Name',
+            'friendly_price': 'Display Price',
+            'description_full': 'Full Description',
+            'description_short': 'Short Description',
+            'description_delimiter': 'Description Delimiter',
+            'image': 'Image File',
+            }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -24,7 +32,7 @@ class ProductForm(forms.ModelForm):
             'friendly_price': 'Friendly Price',
             'description_full': 'Full Description',
             'description_short': 'Short Description',
-            'description_delimiter': 'Description Delimeter',
+            'description_delimiter': 'Description Delimiter',
         }
         self.fields['name'].widget.attrs['autofocus'] = True
         for field in self.fields:
@@ -34,8 +42,6 @@ class ProductForm(forms.ModelForm):
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
-            if field != 'image':
-                self.fields[field].label = False
             self.fields[field].widget.attrs['class'] = 'checkout-input'
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'product-input'
@@ -48,6 +54,10 @@ class CoffeeForm(forms.ModelForm):
     class Meta:
         model = Coffee
         exclude = ['product']
+        labels = {
+            'country': 'Country Of Origin',
+            'flavour_profile': 'Flavour Profile',
+            }
 
     def __init__(self, *args, **kwargs):
         """
@@ -75,4 +85,3 @@ class CoffeeForm(forms.ModelForm):
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'coffee-input'
-            self.fields[field].label = False
