@@ -11,6 +11,8 @@ def index(request):
     product_offers = get_list_or_404(Offer, display_in_banner=True)
     product_offer_str = get_product_offer_str(product_offers, "  -  ")
 
+    products = products.order_by("name")
+
     context = {
         'products': products,
         'product_offers' : product_offers,
