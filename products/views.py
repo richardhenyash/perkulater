@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_list_or_404, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Category, Product, Size, Type, Price, Coffee, Offer
+from .models import Category, Price, Product, Size, Type, Coffee, Offer
 from .forms import CoffeeForm, ProductForm
 from .helpers import get_product_offer_str
 
@@ -14,7 +14,7 @@ def all_products(request):
     categories = None
     category = None
     categories_all = Category.objects.all()
-    product_offers = get_list_or_404(Offer, display_in_banner=True)
+    product_offers = Offer.objects.filter(display_in_banner=True)
     product_offer_str = get_product_offer_str(product_offers, "  -  ")
     if request.GET:
         if 'category' in request.GET:
@@ -54,16 +54,16 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     categories_all = Category.objects.all()
     product_category = get_object_or_404(Category, name=product.category)
-    product_sizes = get_list_or_404(Size, category=product.category)
-    product_types = get_list_or_404(Type, category=product.category)
-    product_prices = get_list_or_404(Price, product=product)
+    product_sizes = Size.objects.filter(category=product.category)
+    product_types = Type.objects.filter(category=product.category)
+    product_prices = Price.objects.filter(product=product)
 
     # Build dictionary of sizes and prices for the product
     product_price_dict = {}
     for priceobj in product_prices:
         product_price_dict[priceobj.get_size()] = priceobj.get_price()
 
-    product_offers = get_list_or_404(Offer, display_in_banner=True)
+    product_offers = Offer.objects.filter(display_in_banner=True)
     product_offer_str = get_product_offer_str(product_offers, "  -  ")
 
     context = {
@@ -78,10 +78,10 @@ def product_detail(request, product_id):
         'categories_all': categories_all,
     }
 
-    coffee_detail = get_object_or_404(Coffee, product=product)
+    coffee_details = Coffee.objects.filter(product=product)
 
-    if coffee_detail:
-        context['coffee_detail'] = coffee_detail
+    if coffee_details:
+        context['coffee_detail'] = coffee_details[0]
 
     return render(request, 'products/product_detail.html', context)
 
@@ -92,9 +92,32 @@ def add_product(request):
     if request.method == 'POST':
         product_form = ProductForm(request.POST, request.FILES)
         if product_form.is_valid():
-            product_form.save()
+            new_product = product_form.save(commit=False)
+            new_product.save()
+            if new_product.category.name == 'Coffee':
+                coffee_form = CoffeeForm(request.POST)
+                if coffee_form.is_valid():
+                    new_coffee = coffee_form.save(commit=False)
+                    new_coffee.product = new_product
+                    new_coffee.save()
+                else:
+                    messages.error(request, 'Failed to add Coffee details. Please check product form.')
+
+            # Add prices to database for new product
+            # using default prices stored in Size model
+            product_sizes = Size.objects.filter(category=new_product.category)
+            for product_size in product_sizes:
+                product_sku = (
+                    new_product.category.name.upper() + "-" +
+                    new_product.name.upper() + "-" +
+                    product_size.size)
+                product_sku = ''.join(filter(None, product_sku.split(' ')))
+                new_price = Price(
+                    product=new_product, price=product_size.default_price,
+                    size=product_size, sku=product_sku)
+                new_price.save()
+
             friendly_name = request.POST.get('friendly_name', '')
-            print(friendly_name)
             messages.success(request, f"Succesfully added product {friendly_name}!")
             return redirect(reverse('add_product'))
         else:
