@@ -21,11 +21,20 @@ class CategoryAdmin(admin.ModelAdmin):
     )
 
 
+class PriceAdmin(admin.ModelAdmin):
+    list_display = (
+        'product',
+        'size',
+        'sku',
+    )
+    ordering = ['product', 'size']
+
+
 # Register your models here.
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product, ProductAdmin)
+admin.site.register(Price, PriceAdmin)
 admin.site.register(Size)
 admin.site.register(Type)
-admin.site.register(Price)
 admin.site.register(Coffee)
 admin.site.register(Offer)
