@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extracss %}
+    <!-- Link to Products Custom CSS -->
+    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+<section id="product-add" class="container-sm container-custom pt-2">
+    <div class="row py-4">
+        <div class="col-12 container-dark pt-4 px-3">
+            <div class="row">
+                <div class="col-12">
+                    <h6 class="title-text-large text-center pt-2">Edit Product</h6>
+                </div>
+                <div class="divider-opaque">
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 px-3 px-md-4">
+                    <form class="form-user dark" action="{% url 'edit_product' product.id %}" method="POST" enctype="multipart/form-data" id="payment-form">
+                        {% csrf_token %}
+                        <fieldset class="pt-2">
+                            <legend class="field-label">Product Details</legend>
+                            {{ product_form | crispy }}
+                        </fieldset>
+                        <fieldset class="pt-2" id="coffee-details">
+                            <legend class="field-label">Coffee Details</legend>
+                            {{ coffee_form | crispy }}
+                        </fieldset>
+                        <div class="row pt-3">
+                            <div class="col-6 pb-4">
+                                <div class="text-center py-2">
+                                    <a href="{% url 'products' %}"
+                                        class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
+                                        View Products
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-6 pb-4">
+                                <div class="text-center py-2">
+                                    <button id="product-add-submit-button" type="submit"
+                                        class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
+                                        Update Product
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>                  
+                </div> 
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extrapostloadjs %}
+{% endblock %}
