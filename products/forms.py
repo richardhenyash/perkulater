@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product, Category, Coffee
+from .models import Category, Coffee, Price, Product
 
 
 class ProductForm(forms.ModelForm):
@@ -56,7 +56,7 @@ class CoffeeForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
-            'country': 'Country',
+            'country': 'Country Of Origin',
             'farm': 'Farm',
             'owner': 'Owner',
             'variety': 'Variety',
