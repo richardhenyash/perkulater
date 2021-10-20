@@ -75,9 +75,13 @@ class Size(models.Model):
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     size = models.CharField(max_length=254, blank=True)
+    default_price = models.DecimalField(max_digits=6, decimal_places=2)
 
     def __str__(self):
         return self.size
+
+    def get_default_price(self):
+        return (self.default_price)
 
 
 class Type(models.Model):
