@@ -100,12 +100,14 @@ def add_product(request):
         if product_form.is_valid():
             new_product = product_form.save(commit=False)
             new_product.save()
+            addstr = "Product "
             if new_product.category.name == 'Coffee':
                 coffee_form = CoffeeForm(request.POST)
                 if coffee_form.is_valid():
                     new_coffee = coffee_form.save(commit=False)
                     new_coffee.product = new_product
                     new_coffee.save()
+                    addstr = addstr + ", coffee details "
                 else:
                     messages.error(request, 'Failed to add Coffee details. Please check product form.')
 
@@ -122,9 +124,10 @@ def add_product(request):
                     product=new_product, price=product_size.default_price,
                     size=product_size, sku=product_sku)
                 new_price.save()
+            addstr = addstr + "and prices "
 
-            friendly_name = request.POST.get('friendly_name', '')
-            messages.success(request, f"Succesfully added product {friendly_name}!")
+            messages.success(
+                request, f'{addstr}added: {new_product.friendly_name}.')
             return redirect(reverse('product_detail', args=[new_product.id]))
         else:
             messages.error(request, 'Failed to add product. Please check product form.')
@@ -156,28 +159,22 @@ def edit_product(request, product_id):
     if request.method == 'POST':
         product_form = ProductForm(
             request.POST, request.FILES, instance=product)
-        coffee_update = False
-        product_update = False
         if product_form.is_valid():
             product_form.save()
-            product_update = True
+            updatestr = "Product "
+
             if product.category.name == "Coffee":
                 coffee = get_object_or_404(Coffee, product=product)
                 coffee_form = CoffeeForm(request.POST, instance=coffee)
                 if coffee_form.is_valid():
                     coffee_form.save()
-                    coffee_update = True
+                    updatestr = updatestr + "and coffee details "
                 else:
                     messages.error(
-                        request, 'Failed to update Coffee details. Please check product form.')
+                        request, 'Failed to update coffee details. Please check product form.')
 
-            if product_update and coffee_update:
-                messages.success
-                (request, f'Succesfully updated product and coffee details for {product.friendly_name}!')
-            elif product_update:
-                messages.success(
-                    request, f'Succesfully updated product details for {product.friendly_name}!')
-
+            messages.success(
+                request, f'{updatestr}updated: {product.friendly_name}.')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(
@@ -211,21 +208,21 @@ def delete_product(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     deleteflag = False
     if product:
-        deletestr = "Product, "
+        deletestr = "Product "
         deleteflag = True
     if product.category.name == "Coffee":
         coffee = Coffee.objects.filter(product=product)
         if coffee:
-            deletestr = deletestr + "coffee details, "
+            deletestr = deletestr + ", coffee details "
             coffee.delete()
             deleteflag = True
     prices = Price.objects.filter(product=product)
     if prices:
-        deletestr = deletestr + "and prices"
+        deletestr = deletestr + "and prices "
         prices.delete()
     if deleteflag:
         messages.success(
-            request, f'{deletestr} deleted for {product.friendly_name}!')
+            request, f'{deletestr}deleted: {product.friendly_name}.')
         product.delete()
     else:
         messages.error(request, f'Error - product {product.friendly_name} not found in database!')
