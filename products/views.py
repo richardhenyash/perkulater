@@ -119,7 +119,7 @@ def add_product(request):
 
             friendly_name = request.POST.get('friendly_name', '')
             messages.success(request, f"Succesfully added product {friendly_name}!")
-            return redirect(reverse('add_product'))
+            return redirect(reverse('product_detail', args=[new_product.id]))
         else:
             messages.error(request, 'Failed to add product. Please check product form.')
     else:
@@ -187,4 +187,31 @@ def edit_product(request, product_id):
         'on_admin_page': True,
     }
     return render(request, template, context)
+
+
+def delete_product(request, product_id):
+    """ Delete an existing product """
+    product = get_object_or_404(Product, pk=product_id)
+    deleteflag = False
+    if product:
+        deletestr = "Product, "
+        deleteflag = True
+    if product.category.name == "Coffee":
+        coffee = Coffee.objects.filter(product=product)
+        if coffee:
+            deletestr = deletestr + "coffee details, "
+            coffee.delete()
+            deleteflag = True
+    prices = Price.objects.filter(product=product)
+    if prices:
+        deletestr = deletestr + "and prices"
+        prices.delete()
+    if deleteflag:
+        messages.success(
+            request, f'{deletestr} deleted for {product.friendly_name}!')
+        product.delete()
+    else:
+        messages.error(request, f'Error - product {product.friendly_name} not found in database!')
+
+    return redirect(reverse('products'))
 
