@@ -23,9 +23,9 @@ def add_to_basket(request, product_id):
     product_size = request.POST.get('product-size')
     product_type = request.POST.get('product-type')
     size = get_object_or_404(Size, size=product_size)
-    type = get_object_or_404(Type, type=product_type)
+    typeobj = get_object_or_404(Type, type=product_type)
     size_id = str(size.id)
-    type_id = str(type.id)
+    type_id = str(typeobj.id)
     product_quantity = int(request.POST.get('product-quantity'))
     product_key = product_id + "_" + size_id + "_" + type_id
 
