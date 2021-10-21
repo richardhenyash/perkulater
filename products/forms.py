@@ -12,7 +12,7 @@ class ProductForm(forms.ModelForm):
         fields = ('category', 'name', 'friendly_name',
                   'friendly_price', 'description_full',
                   'description_short', 'description_delimiter',
-                  'image')               
+                  'image')        
         labels = {
             'friendly_name': 'Display Name',
             'friendly_price': 'Display Price',
