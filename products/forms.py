@@ -1,5 +1,6 @@
 from django import forms
-from .models import Category, Coffee, Price, Product
+from .widgets import CustomClearableFileInput
+from .models import Category, Coffee, Product
 
 
 class ProductForm(forms.ModelForm):
@@ -11,15 +12,16 @@ class ProductForm(forms.ModelForm):
         fields = ('category', 'name', 'friendly_name',
                   'friendly_price', 'description_full',
                   'description_short', 'description_delimiter',
-                  'image')                
+                  'image')               
         labels = {
             'friendly_name': 'Display Name',
             'friendly_price': 'Display Price',
             'description_full': 'Full Description',
             'description_short': 'Short Description',
             'description_delimiter': 'Description Delimiter',
-            'image': 'Image File',
             }
+
+        image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -42,9 +44,7 @@ class ProductForm(forms.ModelForm):
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'checkout-input'
-        for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'product-input'
+                self.fields[field].widget.attrs['class'] = 'product-input'
 
 
 class CoffeeForm(forms.ModelForm):
