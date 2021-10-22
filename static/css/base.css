@@ -373,6 +373,21 @@ body {
     color: var(--bluehighlight);
 }
 
+/*-- Links --*/
+.link-small {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--green);
+    text-decoration: None;
+    text-align: right;
+}
+
+.link-small:hover {
+    color: var(--greenhighlight);
+    cursor: pointer;
+}
+
+
 /*-- Toast Messages --*/
 .toast {
     border-bottom-left-radius: 1rem 1rem;
@@ -643,5 +658,8 @@ body {
     }   
     .text-large {
         font-size: 1.4rem;
+    }
+    .link-small {
+        font-size: 1.0rem;
     }
 }

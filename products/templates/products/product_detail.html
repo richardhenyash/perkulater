@@ -139,18 +139,18 @@
                         <div class="col-12 px-3">
                             <div class="row">
                                 <div class="col-4">
-                                    <p class="text-medium text-bold px-3">Price
+                                    <p class="text-medium text-bold px-3 mt-1">Price
                                     </p>
                                 </div>
                                 <div class="col-2">
-                                    <p id="product-price" class="text-medium text-bold">
+                                    <p id="product-price" class="text-medium text-bold mt-1">
                                         £{{ product_prices.0.get_price }}   
                                     </p>    
                                  </div>
                                 <div class="col-6">
                                     {% if request.user.is_superuser %}
                                     <a href="{% url 'edit_prices' product.id %}"
-                                        class="product-link px-1">Edit
+                                        class="link-small mt-1 px-1">Edit
                                     </a>
                                     {% endif %}
                                 </div>                                      
