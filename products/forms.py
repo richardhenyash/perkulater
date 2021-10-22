@@ -1,6 +1,6 @@
 from django import forms
 from .widgets import CustomClearableFileInput
-from .models import Category, Coffee, Product
+from .models import Category, Coffee, Product, Price
 
 
 class ProductForm(forms.ModelForm):
@@ -12,16 +12,18 @@ class ProductForm(forms.ModelForm):
         fields = ('category', 'name', 'friendly_name',
                   'friendly_price', 'description_full',
                   'description_short', 'description_delimiter',
-                  'image')        
+                  'image',)
+
         labels = {
             'friendly_name': 'Display Name',
             'friendly_price': 'Display Price',
             'description_full': 'Full Description',
             'description_short': 'Short Description',
             'description_delimiter': 'Description Delimiter',
+            'image': 'Image',
             }
 
-        image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -35,16 +37,14 @@ class ProductForm(forms.ModelForm):
             'description_full': 'Full Description',
             'description_short': 'Short Description',
             'description_delimiter': 'Description Delimiter',
-        }
-        self.fields['name'].widget.attrs['autofocus'] = True
-        for field in self.fields:
-            if field != 'category' and field != 'image':
-                if self.fields[field].required:
-                    placeholder = f'{placeholders[field]} *'
-                else:
-                    placeholder = placeholders[field]
-                self.fields[field].widget.attrs['placeholder'] = placeholder
-                self.fields[field].widget.attrs['class'] = 'product-input'
+         }
+        for field_name, placeholder in placeholders.items():
+            if self.fields[field_name].required:
+                placeholder_text = placeholder + "*"
+            else:
+                placeholder_text = placeholder
+            self.fields[field_name].widget.attrs['placeholder'] = placeholder_text
+            self.fields[field_name].widget.attrs['class'] = 'product-input'
 
 
 class CoffeeForm(forms.ModelForm):
@@ -77,11 +77,34 @@ class CoffeeForm(forms.ModelForm):
         }
         
         self.fields['country'].widget.attrs['autofocus'] = True
-        for field in self.fields:
-            if field != 'product':
-                if self.fields[field].required:
-                    placeholder = f'{placeholders[field]} *'
-                else:
-                    placeholder = placeholders[field]
-                self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'coffee-input'
+        for field_name, placeholder in placeholders.items():
+            if self.fields[field_name].required:
+                placeholder_text = placeholder + "*"
+            else:
+                placeholder_text = placeholder
+            self.fields[field_name].widget.attrs['placeholder'] = placeholder_text
+            self.fields[field_name].widget.attrs['class'] = 'coffee-input'
+
+
+class PriceForm(forms.ModelForm):
+    """
+    A form for Prices.
+    """
+    class Meta:
+        model = Price
+        exclude = ['product', 'sku']
+        labels = {
+            'size': 'Size',
+            'price': 'Price £',
+            }
+
+    def __init__(self, *args, **kwargs):
+        """
+        Add placeholders and classes, remove auto-generated
+        labels and set autofocus on price field
+        """
+        super().__init__(*args, **kwargs)
+    
+        self.fields['price'].widget.attrs['autofocus'] = True
+        self.fields['price'].widget.attrs['class'] = 'price-input'
+
