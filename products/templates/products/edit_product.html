@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block content %}
-<section id="product-add" class="container-sm container-custom pt-2">
+<section id="product-edit" class="container-sm container-custom pt-2">
     <div class="row py-4">
         <div class="col-12 container-dark pt-4 px-3">
             <div class="row">
@@ -23,11 +23,18 @@
             </div>
             <div class="row">
                 <div class="col-12 px-3 px-md-4">
-                    <form class="form-user dark" action="{% url 'edit_product' product.id %}" method="POST" enctype="multipart/form-data" id="payment-form">
+                    <form class="form-user dark" action="{% url 'edit_product' product.id %}" method="POST" enctype="multipart/form-data" id="product-edit-form">
                         {% csrf_token %}
                         <fieldset class="pt-2">
                             <legend class="field-label">Product Details</legend>
-                            {{ product_form | crispy }}
+                            {% for field in product_form %}
+                                {% if field.name != 'image' %}
+                                    {{ field | as_crispy_field }}
+                                {% else %}
+                                    {{ field }}
+                                {% endif %}
+                            {% endfor %}
+
                         </fieldset>
                         <fieldset class="pt-2" id="coffee-details">
                             <legend class="field-label">Coffee Details</legend>

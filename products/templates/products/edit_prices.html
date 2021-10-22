@@ -10,12 +10,12 @@
 {% endblock %}
 
 {% block content %}
-<section id="product-add" class="container-sm container-custom pt-2">
+<section id="price-edit" class="container-sm container-custom pt-2">
     <div class="row py-4">
         <div class="col-12 container-dark pt-4 px-3">
             <div class="row">
                 <div class="col-12">
-                    <h6 class="title-text-large text-center pt-2">Add Product</h6>
+                    <h6 class="title-text-large text-center pt-2">Edit Price</h6>
                 </div>
                 <div class="divider-opaque">
                     <hr>
@@ -23,28 +23,18 @@
             </div>
             <div class="row">
                 <div class="col-12 px-3 px-md-4">
-                    <form class="form-user dark" action="{% url 'add_product' %}" method="POST" enctype="multipart/form-data" id="payment-form">
+                    <form class="form-user" action="" method="POST" id="price-edit-form">
                         {% csrf_token %}
-                        <fieldset class="pt-2">
-                            <legend class="field-label">Product Details</legend>
-                            {% for field in product_form %}
-                                {% if field.name != 'image' %}
-                                    {{ field | as_crispy_field }}
-                                {% else %}
-                                    {{ field }}
-                                {% endif %}
-                            {% endfor %}                          
-                        </fieldset>
-                        <fieldset class="pt-2" id="coffee-details">
-                            <legend class="field-label">Coffee Details</legend>
-                            {{ coffee_form | crispy }}
+                        <fieldset class="pt-2" id="price-details">
+                            <legend class="field-label">{{product.friendly_name}}</legend>
+                            {{ price_form | crispy }}
                         </fieldset>
                         <div class="row pt-3">
                             <div class="col-6 pb-4">
                                 <div class="text-center py-2">
                                     <a href="{% url 'products' %}"
                                         class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
-                                        View Products
+                                        Back To Product
                                     </a>
                                 </div>
                             </div>
@@ -52,7 +42,7 @@
                                 <div class="text-center py-2">
                                     <button id="product-add-submit-button" type="submit"
                                         class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
-                                        Add Product
+                                        Update Price
                                     </button>
                                 </div>
                             </div>
