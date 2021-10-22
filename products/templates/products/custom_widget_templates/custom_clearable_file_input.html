@@ -6,16 +6,16 @@
     {% if not widget.required %}
         <div class="pt-3 px-2">
             <input class="form-check-input mt-2" type="checkbox" name="{{ widget.checkbox_name }}" id="{{ widget.checkbox_id }}">
-            <label class="text-medium text-bold" for="{{ widget.checkbox_id }}">{{ widget.clear_checkbox_label }}</label>
+            <label class="form-check-label" for="{{ widget.checkbox_id }}">{{ widget.clear_checkbox_label }}</label>
         </div>
     {% endif %}
     {{ widget.input_text }}    
 {% endif %}
 <div class="py-2 mt-2">
-    <span class="btn btn-outline-light btn-lg btn-outline-green btn-file text-large text-bold px-4">
+    <span class="btn btn-outline-light btn-lg btn-outline-green btn-file px-4">
         Select Image <input id="new-image" type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
     </span>
 </div>
-<div class="pt-2">
-    <strong><p class="text-medium text-bold fg-blue" id="filename"></p></strong>
+<div class="py-1">
+    <strong><span class="text-small text-bold fg-blue" id="filename"></span></strong>
 </div>
