@@ -348,6 +348,21 @@ body {
     font-size: 1.5rem;
 }
 
+/*-- File upload buttons --*/
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
 
 /*-- Information Button Icons --*/
 .button-info i {
@@ -457,15 +472,6 @@ body {
     padding-left: 0.7rem;
 }
 
-/** .form-user .form-control[type=file]:not(:disabled):not([readonly]) {
-    cursor: pointer;
-    padding-left: 1.5rem;
-    padding-right: 1.0rem;
-    padding-top: 1.0rem;
-    padding-bottom: 1.0rem;
-    font-weight: 600;
-}
-**/
 /*-- https://stackoverflow.com/questions/66335238/changing-the-color-arrow-in-bootstrap --*/
 .form-user select {
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23FAFAFA'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
