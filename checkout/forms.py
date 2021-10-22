@@ -28,12 +28,12 @@ class OrderForm(forms.ModelForm):
         }
 
         self.fields['full_name'].widget.attrs['autofocus'] = True
-        for field in self.fields:
-            if field != 'country':
-                if self.fields[field].required:
-                    placeholder = f'{placeholders[field]} *'
-                else:
-                    placeholder = placeholders[field]
-                self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'checkout-input'
-            self.fields[field].label = False
+
+        for field_name, placeholder in placeholders.items():
+            if self.fields[field_name].required:
+                placeholder_text = placeholder + "*"
+            else:
+                placeholder_text = placeholder
+            self.fields[field_name].widget.attrs['placeholder'] = placeholder_text
+            self.fields[field_name].widget.attrs['class'] = 'checkout-input'
+            self.fields[field_name].label = False
