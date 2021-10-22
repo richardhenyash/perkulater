@@ -59,6 +59,13 @@ $("#product-size").change(function() {
     (updatePrice("#product-size", "#product-quantity", "#product-price-dict", '#product-price'));
 });
 
+// On change event handler added to image in custom clearable file input
+// Displays new file name
+$('#new-image').change(function() {
+    let file = $('#new-image')[0].files[0];
+    $('#filename').text(`Image will be set to: ${file.name}`);
+});
+
 /**
 * [Function to build information modal from data attributes and javascript content array]
 * @return {[modalTitle]}                     [Modal title, string]          
