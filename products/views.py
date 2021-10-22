@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Category, Price, Product, Size, Type, Coffee, Offer
-from .forms import CoffeeForm, ProductForm
+from .forms import CoffeeForm, ProductForm, PriceForm
 from .helpers import get_product_offer_str
 
 
@@ -202,7 +202,7 @@ def delete_product(request, product_id):
     """ Delete an existing product """
 
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store adminitrators can do that.')
+        messages.error(request, 'Sorry, only store administrators can do that.')
         return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)
@@ -228,3 +228,30 @@ def delete_product(request, product_id):
         messages.error(request, f'Error - product {product.friendly_name} not found in database!')
 
     return redirect(reverse('products'))
+
+
+@login_required
+def edit_prices(request, product_id):
+    """ Edit existing prices """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store administrators can do that.')
+        return redirect(reverse('home'))
+
+    product = get_object_or_404(Product, pk=product_id)
+    prices = get_list_or_404(Price, product=product)
+    price_form = PriceForm()
+    first_size = Size.objects.filter(category=product.category).first()
+    price_form.fields['size'].initial = first_size
+    first_price = Price.objects.filter(size=first_size).first()
+    price_form.fields['price'].initial = first_price.price
+    categories_all = Category.objects.all()
+    template = "products/edit_prices.html"
+    context = {
+        'product': product,
+        'prices': prices,
+        'price_form': price_form,
+        'categories_all': categories_all,
+        'on_admin_page': True,
+    }
+    return render(request, template, context)
