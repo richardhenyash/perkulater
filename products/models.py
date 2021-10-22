@@ -104,7 +104,7 @@ class Price(models.Model):
         'Product', null=True, blank=True, on_delete=models.SET_NULL)
     size = models.ForeignKey(
         'Size', null=True, blank=True, on_delete=models.SET_NULL)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
+    price = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False)
     sku = models.CharField(null=True, blank=True, max_length=254)
 
     def __str__(self):
