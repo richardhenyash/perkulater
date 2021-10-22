@@ -23,7 +23,7 @@
             </div>
             <div class="row">
                 <div class="col-12 px-3 px-md-4">
-                    <form class="form-user" action="" method="POST" id="price-edit-form">
+                    <form class="form-user" action="{% url 'edit_prices' product.id %}" method="POST" id="price-edit-form">
                         {% csrf_token %}
                         <fieldset class="pt-2" id="price-details">
                             <legend class="field-label">{{product.friendly_name}}</legend>
@@ -32,7 +32,7 @@
                         <div class="row pt-3">
                             <div class="col-6 pb-4">
                                 <div class="text-center py-2">
-                                    <a href="{% url 'products' %}"
+                                    <a href="{% url 'product_detail' product.id %}"
                                         class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
                                         Back To Product
                                     </a>

@@ -33,3 +33,17 @@
     color: var(--white);
     box-shadow: None;
 }
+
+/*-- Product Links --*/
+.product-link {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--green);
+    text-decoration: None;
+    text-align: right;
+}
+
+.product-link:hover {
+    color: var(--greenhighlight);
+    cursor: pointer;
+}

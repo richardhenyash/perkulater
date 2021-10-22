@@ -239,17 +239,31 @@ def edit_prices(request, product_id):
         return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)
-    prices = get_list_or_404(Price, product=product)
-    price_form = PriceForm()
+    if request.method == 'POST':
+        price_form = PriceForm(request.POST)
+        if price_form.is_valid():
+            size = price_form.cleaned_data.get('size')
+            new_price = price_form.cleaned_data.get('price')
+            priceobj = get_object_or_404(Price, product=product, size=size)
+            priceobj.price = new_price
+            priceobj.save()
+            messages.success(
+                request, f'Price updated: {product.friendly_name}.')
+        else:
+            messages.error(
+                request, 'Failed to update Price. Please check price form.')
+        
+        return redirect(reverse('product_detail', args=[product.id]))
+
+    price_form = PriceForm(instance=Product)
     first_size = Size.objects.filter(category=product.category).first()
     price_form.fields['size'].initial = first_size
-    first_price = Price.objects.filter(size=first_size).first()
+    first_price = Price.objects.filter(product=product, size=first_size).first()
     price_form.fields['price'].initial = first_price.price
     categories_all = Category.objects.all()
     template = "products/edit_prices.html"
     context = {
         'product': product,
-        'prices': prices,
         'price_form': price_form,
         'categories_all': categories_all,
         'on_admin_page': True,

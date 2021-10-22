@@ -105,6 +105,7 @@ class PriceForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
     
+        self.fields['size'].empty_label = None
         self.fields['price'].widget.attrs['autofocus'] = True
         self.fields['price'].widget.attrs['class'] = 'price-input'
 
