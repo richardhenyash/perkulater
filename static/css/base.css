@@ -415,6 +415,11 @@ body {
     font-weight: 600;
 }
 
+.form-user h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
 .form-user p {
     font-size: 1.4rem;
 }
