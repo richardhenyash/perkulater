@@ -66,6 +66,13 @@ $('#new-image').change(function() {
     $('#filename').text(`Image will be set to: ${file.name}`);
 });
 
+// On change event handler added to price input in edit prices template
+$('#id_size').change(function() {
+    let selectedSize = $('#id_size :selected').text();
+    let priceDict = JSON.parse($("#product-price-dict").text());
+    $('#id_price').val(priceDict[selectedSize]);
+});
+
 /**
 * [Function to build information modal from data attributes and javascript content array]
 * @return {[modalTitle]}                     [Modal title, string]          

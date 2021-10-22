@@ -261,11 +261,18 @@ def edit_prices(request, product_id):
     first_price = Price.objects.filter(product=product, size=first_size).first()
     price_form.fields['price'].initial = first_price.price
     categories_all = Category.objects.all()
+    # Build dictionary of sizes and prices for the product
+    product_prices = Price.objects.filter(product=product)
+    product_price_dict = {}
+    for priceobj in product_prices:
+        product_price_dict[priceobj.get_size()] = priceobj.get_price()
+
     template = "products/edit_prices.html"
     context = {
         'product': product,
         'price_form': price_form,
         'categories_all': categories_all,
+        'product_price_dict': product_price_dict,
         'on_admin_page': True,
     }
     return render(request, template, context)

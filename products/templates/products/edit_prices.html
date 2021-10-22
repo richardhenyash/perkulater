@@ -52,8 +52,11 @@
             </div>
         </div>
     </div>
+    {{ product_price_dict|json_script:"product-price-dict" }}
 </section>
 {% endblock %}
 
 {% block extrapostloadjs %}
+    <!-- Link to Products JavaScript -->
+    <script src="{% static 'products/js/products.js' %}"></script>
 {% endblock %}
