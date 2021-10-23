@@ -41,6 +41,22 @@ class UserProfile(models.Model):
         """
         return self.user.username
 
+
+class Reward(models.Model):
+    """
+    A model for User Rewards
+    """
+    user_profile = models.ForeignKey(
+        'UserProfile', on_delete=models.SET_NULL,
+        null=True, blank=True, related_name='rewards')
+    discount = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    free_delivery = models.BooleanField(default=False)
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.user_profile)
+
+
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     """
