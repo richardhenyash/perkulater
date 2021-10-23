@@ -32,10 +32,10 @@ class PriceAdmin(admin.ModelAdmin):
 
 class ReviewAdmin(admin.ModelAdmin):
     list_display = (
-        'user_profile',
+        'user',
         'product',
     )
-    ordering = ['user_profile', 'product']
+    ordering = ['user', 'product']
 
 
 # Register your models here.

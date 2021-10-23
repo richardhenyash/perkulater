@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Category, Price, Product, Size, Type, Coffee, Offer, Review
-from .forms import CoffeeForm, ProductForm, PriceForm
+from .forms import CoffeeForm, ProductForm, PriceForm, ReviewForm
 from .helpers import get_product_offer_str
 
 
@@ -59,7 +59,10 @@ def product_detail(request, product_id):
     product_types = Type.objects.filter(category=product.category)
     product_prices = Price.objects.filter(product=product)
 
-    product_reviews = Review.objects.filter(product=product).order_by("-rating")[:10]
+    product_reviews = Review.objects.filter(
+        product=product).order_by("-rating")[:10]
+    user_review = Review.objects.filter(
+            product=product, user=request.user).first()
 
     # Build dictionary of sizes and prices for the product
     product_price_dict = {}
@@ -77,6 +80,7 @@ def product_detail(request, product_id):
         'product_prices': product_prices,
         'product_price_dict': product_price_dict,
         'product_reviews': product_reviews,
+        'user_review': user_review,
         'product_offers': product_offers,
         'product_offer_str': product_offer_str,
         'categories_all': categories_all,
@@ -276,6 +280,56 @@ def edit_prices(request, product_id):
         'price_form': price_form,
         'categories_all': categories_all,
         'product_price_dict': product_price_dict,
+        'on_admin_page': True,
+    }
+    return render(request, template, context)
+
+
+@login_required
+def review_product(request, product_id):
+    """ Review a Product """
+
+    product = get_object_or_404(Product, pk=product_id)
+
+    if request.method == 'POST':
+        product_review = Review.objects.filter(
+            product=product, user=request.user).first()
+        if product_review:
+            new_review = False
+            review_form = ReviewForm(request.POST, instance=product_review)
+        else:
+            new_review = True
+            review_form = ReviewForm(request.POST)
+        if review_form.is_valid():
+            if new_review:
+                review = review_form.save(commit=False)
+                review.product = product
+                review.user = request.user
+                review.save()
+                print(review.product)
+                messages.success(request, f'Review added for product: {product.friendly_name}.')
+            else:
+                review_form.save()
+                messages.success(request, f'Review updated for product: {product.friendly_name}.')
+            return redirect(reverse('product_detail', args=[product.id]))
+
+        else:
+            messages.error(
+                request, 'Failed to add or edit review. Please check review form.')
+    else:
+        product_review = Review.objects.filter(
+            product=product, user=request.user).first()
+        if product_review:
+            review_form = ReviewForm(instance=product_review)
+        else:
+            review_form = ReviewForm
+
+    categories_all = Category.objects.all()
+    template = "products/review_product.html"
+    context = {
+        'product': product,
+        'review_form': review_form,
+        'categories_all': categories_all,
         'on_admin_page': True,
     }
     return render(request, template, context)

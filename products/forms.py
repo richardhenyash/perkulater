@@ -1,6 +1,6 @@
 from django import forms
 from .widgets import CustomClearableFileInput
-from .models import Category, Coffee, Product, Price
+from .models import Category, Coffee, Product, Price, Review
 
 
 class ProductForm(forms.ModelForm):
@@ -109,3 +109,35 @@ class PriceForm(forms.ModelForm):
         self.fields['price'].widget.attrs['autofocus'] = True
         self.fields['price'].widget.attrs['class'] = 'price-input'
 
+
+class ReviewForm(forms.ModelForm):
+    """
+    A form for Reviews.
+    """
+    class Meta:
+        model = Review
+        fields = ('rating', 'review')
+        labels = {
+            'rating': 'Rating',
+            'review': 'Review',
+            }
+
+    def __init__(self, *args, **kwargs):
+        """
+        Add placeholders and classes, remove auto-generated
+        labels and set autofocus on first field
+        """
+        super().__init__(*args, **kwargs)
+        placeholders = {
+            'rating': 'Rating',
+            'review': 'Review',
+        }
+        
+        self.fields['review'].widget.attrs['autofocus'] = True
+        for field_name, placeholder in placeholders.items():
+            if self.fields[field_name].required:
+                placeholder_text = placeholder + "*"
+            else:
+                placeholder_text = placeholder
+            self.fields[field_name].widget.attrs['placeholder'] = placeholder_text
+            self.fields[field_name].widget.attrs['class'] = 'review-input'
