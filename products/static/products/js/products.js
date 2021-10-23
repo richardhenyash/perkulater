@@ -45,18 +45,23 @@ $("#typeInformationBtn").click(function() {
 // On click event handler added to minus button to decrease product quantity and update price
 $("#product-quantity-minus-btn").click(function() {
     (incrementQuantity("#product-quantity", "#product-quantity-minus-btn", "#product-quantity-plus-btn", -1, 1, 99));
-    (updatePrice("#product-size", "#product-quantity", "#product-price-dict", '#product-price'))
+    (setPriceBasedOnSizeAndQuantity("#product-size", "#product-quantity", "#product-price-dict", '#product-price'))
 });
 
 // On click event handler added to plus button to decrease product quantity and update price
 $("#product-quantity-plus-btn").click(function() {
     (incrementQuantity("#product-quantity", "#product-quantity-minus-btn", "#product-quantity-plus-btn", 1, 1, 99));
-    (updatePrice("#product-size", "#product-quantity", "#product-price-dict", '#product-price'));
+    (setPriceBasedOnSizeAndQuantity("#product-size", "#product-quantity", "#product-price-dict", '#product-price'));
 });
 
 // On change event handler added to size selector to update price
 $("#product-size").change(function() {
-    (updatePrice("#product-size", "#product-quantity", "#product-price-dict", '#product-price'));
+    (setPriceBasedOnSizeAndQuantity("#product-size", "#product-quantity", "#product-price-dict", '#product-price'));
+});
+
+// On change event handler added to size selector to update price
+$('#id_size').change(function() {
+    setPriceBasedOnSize("#id_size :selected", "#product-price-dict", "#id_price")
 });
 
 // On change event handler added to image in custom clearable file input
@@ -64,13 +69,6 @@ $("#product-size").change(function() {
 $('#new-image').change(function() {
     let file = $('#new-image')[0].files[0];
     $('#filename').text(`Image will be set to: ${file.name}`);
-});
-
-// On change event handler added to price input in edit prices template
-$('#id_size').change(function() {
-    let selectedSize = $('#id_size :selected').text();
-    let priceDict = JSON.parse($("#product-price-dict").text());
-    $('#id_price').val(priceDict[selectedSize]);
 });
 
 /**
@@ -136,16 +134,28 @@ function incrementQuantity(quantityId, btnMinusID, btnPlusID, inc, minValue, max
 }
 
 /**
-* [Function to update price based on size and quantity selected]
-* @return {[price]}                     [price, string]          
+* [Function to set price based on size selected]
+* @return {[priceStr]}                     [price, string]          
 */
-function updatePrice(sizeId, quantityId, scriptId, priceId) {
-    let size = $(sizeId).val()
-    let quantity = parseInt($(quantityId).val())
+function setPriceBasedOnSize(sizeId, scriptId, priceId) {
+    let size = $(sizeId).text();
+    let priceDict = JSON.parse($(scriptId).text());
+    let priceStr = priceDict[size];
+    $(priceId).val(priceStr);
+    return priceStr;
+}
+
+/**
+* [Function to set price based on size and quantity selected]
+* @return {[priceStr]}                     [price, string]          
+*/
+function setPriceBasedOnSizeAndQuantity(sizeId, quantityId, scriptId, priceId) {
+    let size = $(sizeId).val();
+    let quantity = parseInt($(quantityId).val());
     // Get price object
     let priceDict = JSON.parse($(scriptId).text());
-    let price = priceDict[size]
-    let pricestr = ("£" + (price * quantity).toFixed(2))
-    $(priceId).text(pricestr)
-    return pricestr
+    let price = priceDict[size];
+    let priceStr = ("£" + (price * quantity).toFixed(2))
+    $(priceId).text(priceStr);
+    return priceStr;
 }
