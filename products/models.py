@@ -199,3 +199,6 @@ class Review(models.Model):
         max_digits=6, decimal_places=2, null=True, blank=True)
     review = models.TextField(blank=True)
     date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.user_profile) + ", " + str(self.product)
