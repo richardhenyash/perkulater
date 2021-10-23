@@ -1,4 +1,5 @@
 from django.db import models
+from profiles.models import UserProfile
 
 
 class Category(models.Model):
@@ -118,7 +119,7 @@ class Price(models.Model):
 
     def get_price(self):
         return (self.price)
-    
+
     def get_sku(self):
         return (self.sku)
 
@@ -148,7 +149,7 @@ class Coffee(models.Model):
         """
         fields = []
         for field in self._meta.fields:
-            if (field.name != "id"):
+            if field.name != "id":
                 fields.append(field.name)
         return fields
 
@@ -176,10 +177,25 @@ class Offer(models.Model):
         return str(self.description)
 
     def get_free_delivery_amount(self):
-        return (self.free_delivery_amount)
+        return self.free_delivery_amount
 
     def get_delivery_percentage(self):
-        return (self.delivery_percentage)
+        return self.delivery_percentage
 
     def get_delivery_minimum(self):
-        return (self.delivery_minimum)
+        return self.delivery_minimum
+
+
+class Review(models.Model):
+    """
+    A model for product reviews.
+    """
+    product = models.ForeignKey(
+        'Product', null=True, blank=True, on_delete=models.SET_NULL)
+    user_profile = models.ForeignKey(
+        UserProfile, on_delete=models.SET_NULL,
+        null=True, blank=True, related_name='reviews')
+    rating = models.DecimalField(
+        max_digits=6, decimal_places=2, null=True, blank=True)
+    review = models.TextField(blank=True)
+    date = models.DateTimeField(auto_now_add=True)
