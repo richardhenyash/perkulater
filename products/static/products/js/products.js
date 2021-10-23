@@ -8,7 +8,7 @@
 /* Set product rating stars for all divs with the class product-rating-stars */
 /* Note - reads the product rating from the product-rating data attribute */
 $('.product-rating-stars').each(function () {
-    let productRating = $(this).data("product-rating")
+    let productRating = $(this).data("product-rating");
     if ((productRating == "None") || (productRating == null) || (productRating == ""))
         $(this).html("<i class=rating-text>Not Rated</i>")
     else {
@@ -24,22 +24,27 @@ $('.product-rating-stars').each(function () {
 
 // On click event handler added to product image link to build modal dialog
 $("#productInformationImgLink").click(function() {
-    (buildModal("#productInformationImgLink", "information-modal-title", "#product-description-array", "#informationModal", "modal-lg"));
+    (buildInformationModal("#productInformationImgLink", "information-modal-title", "#product-description-array", "#informationModal", "modal-lg"));
 });
 
 // On click event handler added to product information button to build modal dialog
 $("#productInformationBtn").click(function() {
-    (buildModal("#productInformationBtn", "information-modal-title", "#product-description-array", "#informationModal", "modal-xl"));
+    (buildInformationModal("#productInformationBtn", "information-modal-title", "#product-description-array", "#informationModal", "modal-xl"));
 });
 
 // On click event handler added to size information button to build modal dialog
 $("#sizeInformationBtn").click(function() {
-    (buildModal("#sizeInformationBtn", "information-modal-title", "#size-information-array", "#informationModal", "modal-sm"));
+    (buildInformationModal("#sizeInformationBtn", "information-modal-title", "#size-information-array", "#informationModal", "modal-sm"));
 });
 
 // On click event handler added to type information button to build modal dialog
 $("#typeInformationBtn").click(function() {
-    (buildModal("#typeInformationBtn", "information-modal-title", "#type-information-array", "#informationModal", ""));
+    (buildInformationModal("#typeInformationBtn", "information-modal-title", "#type-information-array", "#informationModal", ""));
+});
+
+// On click event handler added to product delete button to build delete confirmation modal dialog
+$("#productDeleteBtn").click(function() {
+    (buildConfirmModal("#productDeleteBtn", "#confirmModal"));
 });
 
 // On click event handler added to minus button to decrease product quantity and update price
@@ -61,7 +66,7 @@ $("#product-size").change(function() {
 
 // On change event handler added to size selector to update price
 $('#id_size').change(function() {
-    setPriceBasedOnSize("#id_size :selected", "#product-price-dict", "#id_price")
+    setPriceBasedOnSize("#id_size :selected", "#product-price-dict", "#id_price");
 });
 
 // On change event handler added to image in custom clearable file input
@@ -75,30 +80,56 @@ $('#new-image').change(function() {
 * [Function to build information modal from data attributes and javascript content array]
 * @return {[modalTitle]}                     [Modal title, string]          
 */
-function buildModal(btnId, titleAttribute, scriptId, modalId, modalSize) {
+function buildInformationModal(btnId, titleAttribute, scriptId, modalId, modalSize) {
     let modalTitleId = modalId + "Title";
     let modalContentId = modalId + "Content";
     let modalSizeId = modalId + "Size";
     // Get modal title from data atttribute
-    let modalTitle = $(btnId).data(titleAttribute)
+    let modalTitle = $(btnId).data(titleAttribute);
     $(modalTitleId).text(modalTitle);
     // Get modal content from javascript content array
     let contentArray = JSON.parse($(scriptId).text());
     // Build content HTML
     let contentHTML= "<p>" + contentArray.join("</p><p>") + "</p>"
     // Remove size classes
-    $(modalSizeId).removeClass("modal-sm")
-    $(modalSizeId).removeClass("modal-lg")
-    $(modalSizeId).removeClass("modal-xl")
+    $(modalSizeId).removeClass("modal-sm");
+    $(modalSizeId).removeClass("modal-lg");
+    $(modalSizeId).removeClass("modal-xl");
     // Set modal size
     if ((modalSize) != "") {
-        $(modalSizeId).addClass(modalSize)
+        $(modalSizeId).addClass(modalSize);
     }
     // Update modal content
     $(modalContentId).html(contentHTML);
     // Show content
-    $(modalId).modal('show')
-    return modalTitle
+    $(modalId).modal('show');
+    return modalTitle;
+}
+
+/**
+* [Function to build confirm modal from data attributes]
+* @return {[modalTitle]}                     [Modal title, string]          
+*/
+function buildConfirmModal(btnId, modalId) {
+    let modalTitleId = modalId + "Title";
+    let modalContentId = modalId + "Content";
+    let modalLinkId = modalId + "Confirmed";
+    // Get modal title from data atttribute
+    let modalTitle = $(btnId).data("confirm-modal-title");
+    $(modalTitleId).text(modalTitle);
+    // Get modal content from data attribute
+    let modalContent = $(btnId).data("confirm-modal-content");
+    // Build content HTML
+    let contentHTML= "<p>" + modalContent + "</p>";
+    // Update modal content
+    $(modalContentId).html(contentHTML);
+    // Get modal link from data atttribute
+    let modalLink = $(btnId).data("confirm-modal-link");
+    // Update modal link
+    $(modalLinkId).attr("href", modalLink);
+    // Show content
+    $(modalId).modal('show');
+    return modalTitle;
 }
 
 /**
@@ -110,27 +141,27 @@ function incrementQuantity(quantityId, btnMinusID, btnPlusID, inc, minValue, max
     let newQuantity = currentQuantity
     if (Math.sign(inc) == 1) {
         if ((currentQuantity + inc) <= maxValue) {
-            newQuantity = currentQuantity + inc
+            newQuantity = currentQuantity + inc;
         }
     } else {
         if ((currentQuantity + inc) >= minValue) {
-            newQuantity = currentQuantity + inc
+            newQuantity = currentQuantity + inc;
         }            
     }
     if (newQuantity != currentQuantity) {
-        $(quantityId).val(newQuantity)
+        $(quantityId).val(newQuantity);
     }
     if (newQuantity <= minValue) {
-        $(btnMinusID).attr("disabled", true)
+        $(btnMinusID).attr("disabled", true);
     } else {
-        $(btnMinusID).removeAttr('disabled')
+        $(btnMinusID).removeAttr('disabled');
     }
     if (newQuantity >= maxValue) {
-        $(btnPlusID).attr("disabled", true)
+        $(btnPlusID).attr("disabled", true);
     } else {
-        $(btnPlusID).removeAttr('disabled')
+        $(btnPlusID).removeAttr('disabled');
     }
-    return newQuantity
+    return newQuantity;
 }
 
 /**

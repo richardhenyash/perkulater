@@ -179,12 +179,16 @@
                             <div class="row px-3">
                                 <div class="col-6">
                                     <a href="{% url 'edit_product' product.id %}"
-                                        class="btn btn-lg btn-outline-light rounded-pill btn-lg d-none d-md-block btn-outline-green w-100">Edit
+                                        class="btn btn-lg btn-outline-light rounded-pill btn-lg btn-outline-green w-100">Edit
                                     </a>
                                 </div>
                                 <div class="col-6">
-                                    <a href="{% url 'delete_product' product.id %}"
-                                        class="btn btn-lg btn-outline-light rounded-pill btn-lg d-none d-md-block btn-outline-green w-100">Delete
+                                    <a id="productDeleteBtn" href="#" role="button"
+                                        class="btn btn-lg btn-outline-light rounded-pill btn-lg btn-outline-green w-100"
+                                        data-confirm-modal-title="Delete"
+                                        data-confirm-modal-content="Do you really want to delete product {{product.friendly_name}}?"
+                                        data-confirm-modal-link="{% url 'delete_product' product.id %}">
+                                        Delete
                                     </a>
                                 </div>
                             </div>
@@ -203,6 +207,7 @@
         {{ product_price_dict|json_script:"product-price-dict" }}
     </div>
     {% include 'products/includes/information_modal.html' %}
+    {% include 'products/includes/confirm_modal.html' %}
 </section>
 {% endblock %}
 {% block extrapostloadjs %}
