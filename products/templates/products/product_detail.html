@@ -38,6 +38,12 @@
                 <i id="star-5" class="fas fa-star"></i>
             </div>
             <h6 class="text-medium text-bold text-center pt-2">{{ product.friendly_price }}</h6>
+            <div class="text-center pt-2">
+                <a href="{% url 'products' %}"
+                    class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-50">
+                    Keep Shopping
+                </a>
+            </div>
         </div>
         <div class="col-sm-12 col-md-6 p-3">
             <div class="product-detail-container px-3">
@@ -197,13 +203,37 @@
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </form>
             </div>
-            <div class="text-center pt-4">
-                <a href="{% url 'products' %}"
-                    class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-50">
-                    Keep Shopping
-                </a>
+        </div>
+        {% if product_reviews %}
+        <div class="col-12 p-3">
+            <div class="product-detail-container p-3">
+                <h1 class="title-text-large text-bold">Customer Reviews</h1>
+                <div class="row">
+                {% for product_review in product_reviews %}
+                    <div class="col-12 col-md-6 py-1">
+                        <span class="text-small text-bold px-1">{{ product_review.user_profile }}</span>
+                        <span id="product-rating-stars px-1" class="product-rating-stars text-center" data-product-rating="{{ product_review.rating}}">
+                            <i id="star-1" class="fas fa-star fa-sm"></i>
+                            <i id="star-2" class="fas fa-star fa-sm"></i>
+                            <i id="star-3" class="fas fa-star fa-sm"></i>
+                            <i id="star-4" class="fas fa-star fa-sm"></i>
+                            <i id="star-5" class="fas fa-star fa-sm"></i>
+                        </span>
+                        <div class="text-medium px-1">{{ product_review.review }}
+                            {% if request.user.username == product_review.user_profile.user_name %}
+                            <span>
+                                <a href=""
+                                    class="link-small px-1">Edit
+                                </a>                                
+                            </span>
+                            {% endif %}
+                        </div>     
+                    </div>
+                {% endfor %}                                    
+                </div>
             </div>
         </div>
+        {% endif %}
         {{ product_price_dict|json_script:"product-price-dict" }}
     </div>
     {% include 'products/includes/information_modal.html' %}

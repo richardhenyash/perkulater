@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_list_or_404, get_obj
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from .models import Category, Price, Product, Size, Type, Coffee, Offer
+from .models import Category, Price, Product, Size, Type, Coffee, Offer, Review
 from .forms import CoffeeForm, ProductForm, PriceForm
 from .helpers import get_product_offer_str
 
@@ -59,6 +59,8 @@ def product_detail(request, product_id):
     product_types = Type.objects.filter(category=product.category)
     product_prices = Price.objects.filter(product=product)
 
+    product_reviews = Review.objects.filter(product=product).order_by("-rating")[:10]
+
     # Build dictionary of sizes and prices for the product
     product_price_dict = {}
     for priceobj in product_prices:
@@ -74,6 +76,7 @@ def product_detail(request, product_id):
         'product_types': product_types,
         'product_prices': product_prices,
         'product_price_dict': product_price_dict,
+        'product_reviews': product_reviews,
         'product_offers': product_offers,
         'product_offer_str': product_offer_str,
         'categories_all': categories_all,
