@@ -46,15 +46,13 @@ class Reward(models.Model):
     """
     A model for User Rewards
     """
-    user_profile = models.ForeignKey(
-        'UserProfile', on_delete=models.SET_NULL,
-        null=True, blank=True, related_name='rewards')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     discount = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     free_delivery = models.BooleanField(default=False)
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return str(self.user_profile)
+        return self.user.username
 
 
 @receiver(post_save, sender=User)

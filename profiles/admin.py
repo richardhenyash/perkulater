@@ -11,9 +11,9 @@ class UserProfileAdmin(admin.ModelAdmin):
 
 class RewardAdmin(admin.ModelAdmin):
     list_display = (
-        'user_profile', 'date'
+        'user', 'date'
     )
-    ordering = ['user_profile', 'date']
+    ordering = ['user', 'date']
 
 
 # Register your models here.
