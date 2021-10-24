@@ -346,7 +346,7 @@ def review_product(request, product_id):
 
 @login_required
 def delete_review(request, product_id, user_id):
-    """ Delete a Review """
+    """ Delete an existing Review """
 
     product = get_object_or_404(Product, pk=product_id)
     user = get_object_or_404(User, pk=user_id)
