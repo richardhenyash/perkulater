@@ -61,8 +61,10 @@ def product_detail(request, product_id):
 
     product_reviews = Review.objects.filter(
         product=product).order_by("-rating")[:10]
-    user_review = Review.objects.filter(
-            product=product, user=request.user).first()
+    user_review = None
+    if request.user.is_authenticated:
+        user_review = Review.objects.filter(
+                product=product, user=request.user).first()
 
     # Build dictionary of sizes and prices for the product
     product_price_dict = {}

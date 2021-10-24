@@ -194,8 +194,8 @@ class Review(models.Model):
         'Product', null=True, blank=True, on_delete=models.SET_NULL)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     rating = models.DecimalField(
-        max_digits=6, decimal_places=2, null=True, blank=True)
-    review = models.TextField(blank=True)
+        max_digits=6, decimal_places=2, null=False, blank=False)
+    review = models.TextField(null=False, blank=False)
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

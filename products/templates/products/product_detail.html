@@ -228,13 +228,13 @@
                                     <i id="star-5" class="fas fa-star fa-sm"></i>
                                 </span>
                                 <div class="text-medium px-1">{{ product_review.review }}
-                                    {% if request.user.username == product_review.user.username %}
+                                {% if request.user.username == product_review.user.username %}
                                     <span>
                                         <a href="{% url 'review_product' product.id %}"
                                             class="link-small px-1">Edit
                                         </a>                                
                                     </span>
-                                    {% endif %}
+                                {% endif %}
                                 </div>     
                             </div>
                         {% endfor %}
