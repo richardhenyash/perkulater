@@ -39,10 +39,10 @@
                         class="btn btn-lg btn-outline-light rounded-pill btn-lg d-none d-md-block btn-outline-green w-100">Buy</a>
                 </div>
                 <div class="col-5">
-                    <a href=""
-                        class="btn btn-lg btn-outline-light rounded-pill d-sm-block d-md-none w-100 btn-outline-green">Rate</a>
-                    <a href=""
-                        class="btn btn-lg btn-outline-light rounded-pill btn-lg d-none d-md-block btn-outline-green w-100">Rate</a>
+                    <a href="{% url 'review_product' product.id %}"
+                        class="btn btn-lg btn-outline-light rounded-pill d-sm-block d-md-none w-100 btn-outline-green">Review</a>
+                    <a href="{% url 'review_product' product.id %}"
+                        class="btn btn-lg btn-outline-light rounded-pill btn-lg d-none d-md-block btn-outline-green w-100">Review</a>
                 </div>
                 <div class="col-1"></div>
             </div>

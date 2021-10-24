@@ -80,7 +80,9 @@
                                                 <tbody>
                                                 {% for lineitem in order.lineitems.all %}
                                                     <tr>
-                                                        <td class="px-2 py-1 pb-0">{{ lineitem.product.name }}<a class="text-small px-2">Review</a></td>
+                                                        <td class="px-2 py-1 pb-0">{{ lineitem.product.name }}
+                                                            <a href="{% url 'review_product' lineitem.product.id %}" class="text-small px-2">Review</a>
+                                                        </td>
                                                         <td class="px-2 py-1 pb-0 text-center">{{ lineitem.quantity }}</td>
                                                     </tr>
                                                 {% endfor %}
