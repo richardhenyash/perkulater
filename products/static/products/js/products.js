@@ -64,9 +64,13 @@ $("#productDeleteBtn").click(function() {
     (buildConfirmModal("#productDeleteBtn", "#confirmModal"));
 });
 
-// On click event handler added to review delete button to build delete confirmation modal dialog
-$("#reviewDeleteBtn").click(function() {
-    (buildConfirmModal("#reviewDeleteBtn", "#confirmModal"));
+// On click event handler added to review delete buttons to build delete confirmation modal dialog
+$('.reviewDeleteBtn').each(function () {
+    let btnId = "#" + $(this).attr("id");
+    console.log(btnId)
+    $(btnId).click(function() {
+        (buildConfirmModal(btnId, "#confirmModal"));
+    });
 });
 
 // On click event handler added to minus button to decrease product quantity and update price

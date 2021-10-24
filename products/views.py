@@ -346,13 +346,13 @@ def review_product(request, product_id):
 def delete_review(request, product_id, user_id):
     """ Delete a Review """
 
+    product = get_object_or_404(Product, pk=product_id)
+    user = get_object_or_404(User, pk=user_id)
+    review = get_object_or_404(Review, product=product, user=user)
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store administrators can do that.')
         return redirect(reverse('product_detail', args=[product.id]))
 
-    product = get_object_or_404(Product, pk=product_id)
-    user = get_object_or_404(User, pk=user_id)
-    review = get_object_or_404(Review, product=product, user=user)
     review.delete()
     messages.success(request, f'User { user.username} review deleted for product: {product.friendly_name}.')
     return redirect(reverse('product_detail', args=[product.id]))

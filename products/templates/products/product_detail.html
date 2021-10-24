@@ -237,7 +237,11 @@
                                 {% endif %}
                                 {% if request.user.is_superuser %}
                                     <span>
-                                        <a id="reviewDeleteBtn" href="{% url 'delete_review' product.id product_review.user.id %}" role="button" class="link-small px-1">
+                                        <a id="reviewDeleteBtn{{product_review.user.id}}" href="#" role="button"
+                                            class="reviewDeleteBtn link-small px-1"
+                                            data-confirm-modal-title="Delete"
+                                            data-confirm-modal-content="Do you really want to delete {{product_review.user.username}} review for {{product.friendly_name}}?"
+                                            data-confirm-modal-link="{% url 'delete_review' product.id product_review.user.id %}">
                                             Delete
                                         </a>
                                     </span>
