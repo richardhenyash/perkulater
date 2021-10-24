@@ -10,9 +10,9 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = "Categories"
 
-    name = models.CharField(max_length=254)
-    friendly_name = models.CharField(max_length=254, blank=True)
-    description = models.CharField(max_length=254, blank=True)
+    name = models.CharField(max_length=254, null=False, blank=False)
+    friendly_name = models.CharField(max_length=254, null=False, blank=False)
+    description = models.CharField(max_length=254, null=False, blank=False)
     size_description = models.CharField(max_length=50, blank=True)
     size_information = models.CharField(max_length=254, blank=True)
     type_description = models.CharField(max_length=50, blank=True)
@@ -44,7 +44,7 @@ class Product(models.Model):
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=254)
-    friendly_name = models.CharField(max_length=254, blank=True)
+    friendly_name = models.CharField(max_length=254, null=False, blank=False)
     friendly_price = models.CharField(max_length=100, blank=True)
     description_full = models.TextField(blank=True)
     description_short = models.CharField(max_length=254)
@@ -75,7 +75,7 @@ class Size(models.Model):
     """
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
-    size = models.CharField(max_length=254, blank=True)
+    size = models.CharField(max_length=254, null=False, blank=False)
     default_price = models.DecimalField(max_digits=6, decimal_places=2)
 
     def __str__(self):
@@ -91,7 +91,7 @@ class Type(models.Model):
     """
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
-    type = models.CharField(max_length=254, blank=True)
+    type = models.CharField(max_length=254, null=False, blank=False)
 
     def __str__(self):
         return self.type
