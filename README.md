@@ -698,6 +698,11 @@ https://stackoverflow.com/questions/45533539/django-test-client-get-returns-404-
 https://stackoverflow.com/questions/29425256/django-test-client-gets-404-but-browser-works
 https://stackoverflow.com/questions/23447685/false-404-from-django-test
 
+* Django signals:
+https://simpleisbetterthancomplex.com/tutorial/2016/07/28/how-to-create-django-signals.html
+
+
+* John CI for his determination in helping me to fix an issue with the image field on my product edit form.
 
 * [Vector Stock](https://www.vectorstock.com/) for the attractive dove logo.
 * [DataTables](https://datatables.net/) for the brilliant tables plug in.
