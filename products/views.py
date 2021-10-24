@@ -330,6 +330,7 @@ def review_product(request, product_id):
     template = "products/review_product.html"
     context = {
         'product': product,
+        'product_review': product_review,
         'review_form': review_form,
         'categories_all': categories_all,
         'on_admin_page': True,

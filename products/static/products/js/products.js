@@ -22,6 +22,52 @@ $('.product-rating-stars').each(function () {
     }
 });
 
+/* On click event handlers added to product review edit stars */
+$(".product-review-edit-stars #star-5").click(function() {
+    $("#star-1").addClass("fg-yellow");
+    $("#star-2").addClass("fg-yellow");
+    $("#star-3").addClass("fg-yellow");
+    $("#star-4").addClass("fg-yellow");
+    $("#star-5").addClass("fg-yellow");
+    $('input[name="rating"]').val(5);
+});
+
+$(".product-review-edit-stars #star-4").click(function() {
+    $("#star-1").addClass("fg-yellow");
+    $("#star-2").addClass("fg-yellow");
+    $("#star-3").addClass("fg-yellow");
+    $("#star-4").addClass("fg-yellow");
+    $("#star-5").removeClass("fg-yellow");
+    $('input[name="rating"]').val(4);
+});
+
+$(".product-review-edit-stars #star-3").click(function() {
+    $("#star-1").addClass("fg-yellow");
+    $("#star-2").addClass("fg-yellow");
+    $("#star-3").addClass("fg-yellow");
+    $("#star-4").removeClass("fg-yellow");
+    $("#star-5").removeClass("fg-yellow");
+    $('input[name="rating"]').val(3);
+});
+
+$(".product-review-edit-stars #star-2").click(function() {
+    $("#star-1").addClass("fg-yellow");
+    $("#star-2").addClass("fg-yellow");
+    $("#star-3").removeClass("fg-yellow");
+    $("#star-4").removeClass("fg-yellow");
+    $("#star-5").removeClass("fg-yellow");
+    $('input[name="rating"]').val(2);
+});
+
+$(".product-review-edit-stars #star-1").click(function() {
+    $("#star-1").addClass("fg-yellow");
+    $("#star-2").removeClass("fg-yellow");
+    $("#star-3").removeClass("fg-yellow");
+    $("#star-4").removeClass("fg-yellow");
+    $("#star-5").removeClass("fg-yellow");
+    $('input[name="rating"]').val(1);
+});
+
 // On click event handler added to product image link to build modal dialog
 $("#productInformationImgLink").click(function() {
     (buildInformationModal("#productInformationImgLink", "information-modal-title", "#product-description-array", "#informationModal", "modal-lg"));
