@@ -24,48 +24,23 @@ $('.product-rating-stars').each(function () {
 
 /* On click event handlers added to product review edit stars */
 $(".product-review-edit-stars #star-5").click(function() {
-    $("#star-1").addClass("fg-yellow");
-    $("#star-2").addClass("fg-yellow");
-    $("#star-3").addClass("fg-yellow");
-    $("#star-4").addClass("fg-yellow");
-    $("#star-5").addClass("fg-yellow");
-    $('input[name="rating"]').val(5);
+    colourStars(5, "#star-", "rating")
 });
 
 $(".product-review-edit-stars #star-4").click(function() {
-    $("#star-1").addClass("fg-yellow");
-    $("#star-2").addClass("fg-yellow");
-    $("#star-3").addClass("fg-yellow");
-    $("#star-4").addClass("fg-yellow");
-    $("#star-5").removeClass("fg-yellow");
-    $('input[name="rating"]').val(4);
+    colourStars(4, "#star-", "rating")
 });
 
 $(".product-review-edit-stars #star-3").click(function() {
-    $("#star-1").addClass("fg-yellow");
-    $("#star-2").addClass("fg-yellow");
-    $("#star-3").addClass("fg-yellow");
-    $("#star-4").removeClass("fg-yellow");
-    $("#star-5").removeClass("fg-yellow");
-    $('input[name="rating"]').val(3);
+    colourStars(3, "#star-", "rating")
 });
 
 $(".product-review-edit-stars #star-2").click(function() {
-    $("#star-1").addClass("fg-yellow");
-    $("#star-2").addClass("fg-yellow");
-    $("#star-3").removeClass("fg-yellow");
-    $("#star-4").removeClass("fg-yellow");
-    $("#star-5").removeClass("fg-yellow");
-    $('input[name="rating"]').val(2);
+    colourStars(2, "#star-", "rating")
 });
 
 $(".product-review-edit-stars #star-1").click(function() {
-    $("#star-1").addClass("fg-yellow");
-    $("#star-2").removeClass("fg-yellow");
-    $("#star-3").removeClass("fg-yellow");
-    $("#star-4").removeClass("fg-yellow");
-    $("#star-5").removeClass("fg-yellow");
-    $('input[name="rating"]').val(1);
+    colourStars(1, "#star-", "rating")
 });
 
 // On click event handler added to product image link to build modal dialog
@@ -121,6 +96,24 @@ $('#new-image').change(function() {
     let file = $('#new-image')[0].files[0];
     $('#filename').text(`Image will be set to: ${file.name}`);
 });
+
+/**
+* [Function to add yellow colour class to stars]
+* @return {[rating]}                     [rating, integer]          
+*/
+function colourStars(rating, starIdPrefix, inputName) {
+
+    // Remove yellow class from all rating stars
+    for (let i = 1; i <= 5; i++) {
+        $(starIdPrefix + i).removeClass("fg-yellow")
+    }
+    // Add yellow class to correct rating stars
+    for (let i = 1; i <= rating; i++) {
+        $(starIdPrefix + i).addClass("fg-yellow")
+    }
+    $('input[name=inputName]').val(4);
+    return rating;
+}
 
 /**
 * [Function to build information modal from data attributes and javascript content array]
