@@ -309,9 +309,11 @@ def review_product(request, product_id):
                 review.product = product
                 review.user = request.user
                 review.save()
+                product.calculate_rating()
                 messages.success(request, f'Review added for product: {product.friendly_name}.')
             else:
                 review_form.save()
+                product.calculate_rating()
                 messages.success(request, f'Review updated for product: {product.friendly_name}.')
             return redirect(reverse('product_detail', args=[product.id]))
 
@@ -354,5 +356,6 @@ def delete_review(request, product_id, user_id):
         return redirect(reverse('product_detail', args=[product.id]))
 
     review.delete()
+    product.calculate_rating()
     messages.success(request, f'User { user.username} review deleted for product: {product.friendly_name}.')
     return redirect(reverse('product_detail', args=[product.id]))

@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
+from django.db.models import Avg
 
 
 class Category(models.Model):
@@ -67,6 +69,14 @@ class Product(models.Model):
     def get_description_array(self):
         delim = self.description_delimiter
         return self.description_full.split(delim)
+
+    def calculate_rating(self):
+        """
+        Calculate the average product rating from all related reviews
+        """
+        self.rating = self.reviews.all().aggregate(Avg("rating"))[
+            'rating__avg']
+        self.save()
 
 
 class Size(models.Model):
@@ -191,10 +201,9 @@ class Review(models.Model):
     A model for product reviews.
     """
     product = models.ForeignKey(
-        'Product', null=True, blank=True, on_delete=models.SET_NULL)
+        'Product', null=True, blank=True, related_name='reviews', on_delete=models.SET_NULL)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    rating = models.DecimalField(
-        max_digits=6, decimal_places=2, null=False, blank=False)
+    rating = models.IntegerField(null=False, blank=False, validators=[MinValueValidator(0), MaxValueValidator(5)])
     review = models.TextField(null=False, blank=False)
     date = models.DateTimeField(auto_now_add=True)
 
