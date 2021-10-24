@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_list_or_404, get_obj
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django.contrib.auth.models import User
 from .models import Category, Price, Product, Size, Type, Coffee, Offer, Review
 from .forms import CoffeeForm, ProductForm, PriceForm, ReviewForm
 from .helpers import get_product_offer_str
@@ -308,7 +309,6 @@ def review_product(request, product_id):
                 review.product = product
                 review.user = request.user
                 review.save()
-                print(review.product)
                 messages.success(request, f'Review added for product: {product.friendly_name}.')
             else:
                 review_form.save()
@@ -316,8 +316,13 @@ def review_product(request, product_id):
             return redirect(reverse('product_detail', args=[product.id]))
 
         else:
-            messages.error(
-                request, 'Failed to add or edit review. Please check review form.')
+            if not review_form['rating'].value():
+                messages.error(
+                    request, 'Error - please rate product to add review.')
+            else:
+                messages.error(
+                    request, 'Failed to add or edit review. Please check review form.')
+
     else:
         product_review = Review.objects.filter(
             product=product, user=request.user).first()
@@ -336,3 +341,18 @@ def review_product(request, product_id):
         'on_admin_page': True,
     }
     return render(request, template, context)
+
+@login_required
+def delete_review(request, product_id, user_id):
+    """ Delete a Review """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store administrators can do that.')
+        return redirect(reverse('product_detail', args=[product.id]))
+
+    product = get_object_or_404(Product, pk=product_id)
+    user = get_object_or_404(User, pk=user_id)
+    review = get_object_or_404(Review, product=product, user=user)
+    review.delete()
+    messages.success(request, f'User { user.username} review deleted for product: {product.friendly_name}.')
+    return redirect(reverse('product_detail', args=[product.id]))

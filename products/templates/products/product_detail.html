@@ -235,6 +235,13 @@
                                         </a>                                
                                     </span>
                                 {% endif %}
+                                {% if request.user.is_superuser %}
+                                    <span>
+                                        <a id="reviewDeleteBtn" href="{% url 'delete_review' product.id product_review.user.id %}" role="button" class="link-small px-1">
+                                            Delete
+                                        </a>
+                                    </span>
+                                {% endif %}
                                 </div>     
                             </div>
                         {% endfor %}

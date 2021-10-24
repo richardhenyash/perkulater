@@ -23,24 +23,20 @@ $('.product-rating-stars').each(function () {
 });
 
 /* On click event handlers added to product review edit stars */
-$(".product-review-edit-stars #star-5").click(function() {
-    colourStars(5, "#star-", "rating")
-});
-
-$(".product-review-edit-stars #star-4").click(function() {
-    colourStars(4, "#star-", "rating")
-});
-
-$(".product-review-edit-stars #star-3").click(function() {
-    colourStars(3, "#star-", "rating")
-});
-
-$(".product-review-edit-stars #star-2").click(function() {
-    colourStars(2, "#star-", "rating")
-});
-
-$(".product-review-edit-stars #star-1").click(function() {
-    colourStars(1, "#star-", "rating")
+/* Note, updates the hidden form input rating with the selected rating */
+$('.product-review-edit-stars').each(function () {
+    let currentRating = $(this).data("product-rating");
+    stars = $(this).children();
+    stars.each(function(si) {
+        if (currentRating > si) {
+            $(this).addClass("fg-yellow");
+        }
+        $(this).click(function() {
+            let starId = $(this).attr('id')
+            let rating = parseInt(starId.slice(-1))
+            colourStars(rating, "#star-")
+        })
+    });
 });
 
 // On click event handler added to product image link to build modal dialog
@@ -66,6 +62,11 @@ $("#typeInformationBtn").click(function() {
 // On click event handler added to product delete button to build delete confirmation modal dialog
 $("#productDeleteBtn").click(function() {
     (buildConfirmModal("#productDeleteBtn", "#confirmModal"));
+});
+
+// On click event handler added to review delete button to build delete confirmation modal dialog
+$("#reviewDeleteBtn").click(function() {
+    (buildConfirmModal("#reviewDeleteBtn", "#confirmModal"));
 });
 
 // On click event handler added to minus button to decrease product quantity and update price
@@ -101,7 +102,7 @@ $('#new-image').change(function() {
 * [Function to add yellow colour class to stars]
 * @return {[rating]}                     [rating, integer]          
 */
-function colourStars(rating, starIdPrefix, inputName) {
+function colourStars(rating, starIdPrefix) {
 
     // Remove yellow class from all rating stars
     for (let i = 1; i <= 5; i++) {
@@ -111,7 +112,7 @@ function colourStars(rating, starIdPrefix, inputName) {
     for (let i = 1; i <= rating; i++) {
         $(starIdPrefix + i).addClass("fg-yellow")
     }
-    $('input[name=inputName]').val(4);
+    $('input[name=rating]').val(rating);
     return rating;
 }
 
