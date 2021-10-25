@@ -9,7 +9,7 @@ from .forms import OrderForm
 from basket.contexts import basket_contents
 from .models import Order, OrderLineItem
 from products.models import Category, Product, Price, Size, Type
-from profiles.models import UserProfile
+from profiles.models import UserProfile, Reward
 from profiles.forms import UserForm, UserProfileForm
 from django.contrib.auth.models import User
 
@@ -62,6 +62,9 @@ def checkout(request):
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_basket = json.dumps(basket)
+            current_basket = basket_contents(request)
+            order.discount = current_basket['discount']
+            print(order.discount)
             order.save()
             for product_key, product_quantity in basket.items():
                 product_info_array = product_key.split("_")
@@ -163,6 +166,13 @@ def checkout_success(request, order_number):
         # Attach the user's profile to the order
         order.user_profile = profile
         order.save()
+
+        # Reset Reward after checkout
+        if request.user.is_authenticated:
+            user_reward = Reward.objects.filter(user=request.user).first()
+            if user_reward:
+                user_reward.discount = 0.0
+                user_reward.save()
 
         # Save the user's info if save info box is ticked
         if save_info:

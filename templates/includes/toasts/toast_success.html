@@ -75,8 +75,18 @@
                         <table class="table table-dark table-borderless text-medium">
                             <tr>
                                 <td class="text-bold total-table-title px-2 py-0">Total</td>
-                                <td class="py-0">£{{ total }}</td>
+                                {% if discount %}
+                                    <td class="text-medium text-bold py-0">£{{ previous_total }}</td>
+                                {% else %}
+                                    <td class="text-medium text-bold py-0">£{{ total }}</td>
+                                {% endif %}
                             </tr>
+                            {% if discount %}
+                                <tr>
+                                    <td class="text-bold total-table-title px-2 py-0">Discount</td>
+                                    <td class="text-medium text-bold py-0">£{{ discount }}</td>
+                                </tr>
+                            {% endif %}
                             <tr>
                                 <td class="text-bold total-table-title px-2 py-0">Delivery</td>
                                 {% if delivery > 0 %}

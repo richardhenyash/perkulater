@@ -1,15 +1,20 @@
 from django.shortcuts import get_object_or_404, HttpResponse, redirect, render, reverse
 from django.contrib import messages
 from products.models import Category, Product, Size, Type
+from profiles.models import Reward
 
 
 def view_basket(request):
     """ A view to return the basket contents page """
 
     categories_all = Category.objects.all()
+    user_reward = None
+    if request.user.is_authenticated:
+        user_reward = Reward.objects.filter(user=request.user).first()
     template = 'basket/basket.html'
     context = {
         'categories_all': categories_all,
+        'user_reward': user_reward,
     }
     return render(request, template, context)
 

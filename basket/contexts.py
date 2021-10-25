@@ -2,6 +2,7 @@ from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Category, Product, Price, Offer, Size, Type
+from profiles.models import Reward
 
 
 def basket_contents(request):
@@ -51,6 +52,20 @@ def basket_contents(request):
         delivery = 0
         free_delivery_delta = 0
 
+    # Apply rewards
+    discount = 0.0
+    user_reward = None
+    previous_total = None
+    if request.user.is_authenticated:
+        user_reward = Reward.objects.filter(user=request.user).first()
+    if user_reward:
+        if user_reward.discount:
+            if user_reward.discount > 0:
+                discount = (total * user_reward.discount / 100)
+                discount = round(discount, 2)
+                previous_total = total
+                total = round((total - discount), 2)
+
     grand_total = delivery + total
 
     context = {
@@ -58,6 +73,8 @@ def basket_contents(request):
         'total': total,
         'delivery': delivery,
         'free_delivery_delta': free_delivery_delta,
+        'discount': discount,
+        'previous_total': previous_total,
         'grand_total': grand_total,
     }
     return context

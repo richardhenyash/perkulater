@@ -5,7 +5,7 @@ from django.db.models import Sum
 from django_countries.fields import CountryField
 from django.shortcuts import get_object_or_404
 from products.models import Offer, Price, Product, Size, Type
-from profiles.models import UserProfile
+from profiles.models import UserProfile, Reward
 
 
 class Order(models.Model):
@@ -25,6 +25,10 @@ class Order(models.Model):
     country = CountryField(blank_label='Country *', null=False, blank=False)
     order_total = models.DecimalField(
         max_digits=10, decimal_places=2, null=False, default=0)
+    previous_total = models.DecimalField(
+        max_digits=10, decimal_places=2, null=True, blank=True, default=0.0)
+    discount = models.DecimalField(
+        max_digits=10, decimal_places=2, null=True, blank=True, default=0.0)
     delivery_cost = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(
@@ -47,8 +51,17 @@ class Order(models.Model):
         free_delivery_amount = offer.get_free_delivery_amount()
         delivery_percentage = offer.get_delivery_percentage()
         delivery_minimum = offer.get_delivery_minimum()
-        self.order_total = self.lineitems.aggregate(Sum(
-            'lineitem_total'))['lineitem_total__sum'] or 0
+        # Apply discount and calculate order total
+        order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        if self.discount > 0:
+            self.previous_total = order_total
+            self.order_total = order_total - self.discount
+            self.discount = self.discount
+        else:
+            self.previous_total = order_total
+            self.order_total = order_total
+            self.discount = 0.0
+
         if self.order_total < free_delivery_amount:
             delivery = self.order_total * (Decimal(delivery_percentage / 100))
             if delivery < delivery_minimum:
@@ -57,7 +70,9 @@ class Order(models.Model):
                 self.delivery_cost = round(delivery, 2)
         else:
             self.delivery_cost = 0
+
         self.grand_total = self.order_total + self.delivery_cost
+        print("Order Saved!")
         self.save()
 
     def save(self, *args, **kwargs):
