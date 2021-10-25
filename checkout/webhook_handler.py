@@ -1,9 +1,11 @@
+from decimal import Decimal
 from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 
+from django.contrib.auth.models import User
 from .models import Order, OrderLineItem
 from products.models import Price, Product, Size, Type
 from profiles.models import UserProfile, Reward
@@ -51,8 +53,9 @@ class Stripe_WebHook_Handler:
         pid = intent.id
         basket = intent.metadata.basket
         save_info = intent.metadata.save_info
-        order_discount = float(intent.metadata.discount)
-        print(order_discount)
+        order_discount = intent.metadata.discount
+        order_discount = Decimal(order_discount)
+        order_discount = round(order_discount, 2)
         billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
         grand_total = round(intent.charges.data[0].amount / 100, 2)
@@ -108,7 +111,7 @@ class Stripe_WebHook_Handler:
         else:
             order = None
             try:
-                order = Order.objects.create(
+                order = Order(
                     full_name=shipping_details.name,
                     user_profile=profile,
                     email=billing_details.email,
@@ -121,8 +124,9 @@ class Stripe_WebHook_Handler:
                     country=shipping_details.address.country,
                     original_basket=basket,
                     stripe_pid=pid,
-                    #discount=order_discount,
                 )
+                order.discount = order_discount
+                order.save()
                 basket = json.loads(basket)
                 for product_key, product_quantity in basket.items():                    
                     product_info_array = product_key.split("_")
@@ -144,8 +148,14 @@ class Stripe_WebHook_Handler:
                         quantity=product_quantity,
                     )
                     order_line_item.save()
-                order.discount = order_discount
-                order.save()
+
+                # Reset Reward after checkout
+                if username != 'AnonymousUser':
+                    user = get_object_or_404(User, username=username)
+                    user_reward = Reward.objects.filter(user=user).first()
+                    user_reward.discount = 0.00
+                    user_reward.save()
+
             except Exception as e:
                 if order:
                     order.delete()

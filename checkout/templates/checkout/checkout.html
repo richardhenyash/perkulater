@@ -171,6 +171,10 @@
                                 <td class="text-medium text-bold total-table-title px-2 pt-0 pb-1">Discount</td>
                                 <td id="discount" data-discount="{{ discount }}" class="text-medium text-bold px-2 pt-0 pb-1">£{{ discount }}</td>
                             </tr>
+                        {% else %}
+                            <tr>
+                                <td id="discount" class="d-none" data-discount=0.00>0.00</td>
+                            </tr>
                         {% endif %}
                         <tr>
                             <td class="text-medium text-bold total-table-title px-2 pt-0 pb-1">Delivery</td>
