@@ -99,7 +99,24 @@
                                 <td class="text-bold total-table-title p-2">Grand Total</td>
                                 <td class="text-bold p-2">£{{ grand_total }}</td>
                             </tr>
-                        </table>                        
+                        </table>    
+                        {% if not discount %}
+                            {% if user.is_authenticated %}
+                                <p class="text-medium fg-blue px-2 py-0">
+                                    <span class="icon">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                    </span>
+                                    Add a new review to qualify for a discount!
+                                </p>
+                            {% else %}
+                                <p class="text-medium fg-blue px-2 py-0">
+                                    <span class="icon">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                    </span>
+                                    Sign up and add a new review to qualify for a discount!
+                                </p>
+                            {% endif %}
+                        {% endif %}                    
                         {% if delivery > 0 %}
                             <p class="text-medium fg-blue px-2 pt-0 pb-1">
                                 <span class="icon">
