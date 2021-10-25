@@ -31,18 +31,13 @@
             </div>           
             <p class="my-0 pb-1 text-medium text-bold">{{ product.friendly_price }}</p>
             <div class="row pb-4 px-3 py-1">
-                <div class="col-1"></div>
-                <div class="col-5">
+                <div class="col-3"></div>
+                <div class="col-6">
                     <a href="{% url 'product_detail' product.id %}"
                         class="btn btn-lg btn-outline-light rounded-pill btn-lg d-none d-md-block btn-outline-green w-100">Buy
                     </a>
                 </div>
-                <div class="col-5">
-                    <a href="{% url 'review_product' product.id %}"
-                        class="btn btn-lg btn-outline-light rounded-pill btn-lg d-none d-md-block btn-outline-green w-100">Review
-                    </a>
-                </div>
-                <div class="col-1"></div>
+                <div class="col-3"></div>
             </div>
         </div>
         {% if forloop.counter|divisibleby:2 %}
