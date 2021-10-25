@@ -26,6 +26,7 @@ def cache_checkout_data(request):
             'basket': json.dumps(request.session.get('basket', {})),
             'save_info': request.POST.get('save_info'),
             'username': request.user,
+            'discount': request.POST.get('discount'),
         })
         return HttpResponse(status=200)
     except Exception as e:
@@ -64,7 +65,6 @@ def checkout(request):
             order.original_basket = json.dumps(basket)
             current_basket = basket_contents(request)
             order.discount = current_basket['discount']
-            print(order.discount)
             order.save()
             for product_key, product_quantity in basket.items():
                 product_info_array = product_key.split("_")

@@ -6,7 +6,7 @@ from django.shortcuts import get_object_or_404
 
 from .models import Order, OrderLineItem
 from products.models import Price, Product, Size, Type
-from profiles.models import UserProfile
+from profiles.models import UserProfile, Reward
 
 import json
 import time
@@ -51,7 +51,8 @@ class Stripe_WebHook_Handler:
         pid = intent.id
         basket = intent.metadata.basket
         save_info = intent.metadata.save_info
-
+        order_discount = float(intent.metadata.discount)
+        print(order_discount)
         billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
         grand_total = round(intent.charges.data[0].amount / 100, 2)
@@ -120,6 +121,7 @@ class Stripe_WebHook_Handler:
                     country=shipping_details.address.country,
                     original_basket=basket,
                     stripe_pid=pid,
+                    #discount=order_discount,
                 )
                 basket = json.loads(basket)
                 for product_key, product_quantity in basket.items():                    
@@ -142,6 +144,8 @@ class Stripe_WebHook_Handler:
                         quantity=product_quantity,
                     )
                     order_line_item.save()
+                order.discount = order_discount
+                order.save()
             except Exception as e:
                 if order:
                     order.delete()

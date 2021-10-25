@@ -69,10 +69,12 @@ form.addEventListener('submit', function (ev) {
     let saveInfo = Boolean($('#id-save-info').attr('checked'));
     // From using {% csrf_token %} in the form
     let csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+    let discount = $('#discount').data('discount');
     let postData = {
         'csrfmiddlewaretoken': csrfToken,
         'client_secret': clientSecret,
         'save_info': saveInfo,
+        'discount': discount,
     };
     let url = '/checkout/cache_checkout_data/';
 

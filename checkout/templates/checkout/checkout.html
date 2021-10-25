@@ -169,7 +169,7 @@
                         {% if discount %}
                             <tr>
                                 <td class="text-medium text-bold total-table-title px-2 pt-0 pb-1">Discount</td>
-                                <td class="text-medium text-bold px-2 pt-0 pb-1">£{{ discount }}</td>
+                                <td id="discount" data-discount="{{ discount }}" class="text-medium text-bold px-2 pt-0 pb-1">£{{ discount }}</td>
                             </tr>
                         {% endif %}
                         <tr>

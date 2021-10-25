@@ -53,10 +53,9 @@ class Order(models.Model):
         delivery_minimum = offer.get_delivery_minimum()
         # Apply discount and calculate order total
         order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
-        if self.discount > 0:
+        if self.discount > 0 and order_total > 0:
             self.previous_total = order_total
             self.order_total = order_total - self.discount
-            self.discount = self.discount
         else:
             self.previous_total = order_total
             self.order_total = order_total
@@ -72,7 +71,6 @@ class Order(models.Model):
             self.delivery_cost = 0
 
         self.grand_total = self.order_total + self.delivery_cost
-        print("Order Saved!")
         self.save()
 
     def save(self, *args, **kwargs):
