@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib.auth.models import User
 from .models import Category, Price, Product, Size, Type, Coffee, Offer, Review
+from profiles.models import Reward
+
 from .forms import CoffeeForm, ProductForm, PriceForm, ReviewForm
 from .helpers import get_product_offer_str
 
@@ -309,6 +311,18 @@ def review_product(request, product_id):
                 review.product = product
                 review.user = request.user
                 review.save()
+                # Get review offer if it exists and apply it to Reward
+                review_offer = Offer.objects.filter(description="Review").first()
+                if review_offer:
+                    reward = Reward.objects.filter(user=request.user).first()
+                    if reward:
+                        reward.discount = review_offer.discount
+                        reward.save()
+                    else:
+                        reward = Reward(
+                            user=request.user,
+                            discount=review_offer.discount)
+                        reward.save()
                 messages.success(request, f'Review added for product: {product.friendly_name}.')
             else:
                 review_form.save()
