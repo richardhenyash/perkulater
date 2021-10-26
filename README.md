@@ -664,7 +664,11 @@ which lists all the **Python** dependencies.
 * Note that the `Procfile` should have one line that reads `web: gunicorn appname.wsgi:application`, with no empty white space or lines, where `appname` is the application name.
 * Login to heroku at the temrinal using `heroku login -i`
 * Run the command `heroku config:set DISABLE_COLLECTSTATIC=1 --app appname` at the terminal, where `appname` is the application name.
-* add `ALLOWED_HOSTS = ['appname.herokuapp.com', 'localhost']` to `settings.py` where where `appname` is the application name.
+* Add `ALLOWED_HOSTS = ['appname.herokuapp.com', 'localhost']` to `settings.py` where where `appname` is the application name.
+* Add, commit and push changes to github using `git add .`, `git commit -m`, and `git push`.
+* Set git remote using `heroku git:remote -a appname`, where `appname` is the application name.
+* Deploy the app to heroku using `git push heroku branchname`, where `branchname` is the github branch name.
+
 
 
 * Push the newly created `requirements.txt` and `Procfile` files to the the [GitHub](https://github.com/) 
