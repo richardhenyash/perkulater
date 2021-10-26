@@ -642,8 +642,24 @@ MAIL_PASSWORD|The mail password associated with the mail account that **Contact*
 Please see [Example env.py file](/static/testing/deployment/example_env.py).
 
 The steps required to deploy the website to [Heroku](https://dashboard.heroku.com/) are as follows:
+* To dump the data from your mysql development database to a json file, use following command at the terminal *note - manage.py must be connected to your local mysql development database*:
+`python3 manage.py dumpdata --exclude auth.permission --exclude contenttypes > db.json`
+* Create a new app in Heroku and provision a new POSTGRES database from the `Resources` tab.
+* Install `dj_database_url` and  `psycopg2-binary`.
 * Use the `pip freeze > requirements.txt` terminal command to to create a `requirements.txt` file, 
 which lists all the **Python** dependencies.
+* Import dj_database_url in settings.py.
+* Connect ythe POSTGRES database by setting `DATABASES` in settings.py to the following:
+    DATABASES = {
+        'default': dj_database_url.parse(`database_url`)
+    }
+    where `database_url` is as per the config vars in Heroku settings.
+* Run `python3 manage.py showmigrations` at the terminal to show migrations to be applied to the new POSTGRES database.
+* Run `python3 manage.py migrate --plan` at the temrinal to check the migrations.
+* Run `python3 manage.py migrate` at the terminal to apply the migrations to the new POSTGRES database.
+* Note - if you encounter error: django.db.utils.OperationalError: FATAL:  role `"xxxxxxxxxxx"` during configuration of POSTGRESQL, run `unset PGHOSTADDR` at the terminal.
+* Run `python3 manage.py loaddata db.json` at the terminal to load the data from the local json created earlier. 
+
 * Use the `echo web: python app.py > Procfile` terminal command to create a `Procfile`, which declares the process type. 
 Note that the `Procfile` should have one line that reads `web: python app.py`, with no empty white space or lines.
 * Push the newly created `requirements.txt` and `Procfile` files to the the [GitHub](https://github.com/) 
