@@ -668,7 +668,9 @@ which lists all the **Python** dependencies.
 * Add, commit and push changes to github using `git add .`, `git commit -m`, and `git push`.
 * Set git remote using `heroku git:remote -a appname`, where `appname` is the application name.
 * Deploy the app to heroku using `git push heroku branchname`, where `branchname` is the github branch name.
-
+* Generate a Django secret key and add it to the environemnt variables.
+* Add strip keys to environane variables
+* Enable automatic deployment in Heroku settings.
 
 
 * Push the newly created `requirements.txt` and `Procfile` files to the the [GitHub](https://github.com/) 
