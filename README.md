@@ -659,9 +659,14 @@ which lists all the **Python** dependencies.
 * Run `python3 manage.py migrate` at the terminal to apply the migrations to the new POSTGRES database.
 * Note - if you encounter error: django.db.utils.OperationalError: FATAL:  role `"xxxxxxxxxxx"` during configuration of POSTGRESQL, run `unset PGHOSTADDR` at the terminal.
 * Run `python3 manage.py loaddata db.json` at the terminal to load the data from the local json created earlier. 
+* Install `gunicorn` and re-run `pip freeze > requirements.txt` at the terminal.
+* Create a `Procfile`, which declares the process type. 
+* Note that the `Procfile` should have one line that reads `web: gunicorn appname.wsgi:application`, with no empty white space or lines, where `appname` is the application name.
+* Login to heroku at the temrinal using `heroku login -i`
+* Run the command `heroku config:set DISABLE_COLLECTSTATIC=1 --app appname` at the terminal, where `appname` is the application name.
+* add `ALLOWED_HOSTS = ['appname.herokuapp.com', 'localhost']` to `settings.py` where where `appname` is the application name.
 
-* Use the `echo web: python app.py > Procfile` terminal command to create a `Procfile`, which declares the process type. 
-Note that the `Procfile` should have one line that reads `web: python app.py`, with no empty white space or lines.
+
 * Push the newly created `requirements.txt` and `Procfile` files to the the [GitHub](https://github.com/) 
 repository using the `git add`, `git commit` and `git push` commands.
 * Log in to [Heroku](https://id.heroku.com/login), and create a new **App** by clicking the *New* button in the top right of 
