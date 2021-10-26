@@ -53,7 +53,7 @@ def basket_contents(request):
         free_delivery_delta = 0
 
     # Apply rewards
-    discount = 0.0
+    discount = 0.00
     user_reward = None
     previous_total = None
     if request.user.is_authenticated:
@@ -61,7 +61,7 @@ def basket_contents(request):
     if user_reward:
         if user_reward.discount:
             if user_reward.discount > 0:
-                discount = (total * user_reward.discount / 100)
+                discount = Decimal((total * user_reward.discount / 100))
                 discount = round(discount, 2)
                 previous_total = total
                 total = round((total - discount), 2)
