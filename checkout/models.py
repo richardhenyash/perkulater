@@ -64,7 +64,6 @@ class Order(models.Model):
         else:
             self.previous_total = order_total
             self.order_total = order_total
-            self.discount = 0.0
 
         if order_total < free_delivery_amount:
             delivery = order_total * (Decimal(delivery_percentage / 100))
@@ -73,7 +72,7 @@ class Order(models.Model):
             else:
                 self.delivery_cost = round(delivery, 2)
         else:
-            self.delivery_cost = 0
+            self.delivery_cost = round(Decimal(0.0), 2)
 
         self.grand_total = self.order_total + self.delivery_cost
         self.save()
