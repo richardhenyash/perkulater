@@ -168,11 +168,10 @@ def checkout_success(request, order_number):
         order.save()
 
         # Reset Reward after checkout
-        if request.user.is_authenticated:
-            user_reward = Reward.objects.filter(user=request.user).first()
-            if user_reward:
-                user_reward.discount = 0.0
-                user_reward.save()
+        user_reward = Reward.objects.filter(user=request.user).first()
+        if user_reward:
+            user_reward.discount = 0.0
+            user_reward.save()
 
         # Save the user's info if save info box is ticked
         if save_info:

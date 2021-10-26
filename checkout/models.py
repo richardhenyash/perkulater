@@ -9,6 +9,9 @@ from profiles.models import UserProfile, Reward
 
 
 class Order(models.Model):
+    """
+    A model for recording order information
+    """
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(
         UserProfile, on_delete=models.SET_NULL,
@@ -45,13 +48,13 @@ class Order(models.Model):
     def update_total(self):
         """
         Update the grand total each time a line item is added,
-        including delivery cost
+        including discount and delivery cost
         """
         offer = get_object_or_404(Offer, description="Delivery")
         free_delivery_amount = offer.get_free_delivery_amount()
         delivery_percentage = offer.get_delivery_percentage()
         delivery_minimum = offer.get_delivery_minimum()
-        # Apply discount and calculate order total
+        # Apply discount if set and calculate order total
         order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
         if self.discount > 0 and order_total > 0:
             self.previous_total = order_total
@@ -86,6 +89,9 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    """
+    A model for recording order information for each order line item
+    """
     order = models.ForeignKey(
         Order, null=False, blank=False,
         on_delete=models.CASCADE, related_name='lineitems')
