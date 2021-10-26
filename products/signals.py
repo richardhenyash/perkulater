@@ -17,4 +17,5 @@ def update_rating_on_delete(sender, instance, **kwargs):
     """
     Update product rating on delete of review
     """
-    instance.product.calculate_rating()
+    if instance.product:
+        instance.product.calculate_rating()
