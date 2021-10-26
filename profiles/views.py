@@ -24,9 +24,9 @@ def profile(request):
         if user_profile_form.is_valid and user_form.is_valid():
             user_form.save()
             user_profile_form.save()
-            messages.success(request, "Profile successfully updated")
+            messages.success(request, "Profile successfully updated", extra_tags='admin')
         else:
-            messages.error(request, "Profile update failed - please check profile form.")
+            messages.error(request, "Profile update failed - please check profile form.", extra_tags='admin')
     else:
         user_profile_form = UserProfileForm(instance=user_profile)
         user_form = UserForm(instance=userobj)
@@ -37,7 +37,6 @@ def profile(request):
         'user_form': user_form,
         'user_profile_form': user_profile_form,
         'orders': orders,
-        'on_admin_page': True,
     }
     return render(request, template, context)
 
@@ -48,7 +47,7 @@ def order_history(request, order_number):
     messages.info(request, (
         f'This is a past confirmation for order number {order_number}. '
         f'A confirmation email was sent on {order_date}.'
-    ))
+    ), extra_tags='admin')
 
     template = 'checkout/checkout_success.html'
     context = {
