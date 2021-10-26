@@ -104,7 +104,7 @@ def add_product(request):
     """ Add a new product """
 
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store adminitrators can do that.')
+        messages.error(request, 'Sorry, only store adminitrators can do that.', extra_tags='admin')
         return redirect(reverse('home'))
 
     if request.method == 'POST':
@@ -112,16 +112,16 @@ def add_product(request):
         if product_form.is_valid():
             new_product = product_form.save(commit=False)
             new_product.save()
-            addstr = "Product "
+            addstr = "Product"
             if new_product.category.name == 'Coffee':
                 coffee_form = CoffeeForm(request.POST)
                 if coffee_form.is_valid():
                     new_coffee = coffee_form.save(commit=False)
                     new_coffee.product = new_product
                     new_coffee.save()
-                    addstr = addstr + ", coffee details "
+                    addstr = addstr + ", coffee details"
                 else:
-                    messages.error(request, 'Failed to add Coffee details. Please check product form.')
+                    messages.error(request, 'Failed to add Coffee details. Please check product form.', extra_tags='admin')
 
             # Add prices to database for new product
             # using default prices stored in Size model
@@ -136,13 +136,13 @@ def add_product(request):
                     product=new_product, price=product_size.default_price,
                     size=product_size, sku=product_sku)
                 new_price.save()
-            addstr = addstr + "and prices "
+            addstr = addstr + " and prices"
 
             messages.success(
-                request, f'{addstr}added: {new_product.friendly_name}.')
+                request, f'{addstr} added: {new_product.friendly_name}.', extra_tags='admin')
             return redirect(reverse('product_detail', args=[new_product.id]))
         else:
-            messages.error(request, 'Failed to add product. Please check product form.')
+            messages.error(request, 'Failed to add product. Please check product form.', extra_tags='admin')
     else:
         product_form = ProductForm
         coffee_form = CoffeeForm
@@ -153,7 +153,6 @@ def add_product(request):
         'product_form': product_form,
         'coffee_form': coffee_form,
         'categories_all': categories_all,
-        'on_admin_page': True,
     }
     return render(request, template, context)
 
@@ -163,7 +162,7 @@ def edit_product(request, product_id):
     """ Edit an existing product """
 
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store adminitrators can do that.')
+        messages.error(request, 'Sorry, only store adminitrators can do that.', extra_tags='admin')
         return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)
@@ -183,14 +182,14 @@ def edit_product(request, product_id):
                     updatestr = updatestr + "and coffee details "
                 else:
                     messages.error(
-                        request, 'Failed to update coffee details. Please check product form.')
+                        request, 'Failed to update coffee details. Please check product form.', extra_tags='admin')
 
             messages.success(
-                request, f'{updatestr}updated: {product.friendly_name}.')
+                request, f'{updatestr}updated: {product.friendly_name}.', extra_tags='admin')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(
-                request, 'Failed to update product. Please check product form.')
+                request, 'Failed to update product. Please check product form.', extra_tags='admin')
 
     product_form = ProductForm(instance=product)
     coffee_form = None
@@ -205,7 +204,6 @@ def edit_product(request, product_id):
         'product_form': product_form,
         'coffee_form': coffee_form,
         'categories_all': categories_all,
-        'on_admin_page': True,
     }
     return render(request, template, context)
 
@@ -214,30 +212,35 @@ def delete_product(request, product_id):
     """ Delete an existing product """
 
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store administrators can do that.')
+        messages.error(request, 'Sorry, only store administrators can do that.', extra_tags='admin')
         return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)
     deleteflag = False
     if product:
-        deletestr = "Product "
+        deletestr = "Product"
         deleteflag = True
     if product.category.name == "Coffee":
         coffee = Coffee.objects.filter(product=product)
         if coffee:
-            deletestr = deletestr + ", coffee details "
+            deletestr = deletestr + ", coffee details"
             coffee.delete()
             deleteflag = True
     prices = Price.objects.filter(product=product)
     if prices:
-        deletestr = deletestr + "and prices "
+        deletestr = deletestr + ", prices "
         prices.delete()
+    reviews = Review.objects.filter(product=product)
+    if reviews:
+        deletestr = deletestr + ", reviews"
+        reviews.delete()
+
     if deleteflag:
         messages.success(
-            request, f'{deletestr}deleted: {product.friendly_name}.')
+            request, f'{deletestr} deleted: {product.friendly_name}.', extra_tags='admin')
         product.delete()
     else:
-        messages.error(request, f'Error - product {product.friendly_name} not found in database!')
+        messages.error(request, f'Error - product {product.friendly_name} not found in database!', extra_tags='admin')
 
     return redirect(reverse('products'))
 
@@ -260,10 +263,10 @@ def edit_prices(request, product_id):
             priceobj.price = new_price
             priceobj.save()
             messages.success(
-                request, f'Price updated: {product.friendly_name}.')
+                request, f'Price updated: {product.friendly_name}.', extra_tags='admin')
         else:
             messages.error(
-                request, 'Failed to update Price. Please check price form.')
+                request, 'Failed to update Price. Please check price form.', extra_tags='admin')
         
         return redirect(reverse('product_detail', args=[product.id]))
 
@@ -285,7 +288,6 @@ def edit_prices(request, product_id):
         'price_form': price_form,
         'categories_all': categories_all,
         'product_price_dict': product_price_dict,
-        'on_admin_page': True,
     }
     return render(request, template, context)
 
@@ -323,19 +325,19 @@ def review_product(request, product_id):
                             user=request.user,
                             discount=review_offer.discount)
                         reward.save()
-                messages.success(request, f'Review added for product: {product.friendly_name}.')
+                messages.success(request, f'Review added for product: {product.friendly_name}.', extra_tags='admin')
             else:
                 review_form.save()
-                messages.success(request, f'Review updated for product: {product.friendly_name}.')
+                messages.success(request, f'Review updated for product: {product.friendly_name}.', extra_tags='admin')
             return redirect(reverse('product_detail', args=[product.id]))
 
         else:
             if not review_form['rating'].value():
                 messages.error(
-                    request, 'Error - please rate product to add review.')
+                    request, 'Error - please rate product to add review.', extra_tags='admin')
             else:
                 messages.error(
-                    request, 'Failed to add or edit review. Please check review form.')
+                    request, 'Failed to add or edit review. Please check review form.', extra_tags='admin')
 
     else:
         product_review = Review.objects.filter(
@@ -352,7 +354,6 @@ def review_product(request, product_id):
         'product_review': product_review,
         'review_form': review_form,
         'categories_all': categories_all,
-        'on_admin_page': True,
     }
     return render(request, template, context)
 
@@ -364,10 +365,10 @@ def delete_review(request, product_id, user_id):
     user = get_object_or_404(User, pk=user_id)
     review = get_object_or_404(Review, product=product, user=user)
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store administrators can do that.')
+        messages.error(request, 'Sorry, only store administrators can do that.', extra_tags='admin')
         return redirect(reverse('product_detail', args=[product.id]))
 
     review.delete()
     # product.calculate_rating()
-    messages.success(request, f'User { user.username} review deleted for product: {product.friendly_name}.')
+    messages.success(request, f'User { user.username} review deleted for product: {product.friendly_name}.', extra_tags='admin')
     return redirect(reverse('product_detail', args=[product.id]))
