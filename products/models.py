@@ -47,13 +47,15 @@ class Product(models.Model):
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=False, blank=False)
-    friendly_price = models.CharField(max_length=100, blank=True)
-    description_full = models.TextField(blank=True)
+    friendly_price = models.CharField(
+        max_length=100, null=False, blank=False, default="£7.50 - 250g")
+    description_full = models.TextField(
+        null=False, blank=False)
     description_short = models.CharField(max_length=254)
-    description_delimiter = models.CharField(max_length=3, blank=True)
+    description_delimiter = models.CharField(
+        max_length=3, null=False, blank=False, default=";")
     rating = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, blank=True)
-    image_url = models.URLField(max_length=1024, blank=True)
     image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
@@ -141,14 +143,14 @@ class Coffee(models.Model):
     """
     product = models.ForeignKey(
         'Product', null=True, blank=True, on_delete=models.SET_NULL)
-    country = models.CharField(max_length=254, blank=True)
-    farm = models.CharField(max_length=100, blank=True)
-    owner = models.CharField(max_length=100, blank=True)
-    variety = models.CharField(max_length=100, blank=True)
-    altitude = models.CharField(max_length=20, blank=True)
-    town = models.CharField(max_length=100, blank=True)
-    region = models.CharField(max_length=100, blank=True)
-    flavour_profile = models.CharField(max_length=254, blank=True)
+    country = models.CharField(max_length=254, null=False, blank=False)
+    farm = models.CharField(max_length=100, null=False, blank=False)
+    owner = models.CharField(max_length=100, null=False, blank=False)
+    variety = models.CharField(max_length=100, null=False, blank=False)
+    altitude = models.CharField(max_length=20, null=False, blank=False)
+    town = models.CharField(max_length=100, null=False, blank=False)
+    region = models.CharField(max_length=100, null=False, blank=False)
+    flavour_profile = models.CharField(max_length=254, null=False, blank=False)
 
     def __str__(self):
         return str(self.product)
