@@ -646,7 +646,7 @@ The steps required to deploy the website to [Heroku](https://dashboard.heroku.co
 `python3 manage.py dumpdata --exclude auth.permission --exclude contenttypes > db.json`
 * Create a new app in Heroku and provision a new POSTGRES database from the `Resources` tab.
 * Install `dj_database_url` and  `psycopg2-binary`.
-* Use the `pip freeze > requirements.txt` terminal command to to create a `requirements.txt` file, 
+* Use the `pip3 freeze > requirements.txt` terminal command to to create a `requirements.txt` file, 
 which lists all the **Python** dependencies.
 * Import dj_database_url in settings.py.
 * Connect ythe POSTGRES database by setting `DATABASES` in settings.py to the following:
@@ -671,6 +671,60 @@ which lists all the **Python** dependencies.
 * Generate a Django secret key and add it to the environemnt variables.
 * Add strip keys to environane variables
 * Enable automatic deployment in Heroku settings.
+
+Static files are stored in an Amazon Web Services S3 Bucket. The process followed to deploy static files to Amazon S3 was as follows:
+* Create Amazon Web Services account.
+* Sign in and go to the AWS Management Console.
+* Open S3 and create a bucket in S3 (select region closest to your location) - note, uncheck "Block Public Access" and acknowledge that the bucket will be public.
+* Open bucket settings.
+* On *Properties* tab, turn on static website hosting (use index.html for Index document and error.html for Error document).
+* On *Permissions* tab, paste the following Cross-origin resource sharing (CORS) cofiguration:
+[
+  {
+      "AllowedHeaders": [
+          "Authorization"
+      ],
+      "AllowedMethods": [
+          "GET"
+      ],
+      "AllowedOrigins": [
+          "*"
+      ],
+      "ExposeHeaders": []
+  }
+]
+* On *Bucket Policy* tab, go to *Policy Generator* and use the following settings:
+Type of Policy: *S3 Bucket Policy*
+Effect: *Allow*
+Principal: *
+AWS Service: *Amazon S3*
+Actions: *GetObject*
+Amazon Resource Name (ARN): *Use ARN from bucket policy tab*
+* Generate the policy, copy the policy into the bucket policy editor, and add `/*`
+onto the end of the *Resource* line, as per the example below, where `bucketname` is the Amazon S3 bucket name:
+`"Resource": "arn:aws:s3:::bucketname/*`.
+* Save the policy.
+* Go to the `Access Control List` tab and set the *Objects* permissions to `List` for *Everyone (public access)*.
+* The bucket is now set up.
+* To set user permissions, go to IAM (Identity and Access Management).
+* Create a group by selecting *Create Group* in *User Groups* under *Access Management*.
+* Create a policy by selecting *Create Policy* in *Policies* under *Access Management*.
+* Go to the *JSON* tab, select *Import Managed Policy* and import the *AmazonS3FullAccess* policy.
+* Edit the *Resource* section as per the example below, where `bucketname` is the Amazon S3 bucket name:
+"Resource": [
+    "arn:aws:s3:::bucketname",
+    "arn:aws:s3:::bucketname/*"
+]
+* Click `Review Policy`, givethe policy a name and decription amd click *Create Policy*.
+* Attach the policy to the group created earlier by selecting the group in *Groups* under *Access Management*, 
+clicking *Attach Policy* in the *Permissions* tab and selecting the policy created in the previous step.
+* Create a user by selecting *Add User* in *Policies* under *Access Management* and sleect *Programmatic access*.
+* Assign the user to the use group created eralier, and check that the group has the policy created earlier attached.
+* Download the .csv file cotaining the user access keys.
+* Install `boto3` and  `django-storages`.
+* Freeze requirements using `pip3 freeze > requirements.txt`.
+* Add `'storages'` to `INSTALLED_APPS` in `settings.py`.
+
 
 
 * Push the newly created `requirements.txt` and `Procfile` files to the the [GitHub](https://github.com/) 
