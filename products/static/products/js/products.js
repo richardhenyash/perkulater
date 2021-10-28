@@ -59,6 +59,12 @@ $("#typeInformationBtn").click(function() {
     (buildInformationModal("#typeInformationBtn", "information-modal-title", "#type-information-array", "#informationModal", ""));
 });
 
+// On click event handler added to create plan button to build modal dialog
+$("#createPlanBtn").click(function() {
+    (buildInformationModal("#createPlanBtn", "information-modal-title", null, "#informationModal", "modal-sm"));
+});
+
+
 // On click event handler added to product delete button to build delete confirmation modal dialog
 $("#productDeleteBtn").click(function() {
     (buildConfirmModal("#productDeleteBtn", "#confirmModal"));
@@ -131,10 +137,19 @@ function buildInformationModal(btnId, titleAttribute, scriptId, modalId, modalSi
     // Get modal title from data atttribute
     let modalTitle = $(btnId).data(titleAttribute);
     $(modalTitleId).text(modalTitle);
-    // Get modal content from javascript content array
-    let contentArray = JSON.parse($(scriptId).text());
-    // Build content HTML
-    let contentHTML= "<p>" + contentArray.join("</p><p>") + "</p>"
+    let contentHTML
+    if (scriptId) {
+        // Get modal content from javascript content array if passed
+        let contentArray = JSON.parse($(scriptId).text());
+        // Build content HTML
+        contentHTML= "<p>" + contentArray.join("</p><p>") + "</p>"
+
+    } else {
+        // Else get modal content from data attribute
+        let modalContent = $(btnId).data("information-modal-content");
+        // Build content HTML
+        contentHTML= "<p>" + modalContent + "</p>";
+    }
     // Remove size classes
     $(modalSizeId).removeClass("modal-sm");
     $(modalSizeId).removeClass("modal-lg");
