@@ -835,7 +835,7 @@ https://stackoverflow.com/questions/29425256/django-test-client-gets-404-but-bro
 https://stackoverflow.com/questions/23447685/false-404-from-django-test
 
 * Django signals [https://simpleisbetterthancomplex.com/tutorial/2016/07/28/how-to-create-django-signals.html]
-* Django aggretgare (used to calculate product average ratings)[https://docs.djangoproject.com/en/3.2/topics/db/aggregation/].
+* Django aggregate (used to calculate product average ratings)[https://docs.djangoproject.com/en/3.2/topics/db/aggregation/].
 
 
 * John CI for his determination in helping me to fix an issue with the image field on my product edit form.

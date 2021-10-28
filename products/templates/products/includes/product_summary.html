@@ -9,15 +9,17 @@
     <div class="row py-4">
         {% for product in products %}
         <div class="col-sm-12 col-md-6 text-center pt-4 px-5">
-            <div class="product-container">
-                <div class="image-container px-5">
-                    <a href="{% url 'product_detail' product.id %}">
-                        {% if  product.image %}
-                            <img src="{{ product.image.url }}" alt="{{ product.friendly_name }}" class="w-100">
-                        {% else %}
-                            <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.friendly_name }}" class="w-100 p-1">
-                        {% endif %}
-                    </a>
+            <div class="px-4">
+                <div class="product-container">
+                    <div class="image-container px-5">
+                        <a href="{% url 'product_detail' product.id %}">
+                            {% if  product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.friendly_name }}" class="w-100">
+                            {% else %}
+                                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.friendly_name }}" class="w-100 p-1">
+                            {% endif %}
+                        </a>
+                    </div>
                 </div>
             </div>
             <h6 class="title-text-medium pt-2">{{ product.friendly_name }}</h6>
@@ -32,17 +34,22 @@
             <p class="my-0 pb-1 text-medium text-bold">{{ product.friendly_price }}</p>
             <div class="row pb-4 px-3 py-1">
                 <div class="col-3"></div>
-                <div class="col-6">
+                <div class="col-6 text-center">
                     <a href="{% url 'product_detail' product.id %}"
-                        class="btn btn-lg btn-outline-light rounded-pill btn-lg d-none d-md-block btn-outline-green w-100">Buy
+                        class="btn btn-lg btn-outline-light rounded-pill btn-lg btn-outline-green w-100">Buy
                     </a>
                 </div>
                 <div class="col-3"></div>
             </div>
         </div>
+        <!-- Divider beneath each product when displayed 1 wide  -->
+        <div class="divider-opaque d-block d-md-none">
+            <hr>
+        </div>
         {% if forloop.counter|divisibleby:2 %}
             {% if not product == products.last %}
-                <div class="divider-opaque">
+                <!-- Divider beneath each row of products when displayed 2 wide  -->
+                <div class="divider-opaque d-none d-md-block">
                     <hr>
                 </div>
             {% endif %}
