@@ -641,58 +641,82 @@ MAIL_PASSWORD|The mail password associated with the mail account that **Contact*
 
 Please see [Example env.py file](/static/testing/deployment/example_env.py).
 
+
 The steps required to deploy the website to [Heroku](https://dashboard.heroku.com/) are as follows:
 * To dump the data from your mysql development database to a json file, use following command at the terminal *note - manage.py must be connected to your local mysql development database*:
 `python3 manage.py dumpdata --exclude auth.permission --exclude contenttypes > db.json`
-* Create a new app in Heroku and provision a new POSTGRES database from the `Resources` tab.
+* Log in to **Heroku**, and create a new **App** by clicking the *New* button in the top right of 
+your *Dashboard* and selecting *Create new app*. Give the new **App** a name and set the region to your closest geographical region, 
+then click *Create app*.
+* Provision a new **POSTGRES** database from the *Resources* tab.
+* Confirm that the **App** is connected to the correct **GitHub** repository.
 * Install `dj_database_url` and  `psycopg2-binary`.
 * Use the `pip3 freeze > requirements.txt` terminal command to to create a `requirements.txt` file, 
 which lists all the **Python** dependencies.
 * Import dj_database_url in settings.py.
-* Connect ythe POSTGRES database by setting `DATABASES` in settings.py to the following:
-    DATABASES = {
-        'default': dj_database_url.parse(`database_url`)
-    }
-    where `database_url` is as per the config vars in Heroku settings.
+* Connect the **POSTGRES** database by setting `DATABASES` in settings.py to the following, where `database_url` is as per the config vars in Heroku settings:
+    `DATABASES = {`
+        `'default': dj_database_url.parse(database_url)`
+    `}`
+
 * Run `python3 manage.py showmigrations` at the terminal to show migrations to be applied to the new POSTGRES database.
-* Run `python3 manage.py migrate --plan` at the temrinal to check the migrations.
+* Run `python3 manage.py migrate --plan` at the terminal to check the migrations.
 * Run `python3 manage.py migrate` at the terminal to apply the migrations to the new POSTGRES database.
-* Note - if you encounter error: django.db.utils.OperationalError: FATAL:  role `"xxxxxxxxxxx"` during configuration of POSTGRESQL, run `unset PGHOSTADDR` at the terminal.
+* Note - if you encounter `error: django.db.utils.OperationalError: FATAL:  role "xxxxxxxxxxx" during configuration of POSTGRESQL`, run `unset PGHOSTADDR` at the terminal.
 * Run `python3 manage.py loaddata db.json` at the terminal to load the data from the local json created earlier. 
 * Install `gunicorn` and re-run `pip freeze > requirements.txt` at the terminal.
-* Create a `Procfile`, which declares the process type. 
-* Note that the `Procfile` should have one line that reads `web: gunicorn appname.wsgi:application`, with no empty white space or lines, where `appname` is the application name.
-* Login to heroku at the temrinal using `heroku login -i`
+* Create a `Procfile`, declaring the process type in the root of the project. 
+* The `Procfile` should have only one line that reads `web: gunicorn appname.wsgi:application`, with no empty white space or lines, where `appname` is the application name.
+* Login to **Heroku** at the terminal using `heroku login -i`
 * Run the command `heroku config:set DISABLE_COLLECTSTATIC=1 --app appname` at the terminal, where `appname` is the application name.
 * Add `ALLOWED_HOSTS = ['appname.herokuapp.com', 'localhost']` to `settings.py` where where `appname` is the application name.
-* Add, commit and push changes to github using `git add .`, `git commit -m`, and `git push`.
-* Set git remote using `heroku git:remote -a appname`, where `appname` is the application name.
+* Add, commit and push the newly created `requirements.txt` and `Procfile` files to the the **GitHub**
+repository using the `git add`, `git commit` and `git push` commands.
+* Set the git remote using `heroku git:remote -a appname`, where `appname` is the application name.
 * Deploy the app to heroku using `git push heroku branchname`, where `branchname` is the github branch name.
-* Generate a Django secret key and add it to the environemnt variables.
-* Add strip keys to environane variables
-* Enable automatic deployment in Heroku settings.
+* In the *Dashboard* for the new application, click on *Settings* menu > *Reveal Config Vars*.
+* Generate a Django secret key and add it to the environment variables, using [miniwebtool.com](https://miniwebtool.com/django-secret-key-generator/).
+* The following **Config Vars** should be set.
 
-Static files are stored in an Amazon Web Services S3 Bucket. The process followed to deploy static files to Amazon S3 was as follows:
-* Create Amazon Web Services account.
-* Sign in and go to the AWS Management Console.
-* Open S3 and create a bucket in S3 (select region closest to your location) - note, uncheck "Block Public Access" and acknowledge that the bucket will be public.
-* Open bucket settings.
+Variable|Value|
+--------|-----|
+DISABLE_COLLECTSTATIC|1
+SECRET_KEY|`your_django_secret_key`
+
+* From your **App** *Dashboard*, click on the *Deploy* menu > *Deployment method* 
+section and select *GitHub*.
+* Search for your **GitHub** repository then click *Connect* to connect.
+* Confirm that the **App** is connected to the correct **GitHub** repository.
+* Enable **Automatic Deploys** from the correct **GitHub** branch.
+* Update, commit and push the code to **GitHub** and **Heroku** using the 
+`git add`, `git commit` and `git push` commands.
+* **Heroku** will receive the code from **GitHub** and build the **App** with the required packages and dependencies.
+* Once complete, you should see the message *Your app was succesfully deployed*.
+* Confirm that the application is automatically deploying to **Heroku** by checking the *Build Log* in the *Activity* tab.
+* **Heroku** is now succesfully connected to **GitHub** and any changes made in the **GitHub** repository 
+will be automatically pushed to **Heroku**.
+
+Static files are stored in an **Amazon Web Services S3 Bucket**. The process followed to deploy static files to **Amazon S3** was as follows:
+* Create an **Amazon Web Services** account.
+* Sign in and go to the **AWS Management Console**.
+* Open S3 and create a bucket in S3 (select region closest to your location) - note, uncheck *Block Public Access* and acknowledge that the bucket will be public.
+* Open the bucket settings.
 * On *Properties* tab, turn on static website hosting (use index.html for Index document and error.html for Error document).
 * On *Permissions* tab, paste the following Cross-origin resource sharing (CORS) cofiguration:
-[
-  {
-      "AllowedHeaders": [
-          "Authorization"
-      ],
-      "AllowedMethods": [
-          "GET"
-      ],
-      "AllowedOrigins": [
-          "*"
-      ],
-      "ExposeHeaders": []
-  }
-]
+`[`
+  `{`
+      `"AllowedHeaders": [`
+          `"Authorization"`
+      `],`
+      `"AllowedMethods": [`
+          `"GET"`
+      `],`
+      `"AllowedOrigins": [`
+          `"*"`
+      `],`
+      `"ExposeHeaders": []`
+  `}`
+`]`
 * On *Bucket Policy* tab, go to *Policy Generator* and use the following settings:
 Type of Policy: *S3 Bucket Policy*
 Effect: *Allow*
@@ -711,59 +735,90 @@ onto the end of the *Resource* line, as per the example below, where `bucketname
 * Create a policy by selecting *Create Policy* in *Policies* under *Access Management*.
 * Go to the *JSON* tab, select *Import Managed Policy* and import the *AmazonS3FullAccess* policy.
 * Edit the *Resource* section as per the example below, where `bucketname` is the Amazon S3 bucket name:
-"Resource": [
-    "arn:aws:s3:::bucketname",
-    "arn:aws:s3:::bucketname/*"
-]
-* Click `Review Policy`, givethe policy a name and decription amd click *Create Policy*.
+`"Resource": [`
+    `"arn:aws:s3:::bucketname",`
+    `"arn:aws:s3:::bucketname/*"`
+`]`
+* Click `Review Policy`, give the policy a name and decription amd click *Create Policy*.
 * Attach the policy to the group created earlier by selecting the group in *Groups* under *Access Management*, 
 clicking *Attach Policy* in the *Permissions* tab and selecting the policy created in the previous step.
-* Create a user by selecting *Add User* in *Policies* under *Access Management* and sleect *Programmatic access*.
+* Create a user by selecting *Add User* in *Policies* under *Access Management* and select *Programmatic access*.
 * Assign the user to the use group created eralier, and check that the group has the policy created earlier attached.
-* Download the .csv file cotaining the user access keys.
+* Download the .csv file containing the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`.
 * Install `boto3` and  `django-storages`.
 * Freeze requirements using `pip3 freeze > requirements.txt`.
 * Add `'storages'` to `INSTALLED_APPS` in `settings.py`.
+* Add the following settings to `settings.py`, where `bucketname` is the Amazon S3 bucket name (e.g. `perkulater`) and `region` is the bucket region name (e.g. `'eu-west-2'` for the currently deployed perkulater site):
+`if 'USE_AWS' in os.environ:`
+    `# Cache control`
+    `AWS_S3_OBJECT_PARAMETERS = {`
+        `'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',`
+        `'CacheControl': 'max-age=94608000',`
+    `}`    
+    `# Bucket Config`
+    `AWS_STORAGE_BUCKET_NAME = 'bucketname'`
+    `AWS_S3_REGION_NAME = 'bucketregion'`
+    `AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')`
+    `AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')`
+    `AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'`
+    `# Static and media files`
+    `STATICFILES_STORAGE = 'custom_storages.StaticStorage'`
+    `STATICFILES_LOCATION = 'static'`
+    `DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'`
+    `MEDIAFILES_LOCATION = 'media'`
+    `# Override static and media URLs in production`
+    `STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'`
+    `MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'`
 
-
-
-* Push the newly created `requirements.txt` and `Procfile` files to the the [GitHub](https://github.com/) 
-repository using the `git add`, `git commit` and `git push` commands.
-* Log in to [Heroku](https://id.heroku.com/login), and create a new **App** by clicking the *New* button in the top right of 
-your *Dashboard* and selecting *Create new app*. Give the new **App** a name and set the region to your closest geographical region, 
-then click *Create app*.
-* Select the new **App** from your **Heroku** *Dashboard*, then from your **App** *Dashboard*, click on the *Deploy* menu > *Deployment method* 
-section and select *GitHub*.
-* Search for your [GitHub](https://github.com/) repository then click *Connect* to connect.
-* Confirm that the **App** is connected to the correct [GitHub](https://github.com/) repository.
+* **Important** - make sure that the amazon access key and secret access keys are kept secret, as these keys could be used to charge amazon services to your account!
 * In the *Dashboard* for the new application, click on *Settings* menu > *Reveal Config Vars*.
-* Set the following **Config Vars**:
+* Set the following **Config Vars**, and remove the preiously set `DISABLE_COLLECTSTATIC` variable:
 
 Variable|Value|
 --------|-----|
-IP|0.0.0.0|
-PORT|5000
-SECRET_KEY|`your_secret_key`
-MONGO_DBNAME|The Mongo database name, currently set to `freefrom`
-MONGO_URI|The Mongo connection string, currently set to `mongodb+srv://<username>:<password>@<clustername>.z6xjx.mongodb.net/<database_name>?retryWrites=true&w=majority`
-MAIL_USERNAME|The mail account that **Contact** emails will be sent to. Currently set to `freefrom.contact@gmail.com`
-MAIL_PASSWORD|The mail password associated with the mail account that **Contact** emails will be sent to.
+AWS_ACCESS_KEY_ID|`your_aws_access_key`
+AWS_SECRET_ACCESS_KEY|`your_aws_secret_access_key`
+USE_AWS|`True`
 
-* To get the correct **MongoDB** connection string, go to the *Cluster* dashboard in **MongoDB**, 
-click on *Connect* > *Connect your application*, select *Python*, select version *3.11 or later*
-and the connection string is displayed below. For more information see 
-[Mongo DB Connection String](https://docs.mongodb.com/manual/reference/connection-string/#std-label-connections-standard-connection-string-format]).
-* In the *Dashboard* for the new application, click on *Deploy* menu > *Automatic deploys*, choose the **Branch** which you would like to connect 
-and select *Enable Automatic Deploys*.
-* In the *Manual deploy* section, select the branch which you would like to deploy and click the *Deploy Branch* button.
+* Create a file called `custom_storages.py` in the project root. Add the following code to the file:
+
+`from django.conf import settings`
+`from storages.backends.s3boto3 import S3Boto3Storage`
+
+
+`class StaticStorage(S3Boto3Storage):`
+    `location = settings.STATICFILES_LOCATION`
+
+
+`class MediaStorage(S3Boto3Storage):`
+    `location = settings.MEDIAFILES_LOCATION`
+
+* Update, commit and push the code to **GitHub** and **Heroku** using the 
+`git add`, `git commit` and `git push` commands.
 * **Heroku** will receive the code from **GitHub** and build the **App** with the required packages and dependencies.
-* Once complete, you should see the message *Your app was succesfully deployed*.
-* **Heroku** is now succesfully connected to **GitHub** and any changes made in the **GitHub** repository 
-will be automatically pushed to **Heroku**.
+* Once complete, you should see the message *Your app was succesfully deployed* inm **Heroku**.
+* Confirm that the static files have been collected succesfully by checking the *Build Log* in the *Activity* tab in **Heroku**.
+* Open go to the **Amazon S3** management console and open the bucket.
+* The static files should now be present in the directory `static/`.
+* Create a new folder in the bucket called `media/`.
+* Click *Upload* and select all of the required images.
+* Under *Permissions* set *Grant Public Read Access* and confirm.
+* Click *Next* and then *Upload* to complete upload of images.
+* Go to the [Webhook Admin](https://dashboard.stripe.com/test/webhooks) area within **Stripe**.
+* Click *Add Endpoint*, and enter the deployed **Heroku** site url followed by `/checkout/wh/`, e.g. `https//appname.herokuapp.com/checkout.wh/` where `appname` is the application name, and add all events.
+* Click on the endpoint, and click *Reveal* to reveal the *Webhook Secret Key*. Add the key to the **Heroku** environment variables as per the table below.
+* Add stripe keys to environment variables as per the table below. **Stripe** keys can be found in the [Developer Dashboard](https://dashboard.stripe.com/test/apikeys) area within **Stripe**.
+
+Variable|Value|
+--------|-----|
+STRIPE_PUBLIC_KEY|`your_stripe_public_key`
+STRIPE_SECRET_KEY|`your_stripe_secret_key`
+STRIPE_WH_SECRET|`your_stripe_webhook_secret_key`
+
+* In the **Webhook Admin** area of **Stripe**, select the new *Webhook Endpoint* and test it by hitting the *Send Test Event* button and selecting the `payment_intent.created` event. Stripe should display messgae `Webhook received from Stripe: payment_intent.created`.
+* The deployment to **Heroku** and **Amazon Web Services S3** is now complete.
 
 ## Credits ##
-
-
 
 * [Pin Clip Art](https://www.pinclipart.com/) for the coffee bean logo.
 
