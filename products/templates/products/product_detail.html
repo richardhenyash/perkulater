@@ -17,16 +17,18 @@
 <section id="product-detail" class="container-sm container-custom">
     <div class="row py-4">
         <div class="col-sm-12 col-md-6 p-3">
-            <div class="product-container px-4">
-                <a id="productInformationImgLink" href="#" role="button"
-                    data-information-modal-title="{{ product.friendly_name }}"
-                    data-information-modal-size="modal-xl">
-                    {% if  product.image %}
-                        <img src="{{ product.image.url }}" alt="{{ product.friendly_name }}" class="w-100">
-                    {% else %}
-                        <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.friendly_name }}" class="w-100 p-1">
-                    {% endif %}
-                </a>
+            <div class="div p-5 p-md-0">
+                <div class="product-container px-3">
+                    <a id="productInformationImgLink" href="#" role="button"
+                        data-information-modal-title="{{ product.friendly_name }}"
+                        data-information-modal-size="modal-xl">
+                        {% if  product.image %}
+                            <img src="{{ product.image.url }}" alt="{{ product.friendly_name }}" class="w-100">
+                        {% else %}
+                            <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.friendly_name }}" class="w-100 p-1">
+                        {% endif %}
+                    </a>
+                </div>
             </div>
             <h6 class="title-text-large text-center pt-2">{{ product.friendly_name }}</h6>
             <h6 class="title-text-medium text-center pt-2">{{ coffee_detail.flavour_profile }}</h6>
