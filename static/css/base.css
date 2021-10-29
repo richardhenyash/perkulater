@@ -39,8 +39,8 @@ body {
     background:
         /* top, transparent black, with gradient */ 
         linear-gradient(
-            rgba(31, 31, 31, 1.0), 
-            rgba(31, 31, 31, 0.8)
+            rgba(18, 18, 18, 1.0), 
+            rgba(18, 18, 18, 0.9)
         ),
         /* bottom, image */
         url('/media/pexels-juan-pablo-serrano-arenas-894695.jpg') no-repeat center fixed;    
