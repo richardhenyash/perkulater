@@ -3,12 +3,12 @@
 /*-- Product Containers --*/
 .product-container,
 .product-detail-container {
-    background-color: rgba(41, 41, 41, 0.6);
-    border: 2px solid rgba(250, 250, 250, 0.6);
+    background-color: rgba(41, 41, 41, 0.8);
+    border: 2px solid rgba(250, 250, 250, 0.8);
 }
 
 .product-container:hover {
-    background-color: rgba(41, 41, 41, 0.8);
+    background-color: rgba(41, 41, 41, 0.9);
     border: 2px solid var(--green);
 }
 
