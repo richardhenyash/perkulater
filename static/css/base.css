@@ -40,7 +40,7 @@ body {
         /* top, transparent black, with gradient */ 
         linear-gradient(
             rgba(31, 31, 31, 1.0), 
-            rgba(31, 31, 31, 0.7)
+            rgba(31, 31, 31, 0.8)
         ),
         /* bottom, image */
         url('/media/pexels-juan-pablo-serrano-arenas-894695.jpg') no-repeat center fixed;    

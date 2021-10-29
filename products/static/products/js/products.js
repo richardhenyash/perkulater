@@ -73,7 +73,6 @@ $("#productDeleteBtn").click(function() {
 // On click event handler added to review delete buttons to build delete confirmation modal dialog
 $('.reviewDeleteBtn').each(function () {
     let btnId = "#" + $(this).attr("id");
-    console.log(btnId)
     $(btnId).click(function() {
         (buildConfirmModal(btnId, "#confirmModal"));
     });
@@ -135,7 +134,7 @@ function buildInformationModal(btnId, titleAttribute, scriptId, modalId, modalSi
     let modalContentId = modalId + "Content";
     let modalSizeId = modalId + "Size";
     // Get modal title from data atttribute
-    let modalTitle = $(btnId).data(titleAttribute);
+    let modalTitle = $(btnId).data(titleAttribute)
     $(modalTitleId).text(modalTitle);
     let contentHTML
     if (scriptId) {

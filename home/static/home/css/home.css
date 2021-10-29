@@ -1,0 +1,37 @@
+/*-- Body --*/
+body {
+    background: var(--background-lvl1);
+}
+
+/*-- Logo --*/
+.logo-text-large {
+    font-family: var(--logofont);
+    font-size: 7.0rem;
+}
+
+.vertical-center {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+
+/*-- Media Queries --*/
+@media (max-width: 370px) {
+    .logo-text-large {
+        font-size: 6.0rem;
+    }
+    .logo-image {
+        width: 30px;
+    }
+}
+
+/*-- Media Queries --*/
+@media (max-width: 280px) {
+    .logo-text-large {
+        font-size: 5.0rem;
+    }
+    .logo-image {
+        width: 25px;
+    }
+}

@@ -1,20 +1,48 @@
-{% extends "base.html" %}
 {% load static %}
-
-{% block extracss %}
-    <!-- Link to Products Custom CSS -->
-    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
-{% endblock %}
-
-{% block page_header %}
-{% endblock %}
-
-{% block content %}
-{% include 'products/includes/product_offers.html' %}
-{% include 'products/includes/product_summary.html' %}
-{% endblock %}
-
-{% block extrapostloadjs %}
-    <!-- Link to Products JavaScript -->
-    <script src="{% static 'products/js/products.js' %}"></script>
-{% endblock %}
+<!doctype html>
+<html lang="en">
+    <head>
+        {% include 'includes/meta.html' %}
+>
+        {% block corecss %}
+        {% include 'includes/externalcss.html' %}
+        <!-- Link to Custom CSS -->
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        {% endblock %}
+        
+        {% block extracss %} 
+        <!-- Link to Home Custom CSS -->
+        <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+        {% endblock %}
+    
+        {% include 'includes/corejs.html' %} 
+    
+        {% block extra_js %}
+        {% endblock %}
+    
+        <title>perkulater {% block extra_title %}{% endblock %}</title>
+    </head>
+    <body>
+        <section id="perkulater-home" class="container-sm">
+            <div class="container-sm d-flex justify-content-center">
+                <div class="row">
+                    <div class="col-12 vertical-center pb-5">                           
+                        <div id="perkulater-jumbotron" class="jumbotron text-center pb-5">
+                            <h1 id="splash-logo" class="logo-text-large">perkulater<img src="{{ MEDIA_URL }}coffee-cup-icon-white.png" alt="Coffee Cup Icon" class="logo-image pl-1 pb-1"></h1>
+                            <div id="splash-divider" class="divider-solid">
+                                <hr>
+                            </div>
+                            <p id="splash-text" class="title-text-medium text-bold text-center pt-2 pb-2" >Browse our awesome coffees!</p>
+                            <a id="splash-button" href="{% url 'products' %}" class="btn btn-lg btn-xl btn-outline-light btn-outline-green px-4" role="button">Shop</a>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </section>       
+        {% block extrapostloadjs %}
+        {% include 'includes/externaljs.html' %}  
+        <!-- Link to Home JavaScript -->
+        <script src="{% static 'home/js/home.js' %}"></script>
+    {% endblock %}    
+    </body>
+</html>
