@@ -45,7 +45,7 @@ body {
         /* bottom, image */
         url('/media/pexels-juan-pablo-serrano-arenas-894695.jpg') no-repeat center fixed;    
     background-size: cover;
-    background-color: var(--background-lvl1);
+    background-color: var(--background-lvl0);
 }
 
 /*-- Logo --*/
