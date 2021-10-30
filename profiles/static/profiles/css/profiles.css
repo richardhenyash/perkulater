@@ -20,14 +20,14 @@
 .accordion-collapse {
     font-size: 1.4rem;
     color: var(--white);
-    background-color: var(--background-lvl4);
+    background-color: var(--background-lvl3);
     overflow-wrap: break-word;
     word-wrap: break-word;
 }
 
 .accordion-button:not(.collapsed) {
     color: var(--white);
-    background-color: var(--background-lvl4);
+    background-color: var(--background-lvl3);
     border: 2px solid var(--green);
     box-shadow: 0 0 0 0.25rem rgb(78 208 173 / 25%);
 }

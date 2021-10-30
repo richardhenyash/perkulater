@@ -10,8 +10,7 @@
         --background-lvl0: #121212;
         --background-lvl1: #1F1F1F;
         --background-lvl2: #292929;
-        --background-lvl3: #292929;
-        --background-lvl4: #333333;
+        --background-lvl3: #333333;
         --yellow: #FDDE86;
         --yellowhighlight: #FDD25E;
         --green: #4ED0AD;
@@ -38,16 +37,16 @@ body {
     min-height: 100vh;
     background:
         /* top, transparent black, with gradient */
-        -webkit-linear-gradient(to bottom,  rgba(31, 31, 31, 1.0), rgba(31, 31, 31, 0.9)), /* Chrome10+,Safari5.1+ */
+        -webkit-linear-gradient(to bottom,  rgba(31, 31, 31, 1.0), rgba(31, 31, 31, 0.75)), /* Chrome10+,Safari5.1+ */
         /* bottom, image */
         url('/media/pexels-juan-pablo-serrano-arenas-894695.jpg') no-repeat center fixed; 
     background:
         /* top, transparent black, with gradient */
-        linear-gradient(to bottom, rgba(31, 31, 31, 1.0), rgba(31, 31, 31, 0.9)),
+        linear-gradient(to bottom, rgba(31, 31, 31, 1.0), rgba(31, 31, 31, 0.75)),
         /* bottom, image */
         url('/media/pexels-juan-pablo-serrano-arenas-894695.jpg') no-repeat center fixed;
     background-size: cover;
-    background-color: var(--background-lvl0);
+    background-color: var(--background-lvl1);
 }
 
 /*-- Logo --*/
@@ -72,7 +71,7 @@ body {
 }
 
 .navbar-nav .form-control {
-    background-color: var(--background-lvl0);
+    background-color: var(--background-lvl1);
     border: 2px solid rgba(250, 250, 250, 0.6);
     color: var(--white); 
 }
@@ -126,7 +125,7 @@ body {
 }
 
 .container-dark {
-    background-color: rgba(41, 41, 41, 0.6);
+    background-color: rgba(41, 41, 41, 0.8);
 }
 
 /*-- Dividers--*/
@@ -160,12 +159,7 @@ body {
 
 /*-- Black Background, level 3 --*/
 .bg-black-3 {
-    background-color: var(--background-lvl3);
-}
-
-/*-- Black Background, level 4 --*/
-.bg-black-4 {
-    background-color: var(--background-lvl4);
+    background-color: var(--background-lvl2);
 }
 
 /*-- Yellow Background --*/
@@ -331,7 +325,7 @@ body {
 }
 
 .btn-outline-white {
-    background-color: rgba(41, 41, 41, 0.7);
+    background-color: rgba(41, 41, 41, 0.9);
     border: 2px solid;
     border-color: var(--white);
     color: var(--white);
@@ -339,7 +333,7 @@ body {
 }
 
 .btn-outline-green {
-    background-color: rgba(41, 41, 41, 0.7);
+    background-color: rgba(41, 41, 41, 0.9);
     border: 2px solid;
     border-color: var(--green);
     color: var(--white);
@@ -482,7 +476,7 @@ body {
 .form-user .form-control {
     box-sizing: border-box;
     font-size: 1.4rem;
-    background-color: var(--background-lvl3);
+    background-color: var(--background-lvl2);
     border: 2px solid rgba(250, 250, 250, 0.6);
     color: var(--white);
     padding-top: 0.5rem;
@@ -565,7 +559,7 @@ body {
 .form-user input:focus,
 .form-user .form-control:focus,
 .form-user .form-select:focus {
-    background-color: var(--background-lvl3);
+    background-color: var(--background-lvl2);
     color: var(--white);
     border: 2px solid var(--green);
     box-shadow: 0 0 0 0.25rem rgb(78 208 173 / 25%);
