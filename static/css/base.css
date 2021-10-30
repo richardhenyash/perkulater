@@ -92,6 +92,7 @@ body {
 }
 
 .navbar-nav .form-control:focus {
+    background-color: var(--background-lvl2);
     border: 2px solid var(--green);
     box-shadow: 0 0 0 0.25rem rgb(78 208 173 / 25%);
 }
@@ -484,22 +485,6 @@ body {
     padding-left: 0.7rem;
 }
 
-/*-- Alerts --*/
-.alert-danger {
-    color: var(--pink);
-    background-color: rgba(41, 41, 41, 0.5);
-    border-color: rgba(41, 41, 41, 0.5);
-}
-
-.alert {
-    font-size: 1.4rem;
-    position: relative;
-    padding: 0.2 rem 0.2 rem;
-    margin-bottom: 0.2rem;
-    border: None;
-    border-radius: 0.25rem;
-}
-
 /*-- https://stackoverflow.com/questions/66335238/changing-the-color-arrow-in-bootstrap --*/
 .form-user select {
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23FAFAFA'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
@@ -559,7 +544,7 @@ body {
 .form-user input:focus,
 .form-user .form-control:focus,
 .form-user .form-select:focus {
-    background-color: var(--background-lvl2);
+    background-color: var(--background-lvl3);
     color: var(--white);
     border: 2px solid var(--green);
     box-shadow: 0 0 0 0.25rem rgb(78 208 173 / 25%);
@@ -574,6 +559,23 @@ body {
     color: var(--pink);
     font-size: 1.2rem;
     font-weight: 500;
+}
+
+
+/*-- Alerts --*/
+.alert-danger {
+    color: var(--pink);
+    background-color: rgba(41, 41, 41, 0.5);
+    border-color: rgba(41, 41, 41, 0.5);
+}
+
+.alert {
+    font-size: 1.4rem;
+    position: relative;
+    padding: 0.2 rem 0.2 rem;
+    margin-bottom: 0.2rem;
+    border: None;
+    border-radius: 0.25rem;
 }
 
 /*-- Cards --*/

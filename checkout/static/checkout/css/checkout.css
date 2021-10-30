@@ -15,6 +15,7 @@
 }
 
 .StripeElement--focus {
+    background-color: var(--background-lvl3);
     border: 2px solid var(--green);
     box-shadow: 0 0 0 0.25rem rgb(78 208 173 / 25%);
 }
