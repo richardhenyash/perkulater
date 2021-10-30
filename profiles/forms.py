@@ -63,3 +63,8 @@ class UserProfileForm(forms.ModelForm):
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'profile-input'
             self.fields[field].label = False
+
+
+class OrderContactForm(forms.Form):
+    message = forms.CharField(required=True, widget=forms.Textarea)
+

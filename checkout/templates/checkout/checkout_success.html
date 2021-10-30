@@ -203,15 +203,23 @@
                 </div>
             {% endif %}       
             <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-12 col-md-6">  
-                    {% if from_profile %}     
-                        <div class="text-center py-4">
-                            <a href="{% url 'profile' %}"
-                                class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-50">
-                                Back To Profile
-                            </a>
-                        </div>
+                <div class="col-md-2"></div>
+                <div class="col-12 col-md-8">  
+                    {% if from_profile %}  
+                        <div class="row">
+                            <div class="col-6 py-4">
+                                <a href="{% url 'profile' %}"
+                                    class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
+                                    Back To Profile
+                                </a>
+                            </div>
+                            <div class="col-6 py-4">
+                                <a href="{% url 'order_contact' order.order_number %}"
+                                    class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
+                                    Contact
+                                </a>
+                            </div>
+                        </div>   
                     {% else %}
                         <div class="text-center py-4">
                             <a href="{% url 'products' %}"
@@ -221,7 +229,7 @@
                         </div>
                     {% endif %}
                 </div>
-                <div class="col-md-3"></div>
+                <div class="col-md-2"></div>
             </div>
         </div>
     </div>

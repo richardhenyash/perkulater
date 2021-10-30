@@ -2,9 +2,11 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.core.mail import EmailMessage
+from django.conf import settings
 
 from .models import UserProfile
-from .forms import UserForm, UserProfileForm
+from .forms import UserForm, UserProfileForm, OrderContactForm
 from checkout.models import Order
 
 
@@ -21,7 +23,7 @@ def profile(request):
             request.POST, instance=userobj)
         user_profile_form = UserProfileForm(
             request.POST, instance=user_profile)
-        if user_profile_form.is_valid and user_form.is_valid():
+        if user_profile_form.is_valid() and user_form.is_valid():
             user_form.save()
             user_profile_form.save()
             messages.success(request, "Profile successfully updated", extra_tags='admin')
@@ -53,6 +55,34 @@ def order_history(request, order_number):
     context = {
         'order': order,
         'from_profile': True,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def order_contact(request, order_number):        
+    if request.method == 'POST':
+        order_contact_form = OrderContactForm(
+            request.POST)
+        if order_contact_form.is_valid():
+            userobj = User.objects.get(username=request.user)
+            contact_message = (order_contact_form.cleaned_data['message'])
+            email = EmailMessage(
+                f"Order contact - order number: {order_number}",
+                contact_message,
+                'perkulater',
+                [settings.DEFAULT_FROM_EMAIL],
+                headers={'Reply-To': userobj.email}
+            )
+            email.send()
+            
+    order = get_object_or_404(Order, order_number=order_number)
+    order_contact_form = OrderContactForm
+    template = 'profiles/order_contact.html'
+    context = {
+        'order': order,
+        'order_contact_form': order_contact_form,
     }
 
     return render(request, template, context)
