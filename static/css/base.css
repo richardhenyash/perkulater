@@ -674,6 +674,9 @@ body {
     .text-large {
         font-size: 1.4rem;
     }
+    .form-label, .field-label {
+        font-size: 1.4rem;
+    }
     .link-small {
         font-size: 1.0rem;
     }
