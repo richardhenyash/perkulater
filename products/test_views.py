@@ -270,10 +270,11 @@ class TestProductViews(TestCase):
 
     def test_post_delete_user_review(self):
         """Test deleting a user review for a product"""
-        # login as standard user
+        # login as admin user
         loginresponse = self.client.login(username='unittestadmin', password='unittestadminpassword')
         self.assertTrue(loginresponse)
         product = get_object_or_404(Product, name="Test Coffee")
+        # get standard user review
         user = get_object_or_404(User, username='unittestuser')
         url = f'/products/delete_review/{product.id}/{user.id}/'
         response = self.client.post(url)
