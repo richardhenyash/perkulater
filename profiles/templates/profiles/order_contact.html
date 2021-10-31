@@ -41,13 +41,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row pt-1">
                     <div class="col-12 px-3">
                         <form class="form-user dark" action="{% url 'order_contact' order.order_number %}" method="POST" id="profile-form">
                             {% csrf_token %}
                             <fieldset class="pt-2 px-2">
                                 {{ order_contact_form.message | as_crispy_field }}
-                             </fieldset>
+                             </fieldset>    
                              <div class="row">
                                 <div class="col-6 p-3">
                                     <div class="py-2">

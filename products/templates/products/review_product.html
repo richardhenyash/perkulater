@@ -22,13 +22,13 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 px-3 px-md-4">
+                <div class="col-12 px-3">
                     <form class="form-user" action="{% url 'review_product' product.id %}" method="POST" id="review-edit-form">
                         {% csrf_token %}
-                        <fieldset class="pt-2" id="review-details">
+                        <fieldset class="pt-2 px-2" id="review-details">
                             <legend class="field-label py-1">{{product.friendly_name}}</legend>
                             <legend class="field-label pt-1">Rating*</legend>
-                            <div id="product-review-edit-stars" class="product-review-edit-stars pb-2"
+                            <div id="product-review-edit-stars" class="product-review-edit-stars pb-3"
                                 data-product-rating="{{ product_review.rating }}">
                                 <i id="star-1" class="fas fa-star"></i>
                                 <i id="star-2" class="fas fa-star"></i>
@@ -39,17 +39,17 @@
                             {{ review_form.rating.as_hidden }}
                             {{ review_form.review | as_crispy_field }}
                         </fieldset>
-                        <div class="row pt-3">
-                            <div class="col-6 pb-4">
-                                <div class="text-center py-2">
+                        <div class="row pt-1">
+                            <div class="col-6 p-3">
+                                <div class="py-2">
                                     <a href="{% url 'product_detail' product.id %}"
                                         class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
                                         Back To Product
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-6 pb-4">
-                                <div class="text-center py-2">
+                            <div class="col-6 p-3">
+                                <div class="py-2">
                                     <button id="product-add-submit-button" type="submit"
                                         class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
                                         Submit Review
