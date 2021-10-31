@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.mail import EmailMessage
 from django.conf import settings
+from smtplib import SMTPException
 
 from .models import UserProfile
 from .forms import UserForm, UserProfileForm, OrderContactForm
@@ -71,11 +72,19 @@ def order_contact(request, order_number):
             email = EmailMessage(
                 f"Order contact - order number: {order_number}",
                 contact_message,
-                'perkulater',
+                userobj.email,
                 [settings.DEFAULT_FROM_EMAIL],
-                headers={'Reply-To': userobj.email}
+                reply_to=[userobj.email],
             )
-            email.send()
+            try:
+                email.send(fail_silently=False)
+                messages.success(
+                    request, "Order contact email sent succesfully.",
+                    extra_tags='admin')
+            except SMTPException as smtp_error:
+                messages.error(
+                    request, 'Error sending order contact email, '
+                    + smtp_error, extra_tags='admin')
             
     order = get_object_or_404(Order, order_number=order_number)
     order_contact_form = OrderContactForm

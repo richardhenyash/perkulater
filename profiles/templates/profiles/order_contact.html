@@ -45,20 +45,20 @@
                     <div class="col-12 px-3">
                         <form class="form-user dark" action="{% url 'order_contact' order.order_number %}" method="POST" id="profile-form">
                             {% csrf_token %}
-                            <fieldset class="pt-2">
+                            <fieldset class="pt-2 px-2">
                                 {{ order_contact_form.message | as_crispy_field }}
                              </fieldset>
                              <div class="row">
                                 <div class="col-6 p-3">
-                                    <div class="text-center py-2">
-                                        <a href="{% url 'order_history' order.order_number %}" type="button"
+                                    <div class="py-2">
+                                        <a href="{% url 'order_history' order.order_number %}"
                                             class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
                                             View Order
                                         </a>
                                     </div>
                                 </div>
                                 <div class="col-6 p-3">
-                                    <div class="text-center py-2">
+                                    <div class="py-2">
                                         <button type="submit" id="profile-form-submit-button"
                                             class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
                                             Send Message
