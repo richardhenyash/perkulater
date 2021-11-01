@@ -67,4 +67,3 @@ class UserProfileForm(forms.ModelForm):
 
 class OrderContactForm(forms.Form):
     message = forms.CharField(required=True, widget=forms.Textarea)
-
