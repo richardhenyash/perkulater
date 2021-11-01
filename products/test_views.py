@@ -8,7 +8,7 @@ from .test_data import build_test_data
 
 
 class TestProductViews(TestCase):
-    """A class to test product views"""
+    """A class to test products views"""
     @classmethod
     def setUpTestData(cls):
         build_test_data()
@@ -56,7 +56,6 @@ class TestProductViews(TestCase):
     def test_resolve_delete_review(self):
         """Test resolving delete review"""
         loginresponse = self.client.login(username='unittestadmin', password='unittestadminpassword')
-        print(loginresponse)
         self.assertTrue(loginresponse)
         product = get_object_or_404(Product, name="Test Coffee")
         user = get_object_or_404(User, username='unittestuser')

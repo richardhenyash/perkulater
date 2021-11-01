@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
 
 from profiles.models import UserProfile, Reward
+from checkout.models import Order, OrderLineItem
 from .models import Category, Coffee, Offer, Price, Product, Review, Size, Type
 
 
@@ -51,7 +53,7 @@ def build_test_data():
         category=category,
         type="Fine"
     )
-    Type.objects.create(
+    type = Type.objects.create(
         category=category,
         type="Whole Bean"
     )
@@ -63,7 +65,7 @@ def build_test_data():
         category=category,
         size="1kg",
         default_price=25.50)
-    Price.objects.create(
+    price_small = Price.objects.create(
         product=product,
         size=size_small,
         price=7.50,
@@ -127,4 +129,26 @@ def build_test_data():
     Reward.objects.create(
         user=adminuser,
         discount=10.00
+    )
+    user_profile = get_object_or_404(UserProfile, user=user)
+    order = Order.objects.create(
+        user_profile=user_profile,
+        full_name="Test Name",
+        email="test@gmail.com",
+        phone_number="123456789",
+        address_1="Test Address 1",
+        town_or_city="Town Or City",
+        country="GB",
+        order_total=15.00,
+        delivery_cost=2.00,
+        grand_total=17.00,
+        stripe_pid="Test Stripe PID",
+    )
+    OrderLineItem.objects.create(
+        order=order,
+        product=product,
+        size=size_small,
+        type=type,
+        price=price_small,
+        quantity=2,
     )
