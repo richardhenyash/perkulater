@@ -78,11 +78,13 @@ class TestProductViews(TestCase):
         """Test returning a blank product query"""
         response = self.client.get('/products/', {'q': ''})
         self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, '/products/')
     
     def test_get_category(self):
         """Test returning all products in a category"""
         response = self.client.get('/products/', {'q': 'category=Coffee'})
         self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, '/products/')
 
     def test_get_product_details(self):
         """Test returning product detail view"""
@@ -142,6 +144,8 @@ class TestProductViews(TestCase):
         self.assertEqual(product_new.name, "Test New Coffee")
         self.assertEqual(coffee_new.country, "Test Country")
         self.assertEqual(response.status_code, 302)
+        url = f'/products/{product_new.id}/'
+        self.assertRedirects(response, url)
 
     def test_get_edit_product(self):
         """Test returning edit product view"""
@@ -191,6 +195,8 @@ class TestProductViews(TestCase):
         self.assertEqual(product_updated.friendly_name, "Test Updated Coffee Friendly Name")
         self.assertEqual(coffee_updated.country, "Test Updated Country")
         self.assertEqual(response.status_code, 302)
+        url = f'/products/{product_updated.id}/'
+        self.assertRedirects(response, url)
 
     def test_post_delete_product(self):
         """Test deleting a product"""
@@ -203,6 +209,7 @@ class TestProductViews(TestCase):
         # Perform tests
         self.assertEqual(len(product_deleted), 0)
         self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, '/products/')
 
     def test_get_edit_prices(self):
         """Test returning edit prices view for a product"""
@@ -234,6 +241,9 @@ class TestProductViews(TestCase):
         # Perform tests
         self.assertEqual(price_updated.price, 9.50)
         self.assertEqual(response.status_code, 302)
+        url = f'/products/{product.id}/'
+        self.assertRedirects(response, url)       
+
 
     def test_get_review(self):
         """Test returning review for a product"""
@@ -266,6 +276,8 @@ class TestProductViews(TestCase):
         self.assertEqual(review_updated.rating, 5)
         self.assertEqual(review_updated.review, "Awesome coffee!")
         self.assertEqual(response.status_code, 302)
+        url = f'/products/{product.id}/'
+        self.assertRedirects(response, url)
 
     def test_post_delete_user_review(self):
         """Test deleting a user review for a product"""
@@ -282,3 +294,5 @@ class TestProductViews(TestCase):
         # Perform tests
         self.assertEqual(len(review_deleted), 0)
         self.assertEqual(response.status_code, 302)
+        url = f'/products/{product.id}/'
+        self.assertRedirects(response, url)
