@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404, redirect, render, reverse
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -62,7 +62,8 @@ def order_history(request, order_number):
 
 
 @login_required
-def order_contact(request, order_number):        
+def order_contact(request, order_number):   
+    contact_email_sent = False     
     if request.method == 'POST':
         order_contact_form = OrderContactForm(
             request.POST)
@@ -81,10 +82,14 @@ def order_contact(request, order_number):
                 messages.success(
                     request, "Order contact email sent succesfully.",
                     extra_tags='admin')
+                contact_email_sent = True
             except SMTPException as smtp_error:
                 messages.error(
                     request, 'Error sending order contact email, '
                     + smtp_error, extra_tags='admin')
+
+    if contact_email_sent:
+        return redirect(reverse('order_history', args=[order_number]))
             
     order = get_object_or_404(Order, order_number=order_number)
     order_contact_form = OrderContactForm
