@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404
 from django.test import TestCase
 
 from django.contrib.auth.models import User
+from django.contrib.messages import get_messages
 from django.urls import resolve
 
 from .models import UserProfile, Reward
@@ -138,7 +139,9 @@ class TestProfileViews(TestCase):
         url = f'/profile/contact/{order.order_number}/'
         response = self.client.post(
             url, {'message': 'Test order contact message'})
-        message = list(response.context.get('messages'))[0]
-        self.assertTrue("Order contact email sent succesfully" in message.message)
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'profiles/order_contact.html')
+        self.assertEqual(response.status_code, 302)
+        redirect_url = f'/profile/order_history/{order.order_number}/'
+        self.assertRedirects(response, redirect_url)
+        all_messages = [msg for msg in get_messages(response.wsgi_request)]
+        self.assertEqual(all_messages[0].message, "Order contact email sent succesfully.")
+
