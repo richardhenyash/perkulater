@@ -1,5 +1,7 @@
-from .models import Category, Coffee, Offer, Price, Product, Review, Size, Type
 from django.contrib.auth.models import User
+
+from profiles.models import UserProfile, Reward
+from .models import Category, Coffee, Offer, Price, Product, Review, Size, Type
 
 
 def build_test_data():
@@ -7,9 +9,15 @@ def build_test_data():
     # Create admin user for unit tests
     adminuser = User.objects.create_superuser(
         'unittestadmin', 'unittestadmin@test.com', 'unittestadminpassword')
-    # Creaet standard user for unit tests
+    adminuser.first_name = "Test"
+    adminuser.last_name = "Admin"
+    adminuser.save()
+    # Create standard user for unit tests
     user = User.objects.create_user(
         'unittestuser', 'unittestuser@test.com', 'unittestuserpassword')
+    user.first_name = "Test"
+    user.last_name = "User"
+    user.save()
     category = Category.objects.create(
         name="Coffee",
         friendly_name="Coffee",
@@ -111,4 +119,12 @@ def build_test_data():
         user=user,
         rating=1,
         review="Not great - don't buy it!"
+    )
+    Reward.objects.create(
+        user=user,
+        discount=10.00
+    )
+    Reward.objects.create(
+        user=adminuser,
+        discount=10.00
     )

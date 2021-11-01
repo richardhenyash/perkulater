@@ -248,7 +248,7 @@ class TestProductViews(TestCase):
         self.assertTemplateUsed(response, "products/review_product.html")
 
     def test_post_edit_review(self):
-        """Test editing a review for a product"""
+        """Test editing a user review for a product"""
         # login as standard user
         loginresponse = self.client.login(username='unittestuser', password='unittestuserpassword')
         self.assertTrue(loginresponse)

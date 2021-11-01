@@ -369,6 +369,5 @@ def delete_review(request, product_id, user_id):
         return redirect(reverse('product_detail', args=[product.id]))
 
     review.delete()
-    # product.calculate_rating()
     messages.success(request, f'User { user.username} review deleted for product: {product.friendly_name}.', extra_tags='admin')
     return redirect(reverse('product_detail', args=[product.id]))

@@ -1,9 +1,11 @@
 from django.shortcuts import get_object_or_404
 from django.test import TestCase
 
-from .test_data import build_test_data
+from django.contrib.auth.models import User
 
-from .models import Category, Coffee, Product
+from .models import Category, Coffee, Product, Price, Review, Size
+
+from .test_data import build_test_data
 
 
 class TestProductModel(TestCase):
@@ -26,6 +28,19 @@ class TestProductModel(TestCase):
                 "Test Full Description Paragraph 2",
                 "Test Full Description Paragraph 3"]
             )
+
+    def test_product_calculate_rating(self):
+        """Test calculate rating method"""
+        product = get_object_or_404(Product, name="Test Coffee")
+        reviews = Review.objects.filter(product=product)
+        self.assertEqual(product.calculate_rating(), 3.0)
+        review = reviews[1]
+        review.rating = 4.0
+        review.save()
+        self.assertEqual(product.calculate_rating(), 4.5)
+        review.rating = 2.0
+        review.save()
+        self.assertEqual(product.calculate_rating(), 3.5)
 
 
 class TestCategoryModel(TestCase):
@@ -78,3 +93,17 @@ class TestCoffeeModel(TestCase):
                 "flavour_profile"
                 ]
             )
+
+
+class TestPriceModel(TestCase):
+    """A class to test the Price model"""
+    @classmethod
+    def setUpTestData(cls):
+        build_test_data()
+
+    def test_price_str(self):
+        """Test Price string method"""
+        product = get_object_or_404(Product, name="Test Coffee")
+        size = get_object_or_404(Size, size="250g")
+        price = get_object_or_404(Price, product=product, size=size)
+        self.assertEqual(str(price), "Test Coffee, 250g")

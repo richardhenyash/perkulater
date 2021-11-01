@@ -45,13 +45,13 @@ class Product(models.Model):
     """
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
-    name = models.CharField(max_length=254)
+    name = models.CharField(max_length=254, null=False, blank=False)
     friendly_name = models.CharField(max_length=254, null=False, blank=False)
     friendly_price = models.CharField(
         max_length=100, null=False, blank=False, default="£7.50 - 250g")
     description_full = models.TextField(
         null=False, blank=False)
-    description_short = models.CharField(max_length=254)
+    description_short = models.CharField(max_length=254, null=False, blank=False)
     description_delimiter = models.CharField(
         max_length=3, null=False, blank=False, default=";")
     rating = models.DecimalField(
@@ -65,20 +65,30 @@ class Product(models.Model):
         return self.friendly_name
 
     def get_short_description(self):
+        """
+        Return the first item of the short description
+        split with the delimeter
+        """
         delim = self.description_delimiter
         return self.description_short.split(delim)[0]
 
     def get_description_array(self):
+        """
+        Return an array of the full description
+        split with the delimeter
+        """
         delim = self.description_delimiter
         return self.description_full.split(delim)
 
     def calculate_rating(self):
         """
-        Calculate the average product rating from all related reviews
+        Calculate the average product rating
+        from all related reviews
         """
         self.rating = self.reviews.all().aggregate(Avg("rating"))[
             'rating__avg']
         self.save()
+        return self.rating
 
 
 class Size(models.Model):
@@ -94,7 +104,7 @@ class Size(models.Model):
         return self.size
 
     def get_default_price(self):
-        return (self.default_price)
+        return self.default_price
 
 
 class Type(models.Model):

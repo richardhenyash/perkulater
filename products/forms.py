@@ -12,7 +12,7 @@ class ProductForm(forms.ModelForm):
         fields = ('category', 'name', 'friendly_name',
                   'friendly_price', 'description_full',
                   'description_short', 'description_delimiter',
-                  'image',)
+                  'image')
 
         labels = {
             'friendly_name': 'Display Name',
@@ -53,7 +53,10 @@ class CoffeeForm(forms.ModelForm):
     """
     class Meta:
         model = Coffee
-        exclude = ['product']
+        fields = ('country', 'farm', 'owner',
+                  'variety', 'altitude',
+                  'town', 'region',
+                  'flavour_profile')
         labels = {
             'country': 'Country Of Origin',
             'flavour_profile': 'Flavour Profile',
@@ -92,7 +95,7 @@ class PriceForm(forms.ModelForm):
     """
     class Meta:
         model = Price
-        exclude = ['product', 'sku']
+        fields = ('size', 'price')
         labels = {
             'size': 'Size',
             'price': 'Price £',
