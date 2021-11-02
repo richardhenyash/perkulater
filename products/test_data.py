@@ -20,6 +20,12 @@ def build_test_data():
     user.first_name = "Test"
     user.last_name = "User"
     user.save()
+    # Create a second standard user for unit tests
+    user2 = User.objects.create_user(
+        'joebloggs', 'joebloggs@test.com', 'joebloggspassword')
+    user2.first_name = "Joe"
+    user2.last_name = "Bloggs"
+    user2.save()
     category = Category.objects.create(
         name="Coffee",
         friendly_name="Coffee",
@@ -135,6 +141,10 @@ def build_test_data():
     )
     Reward.objects.create(
         user=user,
+        discount=10.00
+    )
+    Reward.objects.create(
+        user=user2,
         discount=10.00
     )
     Reward.objects.create(
