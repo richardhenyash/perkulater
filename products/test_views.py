@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404
 from django.test import TestCase
 from django.urls import resolve
 from django.contrib.auth.models import User
+from profiles.models import Reward
 from .models import Category, Coffee, Product, Price, Review, Size
 
 from .test_data import build_test_data
@@ -304,6 +305,44 @@ class TestProductViews(TestCase):
         self.assertEqual(response.status_code, 302)
         url = f'/products/{product.id}/'
         self.assertRedirects(response, url)
+
+    def test_post_add_new_review(self):
+        """
+        Test adding a new user review for a product
+        Test that user reward is correctly added
+        """
+        # Create a test user
+        user = User.objects.create_user(
+            'johndoe', 'johndoe@test.com', 'johndoepassword')
+        user.first_name = "John"
+        user.last_name = "Doe"
+        user.save()
+        # login as the test user
+        loginresponse = self.client.login(
+            username='johndoe', password='johndoepassword')
+        self.assertTrue(loginresponse)
+        product = get_object_or_404(Product, name="Test Coffee")
+        url = f'/products/review_product/{product.id}/'
+        response = self.client.post(
+            url,
+            {
+                'rating': 5,
+                'review': "Awesome coffee!",
+            })
+        # Get new review
+        review_new = get_object_or_404(
+            Review, product=product, user=user)
+        # Perform tests
+        self.assertEqual(review_new.rating, 5)
+        self.assertEqual(review_new.review, "Awesome coffee!")
+        self.assertEqual(response.status_code, 302)
+        url = f'/products/{product.id}/'
+        self.assertRedirects(response, url)
+        # Get user reward
+        reward = get_object_or_404(
+            Reward, user=user)
+        # Check reward has been applied after adding new review
+        self.assertEqual(reward.discount, 10.00)
 
     def test_post_delete_user_review(self):
         """Test deleting a user review for a product"""
