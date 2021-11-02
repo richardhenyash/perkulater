@@ -1,5 +1,4 @@
 from decimal import Decimal
-from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Category, Product, Price, Offer, Size, Type
 from profiles.models import Reward
@@ -19,7 +18,8 @@ def basket_contents(request):
         product_category = get_object_or_404(Category, name=product.category)
         product_size = get_object_or_404(Size, id=product_size_id)
         product_type = get_object_or_404(Type, id=product_type_id)
-        queryset = Price.objects.filter(product=product_id, size=product_size.id)
+        queryset = Price.objects.filter(
+            product=product_id, size=product_size.id)
         product_price = get_object_or_404(queryset)
         line_item_price = product_price.price * product_quantity
         product_sku = product_price.sku

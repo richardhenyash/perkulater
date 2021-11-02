@@ -1,4 +1,6 @@
-from django.shortcuts import get_object_or_404, HttpResponse, redirect, render, reverse
+from django.shortcuts import (
+    get_object_or_404, HttpResponse, redirect,
+    render, reverse)
 from django.contrib import messages
 from products.models import Category, Product, Size, Type
 from profiles.models import Reward
@@ -40,7 +42,8 @@ def add_to_basket(request, product_id):
 
     if product_key in list(basket.keys()):
         basket[product_key] += product_quantity
-        messages.success(request, f'Added another {product.name} to your basket')
+        messages.success(
+            request, f'Added another {product.name} to your basket')
     else:
         basket[product_key] = product_quantity
         messages.success(request, f'Added {product.name} to your basket')
@@ -61,10 +64,12 @@ def adjust_basket(request, product_key):
 
     if product_quantity > 0:
         basket[product_key] = product_quantity
-        messages.success(request, f'Updated quantity of {product.name} in your basket')
+        messages.success(
+            request, f'Updated quantity of {product.name} in your basket')
     else:
         basket.pop(product_key)
-        messages.success(request, f'Removed {product.name} from your basket')
+        messages.success(
+            request, f'Removed {product.name} from your basket')
 
     request.session['basket'] = basket
     # request.session['basket'] = {}
@@ -87,5 +92,4 @@ def remove_from_basket(request, product_key):
 
     except Exception as e:
         return HttpResponse(status=500)
-        messages.error(request, f'Error removing item: (e)')
-   
+        messages.error(request, f'Error removing item: {e}')
