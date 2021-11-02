@@ -15,8 +15,22 @@ body {
     align-items: center;
 }
 
-
 /*-- Media Queries --*/
+@media (min-width: 576px) {
+    .logo-text-large {
+        font-size: 8.0rem;
+    }
+    .logo-image {
+        width: 50px;
+    }
+    .splash-text {
+        font-size: 2.0rem;
+    }
+    .btn-xl {
+        font-size: 1.6rem;
+    }
+}
+
 @media (max-width: 370px) {
     .logo-text-large {
         font-size: 6.0rem;
@@ -26,7 +40,6 @@ body {
     }
 }
 
-/*-- Media Queries --*/
 @media (max-width: 280px) {
     .logo-text-large {
         font-size: 5.0rem;
