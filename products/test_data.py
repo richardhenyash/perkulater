@@ -25,9 +25,15 @@ def build_test_data():
         friendly_name="Coffee",
         description="Test description",
         size_description="Size",
-        size_information="Test Size Information Line 1;Test Size Information Line 2;Test Size Information Line 3",
+        size_information=(
+            "Test Size Information Line 1;" +
+            "Test Size Information Line 2;" +
+            "Test Size Information Line 3"),
         type_description="Grind",
-        type_information="Test Type Information Line 1;Test Type Information Line 2;Test Type Information Line 3",
+        type_information=(
+            "Test Type Information Line 1;" +
+            "Test Type Information Line 2;" +
+            "Test Type Information Line 3"),
         information_delimiter=";"
     )
     product = Product.objects.create(
@@ -35,8 +41,13 @@ def build_test_data():
         name="Test Coffee",
         friendly_name="Test Coffee Friendly Name",
         friendly_price="£7.50 - 250g",
-        description_full="Test Full Description Paragraph 1;Test Full Description Paragraph 2;Test Full Description Paragraph 3",
-        description_short="Test Short Description Line 1;Test Short Description Line 2",
+        description_full=(
+            "Test Full Description Paragraph 1;" +
+            "Test Full Description Paragraph 2;" +
+            "Test Full Description Paragraph 3"),
+        description_short=(
+            "Test Short Description Line 1;" +
+            "Test Short Description Line 2"),
         description_delimiter=";",
         rating=4.50,
         image="jump-leads-front-transparent.png",

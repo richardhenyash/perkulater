@@ -1,8 +1,6 @@
 from django.shortcuts import get_object_or_404
 from django.test import TestCase
 
-from django.contrib.auth.models import User
-
 from .models import Category, Coffee, Product, Price, Review, Size
 
 from .test_data import build_test_data
@@ -17,7 +15,9 @@ class TestProductModel(TestCase):
     def test_product_get_short_description(self):
         """Test get short description method"""
         product = get_object_or_404(Product, name="Test Coffee")
-        self.assertEqual(product.get_short_description(), "Test Short Description Line 1")
+        self.assertEqual(
+            product.get_short_description(),
+            "Test Short Description Line 1")
 
     def test_product_get_description_array(self):
         """Test get description array method"""

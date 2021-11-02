@@ -1,9 +1,8 @@
 from django.test import TestCase
 from django.shortcuts import get_object_or_404
-from django.contrib.auth.models import User
 
 from .forms import ProductForm, CoffeeForm, PriceForm, ReviewForm
-from .models import Category, Coffee, Product, Price, Review, Size
+from .models import Category, Product, Size
 
 from .test_data import build_test_data
 
@@ -22,8 +21,13 @@ class TestProductForm(TestCase):
             'name': '',
             'friendly_name': "Test New Coffee Friendly Name",
             'friendly_price': "£7.50 - 250g",
-            'description_full': "Test Full Description Paragraph 1;Test Full Description Paragraph 2;Test Full Description Paragraph 3",
-            'description_short': "Test Short Description Line 1;Test Short Description Line 2",
+            'description_full': (
+                "Test Full Description Paragraph 1;" +
+                "Test Full Description Paragraph 2;" +
+                "Test Full Description Paragraph 3"),
+            'description_short': (
+                "Test Short Description Line 1;" +
+                "Test Short Description Line 2"),
             'description_delimiter': ";",
             'image': "",
             'rating': "",
@@ -40,15 +44,21 @@ class TestProductForm(TestCase):
             'name': 'Test New Coffee',
             'friendly_name': "",
             'friendly_price': "£7.50 - 250g",
-            'description_full': "Test Full Description Paragraph 1;Test Full Description Paragraph 2;Test Full Description Paragraph 3",
-            'description_short': "Test Short Description Line 1;Test Short Description Line 2",
+            'description_full': (
+                "Test Full Description Paragraph 1;" +
+                "Test Full Description Paragraph 2;" +
+                "Test Full Description Paragraph 3"),
+            'description_short': (
+                "Test Short Description Line 1;" +
+                "Test Short Description Line 2"),
             'description_delimiter': ";",
             'image': "",
             'rating': "",
             })
         self.assertFalse(form.is_valid())
         self.assertIn('friendly_name', form.errors.keys())
-        self.assertEqual(form.errors['friendly_name'][0], 'This field is required.')
+        self.assertEqual(
+            form.errors['friendly_name'][0], 'This field is required.')
 
     def test_friendly_price_is_required(self):
         """Test to check friendly price is required"""
@@ -58,15 +68,21 @@ class TestProductForm(TestCase):
             'name': 'Test New Coffee',
             'friendly_name': "Test New Coffee Friendly Name",
             'friendly_price': "",
-            'description_full': "Test Full Description Paragraph 1;Test Full Description Paragraph 2;Test Full Description Paragraph 3",
-            'description_short': "Test Short Description Line 1;Test Short Description Line 2",
+            'description_full': (
+                "Test Full Description Paragraph 1;" +
+                "Test Full Description Paragraph 2;" +
+                "Test Full Description Paragraph 3"),
+            'description_short': (
+                "Test Short Description Line 1;" +
+                "Test Short Description Line 2"),
             'description_delimiter': ";",
             'image': "",
             'rating': "",
             })
         self.assertFalse(form.is_valid())
         self.assertIn('friendly_price', form.errors.keys())
-        self.assertEqual(form.errors['friendly_price'][0], 'This field is required.')
+        self.assertEqual(
+            form.errors['friendly_price'][0], 'This field is required.')
 
     def test_full_description_is_required(self):
         """Test to check full description is required"""
@@ -77,14 +93,17 @@ class TestProductForm(TestCase):
             'friendly_name': "Test New Coffee Friendly Name",
             'friendly_price': "£7.50 - 250g",
             'description_full': "",
-            'description_short': "Test Short Description Line 1;Test Short Description Line 2",
+            'description_short': (
+                "Test Short Description Line 1;" +
+                "Test Short Description Line 2"),
             'description_delimiter': ";",
             'image': "",
             'rating': "",
             })
         self.assertFalse(form.is_valid())
         self.assertIn('description_full', form.errors.keys())
-        self.assertEqual(form.errors['description_full'][0], 'This field is required.')
+        self.assertEqual(
+            form.errors['description_full'][0], 'This field is required.')
 
     def test_short_description_is_required(self):
         """Test to check short description is required"""
@@ -94,7 +113,10 @@ class TestProductForm(TestCase):
             'name': 'Test New Coffee',
             'friendly_name': "Test New Coffee Friendly Name",
             'friendly_price': "£7.50 - 250g",
-            'description_full': "Test Full Description Paragraph 1;Test Full Description Paragraph 2;Test Full Description Paragraph 3",
+            'description_full': (
+                "Test Full Description Paragraph 1;" +
+                "Test Full Description Paragraph 2;" +
+                "Test Full Description Paragraph 3"),
             'description_short': "",
             'description_delimiter': ";",
             'image': "",
@@ -102,7 +124,8 @@ class TestProductForm(TestCase):
             })
         self.assertFalse(form.is_valid())
         self.assertIn('description_short', form.errors.keys())
-        self.assertEqual(form.errors['description_short'][0], 'This field is required.')
+        self.assertEqual(
+            form.errors['description_short'][0], 'This field is required.')
 
     def test_description_delimiter_is_required(self):
         """Test to check description delimiter is required"""
@@ -112,15 +135,21 @@ class TestProductForm(TestCase):
             'name': 'Test New Coffee',
             'friendly_name': "Test New Coffee Friendly Name",
             'friendly_price': "£7.50 - 250g",
-            'description_full': "Test Full Description Paragraph 1;Test Full Description Paragraph 2;Test Full Description Paragraph 3",
-            'description_short': "Test Short Description Line 1;Test Short Description Line 2",
+            'description_full': (
+                "Test Full Description Paragraph 1;" +
+                "Test Full Description Paragraph 2;" +
+                "Test Full Description Paragraph 3"),
+            'description_short': (
+                "Test Short Description Line 1;" +
+                "Test Short Description Line 2"),
             'description_delimiter': "",
             'image': "",
             'rating': "",
             })
         self.assertFalse(form.is_valid())
         self.assertIn('description_delimiter', form.errors.keys())
-        self.assertEqual(form.errors['description_delimiter'][0], 'This field is required.')
+        self.assertEqual(
+            form.errors['description_delimiter'][0], 'This field is required.')
 
     def test_image_is_not_required(self):
         """Test to check image is not required"""
@@ -130,8 +159,13 @@ class TestProductForm(TestCase):
             'name': 'Test New Coffee',
             'friendly_name': "Test New Coffee Friendly Name",
             'friendly_price': "£7.50 - 250g",
-            'description_full': "Test Full Description Paragraph 1;Test Full Description Paragraph 2;Test Full Description Paragraph 3",
-            'description_short': "Test Short Description Line 1;Test Short Description Line 2",
+            'description_full': (
+                "Test Full Description Paragraph 1;" +
+                "Test Full Description Paragraph 2;" +
+                "Test Full Description Paragraph 3"),
+            'description_short': (
+                "Test Short Description Line 1;" +
+                "Test Short Description Line 2"),
             'description_delimiter': ";",
             'image': "",
             'rating': "",
@@ -146,8 +180,13 @@ class TestProductForm(TestCase):
             'name': 'Test New Coffee',
             'friendly_name': "Test New Coffee Friendly Name",
             'friendly_price': "£7.50 - 250g",
-            'description_full': "Test Full Description Paragraph 1;Test Full Description Paragraph 2;Test Full Description Paragraph 3",
-            'description_short': "Test Short Description Line 1;Test Short Description Line 2",
+            'description_full': (
+                "Test Full Description Paragraph 1;" +
+                "Test Full Description Paragraph 2;" +
+                "Test Full Description Paragraph 3"),
+            'description_short': (
+                "Test Short Description Line 1;" +
+                "Test Short Description Line 2"),
             'description_delimiter': ";",
             'image': "",
             'rating': "",
@@ -322,7 +361,8 @@ class TestCoffeeForm(TestCase):
             })
         self.assertFalse(form.is_valid())
         self.assertIn('flavour_profile', form.errors.keys())
-        self.assertEqual(form.errors['flavour_profile'][0], 'This field is required.')
+        self.assertEqual(
+            form.errors['flavour_profile'][0], 'This field is required.')
 
     def test_fields_in_form_metaclass(self):
         """Test to check fields in form metaclass"""

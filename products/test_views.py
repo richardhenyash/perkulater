@@ -12,7 +12,7 @@ class TestProductViews(TestCase):
     @classmethod
     def setUpTestData(cls):
         build_test_data()
-        
+
     def test_resolve_products(self):
         """Test resolving products view"""
         found = resolve('/products/')
@@ -55,7 +55,8 @@ class TestProductViews(TestCase):
 
     def test_resolve_delete_review(self):
         """Test resolving delete review"""
-        loginresponse = self.client.login(username='unittestadmin', password='unittestadminpassword')
+        loginresponse = self.client.login(
+            username='unittestadmin', password='unittestadminpassword')
         self.assertTrue(loginresponse)
         product = get_object_or_404(Product, name="Test Coffee")
         user = get_object_or_404(User, username='unittestuser')
@@ -79,7 +80,7 @@ class TestProductViews(TestCase):
         response = self.client.get('/products/', {'q': ''})
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, '/products/')
-    
+
     def test_get_category(self):
         """Test returning all products in a category"""
         response = self.client.get('/products/', {'q': 'category=Coffee'})
@@ -92,12 +93,13 @@ class TestProductViews(TestCase):
         url = f'/products/{product.id}/'
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        
+
     def test_get_add_product(self):
         """Test returning add product view"""
         # login as admin user
-        loginresponse = self.client.login(username='unittestadmin', password='unittestadminpassword')
-        self.assertTrue(loginresponse)      
+        loginresponse = self.client.login(
+            username='unittestadmin', password='unittestadminpassword')
+        self.assertTrue(loginresponse)
         response = self.client.get('/products/add/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "products/add_product.html")
@@ -105,8 +107,9 @@ class TestProductViews(TestCase):
     def test_post_add_product(self):
         """Test adding a product"""
         # login as admin user
-        loginresponse = self.client.login(username='unittestadmin', password='unittestadminpassword')
-        self.assertTrue(loginresponse)    
+        loginresponse = self.client.login(
+            username='unittestadmin', password='unittestadminpassword')
+        self.assertTrue(loginresponse)
         category = get_object_or_404(Category, name="Coffee")
         response = self.client.post(
             '/products/add/',
@@ -115,8 +118,13 @@ class TestProductViews(TestCase):
                 'name': 'Test New Coffee',
                 'friendly_name': "Test New Coffee Friendly Name",
                 'friendly_price': "£7.50 - 250g",
-                'description_full': "Test Full Description Paragraph 1;Test Full Description Paragraph 2;Test Full Description Paragraph 3",
-                'description_short': "Test Short Description Line 1;Test Short Description Line 2",
+                'description_full': (
+                    "Test Full Description Paragraph 1;" +
+                    "Test Full Description Paragraph 2;" +
+                    "Test Full Description Paragraph 3"),
+                'description_short': (
+                    "Test Short Description Line 1;" +
+                    "Test Short Description Line 2"),
                 'description_delimiter': ";",
                 'rating': 4.50,
                 'country': "Test Country",
@@ -136,8 +144,10 @@ class TestProductViews(TestCase):
         # Get new coffee
         coffee_new = get_object_or_404(Coffee, product=product_new)
         # Get new prices
-        price_small = get_object_or_404(Price, product=product_new, size=size_small)
-        price_large = get_object_or_404(Price, product=product_new, size=size_large)
+        price_small = get_object_or_404(
+            Price, product=product_new, size=size_small)
+        price_large = get_object_or_404(
+            Price, product=product_new, size=size_large)
         # Perform tests
         self.assertEqual(price_small.price, 7.50)
         self.assertEqual(price_large.price, 25.50)
@@ -150,10 +160,11 @@ class TestProductViews(TestCase):
     def test_get_edit_product(self):
         """Test returning edit product view"""
         # login as admin user
-        loginresponse = self.client.login(username='unittestadmin', password='unittestadminpassword')
+        loginresponse = self.client.login(
+            username='unittestadmin', password='unittestadminpassword')
         self.assertTrue(loginresponse)
         product = get_object_or_404(Product, name="Test Coffee")
-        url = f'/products/edit/{product.id}/'  
+        url = f'/products/edit/{product.id}/'
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "products/edit_product.html")
@@ -161,7 +172,8 @@ class TestProductViews(TestCase):
     def test_post_edit_product(self):
         """Test editing a product"""
         # login as admin user
-        loginresponse = self.client.login(username='unittestadmin', password='unittestadminpassword')
+        loginresponse = self.client.login(
+            username='unittestadmin', password='unittestadminpassword')
         self.assertTrue(loginresponse)
         product = get_object_or_404(Product, name="Test Coffee")
         category = get_object_or_404(Category, name="Coffee")
@@ -173,8 +185,13 @@ class TestProductViews(TestCase):
                 'name': 'Test Updated Coffee',
                 'friendly_name': "Test Updated Coffee Friendly Name",
                 'friendly_price': "£7.50 - 250g",
-                'description_full': "Test Full Description Paragraph 1;Test Full Description Paragraph 2;Test Full Description Paragraph 3",
-                'description_short': "Test Short Description Line 1;Test Short Description Line 2",
+                'description_full': (
+                    "Test Full Description Paragraph 1;" +
+                    "Test Full Description Paragraph 2;" +
+                    "Test Full Description Paragraph 3"),
+                'description_short': (
+                    "Test Short Description Line 1;" +
+                    "Test Short Description Line 2"),
                 'description_delimiter': ";",
                 'rating': 4.50,
                 'country': "Test Updated Country",
@@ -187,12 +204,15 @@ class TestProductViews(TestCase):
                 'flavour_profile': "Test Flavour Profile",
             })
         # Get updated product
-        product_updated = get_object_or_404(Product, name="Test Updated Coffee")
+        product_updated = get_object_or_404(
+            Product, name="Test Updated Coffee")
         # Get updated coffee
-        coffee_updated = get_object_or_404(Coffee, product=product_updated)
+        coffee_updated = get_object_or_404(
+            Coffee, product=product_updated)
         # Perform tests
         self.assertEqual(product_updated.name, "Test Updated Coffee")
-        self.assertEqual(product_updated.friendly_name, "Test Updated Coffee Friendly Name")
+        self.assertEqual(
+            product_updated.friendly_name, "Test Updated Coffee Friendly Name")
         self.assertEqual(coffee_updated.country, "Test Updated Country")
         self.assertEqual(response.status_code, 302)
         url = f'/products/{product_updated.id}/'
@@ -201,7 +221,8 @@ class TestProductViews(TestCase):
     def test_post_delete_product(self):
         """Test deleting a product"""
         # login as admin user
-        loginresponse = self.client.login(username='unittestadmin', password='unittestadminpassword')
+        loginresponse = self.client.login(
+            username='unittestadmin', password='unittestadminpassword')
         self.assertTrue(loginresponse)
         product = get_object_or_404(Product, name="Test Coffee")
         response = self.client.post(f'/products/delete/{product.id}/')
@@ -214,10 +235,11 @@ class TestProductViews(TestCase):
     def test_get_edit_prices(self):
         """Test returning edit prices view for a product"""
         # login as admin user
-        loginresponse = self.client.login(username='unittestadmin', password='unittestadminpassword')
+        loginresponse = self.client.login(
+            username='unittestadmin', password='unittestadminpassword')
         self.assertTrue(loginresponse)
         product = get_object_or_404(Product, name="Test Coffee")
-        url = f'/products/edit_prices/{product.id}/'  
+        url = f'/products/edit_prices/{product.id}/'
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "products/edit_prices.html")
@@ -225,7 +247,8 @@ class TestProductViews(TestCase):
     def test_post_edit_prices(self):
         """Test editing prices for a product"""
         # login as admin user
-        loginresponse = self.client.login(username='unittestadmin', password='unittestadminpassword')
+        loginresponse = self.client.login(
+            username='unittestadmin', password='unittestadminpassword')
         self.assertTrue(loginresponse)
         product = get_object_or_404(Product, name="Test Coffee")
         size_small = get_object_or_404(Size, size="250g")
@@ -237,21 +260,22 @@ class TestProductViews(TestCase):
                 'price': 9.50,
             })
         # Get updated price
-        price_updated = get_object_or_404(Price, product=product, size=size_small)
+        price_updated = get_object_or_404(
+            Price, product=product, size=size_small)
         # Perform tests
         self.assertEqual(price_updated.price, 9.50)
         self.assertEqual(response.status_code, 302)
         url = f'/products/{product.id}/'
-        self.assertRedirects(response, url)       
-
+        self.assertRedirects(response, url)
 
     def test_get_review(self):
         """Test returning review for a product"""
         # login as standard user
-        loginresponse = self.client.login(username='unittestuser', password='unittestuserpassword')
+        loginresponse = self.client.login(
+            username='unittestuser', password='unittestuserpassword')
         self.assertTrue(loginresponse)
         product = get_object_or_404(Product, name="Test Coffee")
-        url = f'/products/review_product/{product.id}/'  
+        url = f'/products/review_product/{product.id}/'
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "products/review_product.html")
@@ -259,7 +283,8 @@ class TestProductViews(TestCase):
     def test_post_edit_review(self):
         """Test editing a user review for a product"""
         # login as standard user
-        loginresponse = self.client.login(username='unittestuser', password='unittestuserpassword')
+        loginresponse = self.client.login(
+            username='unittestuser', password='unittestuserpassword')
         self.assertTrue(loginresponse)
         product = get_object_or_404(Product, name="Test Coffee")
         user = get_object_or_404(User, username='unittestuser')
@@ -271,7 +296,8 @@ class TestProductViews(TestCase):
                 'review': "Awesome coffee!",
             })
         # Get updated review
-        review_updated = get_object_or_404(Review, product=product, user=user)
+        review_updated = get_object_or_404(
+            Review, product=product, user=user)
         # Perform tests
         self.assertEqual(review_updated.rating, 5)
         self.assertEqual(review_updated.review, "Awesome coffee!")
@@ -282,7 +308,8 @@ class TestProductViews(TestCase):
     def test_post_delete_user_review(self):
         """Test deleting a user review for a product"""
         # login as admin user
-        loginresponse = self.client.login(username='unittestadmin', password='unittestadminpassword')
+        loginresponse = self.client.login(
+            username='unittestadmin', password='unittestadminpassword')
         self.assertTrue(loginresponse)
         product = get_object_or_404(Product, name="Test Coffee")
         # get standard user review
