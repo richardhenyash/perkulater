@@ -4,6 +4,7 @@
 * @version 1.1.1
 */
 /*jshint esversion: 6 */
+/* globals $ */
 
 /* Set product rating stars for all divs with the class product-rating-stars */
 /* Note - reads the product rating from the product-rating data attribute */

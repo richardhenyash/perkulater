@@ -4,6 +4,7 @@
 * @version 1.1.1
 */
 /*jshint esversion: 6 */
+/* globals $, setSelectColour */
 
 /* Set country selector to correct placeholder colour if not selected */
 /* Note - setSelectColour function is located in base.js */
