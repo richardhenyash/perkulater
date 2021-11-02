@@ -49,7 +49,6 @@ def add_to_basket(request, product_id):
         messages.success(request, f'Added {product.name} to your basket')
 
     request.session['basket'] = basket
-    # request.session['basket'] = {}
     return redirect(redirect_url)
 
 
@@ -72,7 +71,6 @@ def adjust_basket(request, product_key):
             request, f'Removed {product.name} from your basket')
 
     request.session['basket'] = basket
-    # request.session['basket'] = {}
     return redirect(reverse('view_basket'))
 
 
