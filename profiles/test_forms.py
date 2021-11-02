@@ -49,7 +49,7 @@ class TestUserProfileForm(TestCase):
         """Test to check phone number is not required"""
         form = UserProfileForm({
             'phone_number': '',
-            'address_1': 'Test Address 1', 
+            'address_1': 'Test Address 1',
             'address_2': 'Test Address 2',
             'town_or_city': 'Test Town',
             'county': 'Test County',
@@ -62,7 +62,7 @@ class TestUserProfileForm(TestCase):
         """Test to check address 1 is not required"""
         form = UserProfileForm({
             'phone_number': '123456789',
-            'address_1': '', 
+            'address_1': '',
             'address_2': 'Test Address 2',
             'town_or_city': 'Test Town',
             'county': 'Test County',
@@ -75,7 +75,7 @@ class TestUserProfileForm(TestCase):
         """Test to check address 2 is not required"""
         form = UserProfileForm({
             'phone_number': '123456789',
-            'address_1': 'Test Address 1', 
+            'address_1': 'Test Address 1',
             'address_2': '',
             'town_or_city': 'Test Town',
             'county': 'Test County',
@@ -88,7 +88,7 @@ class TestUserProfileForm(TestCase):
         """Test to check town or city is not required"""
         form = UserProfileForm({
             'phone_number': '123456789',
-            'address_1': 'Test Address 1', 
+            'address_1': 'Test Address 1',
             'address_2': 'Test Address 1',
             'town_or_city': '',
             'county': 'Test County',
@@ -101,7 +101,7 @@ class TestUserProfileForm(TestCase):
         """Test to check county is not required"""
         form = UserProfileForm({
             'phone_number': '123456789',
-            'address_1': 'Test Address 1', 
+            'address_1': 'Test Address 1',
             'address_2': 'Test Address 1',
             'town_or_city': 'Test Town',
             'county': '',
@@ -114,7 +114,7 @@ class TestUserProfileForm(TestCase):
         """Test to check post code is not required"""
         form = UserProfileForm({
             'phone_number': '123456789',
-            'address_1': 'Test Address 1', 
+            'address_1': 'Test Address 1',
             'address_2': 'Test Address 1',
             'town_or_city': 'Test Town',
             'county': 'Test County',
@@ -127,7 +127,7 @@ class TestUserProfileForm(TestCase):
         """Test to check country is not required"""
         form = UserProfileForm({
             'phone_number': '123456789',
-            'address_1': 'Test Address 1', 
+            'address_1': 'Test Address 1',
             'address_2': 'Test Address 1',
             'town_or_city': 'Test Town',
             'county': 'Test County',

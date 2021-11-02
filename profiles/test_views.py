@@ -5,10 +5,10 @@ from django.contrib.auth.models import User
 from django.contrib.messages import get_messages
 from django.urls import resolve
 
-from .models import UserProfile, Reward
-from checkout.models import Order
-
 from products.test_data import build_test_data
+
+from checkout.models import Order
+from .models import UserProfile
 
 
 class TestProfileViews(TestCase):
@@ -16,11 +16,12 @@ class TestProfileViews(TestCase):
     @classmethod
     def setUpTestData(cls):
         build_test_data()
-        
+
     def test_resolve_profile(self):
         """Test resolving profile view"""
         # login as test user
-        loginresponse = self.client.login(username='unittestuser', password='unittestuserpassword')
+        loginresponse = self.client.login(
+            username='unittestuser', password='unittestuserpassword')
         self.assertTrue(loginresponse)
         found = resolve('/profile/')
         self.assertEqual(found.url_name, "profile")
@@ -28,7 +29,8 @@ class TestProfileViews(TestCase):
     def test_resolve_order_history(self):
         """Test resolving order history view"""
         # login as test user
-        loginresponse = self.client.login(username='unittestuser', password='unittestuserpassword')
+        loginresponse = self.client.login(
+            username='unittestuser', password='unittestuserpassword')
         self.assertTrue(loginresponse)
         # Get user object
         user = get_object_or_404(User, username="unittestuser")
@@ -39,11 +41,12 @@ class TestProfileViews(TestCase):
         url = f'/profile/order_history/{order.order_number}/'
         found = resolve(url)
         self.assertEqual(found.url_name, "order_history")
-    
+
     def test_resolve_order_contact(self):
         """Test resolving order contact view"""
         # login as test user
-        loginresponse = self.client.login(username='unittestuser', password='unittestuserpassword')
+        loginresponse = self.client.login(
+            username='unittestuser', password='unittestuserpassword')
         self.assertTrue(loginresponse)
         # Get user object
         user = get_object_or_404(User, username="unittestuser")
@@ -58,7 +61,8 @@ class TestProfileViews(TestCase):
     def test_get_profile(self):
         """Test returning profile view"""
         # login as test user
-        loginresponse = self.client.login(username='unittestuser', password='unittestuserpassword')
+        loginresponse = self.client.login(
+            username='unittestuser', password='unittestuserpassword')
         self.assertTrue(loginresponse)
         response = self.client.get('/profile/')
         self.assertEqual(response.status_code, 200)
@@ -67,7 +71,8 @@ class TestProfileViews(TestCase):
     def test_post_edit_profile(self):
         """Test editing a profile"""
         # login as test user
-        loginresponse = self.client.login(username='unittestuser', password='unittestuserpassword')
+        loginresponse = self.client.login(
+            username='unittestuser', password='unittestuserpassword')
         self.assertTrue(loginresponse)
         response = self.client.post(
             '/profile/', {
@@ -96,7 +101,8 @@ class TestProfileViews(TestCase):
     def test_get_order_history(self):
         """Test returning order history view"""
         # login as test user
-        loginresponse = self.client.login(username='unittestuser', password='unittestuserpassword')
+        loginresponse = self.client.login(
+            username='unittestuser', password='unittestuserpassword')
         self.assertTrue(loginresponse)
         # Get user object
         user = get_object_or_404(User, username="unittestuser")
@@ -108,11 +114,12 @@ class TestProfileViews(TestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'checkout/checkout_success.html')
-    
+
     def test_get_order_contact(self):
         """Test returning order contact view"""
         # login as test user
-        loginresponse = self.client.login(username='unittestuser', password='unittestuserpassword')
+        loginresponse = self.client.login(
+            username='unittestuser', password='unittestuserpassword')
         self.assertTrue(loginresponse)
         # Get user object
         user = get_object_or_404(User, username="unittestuser")
@@ -128,7 +135,8 @@ class TestProfileViews(TestCase):
     def test_post_order_contact(self):
         """Test submitting order contact form"""
         # login as test user
-        loginresponse = self.client.login(username='unittestuser', password='unittestuserpassword')
+        loginresponse = self.client.login(
+            username='unittestuser', password='unittestuserpassword')
         self.assertTrue(loginresponse)
         # Get user object
         user = get_object_or_404(User, username="unittestuser")
@@ -143,5 +151,6 @@ class TestProfileViews(TestCase):
         redirect_url = f'/profile/order_history/{order.order_number}/'
         self.assertRedirects(response, redirect_url)
         all_messages = [msg for msg in get_messages(response.wsgi_request)]
-        self.assertEqual(all_messages[0].message, "Order contact email sent succesfully.")
-
+        self.assertEqual(
+            all_messages[0].message,
+            "Order contact email sent succesfully.")
