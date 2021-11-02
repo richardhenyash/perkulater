@@ -4,6 +4,7 @@
 * @version 1.1.1
 */
 /*jshint esversion: 6 */
+/* globals $, Stripe */
 
 // Accepting a payment in Stripe: https://stripe.com/docs/payments/accept-a-payment
 // Stripe.js and Stripe elements: https://stripe.com/docs/stripe-js
@@ -131,5 +132,5 @@ form.addEventListener('submit', function (ev) {
     }).fail(function () {
         // reload the page - the error will be in django messages
         location.reload();
-    })
+    });
 });
