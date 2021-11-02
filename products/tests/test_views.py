@@ -3,7 +3,7 @@ from django.test import TestCase
 from django.urls import resolve
 from django.contrib.auth.models import User
 from profiles.models import Reward
-from .models import Category, Coffee, Product, Price, Review, Size
+from products.models import Category, Coffee, Product, Price, Review, Size
 
 from .test_data import build_test_data
 

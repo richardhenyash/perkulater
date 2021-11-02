@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404
 
 from profiles.models import UserProfile, Reward
 from checkout.models import Order, OrderLineItem
-from .models import Category, Coffee, Offer, Price, Product, Review, Size, Type
+from products.models import Category, Coffee, Offer, Price, Product, Review, Size, Type
 
 
 def build_test_data():

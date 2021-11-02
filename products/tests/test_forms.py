@@ -1,8 +1,8 @@
 from django.test import TestCase
 from django.shortcuts import get_object_or_404
 
-from .forms import ProductForm, CoffeeForm, PriceForm, ReviewForm
-from .models import Category, Product, Size
+from products.forms import ProductForm, CoffeeForm, PriceForm, ReviewForm
+from products.models import Category, Product, Size
 
 from .test_data import build_test_data
 

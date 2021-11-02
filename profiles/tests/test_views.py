@@ -5,10 +5,10 @@ from django.contrib.auth.models import User
 from django.contrib.messages import get_messages
 from django.urls import resolve
 
-from products.test_data import build_test_data
+from products.tests.test_data import build_test_data
 
 from checkout.models import Order
-from .models import UserProfile
+from profiles.models import UserProfile
 
 
 class TestProfileViews(TestCase):

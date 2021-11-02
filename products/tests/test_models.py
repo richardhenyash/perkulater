@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404
 from django.test import TestCase
 
-from .models import Category, Coffee, Product, Price, Review, Size
+from products.models import Category, Coffee, Product, Price, Review, Size
 
 from .test_data import build_test_data
 

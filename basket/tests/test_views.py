@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404
 
 from products.models import Product, Size, Type
 
-from products.test_data import build_test_data
+from products.tests.test_data import build_test_data
 
 
 class TestBasketViews(TestCase):

@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import resolve
 
-from products.test_data import build_test_data
+from products.tests.test_data import build_test_data
 
 
 class TestHomeViews(TestCase):

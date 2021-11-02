@@ -3,9 +3,9 @@ from django.urls import resolve
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 
-from .models import Order
+from checkout.models import Order
 
-from products.test_data import build_test_data
+from products.tests.test_data import build_test_data
 from profiles.models import Reward
 
 

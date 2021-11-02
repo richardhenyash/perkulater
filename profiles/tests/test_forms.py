@@ -1,6 +1,6 @@
 from django.test import TestCase
-from products.test_data import build_test_data
-from .forms import UserForm, UserProfileForm, OrderContactForm
+from products.tests.test_data import build_test_data
+from profiles.forms import UserForm, UserProfileForm, OrderContactForm
 
 
 class TestUserForm(TestCase):

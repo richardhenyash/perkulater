@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404
 from django.test import TestCase
 from django.contrib.auth.models import User
 
-from .models import Product, Review
+from products.models import Product, Review
 
 from .test_data import build_test_data
 
