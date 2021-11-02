@@ -10,15 +10,15 @@
 $('.product-rating-stars').each(function () {
     let productRating = $(this).data("product-rating");
     if ((productRating == "None") || (productRating == null) || (productRating == ""))
-        $(this).html("<i class=rating-text>Not Rated</i>")
+        $(this).html("<i class=rating-text>Not Rated</i>");
     else {
         let productRatingRounded = (Math.round(productRating));
-        stars = $(this).children();
+        let stars = $(this).children();
         stars.each(function(si) {
             if (productRatingRounded > si) {
                 $(this).addClass("fg-yellow");
             }
-        })
+        });
     }
 });
 
@@ -26,16 +26,16 @@ $('.product-rating-stars').each(function () {
 /* Note, updates the hidden form input rating with the selected rating */
 $('.product-review-edit-stars').each(function () {
     let currentRating = $(this).data("product-rating");
-    stars = $(this).children();
+    let stars = $(this).children();
     stars.each(function(si) {
         if (currentRating > si) {
             $(this).addClass("fg-yellow");
         }
         $(this).click(function() {
-            let starId = $(this).attr('id')
-            let rating = parseInt(starId.slice(-1))
-            colourStars(rating, "#star-")
-        })
+            let starId = $(this).attr('id');
+            let rating = parseInt(starId.slice(-1));
+            colourStars(rating, "#star-");
+        });
     });
 });
 
@@ -81,7 +81,7 @@ $('.reviewDeleteBtn').each(function () {
 // On click event handler added to minus button to decrease product quantity and update price
 $("#product-quantity-minus-btn").click(function() {
     (incrementQuantity("#product-quantity", "#product-quantity-minus-btn", "#product-quantity-plus-btn", -1, 1, 99));
-    (setPriceBasedOnSizeAndQuantity("#product-size", "#product-quantity", "#product-price-dict", '#product-price'))
+    (setPriceBasedOnSizeAndQuantity("#product-size", "#product-quantity", "#product-price-dict", '#product-price'));
 });
 
 // On click event handler added to plus button to decrease product quantity and update price
@@ -115,11 +115,11 @@ function colourStars(rating, starIdPrefix) {
 
     // Remove yellow class from all rating stars
     for (let i = 1; i <= 5; i++) {
-        $(starIdPrefix + i).removeClass("fg-yellow")
+        $(starIdPrefix + i).removeClass("fg-yellow");
     }
     // Add yellow class to correct rating stars
     for (let i = 1; i <= rating; i++) {
-        $(starIdPrefix + i).addClass("fg-yellow")
+        $(starIdPrefix + i).addClass("fg-yellow");
     }
     $('input[name=rating]').val(rating);
     return rating;
@@ -134,14 +134,14 @@ function buildInformationModal(btnId, titleAttribute, scriptId, modalId, modalSi
     let modalContentId = modalId + "Content";
     let modalSizeId = modalId + "Size";
     // Get modal title from data atttribute
-    let modalTitle = $(btnId).data(titleAttribute)
+    let modalTitle = $(btnId).data(titleAttribute);
     $(modalTitleId).text(modalTitle);
-    let contentHTML
+    let contentHTML;
     if (scriptId) {
         // Get modal content from javascript content array if passed
         let contentArray = JSON.parse($(scriptId).text());
         // Build content HTML
-        contentHTML= "<p>" + contentArray.join("</p><p>") + "</p>"
+        contentHTML= "<p>" + contentArray.join("</p><p>") + "</p>";
 
     } else {
         // Else get modal content from data attribute
@@ -195,8 +195,8 @@ function buildConfirmModal(btnId, modalId) {
 * @return {[newQuantity]}                     [New Quantity, string]          
 */
 function incrementQuantity(quantityId, btnMinusID, btnPlusID, inc, minValue, maxValue){
-    let currentQuantity = parseInt($(quantityId).val())
-    let newQuantity = currentQuantity
+    let currentQuantity = parseInt($(quantityId).val());
+    let newQuantity = currentQuantity;
     if (Math.sign(inc) == 1) {
         if ((currentQuantity + inc) <= maxValue) {
             newQuantity = currentQuantity + inc;
@@ -244,7 +244,7 @@ function setPriceBasedOnSizeAndQuantity(sizeId, quantityId, scriptId, priceId) {
     // Get price object
     let priceDict = JSON.parse($(scriptId).text());
     let price = priceDict[size];
-    let priceStr = ("£" + (price * quantity).toFixed(2))
+    let priceStr = ("£" + (price * quantity).toFixed(2));
     $(priceId).text(priceStr);
     return priceStr;
 }
