@@ -22,5 +22,10 @@
    },
    "files.autoSave": "off",
    "workbench.colorTheme": "Visual Studio Dark",
-   "editor.defaultFormatter": "HookyQR.beautify"
+   "editor.defaultFormatter": "HookyQR.beautify",
+   "python.linting.pylintArgs": [
+      "--load-plugins=pylint_django",
+      "--load-plugins=pylint_django.checkers.migrations",
+      "--django-settings-module=<YOUR_DJANGO_APP>.settings"
+    ]
 }
