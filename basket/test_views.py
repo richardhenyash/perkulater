@@ -67,6 +67,10 @@ class TestBasketViews(TestCase):
         }
         response = self.client.post(url, form_data)
         self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, '/products/')
+        # Check basket session cookie
+        basket = self.client.session['basket']
+        self.assertEqual(basket, {'1_1_4': 1})
 
     def test_adjust_basket(self):
         """Test adjust basket"""
@@ -83,6 +87,10 @@ class TestBasketViews(TestCase):
         }
         response = self.client.post(url, form_data)
         self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, '/basket/')
+        # Check basket session cookie
+        basket = self.client.session['basket']
+        self.assertEqual(basket, {'1_1_4': 2})
 
     def test_remove_from_basket(self):
         """Test remove from basket"""
@@ -100,7 +108,21 @@ class TestBasketViews(TestCase):
             'product-quantity': "1",
             'redirect_url': "/products/"
         }
-        response = self.client.post(url, form_data)
+        # Add an item to the basket
+        self.client.post(url, form_data)
+        url = f'/basket/add/{product.id}/'
+        form_data = {
+            'product-size': "1kg",
+            'product-type': "Coarse",
+            'product-quantity': "2",
+            'redirect_url': "/products/"
+        }
+        # Add another item to the basket
+        self.client.post(url, form_data)
+        # Delete the first item from the basket
         url = f'/basket/remove/{product_key}/'
         response = self.client.post(url)
         self.assertEqual(response.status_code, 200)
+        # Check basket session cookie
+        basket = self.client.session['basket']
+        self.assertEqual(basket, {'1_2_1': 2})
