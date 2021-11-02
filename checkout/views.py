@@ -189,10 +189,14 @@ def checkout_success(request, order_number):
                 user_profile_form.save()
 
             userobj = User.objects.get(username=request.user)
-            user_data = {
-                'first_name': order.full_name.split(" ")[0],
-                'last_name': order.full_name.split(" ")[1]
-            }
+            if len(order.full_name.split(" ")) > 1:
+                user_data = {
+                    'first_name': order.full_name.split(" ")[0],
+                    'last_name': order.full_name.split(" ")[1]
+                }
+            else:
+                user_data = {'first_name': order.full_name}
+
             user_form = UserForm(user_data, instance=userobj)
             if user_form.is_valid():
                 user_form.save()
