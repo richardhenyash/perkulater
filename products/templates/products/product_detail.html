@@ -264,8 +264,8 @@
         </div>
         {{ product_price_dict|json_script:"product-price-dict" }}
     </div>
-    {% include 'products/includes/information_modal.html' %}
-    {% include 'products/includes/confirm_modal.html' %}
+    {% include 'includes/information_modal.html' %}
+    {% include 'includes/confirm_modal.html' %}
 </section>
 {% endblock %}
 {% block extrapostloadjs %}
