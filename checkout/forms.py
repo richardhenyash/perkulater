@@ -34,6 +34,8 @@ class OrderForm(forms.ModelForm):
                 placeholder_text = placeholder + "*"
             else:
                 placeholder_text = placeholder
-            self.fields[field_name].widget.attrs['placeholder'] = placeholder_text
-            self.fields[field_name].widget.attrs['class'] = 'checkout-input'
+            self.fields[field_name].widget.attrs[
+                'placeholder'] = placeholder_text
+            self.fields[field_name].widget.attrs[
+                'class'] = 'checkout-input'
             self.fields[field_name].label = False

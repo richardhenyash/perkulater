@@ -1,6 +1,6 @@
 import json
-from decimal import Decimal
-from django.shortcuts import get_object_or_404, HttpResponse, render, redirect, reverse
+from django.shortcuts import (
+    get_object_or_404, HttpResponse, render, redirect, reverse)
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -40,7 +40,7 @@ def checkout(request):
     Display the checkout page and allow checkout
     """
     categories_all = Category.objects.all()
-    stripe_public_key = settings.STRIPE_PUBLIC_KEY    
+    stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
@@ -76,7 +76,8 @@ def checkout(request):
                     product = get_object_or_404(Product, pk=product_id)
                     product_size = get_object_or_404(Size, id=product_size_id)
                     product_type = get_object_or_404(Type, id=product_type_id)
-                    queryset = Price.objects.filter(product=product_id, size=product_size.id)
+                    queryset = Price.objects.filter(
+                        product=product_id, size=product_size.id)
                     product_price = get_object_or_404(queryset)
                     order_line_item = OrderLineItem(
                         order=order,
@@ -200,7 +201,7 @@ def checkout_success(request, order_number):
             user_form = UserForm(user_data, instance=userobj)
             if user_form.is_valid():
                 user_form.save()
-    
+
     messages.success(request, f'Your order has been successfully \
         processed! Your order number is {order_number}. \
         A confirmation email will be sent to {order.email}.')
@@ -211,7 +212,7 @@ def checkout_success(request, order_number):
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
-        'categories_all': categories_all,        
+        'categories_all': categories_all,
     }
 
     return render(request, template, context)

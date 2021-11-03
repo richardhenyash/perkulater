@@ -5,7 +5,7 @@ from django.db.models import Sum
 from django_countries.fields import CountryField
 from django.shortcuts import get_object_or_404
 from products.models import Offer, Price, Product, Size, Type
-from profiles.models import UserProfile, Reward
+from profiles.models import UserProfile
 
 
 class Order(models.Model):
@@ -37,14 +37,15 @@ class Order(models.Model):
     grand_total = models.DecimalField(
         max_digits=10, decimal_places=2, null=False, default=0)
     original_basket = models.TextField(null=True, blank=True, default='')
-    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+    stripe_pid = models.CharField(
+        max_length=254, null=False, blank=False, default='')
 
     def _generate_order_number(self):
         """
         Generate a random, unique order number using UUID
         """
         return uuid.uuid4().hex.upper()
-    
+
     def update_total(self):
         """
         Update the grand total each time a line item is added,
@@ -54,8 +55,9 @@ class Order(models.Model):
         free_delivery_amount = offer.get_free_delivery_amount()
         delivery_percentage = offer.get_delivery_percentage()
         delivery_minimum = offer.get_delivery_minimum()
-        # Aggregate line items to create order total       
-        order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        # Aggregate line items to create order total
+        order_total = self.lineitems.aggregate(
+            Sum('lineitem_total'))['lineitem_total__sum'] or 0
         order_total = round(Decimal(order_total), 2)
         # Apply discount if set and calculate final order total
         if self.discount > 0 and order_total > 0:
@@ -119,4 +121,3 @@ class OrderLineItem(models.Model):
 
     def __str__(self):
         return f'SKU {self.price.sku} on order {self.order.order_number}'
-

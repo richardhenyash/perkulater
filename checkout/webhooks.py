@@ -1,4 +1,5 @@
-# Stripe webhook handler code referenced from: https://stripe.com/docs/payments/handling-payment-events
+# Stripe webhook handler code referenced from:
+# https://stripe.com/docs/payments/handling-payment-events
 
 from django.conf import settings
 from django.http import HttpResponse

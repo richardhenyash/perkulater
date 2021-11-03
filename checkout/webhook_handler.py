@@ -29,7 +29,7 @@ class Stripe_WebHook_Handler:
         body = render_to_string(
             'checkout/confirmation_emails/confirmation_email_body.txt',
             {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
-   
+
         send_mail(
             subject,
             body,
@@ -128,7 +128,7 @@ class Stripe_WebHook_Handler:
                 order.discount = order_discount
                 order.save()
                 basket = json.loads(basket)
-                for product_key, product_quantity in basket.items():                    
+                for product_key, product_quantity in basket.items():
                     product_info_array = product_key.split("_")
                     product_id = product_info_array[0]
                     product_size_id = product_info_array[1]
@@ -137,7 +137,8 @@ class Stripe_WebHook_Handler:
                     product = get_object_or_404(Product, pk=product_id)
                     product_size = get_object_or_404(Size, id=product_size_id)
                     product_type = get_object_or_404(Type, id=product_type_id)
-                    queryset = Price.objects.filter(product=product_id, size=product_size.id)
+                    queryset = Price.objects.filter(
+                        product=product_id, size=product_size.id)
                     product_price = get_object_or_404(queryset)
                     order_line_item = OrderLineItem(
                         order=order,

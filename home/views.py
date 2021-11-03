@@ -15,7 +15,7 @@ def index(request):
 
     context = {
         'products': products,
-        'product_offers' : product_offers,
+        'product_offers': product_offers,
         'product_offer_str': product_offer_str,
         'categories_all': categories_all,
     }
