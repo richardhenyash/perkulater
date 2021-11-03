@@ -836,8 +836,8 @@ https://stackoverflow.com/questions/23447685/false-404-from-django-test
 
 * Django signals [https://simpleisbetterthancomplex.com/tutorial/2016/07/28/how-to-create-django-signals.html]
 * Django aggregate (used to calculate product average ratings)[https://docs.djangoproject.com/en/3.2/topics/db/aggregation/].
-* Djago contaxct form [https://hellowebbooks.com/news/tutorial-setting-up-a-contact-form-with-django/].
-
+* Django contact form [https://hellowebbooks.com/news/tutorial-setting-up-a-contact-form-with-django/].
+* Using Django extensions to visualise the Django data model[https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16].
 
 * John CI for his determination in helping me to fix an issue with the image field on my product edit form.
 
