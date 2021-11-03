@@ -15,7 +15,7 @@ class TestOrderForm(TestCase):
             'address_1': '22 Acacia Road',
             'town_or_city': 'Somewhere',
             'country': 'GB'
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertIn('full_name', form.errors.keys())
         self.assertEqual(
@@ -30,7 +30,7 @@ class TestOrderForm(TestCase):
             'address_1': '22 Acacia Road',
             'town_or_city': 'Somewhere',
             'country': 'GB'
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertIn('email', form.errors.keys())
         self.assertEqual(
@@ -45,7 +45,7 @@ class TestOrderForm(TestCase):
             'address_1': '22 Acacia Road',
             'town_or_city': 'Somewhere',
             'country': 'GB'
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertIn('phone_number', form.errors.keys())
         self.assertEqual(
@@ -60,7 +60,7 @@ class TestOrderForm(TestCase):
             'address_1': '',
             'town_or_city': 'Somewhere',
             'country': 'GB'
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertIn('address_1', form.errors.keys())
         self.assertEqual(
@@ -75,7 +75,7 @@ class TestOrderForm(TestCase):
             'address_1': '22 Acacia Road',
             'town_or_city': '',
             'country': 'GB'
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertIn('town_or_city', form.errors.keys())
         self.assertEqual(
@@ -90,7 +90,7 @@ class TestOrderForm(TestCase):
             'address_1': '22 Acacia Road',
             'town_or_city': 'Somewhere',
             'country': ''
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertIn('country', form.errors.keys())
         self.assertEqual(
@@ -105,7 +105,7 @@ class TestOrderForm(TestCase):
             'address_1': '22 Acacia Road',
             'town_or_city': 'Somewhere',
             'country': ''
-            })
+        })
         self.assertTrue(form.is_valid())
 
     def county_is_not_required(self):
@@ -117,7 +117,7 @@ class TestOrderForm(TestCase):
             'address_1': '22 Acacia Road',
             'town_or_city': 'Somewhere',
             'country': ''
-            })
+        })
         self.assertTrue(form.is_valid())
 
     def postcode_is_not_required(self):
@@ -129,7 +129,7 @@ class TestOrderForm(TestCase):
             'address_1': '22 Acacia Road',
             'town_or_city': 'Somewhere',
             'country': ''
-            })
+        })
         self.assertTrue(form.is_valid())
 
     def test_fields_in_form_metaclass(self):

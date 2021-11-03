@@ -33,7 +33,7 @@ class TestCheckoutViews(TestCase):
             delivery_cost=2.00,
             grand_total=9.50,
             stripe_pid="Test Stripe PID",
-            )
+        )
         found = resolve(f'/checkout/checkout_success/{order.order_number}/')
         self.assertEqual(found.url_name, "checkout_success")
 
@@ -64,6 +64,7 @@ class TestCheckoutViews(TestCase):
 
     def test_post_checkout_success(self):
         """Test successful post to checkout view"""
+        client_secret = "pi_xxxxxxxxxxxxxxxxxxx_secret_xxxxxxxxxxxxxxxxxx"
         form_data = {
             'full_name': "Joe Bloggs",
             'email': "joebloggs@gmail.com",
@@ -75,9 +76,7 @@ class TestCheckoutViews(TestCase):
             'postcode': "SE255XX",
             'country': "GB",
             'stripe_pid': "Test Stripe PID",
-            'client_secret': (
-                "pi_xxxxxxxxxxxxxxxxxxx_secret" +
-                "_xxxxxxxxxxxxxxxxxx"),
+            'client_secret': client_secret,
             'save-info': True,
         }
         session = self.client.session
@@ -108,6 +107,7 @@ class TestCheckoutViews(TestCase):
         # Set user reward discount percentage to 0.0
         user_reward.discount = 0.0
         user_reward.save()
+        client_secret = "pi_xxxxxxxxxxxxxxxxxxx_secret_xxxxxxxxxxxxxxxxxx"
         form_data = {
             'full_name': "Joe Bloggs",
             'email': "joebloggs@gmail.com",
@@ -119,9 +119,7 @@ class TestCheckoutViews(TestCase):
             'postcode': "SE255XX",
             'country': "GB",
             'stripe_pid': "Test Stripe PID",
-            'client_secret': (
-                "pi_xxxxxxxxxxxxxxxxxxx_secret" +
-                "_xxxxxxxxxxxxxxxxxx"),
+            'client_secret': client_secret,
             'save-info': True,
         }
         session = self.client.session
@@ -148,6 +146,7 @@ class TestCheckoutViews(TestCase):
         loginresponse = self.client.login(
             username='joebloggs', password='joebloggspassword')
         self.assertTrue(loginresponse)
+        client_secret = "pi_xxxxxxxxxxxxxxxxxxx_secret_xxxxxxxxxxxxxxxxxx"
         form_data = {
             'full_name': "Joe Bloggs",
             'email': "joebloggs@gmail.com",
@@ -159,9 +158,7 @@ class TestCheckoutViews(TestCase):
             'postcode': "SE255XX",
             'country': "GB",
             'stripe_pid': "Test Stripe PID",
-            'client_secret': (
-                "pi_xxxxxxxxxxxxxxxxxxx_secret" +
-                "_xxxxxxxxxxxxxxxxxx"),
+            'client_secret': client_secret,
             'save-info': True,
         }
         session = self.client.session
@@ -187,6 +184,7 @@ class TestCheckoutViews(TestCase):
 
     def test_post_checkout_invalid_form(self):
         """Test post to checkout view with invalid form"""
+        client_secret = "pi_xxxxxxxxxxxxxxxxxxx_secret_xxxxxxxxxxxxxxxxxx"
         form_data = {
             'full_name': "",
             'email': "test@gmail.com",
@@ -198,9 +196,7 @@ class TestCheckoutViews(TestCase):
             'postcode': "SE255XX",
             'country': "GB",
             'stripe_pid': "Test Stripe PID",
-            'client_secret': (
-                "pi_xxxxxxxxxxxxxxxxxxx_" +
-                "secret_xxxxxxxxxxxxxxxxxx"),
+            'client_secret': client_secret,
             'save-info': True,
         }
         session = self.client.session
@@ -224,7 +220,7 @@ class TestCheckoutViews(TestCase):
             delivery_cost=2.00,
             grand_total=9.50,
             stripe_pid="Test Stripe PID",
-            )
+        )
         url = f'/checkout/checkout_success/{order.order_number}/'
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
