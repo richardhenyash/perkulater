@@ -10,7 +10,7 @@
 
 // On click event handler added to error information button to build modal dialog
 $("#errorInformationBtn").click(function() {
-  (buildInformationModal("#errorInformationBtn", "information-modal-title", null, "#informationModal", "modal-lg"));
+  (buildInformationModal("#errorInformationBtn", "information-modal-title", null, "#informationModal", "modal-sm"));
 });
 
 /* Show Toast Messages */
