@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extracss %}
+{% endblock %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+<section id="500-error" class="container-sm container-custom pt-2">
+    <div class="row py-4">
+        <div class="col-12 container-dark pt-4">
+            <div class="row">
+                <div class="col-12">
+                    <h6 class="title-text-large text-center pt-2">Error</h6>
+                </div>
+                <div class="divider-opaque">
+                    <hr>
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-12">
+                    <p class="text-medium text-center">
+                        Oops, looks like there was an error
+                        <a class="button-info" id="errorInformationBtn" href="#" role="button"
+                            data-information-modal-title="500 error - server error"
+                            data-information-modal-content="{{ exception }}">
+                            <i class="fas fa-lg fa-info-circle px-1"></i>
+                        </a>
+                    </p>
+                    <p class="text-medium text-center">
+                        Hit the button below to return to civilisation......
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 pb-4">                        
+                    <div class="text-center py-2">
+                        <a href="{% url 'products' %}"
+                            class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-4">
+                            Keep Shopping
+                        </a>
+                    </div>
+            </div>               
+        </div>
+    </div>
+</section>
+{% include 'includes/information_modal.html' %}
+</section>
+{% endblock %}
+{% block extrapostloadjs %}
+{% endblock %}
