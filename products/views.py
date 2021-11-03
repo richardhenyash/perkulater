@@ -213,7 +213,7 @@ def delete_product(request, product_id):
 
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store administrators can do that.', extra_tags='admin')
-        return redirect(reverse('home'))
+        return redirect(reverse('products'))
 
     product = get_object_or_404(Product, pk=product_id)
     deleteflag = False
