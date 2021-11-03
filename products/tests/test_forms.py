@@ -31,7 +31,7 @@ class TestProductForm(TestCase):
             'description_delimiter': ";",
             'image': "",
             'rating': "",
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertIn('name', form.errors.keys())
         self.assertEqual(form.errors['name'][0], 'This field is required.')
@@ -54,7 +54,7 @@ class TestProductForm(TestCase):
             'description_delimiter': ";",
             'image': "",
             'rating': "",
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertIn('friendly_name', form.errors.keys())
         self.assertEqual(
@@ -78,7 +78,7 @@ class TestProductForm(TestCase):
             'description_delimiter': ";",
             'image': "",
             'rating': "",
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertIn('friendly_price', form.errors.keys())
         self.assertEqual(
@@ -99,7 +99,7 @@ class TestProductForm(TestCase):
             'description_delimiter': ";",
             'image': "",
             'rating': "",
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertIn('description_full', form.errors.keys())
         self.assertEqual(
@@ -121,7 +121,7 @@ class TestProductForm(TestCase):
             'description_delimiter': ";",
             'image': "",
             'rating': "",
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertIn('description_short', form.errors.keys())
         self.assertEqual(
@@ -145,7 +145,7 @@ class TestProductForm(TestCase):
             'description_delimiter': "",
             'image': "",
             'rating': "",
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertIn('description_delimiter', form.errors.keys())
         self.assertEqual(
@@ -169,7 +169,7 @@ class TestProductForm(TestCase):
             'description_delimiter': ";",
             'image': "",
             'rating': "",
-            })
+        })
         self.assertTrue(form.is_valid())
 
     def test_rating_is_not_required(self):
@@ -190,7 +190,7 @@ class TestProductForm(TestCase):
             'description_delimiter': ";",
             'image': "",
             'rating': "",
-            })
+        })
         self.assertTrue(form.is_valid())
 
     def test_fields_in_form_metaclass(self):
@@ -232,7 +232,7 @@ class TestCoffeeForm(TestCase):
             'town': 'Test Town',
             'region': 'Test Region',
             'flavour_profile': 'Test Flavour Profile',
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertIn('country', form.errors.keys())
         self.assertEqual(form.errors['country'][0], 'This field is required.')
@@ -250,7 +250,7 @@ class TestCoffeeForm(TestCase):
             'town': 'Test Town',
             'region': 'Test Region',
             'flavour_profile': 'Test Flavour Profile',
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertIn('farm', form.errors.keys())
         self.assertEqual(form.errors['farm'][0], 'This field is required.')
@@ -268,7 +268,7 @@ class TestCoffeeForm(TestCase):
             'town': 'Test Town',
             'region': 'Test Region',
             'flavour_profile': 'Test Flavour Profile',
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertIn('owner', form.errors.keys())
         self.assertEqual(form.errors['owner'][0], 'This field is required.')
@@ -286,7 +286,7 @@ class TestCoffeeForm(TestCase):
             'town': 'Test Town',
             'region': 'Test Region',
             'flavour_profile': 'Test Flavour Profile',
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertIn('variety', form.errors.keys())
         self.assertEqual(form.errors['variety'][0], 'This field is required.')
@@ -304,7 +304,7 @@ class TestCoffeeForm(TestCase):
             'town': 'Test Town',
             'region': 'Test Region',
             'flavour_profile': 'Test Flavour Profile',
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertIn('altitude', form.errors.keys())
         self.assertEqual(form.errors['altitude'][0], 'This field is required.')
@@ -322,7 +322,7 @@ class TestCoffeeForm(TestCase):
             'town': '',
             'region': 'Test Region',
             'flavour_profile': 'Test Flavour Profile',
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertIn('town', form.errors.keys())
         self.assertEqual(form.errors['town'][0], 'This field is required.')
@@ -340,7 +340,7 @@ class TestCoffeeForm(TestCase):
             'town': 'Test Town',
             'region': '',
             'flavour_profile': 'Test Flavour Profile',
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertIn('region', form.errors.keys())
         self.assertEqual(form.errors['region'][0], 'This field is required.')
@@ -358,7 +358,7 @@ class TestCoffeeForm(TestCase):
             'town': 'Test Town',
             'region': 'Test Region',
             'flavour_profile': '',
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertIn('flavour_profile', form.errors.keys())
         self.assertEqual(
@@ -397,7 +397,7 @@ class TestPriceForm(TestCase):
         form = PriceForm({
             'size': size,
             'price': '',
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertIn('price', form.errors.keys())
         self.assertEqual(form.errors['price'][0], 'This field is required.')
@@ -421,7 +421,7 @@ class TestReviewForm(TestCase):
         form = ReviewForm({
             'rating': '',
             'review': 'Great coffee!',
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertIn('rating', form.errors.keys())
         self.assertEqual(form.errors['rating'][0], 'This field is required.')
@@ -431,7 +431,7 @@ class TestReviewForm(TestCase):
         form = ReviewForm({
             'rating': 5,
             'review': '',
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertIn('review', form.errors.keys())
         self.assertEqual(form.errors['review'][0], 'This field is required.')

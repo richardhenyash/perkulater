@@ -9,10 +9,12 @@ class ProductForm(forms.ModelForm):
     """
     class Meta:
         model = Product
-        fields = ('category', 'name', 'friendly_name',
-                  'friendly_price', 'description_full',
-                  'description_short', 'description_delimiter',
-                  'image')
+        fields = (
+            'category', 'name', 'friendly_name',
+            'friendly_price', 'description_full',
+            'description_short', 'description_delimiter',
+            'image'
+        )
 
         labels = {
             'friendly_name': 'Display Name',
@@ -21,9 +23,10 @@ class ProductForm(forms.ModelForm):
             'description_short': 'Short Description',
             'description_delimiter': 'Description Delimiter',
             'image': 'Image',
-            }
+        }
 
-    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+    image = forms.ImageField(
+        label='Image', required=False, widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -37,14 +40,16 @@ class ProductForm(forms.ModelForm):
             'description_full': 'Full Description',
             'description_short': 'Short Description',
             'description_delimiter': 'Description Delimiter',
-         }
+        }
         for field_name, placeholder in placeholders.items():
             if self.fields[field_name].required:
                 placeholder_text = placeholder + "*"
             else:
                 placeholder_text = placeholder
-            self.fields[field_name].widget.attrs['placeholder'] = placeholder_text
-            self.fields[field_name].widget.attrs['class'] = 'product-input'
+            self.fields[field_name].widget.attrs[
+                'placeholder'] = placeholder_text
+            self.fields[field_name].widget.attrs[
+                'class'] = 'product-input'
 
 
 class CoffeeForm(forms.ModelForm):
@@ -53,14 +58,16 @@ class CoffeeForm(forms.ModelForm):
     """
     class Meta:
         model = Coffee
-        fields = ('country', 'farm', 'owner',
-                  'variety', 'altitude',
-                  'town', 'region',
-                  'flavour_profile')
+        fields = (
+            'country', 'farm', 'owner',
+            'variety', 'altitude',
+            'town', 'region',
+            'flavour_profile'
+        )
         labels = {
             'country': 'Country Of Origin',
             'flavour_profile': 'Flavour Profile',
-            }
+        }
 
     def __init__(self, *args, **kwargs):
         """
@@ -78,15 +85,17 @@ class CoffeeForm(forms.ModelForm):
             'region': 'Region',
             'flavour_profile': 'Flavour Profile',
         }
-        
+
         self.fields['country'].widget.attrs['autofocus'] = True
         for field_name, placeholder in placeholders.items():
             if self.fields[field_name].required:
                 placeholder_text = placeholder + "*"
             else:
                 placeholder_text = placeholder
-            self.fields[field_name].widget.attrs['placeholder'] = placeholder_text
-            self.fields[field_name].widget.attrs['class'] = 'coffee-input'
+            self.fields[field_name].widget.attrs[
+                'placeholder'] = placeholder_text
+            self.fields[field_name].widget.attrs[
+                'class'] = 'coffee-input'
 
 
 class PriceForm(forms.ModelForm):
@@ -99,7 +108,7 @@ class PriceForm(forms.ModelForm):
         labels = {
             'size': 'Size',
             'price': 'Price £',
-            }
+        }
 
     def __init__(self, *args, **kwargs):
         """
@@ -107,7 +116,7 @@ class PriceForm(forms.ModelForm):
         labels and set autofocus on price field
         """
         super().__init__(*args, **kwargs)
-    
+
         self.fields['size'].empty_label = None
         self.fields['price'].widget.attrs['autofocus'] = True
         self.fields['price'].widget.attrs['class'] = 'price-input'
@@ -123,7 +132,7 @@ class ReviewForm(forms.ModelForm):
         labels = {
             'rating': 'Rating',
             'review': 'Review',
-            }
+        }
 
     def __init__(self, *args, **kwargs):
         """
@@ -135,12 +144,14 @@ class ReviewForm(forms.ModelForm):
             'rating': 'Rating',
             'review': 'Review',
         }
-        
+
         self.fields['review'].widget.attrs['autofocus'] = True
         for field_name, placeholder in placeholders.items():
             if self.fields[field_name].required:
                 placeholder_text = placeholder + "*"
             else:
                 placeholder_text = placeholder
-            self.fields[field_name].widget.attrs['placeholder'] = placeholder_text
-            self.fields[field_name].widget.attrs['class'] = 'review-input'
+            self.fields[field_name].widget.attrs[
+                'placeholder'] = placeholder_text
+            self.fields[field_name].widget.attrs[
+                'class'] = 'review-input'

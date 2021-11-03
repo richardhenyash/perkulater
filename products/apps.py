@@ -9,4 +9,3 @@ class ProductsConfig(AppConfig):
 
     def ready(self):
         import products.signals
-

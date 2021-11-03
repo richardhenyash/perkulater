@@ -46,8 +46,10 @@ class Reward(models.Model):
     """
     A model for User Rewards
     """
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    discount = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, default=0.0)
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, null=True, blank=True)
+    discount = models.DecimalField(
+        max_digits=6, decimal_places=2, null=False, blank=False, default=0.0)
     free_delivery = models.BooleanField(default=False)
     date = models.DateTimeField(auto_now_add=True)
 

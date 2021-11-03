@@ -14,7 +14,7 @@ class TestUserForm(TestCase):
         form = UserForm({
             'first_name': '',
             'last_name': 'Bloggs'
-            })
+        })
         self.assertTrue(form.is_valid())
 
     def test_last_name_is_not_required(self):
@@ -22,7 +22,7 @@ class TestUserForm(TestCase):
         form = UserForm({
             'first_name': 'Joe',
             'last_name': ''
-            })
+        })
         self.assertTrue(form.is_valid())
 
     def test_fields_in_form_metaclass(self):
@@ -55,7 +55,7 @@ class TestUserProfileForm(TestCase):
             'county': 'Test County',
             'postcode': 'SE255XX',
             'country': 'GB'
-            })
+        })
         self.assertTrue(form.is_valid())
 
     def test_address_1_is_not_required(self):
@@ -68,7 +68,7 @@ class TestUserProfileForm(TestCase):
             'county': 'Test County',
             'postcode': 'SE255XX',
             'country': 'GB'
-            })
+        })
         self.assertTrue(form.is_valid())
 
     def test_address_2_is_not_required(self):
@@ -81,7 +81,7 @@ class TestUserProfileForm(TestCase):
             'county': 'Test County',
             'postcode': 'SE255XX',
             'country': 'GB'
-            })
+        })
         self.assertTrue(form.is_valid())
 
     def test_town_or_city_is_not_required(self):
@@ -94,7 +94,7 @@ class TestUserProfileForm(TestCase):
             'county': 'Test County',
             'postcode': 'SE255XX',
             'country': 'GB'
-            })
+        })
         self.assertTrue(form.is_valid())
 
     def test_county_is_not_required(self):
@@ -107,7 +107,7 @@ class TestUserProfileForm(TestCase):
             'county': '',
             'postcode': 'XXXXXXX',
             'country': 'GB'
-            })
+        })
         self.assertTrue(form.is_valid())
 
     def test_postcode_is_not_required(self):
@@ -120,7 +120,7 @@ class TestUserProfileForm(TestCase):
             'county': 'Test County',
             'postcode': '',
             'country': 'GB'
-            })
+        })
         self.assertTrue(form.is_valid())
 
     def test_country_is_not_required(self):
@@ -133,7 +133,7 @@ class TestUserProfileForm(TestCase):
             'county': 'Test County',
             'postcode': 'XXXXXXX',
             'country': ''
-            })
+        })
         self.assertTrue(form.is_valid())
 
     def test_fields_in_form_metaclass(self):
@@ -166,7 +166,7 @@ class TestOrderContactForm(TestCase):
         """Test to check message is required"""
         form = OrderContactForm({
             'message': '',
-            })
+        })
         self.assertFalse(form.is_valid())
         self.assertIn('message', form.errors.keys())
         self.assertEqual(form.errors['message'][0], 'This field is required.')

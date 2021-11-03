@@ -18,7 +18,7 @@ def profile(request):
     """
     user_profile = get_object_or_404(UserProfile, user=request.user)
     userobj = User.objects.get(username=request.user)
-    
+
     if request.method == 'POST':
         user_form = UserForm(
             request.POST, instance=userobj)
@@ -27,9 +27,17 @@ def profile(request):
         if user_profile_form.is_valid() and user_form.is_valid():
             user_form.save()
             user_profile_form.save()
-            messages.success(request, "Profile successfully updated", extra_tags='admin')
+            messages.success(
+                request,
+                "Profile successfully updated",
+                extra_tags='admin'
+            )
         else:
-            messages.error(request, "Profile update failed - please check profile form.", extra_tags='admin')
+            messages.error(
+                request,
+                "Profile update failed - please check profile form.",
+                extra_tags='admin'
+            )
     else:
         user_profile_form = UserProfileForm(instance=user_profile)
         user_form = UserForm(instance=userobj)
@@ -42,6 +50,7 @@ def profile(request):
         'orders': orders,
     }
     return render(request, template, context)
+
 
 @login_required
 def order_history(request, order_number):
@@ -62,8 +71,8 @@ def order_history(request, order_number):
 
 
 @login_required
-def order_contact(request, order_number):   
-    contact_email_sent = False     
+def order_contact(request, order_number):
+    contact_email_sent = False
     if request.method == 'POST':
         order_contact_form = OrderContactForm(
             request.POST)
@@ -84,13 +93,12 @@ def order_contact(request, order_number):
                     extra_tags='admin')
                 contact_email_sent = True
             except SMTPException as smtp_error:
-                messages.error(
-                    request, 'Error sending order contact email, '
-                    + smtp_error, extra_tags='admin')
+                errstr = 'Error sending order contact email, ' + smtp_error
+                messages.error(request, errstr, extra_tags='admin')
 
     if contact_email_sent:
         return redirect(reverse('order_history', args=[order_number]))
-            
+
     order = get_object_or_404(Order, order_number=order_number)
     order_contact_form = OrderContactForm
     template = 'profiles/order_contact.html'

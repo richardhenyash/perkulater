@@ -51,7 +51,8 @@ class Product(models.Model):
         max_length=100, null=False, blank=False, default="£7.50 - 250g")
     description_full = models.TextField(
         null=False, blank=False)
-    description_short = models.CharField(max_length=254, null=False, blank=False)
+    description_short = models.CharField(
+        max_length=254, null=False, blank=False)
     description_delimiter = models.CharField(
         max_length=3, null=False, blank=False, default=";")
     rating = models.DecimalField(
@@ -127,7 +128,8 @@ class Price(models.Model):
         'Product', null=True, blank=True, on_delete=models.SET_NULL)
     size = models.ForeignKey(
         'Size', null=True, blank=True, on_delete=models.SET_NULL)
-    price = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False)
+    price = models.DecimalField(
+        max_digits=6, decimal_places=2, null=False, blank=False)
     sku = models.CharField(null=True, blank=True, max_length=254)
 
     def __str__(self):
@@ -213,9 +215,15 @@ class Review(models.Model):
     A model for product reviews.
     """
     product = models.ForeignKey(
-        'Product', null=True, blank=True, related_name='reviews', on_delete=models.SET_NULL)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    rating = models.IntegerField(null=False, blank=False, validators=[MinValueValidator(0), MaxValueValidator(5)])
+        'Product', null=True, blank=True,
+        related_name='reviews', on_delete=models.SET_NULL
+    )
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, null=True, blank=True)
+    rating = models.IntegerField(
+        null=False, blank=False,
+        validators=[MinValueValidator(0), MaxValueValidator(5)]
+    )
     review = models.TextField(null=False, blank=False)
     date = models.DateTimeField(auto_now_add=True)
 

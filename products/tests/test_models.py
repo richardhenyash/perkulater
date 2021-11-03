@@ -17,7 +17,8 @@ class TestProductModel(TestCase):
         product = get_object_or_404(Product, name="Test Coffee")
         self.assertEqual(
             product.get_short_description(),
-            "Test Short Description Line 1")
+            "Test Short Description Line 1"
+        )
 
     def test_product_get_description_array(self):
         """Test get description array method"""
@@ -27,7 +28,7 @@ class TestProductModel(TestCase):
                 "Test Full Description Paragraph 1",
                 "Test Full Description Paragraph 2",
                 "Test Full Description Paragraph 3"]
-            )
+        )
 
     def test_product_calculate_rating(self):
         """Test calculate rating method"""
@@ -57,7 +58,7 @@ class TestCategoryModel(TestCase):
                 "Test Size Information Line 1",
                 "Test Size Information Line 2",
                 "Test Size Information Line 3"]
-            )
+        )
 
     def test_category_get_type_information_array(self):
         """Test get type information array method"""
@@ -67,7 +68,7 @@ class TestCategoryModel(TestCase):
                 "Test Type Information Line 1",
                 "Test Type Information Line 2",
                 "Test Type Information Line 3"]
-            )
+        )
 
 
 class TestCoffeeModel(TestCase):
@@ -91,8 +92,8 @@ class TestCoffeeModel(TestCase):
                 "town",
                 "region",
                 "flavour_profile"
-                ]
-            )
+            ]
+        )
 
 
 class TestPriceModel(TestCase):
