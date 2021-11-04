@@ -376,14 +376,20 @@ def review_product(request, product_id):
                     if reward:
                         reward.discount = review_offer.discount
                         reward.save()
+                        discount = round(review_offer.discount, 0)
+                        rewardstr = f'Thanks for being a great customer - \
+                            you have earned {discount}% \
+                            off your next order!'
                     else:
                         reward = Reward(
                             user=request.user,
                             discount=review_offer.discount)
                         reward.save()
+                        rewardstr = ""
                 messages.success(
                     request,
-                    f'Review added for product: {product.friendly_name}.',
+                    f'Review added for product: {product.friendly_name}.\
+                    {rewardstr}',
                     extra_tags='admin'
                 )
             else:
