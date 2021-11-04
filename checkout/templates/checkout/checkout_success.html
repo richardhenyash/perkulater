@@ -19,7 +19,11 @@
         <div class="col-12 container-dark pt-4 px-3">
             <div class="row">
                 <div class="col-12">
-                    <h6 class="title-text-large text-center pt-2">Thank You For Your Order!</h6>
+                    {% if from_profile %} 
+                        <h6 class="title-text-large text-center pt-2">Past Order Confirmation</h6>
+                    {% else %}
+                        <h6 class="title-text-large text-center pt-2">Thank You For Your Order!</h6> 
+                    {% endif %}
                 </div>
                 <div class="divider-opaque">
                     <hr>
@@ -27,9 +31,16 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <p class="text-medium text-center">
-                        Your order information is below. 
+                    {% if from_profile %} 
+                    <p class="text-medium text-left px-2">
+                        Your order information is below.<br>
+                        A confirmation email was sent to <strong class="fg-blue">{{ order.email }}</strong> on {{ order.date }}.
+                    </p>
+                    {% else %}
+                    <p class="text-medium text-left px-2">                
+                        Your order information is below.<br>
                         A confirmation email has been sent to <strong class="fg-blue">{{ order.email }}</strong>.
+                    {% endif %}
                     </p>
                 </div>
             </div>

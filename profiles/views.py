@@ -55,12 +55,6 @@ def profile(request):
 @login_required
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
-    order_date = order.date.strftime('%d/%m/%Y')
-    messages.info(request, (
-        f'This is a past confirmation for order number {order_number}. '
-        f'A confirmation email was sent on {order_date}.'
-    ), extra_tags='admin')
-
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
