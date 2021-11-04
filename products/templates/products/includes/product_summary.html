@@ -23,13 +23,13 @@
                 </div>
             </div>
             <h6 class="title-text-medium pt-2">{{ product.friendly_name }}</h6>
-            <div id="product-rating-stars" class="product-rating-stars"
+            <div id="product-rating-stars-{{ product.id }}" class="product-rating-stars"
                 data-product-rating="{{ product.rating }}">
-                <i id="star-1" class="fas fa-star"></i>
-                <i id="star-2" class="fas fa-star"></i>
-                <i id="star-3" class="fas fa-star"></i>
-                <i id="star-4" class="fas fa-star"></i>
-                <i id="star-5" class="fas fa-star"></i>
+                <i id="{{ product.id }}_star-1" class="fas fa-star"></i>
+                <i id="{{ product.id }}_star-2" class="fas fa-star"></i>
+                <i id="{{ product.id }}_star-3" class="fas fa-star"></i>
+                <i id="{{ product.id }}_star-4" class="fas fa-star"></i>
+                <i id="{{ product.id }}_star-5" class="fas fa-star"></i>
             </div>           
             <p class="my-0 pb-1 text-medium text-bold">{{ product.friendly_price }}</p>
             <div class="row pb-4 px-3 py-1">

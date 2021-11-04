@@ -27,7 +27,7 @@
                         {% csrf_token %}
                         <fieldset class="pt-2 px-2" id="review-details">
                             <legend class="field-label py-1">{{product.friendly_name}}</legend>
-                            <legend class="field-label pt-1">Rating*</legend>
+                            <label class="field-label pt-1">Rating*</label>
                             <div id="product-review-edit-stars" class="product-review-edit-stars pb-3"
                                 data-product-rating="{{ product_review.rating }}">
                                 <i id="star-1" class="fas fa-star"></i>

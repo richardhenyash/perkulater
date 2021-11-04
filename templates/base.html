@@ -46,10 +46,12 @@
                                 </li>
                                 {% endfor %}
                             {% endif %}
-                            <form method="GET" action="{% url 'products' %}"  class="d-flex p-1">
-                                <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-light btn-outline-green" type="submit"><i class="fas fa-search"></i></button>
-                            </form>
+                            <li>
+                                <form method="GET" action="{% url 'products' %}"  class="d-flex p-1">
+                                    <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
+                                    <button class="btn btn-outline-light btn-outline-green" type="submit"><i class="fas fa-search"></i></button>
+                                </form>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a href="{% url 'view_basket' %}" class="nav-link">
                                     <i class="fas fa-lg fa-shopping-basket"></i>

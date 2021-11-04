@@ -52,8 +52,8 @@
                 <table class="table table-dark table-borderless text-medium">
                     <thead>
                         <tr>
-                          <th scope="col-4"></th>
-                          <th scope="col-8"></th>
+                          <th scope="col"></th>
+                          <th scope="col"></th>
                         </tr>
                       </thead>
                     <tr>
@@ -93,8 +93,7 @@
                                 </p>
                             </div>
                             <div class="col-8 px-2">
-                                <select id="product-size" name="product-size" class="custom-select btn btn-lg btn-outline-light btn-outline-green"
-                                    required>
+                                <select id="product-size" name="product-size" class="custom-select btn btn-lg btn-outline-light btn-outline-green">
                                     {% for product_size in product_sizes %}
                                         <option value="{{ product_size }}">{{ product_size.size }}</option>
                                     {% endfor %}
@@ -115,8 +114,7 @@
                                 </p>
                             </div>
                             <div class="col-8 px-2">
-                                <select id="product-type" name="product-type" class="custom-select btn btn-lg btn-outline-light btn-outline-green"
-                                    required>
+                                <select id="product-type" name="product-type" class="custom-select btn btn-lg btn-outline-light btn-outline-green">
                                     {% for product_type in product_types %}
                                         <option value="{{ product_type }}">{{ product_type }}</option>
                                     {% endfor %}
@@ -133,7 +131,7 @@
                                 <div class="row">
                                     <div class="col-7">
                                         <div class="input-group">
-                                            <input id="product-quantity" name="product-quantity" type="text" inputmode="numeric" readonly class="product-quantity-input form-control text-center" placeholder="1" value="1" aria-label="Quantity">
+                                            <input id="product-quantity" name="product-quantity" type="text" readonly class="product-quantity-input form-control text-center" placeholder="1" value="1" aria-label="Quantity">
                                             <button id="product-quantity-minus-btn" class="btn btn-lg btn-outline-light btn-outline-green" type="button" disabled><i class="fas fa-minus fa-sm"></i></button>
                                             <button id="product-quantity-plus-btn" class="btn btn-lg btn-outline-light btn-outline-green" type="button"><i class="fas fa-plus fa-sm"></i></button>
                                         </div>
@@ -225,12 +223,12 @@
                         {% for product_review in product_reviews %}
                             <div class="col-12 col-md-6 py-1">
                                 <span class="text-small text-bold px-1">{{ product_review.user.username }}</span>
-                                <span id="product-rating-stars px-1" class="product-rating-stars text-center" data-product-rating="{{ product_review.rating}}">
-                                    <i id="star-1" class="fas fa-star fa-sm"></i>
-                                    <i id="star-2" class="fas fa-star fa-sm"></i>
-                                    <i id="star-3" class="fas fa-star fa-sm"></i>
-                                    <i id="star-4" class="fas fa-star fa-sm"></i>
-                                    <i id="star-5" class="fas fa-star fa-sm"></i>
+                                <span id="product-rating-stars_{{ product_review.id }}" class="product-rating-stars text-center px-1" data-product-rating="{{ product_review.rating}}">
+                                    <i id="{{ product_review.id }}_star-1" class="fas fa-star fa-sm"></i>
+                                    <i id="{{ product_review.id }}_star-2" class="fas fa-star fa-sm"></i>
+                                    <i id="{{ product_review.id }}_star-3" class="fas fa-star fa-sm"></i>
+                                    <i id="{{ product_review.id }}_star-4" class="fas fa-star fa-sm"></i>
+                                    <i id="{{ product_review.id }}_star-5" class="fas fa-star fa-sm"></i>
                                 </span>
                                 <div class="text-medium px-1">{{ product_review.review }}
                                 {% if request.user.username == product_review.user.username %}

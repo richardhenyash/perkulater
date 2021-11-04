@@ -40,8 +40,8 @@
                     <p class="text-medium text-left px-2">                
                         Your order information is below.<br>
                         A confirmation email has been sent to <strong class="fg-blue">{{ order.email }}</strong>.
-                    {% endif %}
                     </p>
+                    {% endif %}
                 </div>
             </div>
             {% if order %}
@@ -49,7 +49,7 @@
                     <div class="col-12">
                         <table class="table table-dark table-borderless">
                             <tr>
-                                <td class="text-large text-bold checkout-table-title py-0">Order Number</th>
+                                <td class="text-large text-bold checkout-table-title py-0">Order Number</td>
                             </tr>
                             <tr>
                                 <td class="text-medium px-2 py-0">{{ order.order_number }}</td>

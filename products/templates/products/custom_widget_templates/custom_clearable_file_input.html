@@ -1,7 +1,7 @@
 {% if widget.is_initial %}
     <h2 class="py-2">{{ widget.initial_text }}:</h2>
     <a href="{{ widget.value.url }}">
-        <img class="product-detail-container" width="87" height="115" src="{{ widget.value.url }}">
+        <img class="product-detail-container" width="87" height="115" src="{{ widget.value.url }}" alt="{{ widget.value.name }}">
     </a>
     {% if not widget.required %}
         <div class="pt-3 px-2">
@@ -13,7 +13,7 @@
 {% endif %}
 <div class="py-2 mt-2">
     <span class="btn btn-outline-light btn-lg btn-outline-green btn-file px-4">
-        Select Image <input id="new-image" type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
+        Select Image <input id="new-image" type="{{ widget.type }}" name="{{ widget.name }}" accept="image/*">
     </span>
 </div>
 <div class="py-1">
