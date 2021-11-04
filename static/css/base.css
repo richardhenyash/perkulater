@@ -271,68 +271,6 @@ body {
 }
 
 /*-- Buttons --*/
-.btn-pink {
-    background-color: var(--pink);
-    border-color: var(--pink);
-    color: var(--background-lvl2);
-    font-weight: 600;
-}
-
-.btn-pink:hover {
-    background-color: var(--pinkhighlight);
-    border-color: var(--pinkhighlight);
-    color: var(--background-lvl0);
-}
-
-.btn-green {
-    background-color: var(--green);
-    border-color: var(--green);
-    color: var(--background-lvl2);
-    font-weight: 600;
-}
-
-.btn-green:hover {
-    background-color: var(--greenhighlight);
-    border-color: var(--greenhighlight);
-    color: var(--background-lvl0);
-}
-
-.btn-yellow {
-    background-color: var(--yellow);
-    border-color: var(--yellow);
-    color: var(--background-lvl2);
-    font-weight: 600;
-}
-
-.btn-yellow:hover {
-    background-color: var(--yellowhighlight);
-    border-color: var(--yellowhighlight);
-    color: var(--background-lvl0);
-}
-
-.btn-white {
-    background-color: var(--whitehighlight);
-    border-color: var(--whitehighlight);
-    color: var(--background-lvl2);
-    font-weight: 600;
-}
-
-.btn-white:hover,
-.btn-outline-green:hover,
-.btn-outline-white:hover {
-    background-color: var(--white);
-    border-color: var(--green);
-    color: var(--background-lvl0);
-}
-
-.btn-outline-white {
-    background-color: rgba(41, 41, 41, 0.9);
-    border: 2px solid;
-    border-color: var(--white);
-    color: var(--white);
-    font-weight: 600;
-}
-
 .btn-outline-green {
     background-color: rgba(41, 41, 41, 0.9);
     border: 2px solid;
@@ -534,7 +472,7 @@ body {
 
 .form-user .form-check-input:checked {
     background-color: var(--green);
-    border-color: var(--green);
+    border-color: var(--greenhighlight);
 }
 
 .form-user .form-check-input:focus {
@@ -566,13 +504,13 @@ body {
 .alert-danger {
     color: var(--pink);
     background-color: rgba(41, 41, 41, 0.5);
-    border-color: rgba(41, 41, 41, 0.5);
+    border-color: rgba(41, 41, 41, 0.7);
 }
 
 .alert {
     font-size: 1.4rem;
     position: relative;
-    padding: 0.2 rem 0.2 rem;
+    padding: 0.2rem 0.2rem;
     margin-bottom: 0.2rem;
     border: None;
     border-radius: 0.25rem;
