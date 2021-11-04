@@ -6,5 +6,5 @@
 /*jshint esversion: 6 */
 
 // Fade in animation on perkulater logo
-$("#splash-logo").hide()
-$("#splash-logo").fadeIn(1000)
+$("#splash-logo").hide();
+$("#splash-logo").fadeIn(1000);
