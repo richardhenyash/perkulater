@@ -42,10 +42,18 @@
                         <div class="row pt-1">
                             <div class="col-6 p-3">
                                 <div class="py-2">
+                                    {% if from_profile %}
+                                    <a href="{% url 'profile' %}"
+                                        class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
+                                        Back To Profile
+                                    </a>
+                                    {% else %}
                                     <a href="{% url 'product_detail' product.id %}"
                                         class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
                                         Back To Product
                                     </a>
+                                    {% endif %}
+
                                 </div>
                             </div>
                             <div class="col-6 p-3">

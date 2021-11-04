@@ -417,6 +417,15 @@ def review_product(request, product_id):
         else:
             review_form = ReviewForm
 
+    from_profile = False
+    referer = (request.META.get('HTTP_REFERER', '/'))
+    if referer:
+        rarray = referer.split('/')
+        if rarray:
+            rarray.reverse()
+            if len(rarray) > 1:
+                if rarray[1] == "profile":
+                    from_profile = True
     categories_all = Category.objects.all()
     template = "products/review_product.html"
     context = {
@@ -424,6 +433,7 @@ def review_product(request, product_id):
         'product_review': product_review,
         'review_form': review_form,
         'categories_all': categories_all,
+        'from_profile': from_profile
     }
     return render(request, template, context)
 
