@@ -41,7 +41,7 @@
 }
 
 .custom-select:focus > option:checked { 
-    background-color:  var(--background-lvl3)!important;
+    background-color:  var(--background-lvl3);
 }
 
 .custom-select:hover,
