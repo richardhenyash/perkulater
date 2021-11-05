@@ -70,7 +70,7 @@
                                         <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
                                         <li><a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a></li>   
                                     {% else %}
-                                        <li><a class="dropdown-item" href="{% url 'account_login' %}">Sign In</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'account_login' %}?next={{request.path}}">Sign In</a></li>
                                         <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
                                     {% endif %}
                                 </ul>

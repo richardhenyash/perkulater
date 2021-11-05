@@ -45,6 +45,7 @@
           <span class="px-1"></span>
           <a class="btn btn-lg btn-outline-light btn-outline-green" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
         </div>
+        <input type="hidden" name="next" value="{{ request.GET.next }}" />
       </form>
     </div>
   </div>
