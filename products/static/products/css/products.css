@@ -40,6 +40,11 @@
     color: var(--white);
 }
 
-.custom-select > option:checked { 
-    background-color:  var(--background-lvl3);
+.custom-select:focus > option:checked { 
+    background-color:  var(--background-lvl3)!important;
+}
+
+.custom-select:hover,
+.custom-select:checked {
+    background: var(--white);
 }
