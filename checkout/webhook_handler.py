@@ -7,6 +7,7 @@ from django.shortcuts import get_object_or_404
 
 from django.contrib.auth.models import User
 from .models import Order, OrderLineItem
+from basket.models import Basket
 from products.models import Price, Product, Size, Type
 from profiles.models import UserProfile, Reward
 
@@ -151,12 +152,20 @@ class Stripe_WebHook_Handler:
                     )
                     order_line_item.save()
 
-                # Reset Reward after checkout
                 if username != 'AnonymousUser':
+                    # Reset Reward after checkout
                     user = get_object_or_404(User, username=username)
                     user_reward = Reward.objects.filter(user=user).first()
                     user_reward.discount = 0.00
                     user_reward.save()
+                    # Set flag to clear basket on succesful order creation
+                    basketobj = Basket.objects.filter(user=user).first()
+                    if basketobj:
+                        basketobj.clear_basket = True
+                        basketobj.save()
+                    else:
+                        newbasketobj = Basket(user=user, clear_basket=True)
+                        newbasketobj.save()
 
             except Exception as e:
                 if order:
@@ -164,6 +173,7 @@ class Stripe_WebHook_Handler:
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} \
                         | ERROR: {e}', status=500)
+
         self._send_confirmation_email(order)
         return HttpResponse(
             content=f'Webhook received: {event["type"]} \

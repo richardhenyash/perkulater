@@ -2,12 +2,23 @@ from decimal import Decimal
 from django.shortcuts import get_object_or_404
 from products.models import Category, Product, Price, Offer, Size, Type
 from profiles.models import Reward
+from .models import Basket
 
 
 def basket_contents(request):
 
     basket_items = []
     total = 0
+    # Clear basket if flag has been set by webhook handler
+    if request.user.is_authenticated:
+        basketobj = Basket.objects.filter(user=request.user).first()
+        if basketobj:
+            if basketobj.clear_basket:
+                if 'basket' in request.session:
+                    del request.session['basket']
+                    basketobj.clear_basket = False
+                    basketobj.save()
+
     basket = request.session.get('basket', {})
     for product_key, product_quantity in basket.items():
         product_info_array = product_key.split("_")
