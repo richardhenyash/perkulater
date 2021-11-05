@@ -33,3 +33,13 @@
     color: var(--white);
     box-shadow: None;
 }
+
+.custom-select option {
+    text-align: left;
+    background-color: rgba(41, 41, 41, 0.9);
+    color: var(--white);
+}
+
+.custom-select > option:checked { 
+    background-color:  var(--background-lvl3);
+}
