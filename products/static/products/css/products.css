@@ -38,6 +38,7 @@
     text-align: left;
     background-color: rgba(41, 41, 41, 0.9);
     color: var(--white);
+    border: none;
 }
 
 .custom-select:focus > option:checked { 
@@ -47,4 +48,8 @@
 .custom-select:hover,
 .custom-select:checked {
     background: var(--white);
+}
+
+.custom-select-option:hover {
+    box-shadow: 0 0 10px 100px var(--green) inset !important;
 }
