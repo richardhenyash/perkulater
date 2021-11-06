@@ -228,8 +228,10 @@ See **perkulater** scope chart below. Opportunities to be included for phase 1 a
 <img src="media/wireframes/perkulater-scope-chart.png" width="600px" style="margin: 10px;">
 
 ### Site Map ###
-A preliminary [Site Map](media/wireframes/perkulater-site-map.png) was produced for the **Phase 1** development, and is shown below:  
-<img src="media/wireframes/perkulater-site-map.png" width="600px" style="margin: 10px;">
+A preliminary [Site Map](media/wireframes/perkulater-site-map.png) was produced for the **Phase 1** development, and is shown below. Note that the **Create Plan** 
+route is also shown. This feature will be devloped in a later devleopment phase, but has been included in the **Site Map** for planning purposes. 
+
+<img src="media/wireframes/perkulater-site-map.svg" width="600px" style="margin: 10px;">
 
 ### Wireframes ### 
 [Initial Wireframes](media/wireframes/rev0) were produced showing the **Products**, **Product Detail**, **Basket**, **Checkout**, **Create Plan**, **Sign Up**, **Sign In**, **User Profile**, **Order Detail**, **Order Contact** and **Product Review** page layouts.  
