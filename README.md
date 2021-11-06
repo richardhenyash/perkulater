@@ -96,12 +96,12 @@ Although the business is ficticous at this stage, the following business objecti
 
 ## User Objectives ##
 * Purchase high quality, great tasting coffee beans or ground coffee for home delivery.
-* Subscribe for a regular delivery of high quality, great tasting coffee beans or ground coffee.
-* Purchase a gift card.
 * See other user's positive reviews and feedback to inspire confidence in making a purchase.
 * Review and recommend products.
 * Contact the business about an order.
+* Subscribe for a regular delivery of high quality, great tasting coffee beans or ground coffee.
 * Customise my subscription service so that I can try different coffees specifically tailored to my taste preferences.
+* Purchase a gift card.
 * Purchase high quality cold brew coffee in a can (this product line could potentially be added in a future development phase).
 * Purchase high quality coffee making equipment (this product line could potentially be added in a future development phase).
 * Purchase high quality, great tasting coffee pods (this product line could potentially be added in a future development phase).
@@ -119,8 +119,8 @@ Opportunity|Description|Importance|Viability|Opportunity ID|Development Phase
 Engage with suppliers|Engage directly with coffee farmers in order to source high quality ethically grown coffee directly from source|5|3|Op-1|1
 Coffee beans and ground coffee|Develop an online store to sell high quality, ethically sourced coffee beans and ground coffee|5|4|Op-2|1
 Showcase developer skills|The site will serve as a showcase for the developer's skills, and increase the developer's standing within the tech community|5|4|Op-3|1
-Subscriptions|Provide a subscription service so customers can have coffee delivered on a regular basis|5|3|Op-4|1
-Customer reviews|Provide the facility for customers to add reviews to products|5|4|Op-5|1
+Customer reviews|Provide the facility for customers to add reviews to products|5|4|Op-4|1
+Subscriptions|Provide a subscription service so customers can have coffee delivered on a regular basis|3|3|Op-5|2
 Gift cards|Sell gift cards and/or the ability to gift a subscription|3|2|Op-6|2
 Customised subscription service|Customise the subscription service so that customers can try different coffee each time their subscription is fulfilled tailored to their specific taste preferences|3|2|Op-7|2
 Cold brew|Add cold brew to the product line|3|2|Op-8|2
@@ -159,10 +159,10 @@ As a **Potential Customer**, I would like to be able to:
 * Learn about where the coffee beans are sourced from, so I can make an informed purchasing decision.
 * Understand the delivery charges, and how much I need to spend to get free delivery, so I can make an informed purchasing decision.
 * Add products to my cart, so I can make a purchase.
-* Subscribe for a regular purchase of a product.
 * Receive confirmation of my purchase via email, so I can be confident that the purchase has been made succesfully.
-* Register on the site, so I can make a repeat purchase more easily.
+* Register on the site, so I can make a repeat purchase more easily and get access to any rewards on offer.
 * Contact the business with a general query.
+* Subscribe for a regular purchase of a product (this feature will be added in a future development phase).
 
 As a **Registered User**, I would like to be able to:
 * Sign in to my account.
@@ -172,12 +172,15 @@ As a **Registered User**, I would like to be able to:
 * See a summary of my previous orders.
 * Contact the business about a specific order.
 * Add reviews to products, to help other customers make informed purchasing decisions.
+* Edit previous reviews.
 
 As a **Business Owner**, I would like to be able to:
 * Incentivise customers to add reviews to products, so that other customers will feel more confident about making a purchase.
 * Add, edit and delete products.
-* Add, edit and delete product categories.
-* Track sales data, to inform future purchasing decisions.
+* Edit product prices.
+* Delete user reviews, in case malicious reviews are added.
+* Add, edit and delete product categories (this feature will be added in a future development phase).
+* Track sales data, to inform future purchasing decisions (this feature will be added in a future development phase).
 
 #### Constraints #####
 * Developer skill set - the Developer is currently learning **Python** and **Django**. 
@@ -207,16 +210,18 @@ F08|Order Summary|See a summary of previous orders|5|4|Op-2|1
 F09|Order Contact|Contact the business owner about a specific order|5|4|Op-2|1
 F10|Review Product|Review a product I have purchased|5|4|Op-2|1
 F11|Reward for Reviewing Product|Give a customer a reward for reviewing a product, to incentivise reviews|5|4|Op-2|1
-F12|Subscribe|Enables users to subscribe for regular coffee delivery|5|3|Op-4|1
-F13|Add Product|Enables users with required privelages to add a product|5|4|Op-2|1
-F14|Edit Product|Enables users with required privelages to edit a product|5|4|Op-2|1
-F15|Delete Product|Enables users with required privelages to delete a product|5|4|Op-2|1
-F16|Add Category|Enables users with required privelages to add a category|2|4|Op-2|2
-F17|Edit Category|Enables users with required privelages to edit a category|2|4|Op-2|2
-F18|Delete Category|Enables users with required privelages to delete a category|2|4|Op-2|2
-F19|Purchase Gift Card|Enables users to purchase a gift card|2|3|Op-4|2
-F20|Track sales data|Enables users with required privelages to export sales data from the database|3|2|Op-2|2
-F21|Customised Subscription Service|Customise the subscription service so that customers can try different coffee each time their subscription is fulfilled tailored to their specific taste preferences|3|2|Op-6|2
+F12|Add Product|Enables users with required privelages to add a product|5|4|Op-2|1
+F13|Edit Product|Enables users with required privelages to edit a product|5|4|Op-2|1
+F14|Delete Product|Enables users with required privelages to delete a product|5|4|Op-2|1
+F15|Edit Prices|Enables users with required privelages to edit prices|5|4|Op-2|1
+F16|Delete Review|Enables users with required privelages to delete a review|5|4|Op-2|1
+F17|Add Category|Enables users with required privelages to add a category|2|4|Op-2|2
+F18|Edit Category|Enables users with required privelages to edit a category|2|4|Op-2|2
+F19|Delete Category|Enables users with required privelages to delete a category|2|4|Op-2|2
+F20|Subscribe|Enables users to subscribe for regular coffee delivery|3|3|Op-5|2
+F21|Purchase Gift Card|Enables users to purchase a gift card|2|3|Op-4|2
+F22|Track sales data|Enables users with required privelages to export sales data from the database|3|2|Op-2|2
+F23|Customised Subscription Service|Customise the subscription service so that customers can try different coffee each time their subscription is fulfilled tailored to their specific taste preferences|3|2|Op-6|2
 
 See **perkulater** scope chart below. Opportunities to be included for phase 1 are shown in *Red*, and opportunities to be deferred to a future development phase are shown in *Grey*: 
 
@@ -227,20 +232,20 @@ A preliminary [Site Map](media/wireframes/perkulater-site-map.png) was produced 
 <img src="media/wireframes/perkulater-site-map.png" width="600px" style="margin: 10px;">
 
 ### Wireframes ### 
-[Initial Wireframes](media/wireframes/rev0) were produced showing the **Home**, **Product Detail**, **Create Plan**, **Basket**, **Basket (Plan)**, **Sign In**, **Register**, **Checkout**, **User Profile**, **Orders**, **Order Detail**, **Contact** and **Review** page layouts.  
-The **Home** and **Product Detail** page layouts are shown below:  
+[Initial Wireframes](media/wireframes/rev0) were produced showing the **Products**, **Product Detail**, **Basket**, **Checkout**, **Create Plan**, **Sign Up**, **Sign In**, **User Profile**, **Order Detail**, **Order Contact** and **Product Review** page layouts.  
+The **Products** and **Product Detail** page layouts are shown below:  
 
-<img src="media/wireframes/rev0/home.png" width="600px" style="margin: 10px;">  
+<img src="media/wireframes/rev0/products.png" width="600px" style="margin: 10px;">  
 
 <img src="media/wireframes/rev0/product-detail.png" width="600px" style="margin: 10px;">
 
-[Responsive design wireframes](media/wireframes/rev1) were then produced showing the **Home**, **Product Detail**, **Create Plan**, **Basket**, **Checkout** and **Order Detail** page layouts on **Tablet** and **Phone**. 
-The [Responsive design wireframes](media/wireframes/rev1) for the **Home** and **Product Detail** page layouts are shown below: 
+[Responsive design wireframes](media/wireframes/rev1) were then produced showing the **Products**, **Product Detail**, **Basket**, **Checkout**, **Create Plan** and **Order Detail** page layouts on **Tablet** and **Phone**. 
+The [Responsive design wireframes](media/wireframes/rev1) for the **Products** and **Product Detail** page layouts are shown below: 
 
-<img src="media/wireframes/rev1/home-tablet.png" width="400px" style="margin: 10px;">
+<img src="media/wireframes/rev1/products-tablet.png" width="400px" style="margin: 10px;">
 <img src="media/wireframes/rev1/product-detail-tablet.png" width="400px" style="margin: 10px;">  
 <br>
-<img src="media/wireframes/rev1/home-phone.png" width="300px" style="margin: 10px; margin-bottom: 80px">
+<img src="media/wireframes/rev1/products-phone.png" width="300px" style="margin: 10px; margin-bottom: 80px">
 <img src="media/wireframes/rev1/product-detail-phone.png" width="300px" style="margin: 10px;">  
 
 
@@ -251,7 +256,7 @@ The [Responsive design wireframes](media/wireframes/rev1) for the **Home** and *
 [Teko](https://fonts.google.com/specimen/Teko) looks modern and, attractive and chunky and fits well with the overall theme of the site.  
 * font-family: "Teko", sans-serif;
 
-[Titillium Web](https://fonts.google.com/specimen/Titillium+Web) has been chosen as the title font for headings and sub headings.  
+[Titillium Web](https://fonts.google.com/specimen/Titillium+Web) has been chosen as the title font for headings.  
 [Titillium Web](https://fonts.google.com/specimen/Titillium+Web) has a simple, clear, chunky look and pairs well with the logo font.  
 [Titillium Web](https://fonts.google.com/specimen/Titillium+Web) is also available in a good selection of weights.
 * font-family: "Tittilium Web", sans-serif;
@@ -261,20 +266,28 @@ The [Responsive design wireframes](media/wireframes/rev1) for the **Home** and *
 * font-family: "Montserrat", sans-serif;
 
 #### Colours ####
-A "Dark Theme" was chosen for the site, to enable a simple, modern and clear design to be implemented.
-A very dark grey was chosen as the background colour. Various dark grey shades are layered over the background to convey depth, and highlighting colours are used for foreground elements. Colour ideas were generated using the 
+A *Dark Theme* was chosen for the site, to enable a simple, modern and clear design to be implemented.
+A very dark grey was chosen as the main background colour and is referred to as *Background Level 1*. Additional very dark grey shades are layered over 
+the background to convey depth, and contrasting highlighting colours are used for the foreground elements. Colour ideas were generated using the 
 using the [Coolors](https://coolors.co/) **Colour Palette** generator. The final **Colour Palette** selected 
 is shown below: 
 
-<img src="/media/wireframes/colour-palette.png" width="800px" style="margin: 10px;">  
+<img src="media/wireframes/colour-palette-bg.png" width="800px" style="margin: 10px;">  
 
-* #FFFFFF - "White" - used for the background.
-* #009EA3 - "Vividian Green" - used for results and review table links.
-* #E97C72 - "Salmon" - used for form control borders and results and review table next and previous buttons.
-* #E35B4F - "Fire Opal" - used for navbar background, buttons, results table header backround, inputs and footer links.
-* #C22C1E - "Venetian Red" - used as a higlighting colour for items coloured with "Fire Opal".
-* #F5B800 - "Orange Yellow" - used for alerts, buttons, results and review table row borders and stars.
-* #CC9900 - "Lemon Curry" - used as a higlighting colour for items coloured with "Orange Yellow".
+<img src="media/wireframes/colour-palette-fg.png" width="800px" style="margin: 10px;">  
+
+* #121212 *Background Level 0* - used for background layering.
+* #1F1F1F *Background Level 1* - main background colour, used for background layering and for masking the background image.
+* #292929 *Background Level 2* - used for background layering.
+* #333333 *Background Level 3* - used for background layering.
+* #FDDE86 *Yellow* - used for rating stars.
+* #4ED0AD *Green* - used for links, button outlines, offer banner and input highlighting.
+* #33C19C *Green Highlight* - used for highlighting green elements on hover etc.
+* #E97C72 *Pink* - used for error toasts, alerts and text.
+* #73DCE7 *Blue* - used for information icons, toasts, alerts and text.
+* #3FCFDE *Blue Highlight* - used for highlighting blue elements on hover etc.
+* #FAFAFA *White* - used for logo text, tagline text, foreground text elements, horizontal rulers, button text and button highlighting.
+* #CCCCCC *White Highlight* - used for highlighting white elements. Also used for navigation menu and footer links.
 
 ## Technologies ##
 
