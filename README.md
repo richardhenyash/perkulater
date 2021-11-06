@@ -229,19 +229,19 @@ See **perkulater** scope chart below. Opportunities to be included for phase 1 a
 
 ### Site Map ###
 A preliminary [Site Map](media/wireframes/perkulater-site-map.png) was produced for the **Phase 1** development, and is shown below. Note that the **Create Plan** 
-route is also shown. This feature will be devloped in a later devleopment phase, but has been included in the **Site Map** for planning purposes. 
+route is also shown. This feature will be implemented in a later devleopment phase, but has been included in the **Site Map** for planning purposes. 
 
 <img src="media/wireframes/perkulater-site-map.svg" width="600px" style="margin: 10px;">
 
 ### Wireframes ### 
-[Initial Wireframes](media/wireframes/rev0) were produced showing the **Products**, **Product Detail**, **Basket**, **Checkout**, **Create Plan**, **Sign Up**, **Sign In**, **User Profile**, **Order Detail**, **Order Contact** and **Product Review** page layouts.  
+[Initial Wireframes](media/wireframes/rev0) were produced showing the **Products**, **Product Detail**, **Basket**, **Checkout**, **Sign Up**, **Sign In**, **User Profile**, **Order Detail**, **Order Contact** and **Product Review** page layouts. Note that a wireframe has also been created for the **Create Plan** page layout, which will be implemented in a future developemnt phase.
 The **Products** and **Product Detail** page layouts are shown below:  
 
 <img src="media/wireframes/rev0/products.png" width="600px" style="margin: 10px;">  
 
 <img src="media/wireframes/rev0/product-detail.png" width="600px" style="margin: 10px;">
 
-[Responsive design wireframes](media/wireframes/rev1) were then produced showing the **Products**, **Product Detail**, **Basket**, **Checkout**, **Create Plan** and **Order Detail** page layouts on **Tablet** and **Phone**. 
+[Responsive design wireframes](media/wireframes/rev1) were then produced showing the **Products**, **Product Detail**, **Basket**, **Checkout**, **Create Plan** and **Order Detail** page layouts on **Tablet** and **Phone**. Note that wireframes have also been created for the **Create Plan** page layout, which will be implemented in a future developemnt phase.
 The [Responsive design wireframes](media/wireframes/rev1) for the **Products** and **Product Detail** page layouts are shown below: 
 
 <img src="media/wireframes/rev1/products-tablet.png" width="400px" style="margin: 10px;">
