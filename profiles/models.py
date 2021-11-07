@@ -13,12 +13,12 @@ class UserProfile(models.Model):
     delivery information and order history
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone_number = models.CharField(max_length=20, blank=True, default="")
-    address_1 = models.CharField(max_length=80, blank=True, default="")
-    address_2 = models.CharField(max_length=80, blank=True, default="")
-    postcode = models.CharField(max_length=20, blank=True, default="")
-    town_or_city = models.CharField(max_length=40, blank=True, default="")
-    county = models.CharField(max_length=80, blank=True, default="")
+    phone_number = models.CharField(max_length=20, null=True, blank=True)
+    address_1 = models.CharField(max_length=80, null=True, blank=True)
+    address_2 = models.CharField(max_length=80, null=True, blank=True)
+    postcode = models.CharField(max_length=20, null=True, blank=True)
+    town_or_city = models.CharField(max_length=40, null=True, blank=True)
+    county = models.CharField(max_length=80, null=True, blank=True)
     country = CountryField(blank_label='Country', null=True, blank=True)
 
     def __str__(self):

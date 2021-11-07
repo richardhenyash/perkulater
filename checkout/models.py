@@ -21,10 +21,10 @@ class Order(models.Model):
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
     address_1 = models.CharField(max_length=80, null=False, blank=False)
-    address_2 = models.CharField(max_length=80, blank=True, default='')
+    address_2 = models.CharField(max_length=80, null=True, blank=True)
     town_or_city = models.CharField(max_length=40, null=False, blank=False)
-    county = models.CharField(max_length=80, blank=True, default='')
-    postcode = models.CharField(max_length=20, blank=True, default='')
+    county = models.CharField(max_length=80, null=True, blank=True)
+    postcode = models.CharField(max_length=20, null=True, blank=True)
     country = CountryField(blank_label='Country *', null=False, blank=False)
     order_total = models.DecimalField(
         max_digits=10, decimal_places=2, null=False, default=0)
@@ -36,7 +36,7 @@ class Order(models.Model):
         max_digits=6, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(
         max_digits=10, decimal_places=2, null=False, default=0)
-    original_basket = models.TextField(blank=True, default='')
+    original_basket = models.TextField(null=True, blank=True, default='')
     stripe_pid = models.CharField(
         max_length=254, null=False, blank=False, default='')
 
