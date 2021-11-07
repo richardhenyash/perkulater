@@ -31,7 +31,8 @@ class ProductForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         categories = Category.objects.all()
-        friendly_names = [(category.id, category.get_friendly_name()) for category in categories]
+        friendly_names = [
+            (c.id, c.get_friendly_name()) for c in categories]
         self.fields['category'].choices = friendly_names
         placeholders = {
             'name': 'Name',

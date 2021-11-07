@@ -112,6 +112,11 @@ class TestProductViews(TestCase):
             username='unittestadmin', password='unittestadminpassword')
         self.assertTrue(loginresponse)
         category = get_object_or_404(Category, name="Coffee")
+        desc_full = ("Test Full Description Paragraph 1;"
+                     "Test Full Description Paragraph 2;"
+                     "Test Full Description Paragraph 3")
+        desc_short = ("Test Short Description Line 1;"
+                      "Test Short Description Line 2")
         response = self.client.post(
             '/products/add/',
             {
@@ -119,13 +124,8 @@ class TestProductViews(TestCase):
                 'name': 'Test New Coffee',
                 'friendly_name': "Test New Coffee Friendly Name",
                 'friendly_price': "£7.50 - 250g",
-                'description_full': (
-                    "Test Full Description Paragraph 1;" +
-                    "Test Full Description Paragraph 2;" +
-                    "Test Full Description Paragraph 3"),
-                'description_short': (
-                    "Test Short Description Line 1;" +
-                    "Test Short Description Line 2"),
+                'description_full': desc_full,
+                'description_short': desc_short,
                 'description_delimiter': ";",
                 'rating': 4.50,
                 'country': "Test Country",
@@ -179,6 +179,11 @@ class TestProductViews(TestCase):
         product = get_object_or_404(Product, name="Test Coffee")
         category = get_object_or_404(Category, name="Coffee")
         url = f'/products/edit/{product.id}/'
+        desc_full = ("Test Full Description Paragraph 1;"
+                     "Test Full Description Paragraph 2;"
+                     "Test Full Description Paragraph 3")
+        desc_short = ("Test Short Description Line 1;"
+                      "Test Short Description Line 2")
         response = self.client.post(
             url,
             {
@@ -186,13 +191,8 @@ class TestProductViews(TestCase):
                 'name': 'Test Updated Coffee',
                 'friendly_name': "Test Updated Coffee Friendly Name",
                 'friendly_price': "£7.50 - 250g",
-                'description_full': (
-                    "Test Full Description Paragraph 1;" +
-                    "Test Full Description Paragraph 2;" +
-                    "Test Full Description Paragraph 3"),
-                'description_short': (
-                    "Test Short Description Line 1;" +
-                    "Test Short Description Line 2"),
+                'description_full': desc_full,
+                'description_short': desc_short,
                 'description_delimiter': ";",
                 'rating': 4.50,
                 'country': "Test Updated Country",

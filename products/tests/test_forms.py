@@ -16,18 +16,18 @@ class TestProductForm(TestCase):
     def test_name_is_required(self):
         """Test to check name is required"""
         category = get_object_or_404(Category, name="Coffee")
+        desc_full = ("Test Full Description Paragraph 1;"
+                     "Test Full Description Paragraph 2;"
+                     "Test Full Description Paragraph 3")
+        desc_short = ("Test Short Description Line 1;"
+                      "Test Short Description Line 2")
         form = ProductForm({
             'category': category,
             'name': '',
             'friendly_name': "Test New Coffee Friendly Name",
             'friendly_price': "£7.50 - 250g",
-            'description_full': (
-                "Test Full Description Paragraph 1;" +
-                "Test Full Description Paragraph 2;" +
-                "Test Full Description Paragraph 3"),
-            'description_short': (
-                "Test Short Description Line 1;" +
-                "Test Short Description Line 2"),
+            'description_full': desc_full,
+            'description_short': desc_short,
             'description_delimiter': ";",
             'image': "",
             'rating': "",
@@ -39,18 +39,18 @@ class TestProductForm(TestCase):
     def test_friendly_name_is_required(self):
         """Test to check friendly name is required"""
         category = get_object_or_404(Category, name="Coffee")
+        desc_full = ("Test Full Description Paragraph 1;"
+                     "Test Full Description Paragraph 2;"
+                     "Test Full Description Paragraph 3")
+        desc_short = ("Test Short Description Line 1;"
+                      "Test Short Description Line 2")
         form = ProductForm({
             'category': category,
             'name': 'Test New Coffee',
             'friendly_name': "",
             'friendly_price': "£7.50 - 250g",
-            'description_full': (
-                "Test Full Description Paragraph 1;" +
-                "Test Full Description Paragraph 2;" +
-                "Test Full Description Paragraph 3"),
-            'description_short': (
-                "Test Short Description Line 1;" +
-                "Test Short Description Line 2"),
+            'description_full': desc_full,
+            'description_short': desc_short,
             'description_delimiter': ";",
             'image': "",
             'rating': "",
@@ -63,18 +63,18 @@ class TestProductForm(TestCase):
     def test_friendly_price_is_required(self):
         """Test to check friendly price is required"""
         category = get_object_or_404(Category, name="Coffee")
+        desc_full = ("Test Full Description Paragraph 1;"
+                     "Test Full Description Paragraph 2;"
+                     "Test Full Description Paragraph 3")
+        desc_short = ("Test Short Description Line 1;"
+                      "Test Short Description Line 2")
         form = ProductForm({
             'category': category,
             'name': 'Test New Coffee',
             'friendly_name': "Test New Coffee Friendly Name",
             'friendly_price': "",
-            'description_full': (
-                "Test Full Description Paragraph 1;" +
-                "Test Full Description Paragraph 2;" +
-                "Test Full Description Paragraph 3"),
-            'description_short': (
-                "Test Short Description Line 1;" +
-                "Test Short Description Line 2"),
+            'description_full': desc_full,
+            'description_short': desc_short,
             'description_delimiter': ";",
             'image': "",
             'rating': "",
@@ -87,15 +87,15 @@ class TestProductForm(TestCase):
     def test_full_description_is_required(self):
         """Test to check full description is required"""
         category = get_object_or_404(Category, name="Coffee")
+        desc_short = ("Test Short Description Line 1;"
+                      "Test Short Description Line 2")
         form = ProductForm({
             'category': category,
             'name': 'Test New Coffee',
             'friendly_name': "Test New Coffee Friendly Name",
             'friendly_price': "£7.50 - 250g",
             'description_full': "",
-            'description_short': (
-                "Test Short Description Line 1;" +
-                "Test Short Description Line 2"),
+            'description_short': desc_short,
             'description_delimiter': ";",
             'image': "",
             'rating': "",
@@ -108,15 +108,15 @@ class TestProductForm(TestCase):
     def test_short_description_is_required(self):
         """Test to check short description is required"""
         category = get_object_or_404(Category, name="Coffee")
+        desc_full = ("Test Full Description Paragraph 1;"
+                     "Test Full Description Paragraph 2;"
+                     "Test Full Description Paragraph 3")
         form = ProductForm({
             'category': category,
             'name': 'Test New Coffee',
             'friendly_name': "Test New Coffee Friendly Name",
             'friendly_price': "£7.50 - 250g",
-            'description_full': (
-                "Test Full Description Paragraph 1;" +
-                "Test Full Description Paragraph 2;" +
-                "Test Full Description Paragraph 3"),
+            'description_full': desc_full,
             'description_short': "",
             'description_delimiter': ";",
             'image': "",
@@ -130,19 +130,18 @@ class TestProductForm(TestCase):
     def test_description_delimiter_is_required(self):
         """Test to check description delimiter is required"""
         category = get_object_or_404(Category, name="Coffee")
+        desc_full = ("Test Full Description Paragraph 1;"
+                     "Test Full Description Paragraph 2;"
+                     "Test Full Description Paragraph 3")
+        desc_short = ("Test Short Description Line 1;"
+                      "Test Short Description Line 2")
         form = ProductForm({
             'category': category,
             'name': 'Test New Coffee',
             'friendly_name': "Test New Coffee Friendly Name",
             'friendly_price': "£7.50 - 250g",
-            'description_full': (
-                "Test Full Description Paragraph 1;" +
-                "Test Full Description Paragraph 2;" +
-                "Test Full Description Paragraph 3"),
-            'description_short': (
-                "Test Short Description Line 1;" +
-                "Test Short Description Line 2"),
-            'description_delimiter': "",
+            'description_full': desc_full,
+            'description_short': desc_short,
             'image': "",
             'rating': "",
         })
@@ -154,18 +153,18 @@ class TestProductForm(TestCase):
     def test_image_is_not_required(self):
         """Test to check image is not required"""
         category = get_object_or_404(Category, name="Coffee")
+        desc_full = ("Test Full Description Paragraph 1;"
+                     "Test Full Description Paragraph 2;"
+                     "Test Full Description Paragraph 3")
+        desc_short = ("Test Short Description Line 1;"
+                      "Test Short Description Line 2")
         form = ProductForm({
             'category': category,
             'name': 'Test New Coffee',
             'friendly_name': "Test New Coffee Friendly Name",
             'friendly_price': "£7.50 - 250g",
-            'description_full': (
-                "Test Full Description Paragraph 1;" +
-                "Test Full Description Paragraph 2;" +
-                "Test Full Description Paragraph 3"),
-            'description_short': (
-                "Test Short Description Line 1;" +
-                "Test Short Description Line 2"),
+            'description_full': desc_full,
+            'description_short': desc_short,
             'description_delimiter': ";",
             'image': "",
             'rating': "",
@@ -175,18 +174,18 @@ class TestProductForm(TestCase):
     def test_rating_is_not_required(self):
         """Test to check rating is not required"""
         category = get_object_or_404(Category, name="Coffee")
+        desc_full = ("Test Full Description Paragraph 1;"
+                     "Test Full Description Paragraph 2;"
+                     "Test Full Description Paragraph 3")
+        desc_short = ("Test Short Description Line 1;"
+                      "Test Short Description Line 2")
         form = ProductForm({
             'category': category,
             'name': 'Test New Coffee',
             'friendly_name': "Test New Coffee Friendly Name",
             'friendly_price': "£7.50 - 250g",
-            'description_full': (
-                "Test Full Description Paragraph 1;" +
-                "Test Full Description Paragraph 2;" +
-                "Test Full Description Paragraph 3"),
-            'description_short': (
-                "Test Short Description Line 1;" +
-                "Test Short Description Line 2"),
+            'description_full': desc_full,
+            'description_short': desc_short,
             'description_delimiter': ";",
             'image': "",
             'rating': "",

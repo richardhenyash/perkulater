@@ -29,20 +29,25 @@ def build_test_data():
     user2.first_name = "Joe"
     user2.last_name = "Bloggs"
     user2.save()
+    size_info = ("Test Size Information Line 1;"
+                 "Test Size Information Line 2;"
+                 "Test Size Information Line 3")
+    type_info = ("Test Type Information Line 1;"
+                 "Test Type Information Line 2;"
+                 "Test Type Information Line 3")
+    desc_full = ("Test Full Description Paragraph 1;"
+                 "Test Full Description Paragraph 2;"
+                 "Test Full Description Paragraph 3")
+    desc_short = ("Test Short Description Line 1;"
+                  "Test Short Description Line 2")
     category = Category.objects.create(
         name="Coffee",
         friendly_name="Coffee",
         description="Test description",
         size_description="Size",
-        size_information=(
-            "Test Size Information Line 1;" +
-            "Test Size Information Line 2;" +
-            "Test Size Information Line 3"),
+        size_information=size_info,
         type_description="Grind",
-        type_information=(
-            "Test Type Information Line 1;" +
-            "Test Type Information Line 2;" +
-            "Test Type Information Line 3"),
+        type_information=type_info,
         information_delimiter=";"
     )
     product = Product.objects.create(
@@ -50,13 +55,8 @@ def build_test_data():
         name="Test Coffee",
         friendly_name="Test Coffee Friendly Name",
         friendly_price="£7.50 - 250g",
-        description_full=(
-            "Test Full Description Paragraph 1;" +
-            "Test Full Description Paragraph 2;" +
-            "Test Full Description Paragraph 3"),
-        description_short=(
-            "Test Short Description Line 1;" +
-            "Test Short Description Line 2"),
+        description_full=desc_full,
+        description_short=desc_short,
         description_delimiter=";",
         rating=4.50,
         image="jump-leads-front-transparent.png",

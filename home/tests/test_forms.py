@@ -48,7 +48,9 @@ class TestContactForm(TestCase):
         self.assertFalse(form.is_valid())
         self.assertIn('subject', form.errors.keys())
         self.assertEqual(
-            form.errors['subject'][0][:44], 'Ensure this value has at most 100 characters')
+            form.errors['subject'][0][:44],
+            'Ensure this value has at most 100 characters'
+        )
 
     def test_message_is_required(self):
         """Test to check message is required"""

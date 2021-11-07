@@ -130,7 +130,7 @@ class Price(models.Model):
         'Size', null=True, blank=True, on_delete=models.SET_NULL)
     price = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, blank=False)
-    sku = models.CharField(null=True, blank=True, max_length=254)
+    sku = models.CharField(blank=True, default="", max_length=254)
 
     def __str__(self):
         return str(self.product) + ", " + str(self.size)
