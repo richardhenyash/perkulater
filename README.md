@@ -27,9 +27,12 @@
         - [Colours](#colours)
 - [Technologies](#technologies)
     - [Integrated Development Environment](#integrated-development-environment)
-    - [Database](#database)
     - [Languages](#languages)
-    - [Frameworks Libraries and Tools](#frameworks-libraries-and-tools)
+    - [Database](#database)
+    - [Storage](#storage)
+    - [Payments](#payments)
+    - [Frameworks](#frameworks)
+    - [Libraries and Tools](#libraries-and-tools)
     - [Browser Support](#browser-support)
 - [Structure](#structure)
     - [Information Architecture](#information-architecture)
@@ -296,33 +299,48 @@ is shown below:
 ### Integrated Development Environment ##
 * [GitHub](https://github.com/)
 
-### Database ###
-* [Mongo DB](https://www.mongodb.com/)
-
 ### Languages ###
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 * [CSS](https://www.w3.org/Style/CSS/Overview.en.html)
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [Python](https://www.python.org/)
 
-### Frameworks Libraries and Tools ###
+### Database ###
+* Development - [SQLite](https://docs.djangoproject.com/en/3.2/ref/databases/#sqlite-notes)
+* Deployed site - [Heroku PostgreSQL](https://www.heroku.com/postgres)
+
+### Storage ###
+* [Amazon AWS S3](https://aws.amazon.com/) - used to store static files.
+
+### Payments ###
+* [Stripe](https://stripe.com/docs/api) - fully integrated payments platform.
+
+### Frameworks ###
+* [Django](https://www.djangoproject.com/) - web development framework.
 * [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) - to assist with responsive design.
-* [Font Awesome](https://fontawesome.com/) - for icons.
-* [Google Fonts](https://fonts.google.com/) - for fonts.
 * [jQuery](https://jquery.com/) - to assist with JavaScript coding and DOM manipulation.
-* [PyMongo](https://pypi.org/project/pymongo/) - to enable interaction with [Mongo DB](https://www.mongodb.com/).
-* [Flask](https://flask.palletsprojects.com/en/2.0.x/) - to render and display web pages.
-* [DataTables](https://datatables.net/) - to enable easy display of data tables.
-* [WTForms](https://wtforms.readthedocs.io/en/2.3.x/) - for **Form Validation**.
-* [wftorms-validators](https://pypi.org/project/wtforms-validators/) - for additional form validators.
-* [Jinja](https://jinja.palletsprojects.com/en/3.0.x/) - to enable easy display of database information using templating.
-* [Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/) - to enable generation and checking of secure password hashes.
-* [SMTPLib](https://docs.python.org/3/library/smtplib.html) - to enable contact emails to be sent.
-* [unittest](https://docs.python.org/3/library/unittest.html#) - framework for **Python Unit Testing**.
-* [mongomock](https://pypi.org/project/mongomock/) - used to create a "mock" of the **Mongo DB** for **Python Unit Testing**.
+
+### Libraries and Tools ###
+* [MindMup](https://www.mindmup.com/) - used to produce the **Site Map**.
+* [Balsamiq](https://balsamiq.com/) - used to produce **Wireframes**.
+* [dbdiagram](https://dbdiagram.io/home) - used to plan and visualise the data shema prior to and during development.
+* [Font Awesome](https://fontawesome.com/)
+* [Google Fonts](https://fonts.google.com/)
+* [django-allauth](https://django-allauth.readthedocs.io/en/latest/index.html) - user authentication and account management.
+* [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) - **Amazon Web Services SDK** for python. Used to configure **Amazon Web Services S3** storage of static files.
+* [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - enables enhannced rendering of Django forms including integration with **Bootstrap**.
+* [dj-database-url](https://pypi.org/project/dj-database-url/) - Django database configuration utility. Used to configure connection to the **Heroku** deployed postgres dataabase.
+* [django-countries](https://pypi.org/project/django-countries/) - Django aplication providing country choices for use with forms etc. Used to populate country choices on the **Country** dropdowns.
+* [django-extensions](https://django-extensions.readthedocs.io/en/latest/) - Collection of custom extensions for **Django***. Used to automatically create data schema diagram for the **Django** model.
+* [django-storages](https://django-storages.readthedocs.io/en/latest/) - Custom storage backends for **Django**. Used to configure **Amazon Web Services S3** storage of static files.
+* [gunicorn](https://gunicorn.org/) - Python WSGI HTTP Server for UNIX. Used as part of the **Heroku** deployment process.
+* [pillow](https://pillow.readthedocs.io/en/stable/) - Python imaging library.
+* [psycopg2](https://pypi.org/project/psycopg2/) - **PostgreSQL** database adapter for Python. Used as part of the **Heroku** deployment process.
+* [pydot](https://github.com/pydot/pydot) - **Graphviz** interface used to parse the **Django** data model into a .dot file using *django-extensions*.
+* [pylint-django](https://pypi.org/project/pylint-django/) - **Pylint** plug-in for **Django**.
 
 ### Browser Support ###
-The following browsers are all supported by **FreeFrom**.
+The following browsers are all supported by **perkulater**.
 * [Google Chrome](https://www.google.com/intl/en_uk/chrome/)
 * [Microsoft Edge](https://www.microsoft.com/en-us/edge)
 * [Safari](https://www.apple.com/uk/safari/)
@@ -334,19 +352,48 @@ For further information please see  the **Browser Compatibility** section in [TE
 ## Structure ##
 
 ### Information Architecture ###
-[Mongo DB](https://www.mongodb.com/) has been selected to host the back end database for [FreeFrom](https://freefrom.herokuapp.com/). 
-[Mongo DB](https://www.mongodb.com/) is a non relational [NoSQL](https://www.mongodb.com/nosql-explained) database hosting platform, 
-which provides an easily scalable platform to base the [FreeFrom](https://freefrom.herokuapp.com/) site on.  
+[Heroku PostgreSQL](https://www.heroku.com/postgres) has been selected to host the back end database for [perkulater](https://perkulater.herokuapp.com/). 
+[Heroku PostgreSQL](https://www.heroku.com/postgres) is a relational open source database which provides a secure and easily scalable platform 
+to build the **perkulater** site on.  
 
-The project data schema has modelled using [dbdiagram.io](https://dbdiagram.io/home), and is shown below:  
+The project data schema was initially planned using [dbdiagram.io](https://dbdiagram.io/home). The schema model was updated during the deveopment process and is shown below. 
+Please note that the planned schema includes the table **Subscription** which was added for planning purposes. **Subscriptions** will be implemented in a future development phase.  
 
-<img src="media/wireframes/perkulater-data-model.png" width="800px" style="margin: 10px;"> 
+<img src="media/wireframes/perkulater-data-model-planned.png" width="100%" style="margin: 10px;"> 
 
-As shown in the schema diagram, there are four collections, **Users**, **Products**, **Categories** and **Allergens**.  
+The final data schema was also exported directly fom the **Django** model using [django-extensions](https://django-extensions.readthedocs.io/en/latest/), [pydot](https://github.com/pydot/pydot) 
+and [GraphViz](https://graphviz.org/). The final data scehma is shown below:  
 
-Please note that the field **allergens_suitability** in the **Products** collection was renamed to **free_from_allergens**. 
-This change was not picked up in the note below the "products" collection in the schema diagram shown above 
-and unfortunately the free 14 day trial for the software ended. 
+<img src="media/wireframes/perkulater-data-model-final.svg" width="100%" style="margin: 10px;"> 
+
+The database schema was designed for maximum future scalablity and flexibility. Additional future product lines can be easily accomodated due to the design of the schema. 
+Product Categories, Types, Sizes, Prices and Coffee details are all broken out into seperate related tables to provude maximum flexibility.
+
+Key models, fields, relationships and methods are explained below:
+
+* **Product** - Related to **Category**, **Price**, **Coffee**, **Offer**, **Review** and **Subscription**. The *description_delimeter* field is used to store a delimeter which 
+can optionally split the *description_full* field into seperate paragraphs for rendering in the **Product Information** pop up modal. The *description_short* field can also be 
+optionally split using the delimeter specified in the *description_delimeter* field- the first part of the short description is shown underneath the product name in the 
+**Product Detail** view. The *friendly_name* and *friendy_price* fields are used to display the name and price on the **Product Summary** and **Product Detail** pages. 
+The *rating* field stores an automatically calculated average rating which is updated using a **Django** signal every time a review is added, deleted or edited.
+
+* **Category** - related to **Product**, **Type** and **Size**. Each **Category** may have different **Types** and **Sizes** and is related back to the **Product**. 
+This structure allows for new product **Categories** with different **Sizes** and **Types** to be added in a future development phase. 
+The *size_description* field stores a description of the related **Size** which is displayed to the user in the **Product Detail** view. 
+The *size_information* field stores information about the related **Size** which is displayed to the user in the **Size Information** modal. 
+The *type_description* field stores a description of the related **Type** which is displayed to the user in the **Product Detail** view. 
+The *type_information* field stores information about the related **Type** which is displayed to the user in the **Type Information** modal. 
+Both the *size_information* and *type_information* fields are split into paragraphs for display using the delimeter specified in the *information_delimiter* field.
+There is currently only one **Category**, called **Coffee**. If more **Categories** are added in future development phases, the *friendly_name* field will be automatically 
+shown in the **Navigation Menu**, and the user willbe avble to filter by **Category** using the **Navigation Nenu** links.
+
+* **Price** - Related to **Product** and **Size**. Product **Prices** are stored in a seperate model - this allows for a different **Price** to be applied to each product and 
+related to the **Size** table. Each Product **Size** has a default price, which is applied by default but may be subsequently updated by the **Store Owner** using the 
+**Edit Prices** functionality. The product *sku* is unique to the **Price** and is stored in this model.
+
+* **Size** - Related to **Category**, **Type** , **Price** and **OrderLineItem**. Each Product **Category** may have different sizes, specified in the **Size** model. Each Product **Size** has a default price, which is applied by default but may be subsequently updated by the **Store Owner** using the **Edit Prices** functionality.
+
+
 
 [FreeFrom](https://freefrom.herokuapp.com/) is deployed using [Heroku](https://dashboard.heroku.com/). 
 For further information see [Deployment](#deployment).
