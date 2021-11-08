@@ -117,7 +117,7 @@ ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/profile/'
-ACCOUNT_LOGOUT_REDIRECT_URL ="/products/"
+ACCOUNT_LOGOUT_REDIRECT_URL = "/products/"
 
 WSGI_APPLICATION = 'perkulater.wsgi.application'
 
@@ -185,7 +185,7 @@ if 'USE_AWS' in os.environ:
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
         'CacheControl': 'max-age=94608000',
     }
-    
+
     # Bucket Config
     AWS_STORAGE_BUCKET_NAME = 'perkulater'
     AWS_S3_REGION_NAME = 'eu-west-2'
