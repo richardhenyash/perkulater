@@ -289,12 +289,12 @@ is shown below:
 * #1F1F1F *Background Level 1* - main background colour, used for background layering and for masking the background image.
 * #292929 *Background Level 2* - used for background layering.
 * #333333 *Background Level 3* - used for background layering.
-* #FDDE86 *Yellow* - used for rating stars.
+* #FDDE86 *Yellow* - used for product rating stars.
 * #4ED0AD *Green* - used for links, button outlines, offer banner and input highlighting.
-* #33C19C *Green Highlight* - used for highlighting green elements on hover etc.
+* #33C19C *Green Highlight* - used for highlighting green elements on change of state.
 * #E97C72 *Pink* - used for error toasts, alerts and text.
 * #73DCE7 *Blue* - used for information icons, toasts, alerts and text.
-* #3FCFDE *Blue Highlight* - used for highlighting blue elements on hover etc.
+* #3FCFDE *Blue Highlight* - used for highlighting blue elements on change of state.
 * #FAFAFA *White* - used for logo text, tagline text, foreground text elements, horizontal rulers, button text and button highlighting.
 * #CCCCCC *White Highlight* - used for highlighting white elements. Also used for navigation menu and footer links.
 
@@ -326,22 +326,22 @@ is shown below:
 
 ### Libraries and Tools ###
 * [MindMup](https://www.mindmup.com/) - used to produce the **Site Map**.
-* [Balsamiq](https://balsamiq.com/) - used to produce **Wireframes**.
-* [dbdiagram](https://dbdiagram.io/home) - used to plan and visualise the data shema prior to and during development.
-* [Font Awesome](https://fontawesome.com/)
-* [Google Fonts](https://fonts.google.com/)
+* [Balsamiq](https://balsamiq.com/) - used to produce the **Wireframes**.
+* [dbdiagram](https://dbdiagram.io/home) - used to plan and visualise the data schema prior to and during development.
+* [Font Awesome](https://fontawesome.com/) - used for icons.
+* [Google Fonts](https://fonts.google.com/) - used for fonts.
 * [django-allauth](https://django-allauth.readthedocs.io/en/latest/index.html) - user authentication and account management.
 * [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) - **Amazon Web Services SDK** for python. Used to configure **Amazon Web Services S3** storage of static files.
 * [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - enables enhannced rendering of Django forms including integration with **Bootstrap**.
-* [dj-database-url](https://pypi.org/project/dj-database-url/) - Django database configuration utility. Used to configure connection to the **Heroku** deployed postgres dataabase.
+* [dj-database-url](https://pypi.org/project/dj-database-url/) - Django database configuration utility. Used to configure connection to the **Heroku** deployed postgres database.
 * [django-countries](https://pypi.org/project/django-countries/) - Django aplication providing country choices for use with forms etc. Used to populate country choices on the **Country** dropdowns.
-* [django-extensions](https://django-extensions.readthedocs.io/en/latest/) - Collection of custom extensions for **Django***. Used to automatically create data schema diagram for the **Django** model.
+* [django-extensions](https://django-extensions.readthedocs.io/en/latest/) - Collection of custom extensions for **Django***. Used to automatically create and export data schema diagram for the **Django** model.
 * [django-storages](https://django-storages.readthedocs.io/en/latest/) - Custom storage backends for **Django**. Used to configure **Amazon Web Services S3** storage of static files.
 * [gunicorn](https://gunicorn.org/) - Python WSGI HTTP Server for UNIX. Used as part of the **Heroku** deployment process.
 * [pillow](https://pillow.readthedocs.io/en/stable/) - Python imaging library.
 * [psycopg2](https://pypi.org/project/psycopg2/) - **PostgreSQL** database adapter for Python. Used as part of the **Heroku** deployment process.
 * [pydot](https://github.com/pydot/pydot) - **Graphviz** interface used to parse the **Django** data model into a .dot file using *django-extensions*.
-* [pylint-django](https://pypi.org/project/pylint-django/) - **Pylint** plug-in for **Django**.
+* [pylint-django](https://pypi.org/project/pylint-django/) - **Pylint** plug-in for **Django**. Used to check code compliance.
 
 ### Browser Support ###
 The following browsers are all supported by **perkulater**.
@@ -367,8 +367,8 @@ The **perkulater** code base has been developed using the **Django** framework, 
 * **Products**
 * **Profiles**
 
-The project data schema was initially planned using [dbdiagram.io](https://dbdiagram.io/home). The schema model was regularly updated during the development process and is shown below. 
-Please note that the planned schema includes the table **Subscription** which was added for planning purposes. **Subscriptions** do not form part of the phase 1 development but may be 
+The project data schema was initially planned using [dbdiagram.io](https://dbdiagram.io/home). The data schema diagram was regularly updated during the development process and is shown below. 
+Please note that the planned schema includes the model **Subscription** which was added for planning purposes. **Subscriptions** do not form part of the phase 1 development but may be 
 implemented in a future development phase.  
 
 <img src="media/wireframes/perkulater-data-model-planned.png" width="100%" style="margin: 10px;"> 
@@ -379,11 +379,12 @@ and [GraphViz](https://graphviz.org/). The final data scehma is shown below:
 <img src="media/wireframes/perkulater-data-model-final.svg" width="100%" style="margin: 10px;"> 
 
 The database schema was designed for maximum future scalablity and flexibility. Additional future product lines can be easily accomodated due to the design of the schema. 
-**Product** **Categories**, **Types**, **Sizes**, **Prices** and **Coffee** details are all broken out into seperate related tables to provide maximum flexibility. **perkulater** 
+**Product** **Categories**, **Types**, **Sizes**, **Prices** and **Coffee** details are all broken out into seperate related models to provide maximum flexibility. **perkulater** 
 custom models, fields, relationships and methods are explained below:
 
 #### Products Models ####
-* **Product** - related to **Category**, **Price**, **Coffee**, **Offer**, **Review** and **Subscription**. The *description_delimeter* field is used to store a delimeter which 
+* **Product** - related to **Category**, **Price**, **Coffee**, **Offer** and **Review**. 
+The *description_delimeter* field is used to store a delimeter which 
 can optionally split the *description_full* field into seperate paragraphs for rendering in the **Product Information** pop up modal. The *description_short* field can also be 
 optionally split using the delimeter specified in the *description_delimeter* field - the first part of the short description is shown underneath the product name in the 
 **Product Detail** view. The *friendly_name* and *friendy_price* fields are used to display the name and price on the **Product Summary** and **Product Detail** pages. 
@@ -420,7 +421,7 @@ The value of the *discount* field on the *Review* offer (expressed as a percenta
 * **Review** - related to **Product** and **User**. Stores **Product Reviews**. A **Django** signal updates the **Product** *rating* field when a review is added, deleted or edited.
 
 #### Checkout Models ####
-* **Order** - related to **OrderlIneItem** abd **UserProfile**. Stores **Orders** after successful checkout. **Order** *order_number* field is automatically added on save. 
+* **Order** - related to **OrderLineItem** abd **UserProfile**. Stores **Orders** after successful checkout. **Order** *order_number* field is automatically added on save. 
 **Order** *discount*, *order_total*, *previous_total*, *delivery* and *grand_total* fields are automatically updated using a **Django** signal when an **OrderLineItem** 
 is added or deleted.
 
@@ -438,9 +439,8 @@ receiver when a **User** object is updated or created.
 * **Basket** - related to **User**. The *clear_basket* field is set by the **Stripe** webhook handler function to indicate that the order was succesfully created 
 in the webhook handler and that the **Basket** can be cleared. 
 
-
-[FreeFrom](https://freefrom.herokuapp.com/) is deployed using [Heroku](https://dashboard.heroku.com/). 
-For further information see [Deployment](#deployment).
+[perkulater](https://perkulater.herokuapp.com/) is deployed using [Heroku](https://dashboard.heroku.com/) and 
+[Amazon AWS S3](https://aws.amazon.com/). For further information see [Deployment](#deployment).
 
 ### Features Implemented ###
 Please note that an account with **Admin** privileges has been created for testing purposes. This will facilitate testing of 
@@ -600,34 +600,22 @@ the **table header** html.
 See **Responsive Design** section in [TESTING.md](TESTING.md) for further information and [Responsive Testing](/static/testing/responsive) screen prints.
 
 ### Python Code Logic ###
-The **Python Code** for the project has been split into the following modules, using the 
-[Flask Blueprint](https://flask.palletsprojects.com/en/2.0.x/blueprints/) function:
+The high level python code logic for each **Django App** is explained in the [UML Diagrams](/media/wireframes/uml/) below: 
 
-* [Application](/app.py) - Flask routes and functions related to the **Flask Application** and **Error Handling**.
-* [Database](/database.py) - Functions related to the **Mongo Database**.
-* [Products](/products.py) - Flask routes and functions related to **Products**.
-* [Allergens](/allergens.py) - Flask routes and functions related to **Allergens**.
-* [Categories](/categories.py) - Flask routes and functions related to **Categories**.
-* [Forms](/forms.py) - [WTForms](https://wtforms.readthedocs.io/en/2.3.x/) form class definitions.
-* [User Authentication](userauth.py) - Flask routes and functions related to **User Authentication**.
-* [Mail](/mail.py) - Flask routes and functions related to sending an email via the **Contact Developer** form.
+#### [Home](media/wireframes/uml/home-logic.png) ####
+<img src="media/wireframes/uml/products-logic.png" width="800px" style="margin: 10px;">  
 
-The high level code logic is explained in the [UML Diagrams](/media/wireframes/uml/) below: 
+#### [Products](media/wireframes/uml/products-logic.png) ####
+<img src="media/wireframes/uml/products-logic.png" width="800px" style="margin: 10px;">  
 
-#### [Products](/media/wireframes/uml/products-logic.png) ####
-<img src="/media/wireframes/uml/products-logic.png" width="800px" style="margin: 10px;">  
+#### [Basket](media/wireframes/uml/basket-logic.png) ####
+<img src="media/wireframes/uml/categories-logic.png" width="700px" style="margin: 10px;"> 
 
-#### [Allergens](/media/wireframes/uml/allergens-logic.png) ####
-<img src="/media/wireframes/uml/allergens-logic.png" width="700px" style="margin: 10px;">  
+#### [Checkout](media/wireframes/uml/checkout-logic.png) ####
+<img src="media/wireframes/uml/checkout-logic.png" width="700px" style="margin: 10px;">  
 
-#### [Categories](/media/wireframes/uml/categories-logic.png) ####
-<img src="/media/wireframes/uml/categories-logic.png" width="700px" style="margin: 10px;">  
-
-#### [User Authentication](/media/wireframes/uml/userauth-logic.png) ####
-<img src="/media/wireframes/uml/userauth-logic.png" width="700px" style="margin: 10px;">  
-
-#### [Mail](/media/wireframes/uml/mail-logic.png) ####
-<img src="/media/wireframes/uml/mail-logic.png" width="400px" style="margin: 10px;"> 
+#### [Profiles](media/wireframes/uml/profiles-logic.png) ####
+<img src="media/wireframes/uml/profiles-logic.png" width="700px" style="margin: 10px;">  
 
 ### Python Code Refactoring ###
 After attending an online [Code Institute](https://codeinstitute.net/) seminar on [Python Classes](https://www.w3schools.com/python/python_classes.asp) 
