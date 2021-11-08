@@ -36,6 +36,10 @@
     - [Browser Support](#browser-support)
 - [Structure](#structure)
     - [Information Architecture](#information-architecture)
+        - [Products Models](#products-models)
+        - [Checkout Models](#checkout-models)
+        - [Profile Models](#profile-models)
+        - [Basket Models](#basket-models)
     - [Features Implemented](#features-implemented)
         - [Features Implemented in Phase 1](#features-implemented-in-phase-1)
         - [Features To Be Implemented In Future Development Phases](#features-to-be-implemented-in-future-development-phases)
@@ -352,47 +356,79 @@ For further information please see  the **Browser Compatibility** section in [TE
 ## Structure ##
 
 ### Information Architecture ###
-[Heroku PostgreSQL](https://www.heroku.com/postgres) has been selected to host the back end database for [perkulater](https://perkulater.herokuapp.com/). 
+[Heroku PostgreSQL](https://www.heroku.com/postgres) has been selected to host the back-end database for [perkulater](https://perkulater.herokuapp.com/). 
 [Heroku PostgreSQL](https://www.heroku.com/postgres) is a relational open source database which provides a secure and easily scalable platform 
 to build the **perkulater** site on.  
 
-The project data schema was initially planned using [dbdiagram.io](https://dbdiagram.io/home). The schema model was updated during the deveopment process and is shown below. 
+The project data schema was initially planned using [dbdiagram.io](https://dbdiagram.io/home). The schema model was regularly updated during the development process and is shown below. 
 Please note that the planned schema includes the table **Subscription** which was added for planning purposes. **Subscriptions** will be implemented in a future development phase.  
 
 <img src="media/wireframes/perkulater-data-model-planned.png" width="100%" style="margin: 10px;"> 
 
-The final data schema was also exported directly fom the **Django** model using [django-extensions](https://django-extensions.readthedocs.io/en/latest/), [pydot](https://github.com/pydot/pydot) 
+The final data schema was exported directly fom the **Django** model using [django-extensions](https://django-extensions.readthedocs.io/en/latest/), [pydot](https://github.com/pydot/pydot) 
 and [GraphViz](https://graphviz.org/). The final data scehma is shown below:  
 
 <img src="media/wireframes/perkulater-data-model-final.svg" width="100%" style="margin: 10px;"> 
 
 The database schema was designed for maximum future scalablity and flexibility. Additional future product lines can be easily accomodated due to the design of the schema. 
-Product Categories, Types, Sizes, Prices and Coffee details are all broken out into seperate related tables to provude maximum flexibility.
+**Product** **Categories**, **Types**, **Sizes**, **Prices** and **Coffee** details are all broken out into seperate related tables to provide maximum flexibility. **perkulater** 
+custom models, fields, relationships and methods are explained below:
 
-Key models, fields, relationships and methods are explained below:
-
-* **Product** - Related to **Category**, **Price**, **Coffee**, **Offer**, **Review** and **Subscription**. The *description_delimeter* field is used to store a delimeter which 
+#### Products Models ####
+* **Product** - related to **Category**, **Price**, **Coffee**, **Offer**, **Review** and **Subscription**. The *description_delimeter* field is used to store a delimeter which 
 can optionally split the *description_full* field into seperate paragraphs for rendering in the **Product Information** pop up modal. The *description_short* field can also be 
-optionally split using the delimeter specified in the *description_delimeter* field- the first part of the short description is shown underneath the product name in the 
+optionally split using the delimeter specified in the *description_delimeter* field - the first part of the short description is shown underneath the product name in the 
 **Product Detail** view. The *friendly_name* and *friendy_price* fields are used to display the name and price on the **Product Summary** and **Product Detail** pages. 
-The *rating* field stores an automatically calculated average rating which is updated using a **Django** signal every time a review is added, deleted or edited.
+The *rating* field stores an automatically calculated average rating which is updated using a **Django** signal when a review is added, deleted or edited. There are currently 
+four **Products** defined - *Jump Leads*, *Morning Glory*, *Our House Is Your House* and *Unleaded*.
 
 * **Category** - related to **Product**, **Type** and **Size**. Each **Category** may have different **Types** and **Sizes** and is related back to the **Product**. 
-This structure allows for new product **Categories** with different **Sizes** and **Types** to be added in a future development phase. 
-The *size_description* field stores a description of the related **Size** which is displayed to the user in the **Product Detail** view. 
-The *size_information* field stores information about the related **Size** which is displayed to the user in the **Size Information** modal. 
-The *type_description* field stores a description of the related **Type** which is displayed to the user in the **Product Detail** view. 
-The *type_information* field stores information about the related **Type** which is displayed to the user in the **Type Information** modal. 
+This relational structure allows for new product **Categories** with different **Sizes** and **Types** e.g. coffee equipment or cold brew cans to be added in a future development phase. 
+The *size_description* field stores the **Size** descriptor, which is displayed to the user in the **Product Detail** view and is currently set to *Size*.
+The *size_information* field stores information about the related **Sizes** which is displayed to the user in the **Size Information** modal. 
+The *type_description* field stores the **Type** descriptor, which is displayed to the user in the **Product Detail** view and is currently set to *Type*.
+The *type_information* field stores information about the related **Types** which is displayed to the user in the **Type Information** modal. 
 Both the *size_information* and *type_information* fields are split into paragraphs for display using the delimeter specified in the *information_delimiter* field.
 There is currently only one **Category**, called **Coffee**. If more **Categories** are added in future development phases, the *friendly_name* field will be automatically 
-shown in the **Navigation Menu**, and the user willbe avble to filter by **Category** using the **Navigation Nenu** links.
+shown in the **Navigation Menu**, and the user will be able to filter by **Category** using the **Navigation Nenu** links.
 
-* **Price** - Related to **Product** and **Size**. Product **Prices** are stored in a seperate model - this allows for a different **Price** to be applied to each product and 
+* **Coffee** - related to **Product**. Stores additional information which is only relevant to products with **Category** set to **Coffee**.
+
+* **Type** - related to **Category** and **OrderLineItem**. Product **Types** are stored in a seperate model - this allows for different **Types** to be applied as 
+required to each **Category**. **Coffee** currently has four **Types** defined, *Coarse*, *Medium*, *Fine* and *Whole Bean*.
+
+* **Price** - related to **Product** and **Size**. Product **Prices** are stored in a seperate model - this allows for a different **Price** to be applied to each product and 
 related to the **Size** table. Each Product **Size** has a default price, which is applied by default but may be subsequently updated by the **Store Owner** using the 
 **Edit Prices** functionality. The product *sku* is unique to the **Price** and is stored in this model.
 
-* **Size** - Related to **Category**, **Type** , **Price** and **OrderLineItem**. Each Product **Category** may have different sizes, specified in the **Size** model. Each Product **Size** has a default price, which is applied by default but may be subsequently updated by the **Store Owner** using the **Edit Prices** functionality.
+* **Size** - related to **Category**, **Type** , **Price** and **OrderLineItem**. Each Product **Category** may have different sizes, specified in the **Size** model. 
+Each Product **Size** has a default price, which is applied by default but may be subsequently updated by the **Store Owner** using the **Edit Prices** functionality. 
+**Coffee** currently has two **Sizes** defined, *250g* and *1kg*. 
 
+* **Offer** - optionally related to **Product**. Stores **Offers**. If *display_in_banner* field is set to `True`, displays the value of the *description_full* field in the **Offer Banner**.
+The values of the fields *free_delivery_amount*, *delivery_minumum* and *delivery_precentage* on the *Delivery* offer are used to calculate delivery costs. 
+The value of the *discount* field on the *Review* offer (expressed as a percentage) is used to calculate the discount given as a **Reward** on the next order for leaving a **Review**.
+
+* **Review** - related to **Product** and **User**. Stores **Product Reviews**. A **Django** signal updates the **Product** *rating* field when a review is added, deleted or edited.
+
+#### Checkout Models ####
+* **Order** - related to **OrderlIneItem** abd **UserProfile**. Stores **Orders** after successful checkout. **Order** *order_number* field is automatically added on save. 
+**Order** *discount*, *order_total*, *previous_total*, *delivery* and *grand_total* fields are automatically updated using a **Django** signal when an **OrderLineItem** 
+is added or deleted.
+
+* **OrderLineItem** - related to **Order**, **Type**, **Product** and **Size**. Stores each **OrderLineItem** after successful checkout. 
+**OrderLineItem** *line_item_total* field is automatically calculated on save.
+
+#### Profiles Models ####
+* **UserProfile** - related to **Order** and **User**. Stores default delivery information. **UserProfile** is automatically created or updated using a **Django** 
+receiver when a **User** object is updated or created.
+
+* **Reward** - related to **User**. Stores **Rewards** that a **User** has earned. The *discount* field is used to store any discount that the **User** has earned 
+(expressed as a percentage), and is applied the user's next order. After the user's next order is placed with the *discount* applied, the *discount* field is reset.
+
+#### Basket Models ####
+* **Basket** - related to **User**. The *clear_basket* field is set by the **Stripe** webhook handler function to indicate that the order was succesfully created 
+in the webhook handler and that the **Basket** can be cleared. 
 
 
 [FreeFrom](https://freefrom.herokuapp.com/) is deployed using [Heroku](https://dashboard.heroku.com/). 
