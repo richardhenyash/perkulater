@@ -360,8 +360,16 @@ For further information please see  the **Browser Compatibility** section in [TE
 [Heroku PostgreSQL](https://www.heroku.com/postgres) is a relational open source database which provides a secure and easily scalable platform 
 to build the **perkulater** site on.  
 
+The **perkulater** code base has been developed using the **Django** framework, and comprises the following **Django** apps:
+* **Basket**
+* **Checkout**
+* **Home**
+* **Products**
+* **Profiles**
+
 The project data schema was initially planned using [dbdiagram.io](https://dbdiagram.io/home). The schema model was regularly updated during the development process and is shown below. 
-Please note that the planned schema includes the table **Subscription** which was added for planning purposes. **Subscriptions** will be implemented in a future development phase.  
+Please note that the planned schema includes the table **Subscription** which was added for planning purposes. **Subscriptions** do not form part of the phase 1 development but may be 
+implemented in a future development phase.  
 
 <img src="media/wireframes/perkulater-data-model-planned.png" width="100%" style="margin: 10px;"> 
 
