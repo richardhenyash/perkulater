@@ -59,6 +59,19 @@ class Stripe_WebHook_Handler:
         order_discount = round(order_discount, 2)
         billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
+        if shipping_details.address.line2 is None:
+            address_2 = ""
+        else:
+            address_2 = shipping_details.address.line2
+        if shipping_details.address.state is None:
+            county = ""
+        else:
+            county = shipping_details.address.state
+        grand_total = round(intent.charges.data[0].amount / 100, 2)
+        if shipping_details.address.postal_code is None:
+            postcode = ""
+        else:
+            postcode = shipping_details.address.postal_code
         grand_total = round(intent.charges.data[0].amount / 100, 2)
 
         # Set empty data fields in the shipping details to None
@@ -74,10 +87,10 @@ class Stripe_WebHook_Handler:
             if save_info:
                 profile.phone_number = shipping_details.phone
                 profile.address_1 = shipping_details.address.line1
-                profile.address_2 = shipping_details.address.line2
+                profile.address_2 = address_2
                 profile.town_or_city = shipping_details.address.city
-                profile.county = shipping_details.address.state
-                profile.postcode = shipping_details.address.postal_code
+                profile.county = county
+                profile.postcode = postcode
                 profile.country = shipping_details.address.country
                 profile.save()
 
@@ -90,10 +103,10 @@ class Stripe_WebHook_Handler:
                     email__iexact=billing_details.email,
                     phone_number__iexact=shipping_details.phone,
                     address_1__iexact=shipping_details.address.line1,
-                    address_2__iexact=shipping_details.address.line2,
+                    address_2__iexact=address_2,
                     town_or_city__iexact=shipping_details.address.city,
-                    county__iexact=shipping_details.address.state,
-                    postcode__iexact=shipping_details.address.postal_code,
+                    county__iexact=county,
+                    postcode__iexact=postcode,
                     country__iexact=shipping_details.address.country,
                     grand_total=grand_total,
                     original_basket=basket,
@@ -119,10 +132,10 @@ class Stripe_WebHook_Handler:
                     email=billing_details.email,
                     phone_number=shipping_details.phone,
                     address_1=shipping_details.address.line1,
-                    address_2=shipping_details.address.line2,
+                    address_2=address_2,
                     town_or_city=shipping_details.address.city,
-                    county=shipping_details.address.state,
-                    postcode=shipping_details.address.postal_code,
+                    county=county,
+                    postcode=postcode,
                     country=shipping_details.address.country,
                     original_basket=basket,
                     stripe_pid=pid,
