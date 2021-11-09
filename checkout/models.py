@@ -51,11 +51,15 @@ class Order(models.Model):
         Update the grand total each time a line item is added,
         including discount and delivery cost
         """
+        # Get Delvery Offer
         offer = get_object_or_404(Offer, description="Delivery")
+        # Set free delivery amount
         free_delivery_amount = offer.get_free_delivery_amount()
+        # Set delivery percentage
         delivery_percentage = offer.get_delivery_percentage()
+        # Set delivery minimum charge
         delivery_minimum = offer.get_delivery_minimum()
-        # Aggregate line items to create order total
+        # Aggregate line items to calculate order total
         order_total = self.lineitems.aggregate(
             Sum('lineitem_total'))['lineitem_total__sum'] or 0
         order_total = round(Decimal(order_total), 2)
@@ -66,7 +70,7 @@ class Order(models.Model):
         else:
             self.previous_total = order_total
             self.order_total = order_total
-
+        # Calculate delivery cost
         if order_total < free_delivery_amount:
             delivery = order_total * (Decimal(delivery_percentage / 100))
             if delivery < delivery_minimum:
@@ -75,7 +79,7 @@ class Order(models.Model):
                 self.delivery_cost = round(delivery, 2)
         else:
             self.delivery_cost = round(Decimal(0.0), 2)
-
+        # Set grand total
         self.grand_total = self.order_total + self.delivery_cost
         self.save()
 
@@ -113,7 +117,7 @@ class OrderLineItem(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Override save method to set the lineitem total
+        Override save method to calculate and set the lineitem total
         and update the order total
         """
         self.lineitem_total = self.price.price * self.quantity
