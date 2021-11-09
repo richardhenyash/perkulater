@@ -315,14 +315,13 @@ def edit_prices(request, product_id):
                 f'Price updated: {product.friendly_name}.',
                 extra_tags='admin'
             )
+            return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(
                 request,
                 'Failed to update Price. Please check price form.',
                 extra_tags='admin'
             )
-
-        return redirect(reverse('product_detail', args=[product.id]))
 
     price_form = PriceForm(instance=Product)
     first_size = Size.objects.filter(category=product.category).first()
