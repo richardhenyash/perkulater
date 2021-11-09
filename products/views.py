@@ -111,7 +111,7 @@ def add_product(request):
             'Sorry, only store adminitrators can do that.',
             extra_tags='admin'
         )
-        return redirect(reverse('home'))
+        return redirect(reverse('products'))
 
     if request.method == 'POST':
         product_form = ProductForm(request.POST, request.FILES)
@@ -185,7 +185,7 @@ def edit_product(request, product_id):
             'Sorry, only store adminitrators can do that.',
             extra_tags='admin'
         )
-        return redirect(reverse('home'))
+        return redirect(reverse('products'))
 
     product = get_object_or_404(Product, pk=product_id)
 
@@ -299,7 +299,7 @@ def edit_prices(request, product_id):
         messages.error(
             request, 'Sorry, only store administrators can do that.'
         )
-        return redirect(reverse('home'))
+        return redirect(reverse('products'))
 
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
