@@ -12,7 +12,9 @@
 
 let stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 let clientSecret = $('#id_client_secret').text().slice(1, -1);
+// Instantiate stripe
 let stripe = Stripe(stripePublicKey);
+// Set stripe elements
 let elements = stripe.elements({
   fonts: [
     {
@@ -21,6 +23,7 @@ let elements = stripe.elements({
     }
   ]
 });
+// Set style
 let style = {
     base: {
         color: '#FAFAFA',
@@ -37,12 +40,15 @@ let style = {
         iconColor: '#FFAD99'
     }
 };
+// Create card element
 let card = elements.create('card', {style: style, hidePostalCode: true});
+// Mount card
 card.mount('#card-element');
 
 // Handle realtime validation errors on the card element
 card.addEventListener('change', function (event) {
     let errorDiv = document.getElementById('card-errors');
+    // If there is an error
     if (event.error) {
         let html = `
             <p><span class="icon" role="alert">
@@ -50,8 +56,10 @@ card.addEventListener('change', function (event) {
             </span>
             <span>${event.error.message}</span></p>
         `;
+        // Update errorDiv with error
         $(errorDiv).html(html);
     } else {
+        // Update errorDiv with blank string
         errorDiv.textContent = '';
     }
 });
@@ -64,25 +72,34 @@ form.addEventListener('submit', function (ev) {
         'disabled': true
     });
     $('#submit-button').attr('disabled', true);
+    //Fade out payment form
     $('#payment-form').fadeToggle(100);
+    // Fade in loader overlay
     $('#loader-overlay').fadeToggle(100);
 
+    // Get save_info checkbox value
     let saveInfo = Boolean($('#id-save-info').attr('checked'));
-    // From using {% csrf_token %} in the form
+    // Get csrf token from using {% csrf_token %} in the form
     let csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+    // Get discount
     let discount = $('#discount').data('discount');
+    // Set post data
     let postData = {
         'csrfmiddlewaretoken': csrfToken,
         'client_secret': clientSecret,
         'save_info': saveInfo,
         'discount': discount,
     };
+    // Set url
     let url = '/checkout/cache_checkout_data/';
 
     $.post(url, postData).done(function () {
+        // Confirm card payment
         stripe.confirmCardPayment(clientSecret, {
+            // Set payment method
             payment_method: {
                 card: card,
+                // Set billing details
                 billing_details: {
                     name: $.trim(form.full_name.value),
                     phone: $.trim(form.phone_number.value),
@@ -96,6 +113,7 @@ form.addEventListener('submit', function (ev) {
                     }
                 }
             },
+            // Set shipping details
             shipping: {
                 name: $.trim(form.full_name.value),
                 phone: $.trim(form.phone_number.value),
@@ -110,6 +128,7 @@ form.addEventListener('submit', function (ev) {
             },
         }).then(function (result) {
             if (result.error) {
+                // Display any card errors
                 let errorDiv = document.getElementById('card-errors');
                 let html = `
                 <p><span class="icon" role="alert">
@@ -117,13 +136,17 @@ form.addEventListener('submit', function (ev) {
                 </span>
                 <span>${result.error.message}</span></p>`;
                 $(errorDiv).html(html);
+                // Fade in payment form
                 $('#payment-form').fadeToggle(100);
+                // Fade out loader overlay
                 $('#loader-overlay').fadeToggle(100);
                 card.update({
                     'disabled': false
                 });
+                // Enable submit button
                 $('#submit-button').attr('disabled', false);
             } else {
+                // Submit form if payment intent is succesfull
                 if (result.paymentIntent.status === 'succeeded') {
                     form.submit();
                 }

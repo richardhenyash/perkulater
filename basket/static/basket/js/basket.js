@@ -12,7 +12,7 @@ $('.basket-quantity-input').each(function () {
     let quantityInputId = "#" + $(this).attr('id');
     let btnMinusID = "#" + $(this).next().attr('id');
     let btnPlusID = "#" + $(this).next().next().attr('id');
-    // Disable minus button if current quantity is 1
+    // Disable minus button if current quantity is 0
     let currentQuantity = parseInt($(this).val());
     if (currentQuantity == 0){
         $(btnMinusID).attr("disabled", true);
