@@ -289,12 +289,12 @@ is shown below:
 * #1F1F1F *Background Level 1* - main background colour, used for background layering and for masking the background image.
 * #292929 *Background Level 2* - used for background layering.
 * #333333 *Background Level 3* - used for background layering.
-* #FDDE86 *Yellow* - used for product rating stars.
+* #FDDE86 *Yellow* - used for rating stars.
 * #4ED0AD *Green* - used for links, button outlines, offer banner and input highlighting.
-* #33C19C *Green Highlight* - used for highlighting green elements on change of state.
+* #33C19C *Green Highlight* - used for highlighting green elements on hover etc.
 * #E97C72 *Pink* - used for error toasts, alerts and text.
 * #73DCE7 *Blue* - used for information icons, toasts, alerts and text.
-* #3FCFDE *Blue Highlight* - used for highlighting blue elements on change of state.
+* #3FCFDE *Blue Highlight* - used for highlighting blue elements on hover etc.
 * #FAFAFA *White* - used for logo text, tagline text, foreground text elements, horizontal rulers, button text and button highlighting.
 * #CCCCCC *White Highlight* - used for highlighting white elements. Also used for navigation menu and footer links.
 
@@ -326,22 +326,22 @@ is shown below:
 
 ### Libraries and Tools ###
 * [MindMup](https://www.mindmup.com/) - used to produce the **Site Map**.
-* [Balsamiq](https://balsamiq.com/) - used to produce the **Wireframes**.
-* [dbdiagram](https://dbdiagram.io/home) - used to plan and visualise the data schema prior to and during development.
-* [Font Awesome](https://fontawesome.com/) - used for icons.
-* [Google Fonts](https://fonts.google.com/) - used for fonts.
+* [Balsamiq](https://balsamiq.com/) - used to produce **Wireframes**.
+* [dbdiagram](https://dbdiagram.io/home) - used to plan and visualise the data shema prior to and during development.
+* [Font Awesome](https://fontawesome.com/)
+* [Google Fonts](https://fonts.google.com/)
 * [django-allauth](https://django-allauth.readthedocs.io/en/latest/index.html) - user authentication and account management.
 * [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) - **Amazon Web Services SDK** for python. Used to configure **Amazon Web Services S3** storage of static files.
 * [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - enables enhannced rendering of Django forms including integration with **Bootstrap**.
-* [dj-database-url](https://pypi.org/project/dj-database-url/) - Django database configuration utility. Used to configure connection to the **Heroku** deployed postgres database.
+* [dj-database-url](https://pypi.org/project/dj-database-url/) - Django database configuration utility. Used to configure connection to the **Heroku** deployed postgres dataabase.
 * [django-countries](https://pypi.org/project/django-countries/) - Django aplication providing country choices for use with forms etc. Used to populate country choices on the **Country** dropdowns.
-* [django-extensions](https://django-extensions.readthedocs.io/en/latest/) - Collection of custom extensions for **Django***. Used to automatically create and export data schema diagram for the **Django** model.
+* [django-extensions](https://django-extensions.readthedocs.io/en/latest/) - Collection of custom extensions for **Django***. Used to automatically create data schema diagram for the **Django** model.
 * [django-storages](https://django-storages.readthedocs.io/en/latest/) - Custom storage backends for **Django**. Used to configure **Amazon Web Services S3** storage of static files.
 * [gunicorn](https://gunicorn.org/) - Python WSGI HTTP Server for UNIX. Used as part of the **Heroku** deployment process.
 * [pillow](https://pillow.readthedocs.io/en/stable/) - Python imaging library.
 * [psycopg2](https://pypi.org/project/psycopg2/) - **PostgreSQL** database adapter for Python. Used as part of the **Heroku** deployment process.
 * [pydot](https://github.com/pydot/pydot) - **Graphviz** interface used to parse the **Django** data model into a .dot file using *django-extensions*.
-* [pylint-django](https://pypi.org/project/pylint-django/) - **Pylint** plug-in for **Django**. Used to check code compliance.
+* [pylint-django](https://pypi.org/project/pylint-django/) - **Pylint** plug-in for **Django**.
 
 ### Browser Support ###
 The following browsers are all supported by **perkulater**.
@@ -367,8 +367,8 @@ The **perkulater** code base has been developed using the **Django** framework, 
 * **Products**
 * **Profiles**
 
-The project data schema was initially planned using [dbdiagram.io](https://dbdiagram.io/home). The data schema diagram was regularly updated during the development process and is shown below. 
-Please note that the planned schema includes the model **Subscription** which was added for planning purposes. **Subscriptions** do not form part of the phase 1 development but may be 
+The project data schema was initially planned using [dbdiagram.io](https://dbdiagram.io/home). The schema model was regularly updated during the development process and is shown below. 
+Please note that the planned schema includes the table **Subscription** which was added for planning purposes. **Subscriptions** do not form part of the phase 1 development but may be 
 implemented in a future development phase.  
 
 <img src="media/wireframes/perkulater-data-model-planned.png" width="100%" style="margin: 10px;"> 
@@ -379,12 +379,11 @@ and [GraphViz](https://graphviz.org/). The final data scehma is shown below:
 <img src="media/wireframes/perkulater-data-model-final.svg" width="100%" style="margin: 10px;"> 
 
 The database schema was designed for maximum future scalablity and flexibility. Additional future product lines can be easily accomodated due to the design of the schema. 
-**Product** **Categories**, **Types**, **Sizes**, **Prices** and **Coffee** details are all broken out into seperate related models to provide maximum flexibility. **perkulater** 
+**Product** **Categories**, **Types**, **Sizes**, **Prices** and **Coffee** details are all broken out into seperate related tables to provide maximum flexibility. **perkulater** 
 custom models, fields, relationships and methods are explained below:
 
 #### Products Models ####
-* **Product** - related to **Category**, **Price**, **Coffee**, **Offer** and **Review**. 
-The *description_delimeter* field is used to store a delimeter which 
+* **Product** - related to **Category**, **Price**, **Coffee**, **Offer**, **Review** and **Subscription**. The *description_delimeter* field is used to store a delimeter which 
 can optionally split the *description_full* field into seperate paragraphs for rendering in the **Product Information** pop up modal. The *description_short* field can also be 
 optionally split using the delimeter specified in the *description_delimeter* field - the first part of the short description is shown underneath the product name in the 
 **Product Detail** view. The *friendly_name* and *friendy_price* fields are used to display the name and price on the **Product Summary** and **Product Detail** pages. 
@@ -421,7 +420,7 @@ The value of the *discount* field on the *Review* offer (expressed as a percenta
 * **Review** - related to **Product** and **User**. Stores **Product Reviews**. A **Django** signal updates the **Product** *rating* field when a review is added, deleted or edited.
 
 #### Checkout Models ####
-* **Order** - related to **OrderLineItem** abd **UserProfile**. Stores **Orders** after successful checkout. **Order** *order_number* field is automatically added on save. 
+* **Order** - related to **OrderlIneItem** abd **UserProfile**. Stores **Orders** after successful checkout. **Order** *order_number* field is automatically added on save. 
 **Order** *discount*, *order_total*, *previous_total*, *delivery* and *grand_total* fields are automatically updated using a **Django** signal when an **OrderLineItem** 
 is added or deleted.
 
@@ -439,8 +438,8 @@ receiver when a **User** object is updated or created.
 * **Basket** - related to **User**. The *clear_basket* field is set by the **Stripe** webhook handler function to indicate that the order was succesfully created 
 in the webhook handler and that the **Basket** can be cleared. 
 
-[perkulater](https://perkulater.herokuapp.com/) is deployed using [Heroku](https://dashboard.heroku.com/) and 
-[Amazon AWS S3](https://aws.amazon.com/). For further information see [Deployment](#deployment).
+[perkulater](https://perkulater.herokuapp.com/) is deployed using [Heroku](https://dashboard.heroku.com/). 
+For further information see [Deployment](#deployment).
 
 ### Features Implemented ###
 Please note that an account with **Admin** privileges has been created for testing purposes. This will facilitate testing of 
@@ -449,221 +448,97 @@ features which require **Admin** privileges. The username is *testadmin1* and th
 #### Features Implemented in Phase 1 ####
 * **Home Page**, enables users to search for products which are free from one or more allergens:  
 <img src="/static/testing/home.png" width="800px" style="margin: 10px;"> 
-
-* **FreeFrom** logo, links to home page if selected:  
-<img src="/static/testing/logo.png" width="300px" style="margin: 10px;"> 
-
-* **Home Page Alert**, explains the purpose of the site, shows user name if signed in:  
-<img src="/static/testing/home-alert.png" width="700px" style="margin: 10px;"> 
-
-* **Navigation Menu**, enables navigation to the **Home** and **Sign In** pages if the user is not **Signed In**. 
-If the user is **Signed In**, enables **Sign Out**. If the user is signed in with **Admin** privileges, 
-displays the **Allergens** and **Categories** menus:  
-<img src="/static/testing/navigation-menu-guest.png" width="150px" style="margin: 10px;">
-<img src="/static/testing/navigation-menu-user.png" width="150px" style="margin: 10px;">
-<img src="/static/testing/navigation-menu-admin.png" width="400px" style="margin: 10px;"> 
-
-* **Search Input**, allows the user to optionally input product search criteria to filter search results:  
-<img src="/static/testing/search.png" width="500px" style="margin: 10px;">  
-
-* **Category Selector**, allows the user to optionally select category to filter search results:  
-<img src="/static/testing/category.png" width="500px" style="margin: 10px;">  
-
-* **Search Button**, searches the database and returns matched products in the **Product Results Table**. 
-Resizes if the user is not signed in and add button is not displayed:  
-<img src="/static/testing/search-button.png" width="100px" style="margin: 10px;">  
-
-* **Add Button**, links to the **Product Add** form. Only shown if the user is signed in:  
-<img src="/static/testing/add-button.png" width="100px" style="margin: 10px;">  
-
-* **Allergen Selector**, allows the user to optionally select allergens to filter search results:  
-<img src="/static/testing/allergen-selector.png" width="80%" style="margin: 10px;">  
-
-* **Product Results Table**, displays product search results. Product name links to **Product View** page:
-<img src="/static/testing/results-table.png" width="80%" style="margin: 10px;"> 
-
-* **Sign In**, displays form allowing the user to sign in. Includes link to **Register**:  
-<img src="/static/testing/signin.png" width="500px" style="margin: 10px;"> 
-
-* **Register**, displays form allowing the user to register:  
-<img src="/static/testing/register.png" width="500px" style="margin: 10px;"> 
-
-* **Product View**, displays **Product** details. If the user is signed in, allows review and rating to 
-be added or updated.   
-**Add** button enables the user to review and rate **Product**.  
-**Add** button text is changed to **Update** if the user has already reviewed the **Product**.  
-**Update** button updates review and rating if **Product** has already been reviewed by the user.  
-**Product Edit** button links to **Product Edit** page.  
-User reviews are shown below in the **User Reviews Table**:  
-<img src="/static/testing/product-view-add-review.png" width="500px" style="margin: 10px;">  
-
-* **Product Edit**, displays form allowing **Product** to be edited. If the **Product** has been added by the 
-signed in **User**, or if the signed in **User** has **Admin** privileges, **Delete** button is shown:  
-<img src="/static/testing/product-edit.png" width="500px" style="margin: 10px;">  
-
-* **Product Delete Confirm**, displays form confirming **Product** should be deleted:  
-<img src="/static/testing/product-delete-confirm.png" width="800px" style="margin: 10px;">  
-
-* **Product Add**, displays form allowing **Product** to be added:  
-<img src="/static/testing/product-add.png" width="500px" style="margin: 10px;">  
-
-* **Allergen Add**, displays form allowing **Allergen** to be added:  
-<img src="/static/testing/allergen-add.png" width="500px" style="margin: 10px;">  
-
-* **Allergen Edit**, displays form allowing **Allergen** to be edited:  
-<img src="/static/testing/allergen-edit.png" width="500px" style="margin: 10px;">  
-
-* **Allergen Delete**, displays form allowing **Allergen** to be deleted:  
-<img src="/static/testing/allergen-delete.png" width="500px" style="margin: 10px;">  
-
-* **Allergen Delete Confirm**, displays form confirming **Allergen** should be deleted:  
-<img src="/static/testing/allergen-delete-confirm.png" width="800px" style="margin: 10px;">  
-
-* **Category Add**, displays form allowing **Category** to be added:  
-<img src="/static/testing/category-add.png" width="500px" style="margin: 10px;">  
-
-* **Category Edit**, displays form allowing **Category** to be edited:  
-<img src="/static/testing/category-edit.png" width="500px" style="margin: 10px;">  
-
-* **Category Delete**, displays form allowing **Category** to be deleted:  
-<img src="/static/testing/category-delete.png" width="500px" style="margin: 10px;">  
-
-* **Category Delete Confirm**, displays form confirming **Category** should be deleted:  
-<img src="/static/testing/category-delete-confirm.png" width="800px" style="margin: 10px;">  
-
-* **Footer Contact Developer Link**, links to **Contact Developer** form:  
-<img src="/static/testing/contact-link.png" width="150px" style="margin: 10px;">  
-
-* **Footer GitHub Link**, links to developer page on [GitHub](https://github.com/richardhenyash):  
-<img src="/static/testing/github-link.png" width="40px" style="margin: 10px;">  
-
-* **Contact Developer**, enables developer to be contacted by email:  
-<img src="/static/testing/contact.png" width="300px" style="margin: 10px;">  
-
-* **Error Page**, returns a customised error message and link to the **Home** page if an error is encountered:  
-<img src="/static/testing/error-page-not-found.png" width="400px" style="margin: 10px;">  
+ 
 
 #### Features To Be Implemented In Future Development Phases ####
-* Currently, when the user navigates back to the **Home** page from the **Product View** page, 
-the previous search results are not displayed. Adding this functionality was investigated and
-is likely to involve significant restructuring and re-testing of the python code. This feature 
-is recommended to be implemented in a **Future Development Phase**.
-* Functionality for deleting user accounts should be added. Currently this has to be done in the 
-[Mongo DB](https://www.mongodb.com/) back end.
-* Functionality for enabling the user to change their password should be added.
-* Functionality to enable an **Admin** user to assign **Admin** rights to another user, which would allow the user to edit **Categories** and **Allergens**. Currently **Admin** rights have to be assigned in the [Mongo DB](https://www.mongodb.com/) back end.
-* Functionality to enable pictures of **Products** to be uploaded.
-* Functionality to enable **Products** to be added by scanning barcodes.
 
 #### Design Changes During The Phase 1 Development ####
-The following design changes were implemented following initial user feedback:
-* The **Home** and **Product View** page alerts were updated to include links to **Sign In** and **Register** 
-if the user is not signed in:  
-<img src="/static/testing/home-alert-new.png" width="700px" style="margin: 10px;">
-<img src="/static/testing/product-view-alert.png" width="300px" style="margin: 10px;">
-
-* The **Home** page search button was updated to take up the space of the search and add buttons 
-if the user is not signed in:  
-<img src="/static/testing/search-new.png" width="700px" style="margin: 10px;">  
-<img src="/static/testing/search-new-signedin.png" width="700px" style="margin: 10px;">
-
-* The **Register** form was updated to include a link to **Sign In**:  
-<img src="/static/testing/register-new.png" width="500px" style="margin: 10px;">  
-
-* The **Product Add** route was updated to redirect to the **Product View** of the 
-successfully added product.  
-
-* The **Product View** form was updated to include an **Add Product** button:  
-<img src="/static/testing/product-view-update-review-new.png" width="500px" style="margin: 10px;"> 
-
-* **Form Validation** for the **Product** form was updated to allow special characters 
-(e.g. "&", "-" etc) in product names, and to allow **Product** and **Manufacturer** 
-names to be a minumum of 3 characters long.
-
-* Selection highlighting was turned off on the **Product View** form fields.
-
-* Font sizes were increased slightly.
-
-* Additional error checking was implemented.
 
 ### Responsive Styling ###
-* The **Navigation Menu** is collapsible, and collapses to an icon on small devices less than 768 pixels wide. 
-This is implemented using the [Bootstrap Navbar](https://getbootstrap.com/docs/5.0/components/navbar/) component.  
-* The **Search Input**, **Category Selector**, **Search Button** and **Add Button** are responsively styled, 
-and stack on small devices less than 768 pixels wide.  
-* The **Product Results Table** and **User Reviews Table** are responsively styled, so that columns are collapsed 
-on smaller devices. This is implemented using the [DataTables](https://datatables.net/) 
-[Responsive Extension](https://datatables.net/extensions/responsive/). The class **responsive** is added to the 
-**table** html classes. Table columns are assigned a **prioirity** by adding the **data-priority** attribute to 
-the **table header** html.
 
 See **Responsive Design** section in [TESTING.md](TESTING.md) for further information and [Responsive Testing](/static/testing/responsive) screen prints.
 
 ### Python Code Logic ###
-The high level python code logic for each **Django App** is explained in the [UML Diagrams](/media/wireframes/uml/) below: 
+The high level **Python** code logic for each **Django App** is explained in the [UML Logic Diagrams](media/wireframes/uml) below: 
 
-#### [Home](media/wireframes/uml/home-logic.png) ####
-<img src="media/wireframes/uml/products-logic.png" width="800px" style="margin: 10px;">  
+#### [Home](media/wireframes/logic/python/home-logic.png) ####
+<img src="media/wireframes/logic/python/home-logic.png" width="800px" style="margin: 10px;">
 
-#### [Products](media/wireframes/uml/products-logic.png) ####
-<img src="media/wireframes/uml/products-logic.png" width="800px" style="margin: 10px;">  
+#### [Products, Part 1](media/wireframes/logic/python/products-1-logic.png) ####
+<img src="media/wireframes/logic/python/products-1-logic.png" width="800px" style="margin: 10px;">  
 
-#### [Basket](media/wireframes/uml/basket-logic.png) ####
-<img src="media/wireframes/uml/categories-logic.png" width="700px" style="margin: 10px;"> 
+#### [Products, Part 2](media/wireframes/logic/python/products-2-logic.png) ####
+<img src="media/wireframes/logic/python/products-2-logic.png" width="800px" style="margin: 10px;">  
 
-#### [Checkout](media/wireframes/uml/checkout-logic.png) ####
-<img src="media/wireframes/uml/checkout-logic.png" width="700px" style="margin: 10px;">  
+#### [Products, Part 3](media/wireframes/logic/python/products-3-logic.png) ####
+<img src="media/wireframes/logic/python/products-3-logic.png" width="800px" style="margin: 10px;">  
 
-#### [Profiles](media/wireframes/uml/profiles-logic.png) ####
-<img src="media/wireframes/uml/profiles-logic.png" width="700px" style="margin: 10px;">  
+#### [Products, Part 4](media/wireframes/logic/python/products-4-logic.png) ####
+<img src="media/wireframes/logic/python/products-4-logic.png" width="800px" style="margin: 10px;">  
 
-### Python Code Refactoring ###
-After attending an online [Code Institute](https://codeinstitute.net/) seminar on [Python Classes](https://www.w3schools.com/python/python_classes.asp) 
-given by [Ben Kavanagh](https://github.com/BAK2K3), consideration was given to refactoring the code using an object orientated approach. 
-A new [Class](https://github.com/richardhenyash/freefrom/tree/class) branch was created on in the 
-[Project Code Repository](https://github.com/richardhenyash/freefrom). Classes and class methods were created in the 
-**products**, **allergens**, **categories** and **userauth** python code modules. The class orientated approach was succesfully 
-implemented as a test on the **Product View** route, which resulted in a significant simplification of the code. Unfortunately, 
-due to time constraints, it was not possible to implement the object orientated approach across the project, but this should 
-definitely be considered for a future project development phase, and as a better method of working for future projects.
+#### [Basket](media/wireframes/logic/python/basket-logic.png) ####
+<img src="media/wireframes/logic/python/basket-logic.png" width="800px" style="margin: 10px;">  
 
-Due to time constraints, the developer decided to refactor the **Python Code** using **Procedural Programming**. The code was reviewed at a high level, and functions that could be split out and re-used were identified. A [Refactor](https://github.com/richardhenyash/freefrom/tree/refactor) branch was created in the [Project Code Repository](https://github.com/richardhenyash/freefrom). The **Products**, **Categories**, **Allergens**, **User Authentication** and **Mail** modules were refactored, the site was re-tested and the **Refactor** branch was merged into the **Master** branch in the [Project Code Repository](https://github.com/richardhenyash/freefrom). The refactoring has greatly improved the readability of the code 
-and will make any further future development and bug fixes much easier to incorporate.
+#### [Checkout](media/wireframes/logic/python/checkout-logic.png) ####
+<img src="media/wireframes/logic/python/checkout-logic.png" width="800px" style="margin: 10px;">  
+
+#### [Checkout Webhooks](media/wireframes/logic/python/checkout-webhooks-logic.png) ####
+<img src="media/wireframes/logic/python/checkout-webhooks-logic.png" width="800px" style="margin: 10px;"> 
+
+#### [Profiles](media/wireframes/logic/python/profiles-logic.png) ####
+<img src="media/wireframes/logic/python/profiles-logic.png" width="800px" style="margin: 10px;">  
+
 
 ### Form Validation ###
-Form validation is achieved in [Python](https://www.python.org/) using [WTForms](https://wtforms.readthedocs.io/en/2.3.x/). 
-Custom **Form Classes** are defined within the [Forms](/forms.py) module for each required form. 
-Additional custom validators have been imported from [wftorms-validators](https://pypi.org/project/wtforms-validators/) and implemented.
-See below table for form validation implemented using WTForms:  
+Form validation is achieved using [Django Forms](https://docs.djangoproject.com/en/3.2/topics/forms/).
+Custom **Form Classes** are defined within the **Checkout**, **Home**, **Product** and **Profile** **Apps** in the 
+relevant forms.py modules in each **App**. 
+See below table for **perkulater** form validation requirements:  
 
-Form|Field|WTForms Field Type|Required|Minimum Length|Maximum Length|Notes
-----|-----|------------------|--------|--------------|--------------|-----
-Sign In|User Name|StringField|Yes|5|25|May only contain letters or numbers
-Sign In|Password|PasswordField|Yes|5|25|
-Register|User Name|StringField|Yes|5|25|Inherits field from Sign In form class
-Register|Password|PasswordField|Yes|5|25|Inherits field from Sign In form class
-Register|Email|PasswordField|Yes|5|None|Inherits field from Sign In form class
-Register|Confirm Password|PasswordField|Yes|None|None|Must match Password
-Contact|Name|StringField|Yes|3|100|May only contain letters or spaces
-Contact|Email|StringField|Yes|5|None|
-Contact|Message|TextAreaField|Yes|10|500|
-Product Add|Name|StringField|Yes|3|50|
-Product Add|Manufacturer|StringField|Yes|3|50|
-Product Add|FreeFrom|StringField|No|None|None|Automatically populated from check boxes
-Product Add|Review|TextAreaField|Yes|5|50|
-Product Add|Rating|StringField|No|1|1|Automatically populated using JavaScript event handlers
-Product View|Name|StringField|No|None|None|Read Only
-Product View|Manufacturer|StringField|No|None|None|Read Only
-Product View|FreeFrom|StringField|No|None|None|Read Only
-Product View|Review|TextAreaField|Yes|5|250|
-Product View|Rating|StringField|No|1|1|Automatically populated using JavaScript event handlers
-Product Edit|Name|StringField|Yes|3|50|
-Product Edit|Manufacturer|StringField|Yes|3|50|
-Product Edit|FreeFrom|StringField|No|None|None|Automatically populated from check boxes
-Allergen Add|Name|StringField|Yes|3|20|May only contain letters or spaces
-Allergen Edit|Name|StringField|Yes|3|20|May only contain letters or spaces
-Category Add|Name|StringField|Yes|3|30|May only contain letters or spaces
-Category Edit|Name|StringField|Yes|3|30|May only contain letters or spaces
+App|Model|Form|Field|Django Field Type|Required|Maximum Length|Notes
+---|-----|----|-----|------------------|-------|--------------|-----
+Checkout|Order|OrderForm|full_name|CharField|Yes|50|-
+Checkout|Order|OrderForm|email|EmailField|Yes|254|-
+Checkout|Order|OrderForm|phone_number|CharField|Yes|20|-
+Checkout|Order|OrderForm|address_1|CharField|Yes|80|-
+Checkout|Order|OrderForm|address_2|CharField|No|80|-
+Checkout|Order|OrderForm|town_or_city|CharField|Yes|-|-
+Checkout|Order|OrderForm|county|CharField|No|80|-
+Checkout|Order|OrderForm|postcode|CharField|No|20|-
+Checkout|Order|OrderForm|country|CountryField|Yes|-
+Home|-|ContactForm|from_email|EmailField|Yes|-|-
+Home|-|ContactForm|subject|CharField|Yes|100|-
+Home|-|ContactForm|message|CharField|Yes|-|TextArea widget
+Products|Product|ProductForm|category|ChoiceField|No|-|-
+Products|Product|ProductForm|name|CharField|Yes|254|-
+Products|Product|ProductForm|friendly_name|CharField|Yes|254|-
+Products|Product|ProductForm|friendly_price|CharField|Yes|100|-
+Products|Product|ProductForm|description_full|TextField|Yes|-|-
+Products|Product|ProductForm|description_short|CharField|Yes|254|-
+Products|Product|ProductForm|description_delimiter|CharField|Yes|3|-
+Products|Product|ProductForm|image|ImageField|No|-|CustomClearableFileInput widget
+Products|Coffee|CoffeeForm|country|CharField|Yes|100|-
+Products|Coffee|CoffeeForm|farm|CharField|Yes|100|-
+Products|Coffee|CoffeeForm|owner|CharField|Yes|100|-
+Products|Coffee|CoffeeForm|variety|CharField|Yes|100|-
+Products|Coffee|CoffeeForm|altitude|CharField|Yes|100|-
+Products|Coffee|CoffeeForm|town|CharField|Yes|100|-
+Products|Coffee|CoffeeForm|region|CharField|Yes|100|-
+Products|Coffee|CoffeeForm|flavour_profile|CharField|Yes|254|-
+Products|Price|PriceForm|size|ChoiceField|Yes|-|-
+Products|Price|PriceForm|price|DecimalField|Yes|-|max_digits=6, decimal_places=2
+Products|Review|ReviewForm|rating|IntegerField|Yes|-|Min=0, Max=5
+Products|Review|ReviewForm|review|TextField|Yes|-|-
+Profiles|User|UserForm|first_name|CharField|No|150|-
+Profiles|User|UserForm|last_name|CharField|No|150|-
+Profiles|UserProfile|UserProfileForm|phone_number|CharField|No|20|-
+Profiles|UserProfile|UserProfileForm|address_1|CharField|No|80|-
+Profiles|UserProfile|UserProfileForm|address_2|CharField|No|80|-
+Profiles|UserProfile|UserProfileForm|town_or_city|CharField|No|40|-
+Profiles|UserProfile|UserProfileForm|county|CharField|No|80|-
+Profiles|UserProfile|UserProfileForm|postcode|CharField|No|20|-
+Profiles|UserProfile|UserProfileForm|country|CountryField|No|-|-
+Profiles|-|OrderContactForm|message|CharField|Yes|-|TextArea widget
 
 ### JavaScript Code Logic ###
 [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) has been used to implement the following features:  
