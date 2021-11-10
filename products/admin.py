@@ -3,6 +3,9 @@ from.models import Category, Product, Size, Type, Price, Coffee, Offer, Review
 
 
 class ProductAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for Product model
+    """
     list_display = (
         'friendly_name',
         'name',
@@ -15,6 +18,9 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 class CategoryAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for Category model
+    """
     list_display = (
         'friendly_name',
         'name',
@@ -22,6 +28,9 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class PriceAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for Price model
+    """
     list_display = (
         'product',
         'size',
@@ -31,6 +40,9 @@ class PriceAdmin(admin.ModelAdmin):
 
 
 class ReviewAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for Review model
+    """
     list_display = (
         'user',
         'product',

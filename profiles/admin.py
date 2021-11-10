@@ -4,12 +4,18 @@ from.models import UserProfile, Reward
 
 
 class UserProfileAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for UserProfile model
+    """
     list_display = (
         'user_name', 'full_name',
     )
 
 
 class RewardAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for Reward model
+    """
     list_display = (
         'user', 'date'
     )

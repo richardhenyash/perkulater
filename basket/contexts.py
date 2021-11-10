@@ -6,6 +6,9 @@ from .models import Basket
 
 
 def basket_contents(request):
+    """
+    Context processor for Basket
+    """
 
     basket_items = []
     total = 0

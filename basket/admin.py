@@ -3,6 +3,9 @@ from .models import Basket
 
 
 class BasketAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for Basket model
+    """
     list_display = (
         'user', 'clear_basket'
     )
