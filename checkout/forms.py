@@ -21,6 +21,7 @@ class OrderForm(forms.ModelForm):
         labels and set autofocus on first field
         """
         super().__init__(*args, **kwargs)
+        # Set placeholders
         placeholders = {
             'full_name': 'Full Name',
             'email': 'Email Address',
@@ -47,5 +48,5 @@ class OrderForm(forms.ModelForm):
             # Add checkout-input class
             self.fields[field_name].widget.attrs[
                 'class'] = 'checkout-input'
-            # Set label to false
+            # Switch label off
             self.fields[field_name].label = False

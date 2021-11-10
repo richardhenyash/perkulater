@@ -9,8 +9,8 @@ from django_countries.fields import CountryField
 
 class UserProfile(models.Model):
     """
-    A user profile model for maintaining default
-    delivery information and order history
+    A user profile model for storing and updating
+    default delivery information and order history
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=20, blank=True, default="")
@@ -54,6 +54,9 @@ class Reward(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
+        """
+        Return username of linked user
+        """
         return self.user.username
 
 
@@ -62,7 +65,9 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     """
     Create or update the user profile
     """
+    # If user is new
     if created:
+        # Create UserProfile
         UserProfile.objects.create(user=instance)
-    # Existing users: just save the profile
+    # Save UserProfile
     instance.userprofile.save()
