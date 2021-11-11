@@ -66,6 +66,7 @@ def basket_contents(request):
                 'line_item_price': line_item_price,
             })
         else:
+            # Append product key to delete array
             delete_array.append(product_key)
     # If products have been deleted from database, remove from the basket
     if len(delete_array) > 0:
