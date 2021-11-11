@@ -58,7 +58,7 @@
                       </thead>
                     <tr>
                         {{ product.get_description_array|json_script:"product-description-array" }}
-                        <td class="text-bold px-3 text-nowrap pt-1 pb-0">Coffee
+                        <td class="text-bold px-3 text-nowrap pt-1 pb-0">{{ product_category.friendly_name }}
                             <a class="button-info" id="productInformationBtn" href="#" role="button"
                                 data-information-modal-size="modal-xl"
                                 data-information-modal-title="{{ product.friendly_name }}">
