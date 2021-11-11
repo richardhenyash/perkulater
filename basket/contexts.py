@@ -27,39 +27,54 @@ def basket_contents(request):
 
     # Get basket from session
     basket = request.session.get('basket', {})
+    # Initialise array of products to be deleted from basket
+    delete_array = []
     for product_key, product_quantity in basket.items():
         # Split product_key out into id, size and type
         product_info_array = product_key.split("_")
         product_id = product_info_array[0]
         product_size_id = product_info_array[1]
         product_type_id = product_info_array[2]
-        product = get_object_or_404(Product, pk=product_id)
-        # Get Product Category, Size and Type
-        product_category = get_object_or_404(Category, name=product.category)
-        product_size = get_object_or_404(Size, id=product_size_id)
-        product_type = get_object_or_404(Type, id=product_type_id)
-        # Get Product Price
-        queryset = Price.objects.filter(
-            product=product_id, size=product_size.id)
-        product_price = get_object_or_404(queryset)
-        # Calculate line item price
-        line_item_price = product_price.price * product_quantity
-        product_sku = product_price.sku
-        # Add to total
-        total = total + line_item_price
-        # Append to basket_items
-        basket_items.append({
-            'product': product,
-            'product_id': product.id,
-            'product_key': product_key.strip(),
-            'product_category': product_category,
-            'product_quantity': product_quantity,
-            'product_size': product_size,
-            'product_type': product_type,
-            'product_price': product_price,
-            'product_sku': product_sku,
-            'line_item_price': line_item_price,
-        })
+        # product = get_object_or_404(Product, pk=product_id)
+        product = Product.objects.filter(pk=product_id).first()
+        # If product exists in database
+        if product:
+            # Get Product Category, Size and Type
+            product_category = get_object_or_404(Category, name=product.category)
+            product_size = get_object_or_404(Size, id=product_size_id)
+            product_type = get_object_or_404(Type, id=product_type_id)
+            # Get Product Price
+            queryset = Price.objects.filter(
+                product=product_id, size=product_size.id)
+            product_price = get_object_or_404(queryset)
+            # Calculate line item price
+            line_item_price = product_price.price * product_quantity
+            product_sku = product_price.sku
+            # Add to total
+            total = total + line_item_price
+            # Append to basket_items
+            basket_items.append({
+                'product': product,
+                'product_id': product.id,
+                'product_key': product_key.strip(),
+                'product_category': product_category,
+                'product_quantity': product_quantity,
+                'product_size': product_size,
+                'product_type': product_type,
+                'product_price': product_price,
+                'product_sku': product_sku,
+                'line_item_price': line_item_price,
+            })
+        else:
+            delete_array.append(product_key)
+    # If products have been deleted from database, remove from the basket
+    if len(delete_array) > 0:
+        for product_id in delete_array:
+            # Remove product from basket
+            basket.pop(product_key)
+        # Update basket in session
+        request.session['basket'] = basket
+    print(request.session['basket'])
     # Get delivery Offer object
     offer = get_object_or_404(Offer, description="Delivery")
     # Set delivery variables
