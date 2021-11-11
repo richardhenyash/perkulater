@@ -74,7 +74,6 @@ def basket_contents(request):
             basket.pop(product_key)
         # Update basket in session
         request.session['basket'] = basket
-    print(request.session['basket'])
     # Get delivery Offer object
     offer = get_object_or_404(Offer, description="Delivery")
     # Set delivery variables
