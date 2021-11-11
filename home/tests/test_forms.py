@@ -21,6 +21,27 @@ class TestContactForm(TestCase):
         self.assertEqual(
             form.errors['from_email'][0], 'This field is required.')
 
+    def test_email_max_length(self):
+        """Test to check email maximum length is 254 characters"""
+        long_email = ("verylongemailaddressverylongemailaddress"
+                      "verylongemailaddressverylongemailaddress"
+                      "verylongemailaddressverylongemailaddress"
+                      "verylongemailaddressverylongemailaddress"
+                      "verylongemailaddressverylongemailaddress"
+                      "verylongemailaddressverylongemailaddress"
+                      "verylongemailaddress@test.com")
+        form = ContactForm({
+            'from_email': long_email,
+            'subject': "Test Subject",
+            'message': 'Test message content.',
+        })
+        self.assertFalse(form.is_valid())
+        self.assertIn('from_email', form.errors.keys())
+        self.assertEqual(
+            form.errors['from_email'][0][:44],
+            'Ensure this value has at most 254 characters'
+        )
+
     def test_subject_is_required(self):
         """Test to check subject is required"""
         form = ContactForm({
@@ -39,7 +60,6 @@ class TestContactForm(TestCase):
                         "very long email title subject"
                         "very long email title subject"
                         "very long email title subject")
-        print(len(long_subject))
         form = ContactForm({
             'from_email': 'test@test.com',
             'subject': long_subject,
