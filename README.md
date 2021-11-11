@@ -46,14 +46,9 @@
         - [Design Changes During The Phase 1 Development](#design-changes-during-the-phase-1-development)
     - [Responsive Styling](#responsive-styling)
     - [Python Code Logic](#python-code-logic)
-        - [Products](#products)
-        - [Categories](#categories)
-        - [Allergens](#allergens)
-        - [User Authentication](#user-authentication)
-        - [Mail](#mail)
-    - [Python Code Refactoring](#python-code-refactoring)
     - [Form Validation](#form-validation)
     - [JavaScript Code Logic](#javascript-code-logic)
+
 - [Testing](#testing)
 - [Deployment](#deployment)
 - [Credits](#credits)
@@ -442,13 +437,121 @@ in the webhook handler and that the **Basket** can be cleared.
 For further information see [Deployment](#deployment).
 
 ### Features Implemented ###
-Please note that an account with **Admin** privileges has been created for testing purposes. This will facilitate testing of 
-features which require **Admin** privileges. The username is *testadmin1* and the password is *testadmin1*.
+Please note that an account with **Super User** privileges has been created for testing purposes. This will facilitate testing of 
+features which require **Super User** privileges. The username is *testuser5* and the password is *testpassword5*.
 
 #### Features Implemented in Phase 1 ####
-* **Home Page**, enables users to search for products which are free from one or more allergens:  
-<img src="/static/testing/home.png" width="800px" style="margin: 10px;"> 
- 
+* **Home Page**, shows a simple and elegent fade-in animation of the **perkulater** logo, a tagline *Coffee roasted with passion* and a large call to action **Shop** button:  
+<img src="media/testing/home.png" width="300px" style="margin: 10px;"> 
+
+**Features Included in Base Template**  
+The following features are included in the **Base** template, and are shown an all pages except for the **Home** page:
+
+* **Background Image**, an attractive image of coffee beans being processed, masked with a an opaque linear gradient mask in the *Background Level 1* colour, to give the image a dark, faded look.
+
+* **Bootstrap Collapsing Navigation Menu**, navigation menu featuring **perkulater logo**, **Product Search**, **Basket Link**, **User Menu** and **Tagline**. 
+Collapses to **Menu Icon** on smaller devices.  
+ <img src="media/testing/navigation-menu.png" width="800px" style="margin: 10px;"> 
+
+* **perkulater logo**, links to **Products** page if clicked.  
+ <img src="media/testing/perkulater-logo.png" width="200px" style="margin: 10px;">  
+
+* **Product Search**, enables the user to search for **Products**. Returns any the **Products** page with any products that contain the search string entered in the **Product** model *name* or *description_short* fields. 
+Includes hover and focus styling:  
+ <img src="media/testing/product-search.png" width="200px" style="margin: 10px;">   
+
+ * **Basket Link**, links to the **Basket** page. Includes hover styling:  
+ <img src="media/testing/basket-link.png" width="50px" style="margin: 10px;">  
+
+ * **User Menu**, opens a dropdown menu. For non authenticated users, menu items are *Contact*, *Sign In* and *Sign Up*. For authenticated users, menu items are *Contact*, *Profile* and *Sign Out*. 
+ For authenticated super users, menu items are *Add Product*, *Contact*, *Profile* and *Sign Out*. Includes hover styling.
+
+ * **Category** menu, only shown if there is more than one **Product Category** present in the database (there is only currently one category - Coffee).
+ Allows **Products** to be filtered by **Category** and includes hover styling:  
+ <img src="media/testing/category-menu.png" width="200px" style="margin: 10px;"> 
+
+ * **Tagline**, tagline explaining a little bit more about **perkulater**, to encourage users to make a purchase:  
+ <img src="media/testing/tagline.png" width="400px" style="margin: 10px;"> 
+
+* **Footer**, featuring **Footer Tagline** and **Social Media Links**.
+
+* **Footer Tagline**, tagline exaplaining a little bit more about **perkulater**, to encourage users to make a purchase:  
+ <img src="media/testing/footer-tagline.png" width="600px" style="margin: 10px;">  
+
+ * **Social Media Links**, links to **perkulater** social media sites, including hover styling:  
+ <img src="media/testing/social-media-links.png" width="200px" style="margin: 10px;">  
+
+ * **Products**, displays all products. Products can be searched using the **Product Search**. If more **Product Categories** are added in a future development phase, **Products** will 
+ automatically be able to be filtered by **Category**, by selecting the **Category** from the **Navigation Menu**.
+<img src="media/testing/products.png" width="600px" style="margin: 10px;"> 
+
+* **Offer Banner**, display offers read in from the **Offer** model, if the *display_in_banner* field is set to `True`:  
+ <img src="media/testing/offer-banner.png" width="400px" style="margin: 10px;">   
+
+ * **Product Image**, links to **Product Detail** page if clicked. Includes hover styling:  
+ <img src="media/testing/product-image.png" width="200px" style="margin: 10px;">  
+
+ * **Product Summary**, includes **Product Name** (read from **Product** model *friendly_name* field), **Product Rating** (read from **Product** model *rating* field), and **Price** (read from **Product** model *friendly_price* field):  
+ <img src="media/testing/product-summary.png" width="200px" style="margin: 10px;">  
+
+ * **Buy Button**, links to **Product Detail** page, includes hover styling:  
+ <img src="media/testing/product-buy-button.png" width="200px" style="margin: 10px;"> 
+
+* **Product Detail**, displays product details:  
+<img src="media/testing/product-detail.png" width="600px" style="margin: 10px;">  
+
+ * **Product Image**, opens **Information Modal** for **Product** if clicked. **Information Modal** title is set to **Product** model *friendly_name* field. 
+**Information Modal** content is read from the **Product** model *description_full* field, and is split into paragraphs using the delimiter specified in the *description_delimeter* field. 
+Includes hover styling:  
+ <img src="media/testing/product-image.png" width="200px" style="margin: 10px;">  
+
+* **Product Detail Summary**, includes **Product Name**, **Coffee Flavour Profile**, **Product Rating** and **Price**:  
+<img src="media/testing/product-detail-summary.png" width="200px" style="margin: 10px;">  
+
+* **Keep Shopping Button**. Links to **Products** page. Includes hover styling:  
+<img src="media/testing/keep-shopping-button.png" width="100px" style="margin: 10px;"> 
+
+* **Product Information Button**, displays **Information Modal** for **Product**. Button name is set to **Category** model *friendly_name* field. **Information Modal** title is set to **Product** model *friendly_name* field. 
+**Information Modal** content is read from the **Product** model *description_full* field, and is split into paragraphs using the delimiter specified in the *description_delimeter* field. 
+Includes hover styling:  
+<img src="media/testing/product-info.png" width="100px" style="margin: 10px;">  
+
+* **Size Information Button**, displays **Information Modal**. Button name and **Information Modal** title are set to **Category** model *size_description* field. 
+**Information Modal** content is read from the **Category** model *size_information* field, and is split into paragraphs using the delimiter specified in the *information_delimeter* field. 
+Includes hover stlying:  
+<img src="media/testing/size-info.png" width="100px" style="margin: 10px;">  
+
+* **Size Selector**, allows **Size** read from the **Size** model to be selected, includes hover styling:  
+<img src="media/testing/size-selector.png" width="100px" style="margin: 10px;">  
+
+* **Type Selector**, allows **Type** read from the **Type** model to be selected, includes hover styling:  
+<img src="media/testing/type-selector.png" width="100px" style="margin: 10px;">  
+
+* **Type Information Button**, displays **Information Modal**. Button name and **Information Modal** title are set to **Category** model *type_description* field. 
+**Information Modal** content is read from the **Category** model *type_information* field, and is split into paragraphs using the delimiter specified in the *information_delimeter* field. 
+Includes hover stlying:  
+<img src="media/testing/type-info.png" width="100px" style="margin: 10px;">  
+
+* **Product Quantity**, allows product quantity to be selected. Minus button is greyed out and disabled when quantity is 1, Plus button is greyed out and disabled when quantity is 99. Includes hover styling:  
+<img src="media/testing/product-quantity.png" width="100px" style="margin: 10px;">  
+
+* **Product Price**, automatically updated on change of **Size**. Includes **Edit** link to edit prices if user is a **Super User**.
+<img src="media/testing/product-price.png" width="100px" style="margin: 10px;">  
+
+* **Add To Basket**, adds **Product** with selected Size, Type and Quantity to basket. Includes hover styling:  
+<img src="media/testing/product-add-to-basket-button.png" width="100px" style="margin: 10px;">  
+
+* **Create Plan**, displays **Information Modal** explaining that **Create Plan** feature is coming soon.  
+Note that **Create Plan** feature has not been implemented as part of the phase 1 development. Button includes hover styling:  
+<img src="media/testing/product-create-plan-button.png" width="100px" style="margin: 10px;">  
+<img src="media/testing/modal-create-plan.png" width="200px" style="margin: 10px;">  
+
+* **Edit**, links to **Product Edit** page. Only visible to **Super Users**. Includes hover styling:  
+<img src="media/testing/product-edit-button.png" width="100px" style="margin: 10px;">  
+
+* **Delete**, opens **Confirm Modal**, asking user to confirm deletion of **Product**. Only visible to **Super Users**. Button includes hover styling:  
+<img src="media/testing/product-delete-button.png" width="100px" style="margin: 10px;">  
+<img src="media/testing/modal-product-delete-confirm.png" width="200px" style="margin: 10px;">  
 
 #### Features To Be Implemented In Future Development Phases ####
 
@@ -459,40 +562,40 @@ features which require **Admin** privileges. The username is *testadmin1* and th
 See **Responsive Design** section in [TESTING.md](TESTING.md) for further information and [Responsive Testing](/static/testing/responsive) screen prints.
 
 ### Python Code Logic ###
-The high level **Python** code logic for each **Django App** is explained in the [UML Logic Diagrams](media/wireframes/uml) below: 
+The high level **Python** code logic for each **Django App** is explained in the [UML Logic Diagrams](media/wireframes/logic/python) below: 
 
-#### [Home](media/wireframes/logic/python/home-logic.png) ####
+[Home](media/wireframes/logic/python/home-logic.png)  
 <img src="media/wireframes/logic/python/home-logic.png" width="800px" style="margin: 10px;">
 
-#### [Products, Part 1](media/wireframes/logic/python/products-1-logic.png) ####
+[Products Part 1](media/wireframes/logic/python/products-1-logic.png)  
 <img src="media/wireframes/logic/python/products-1-logic.png" width="800px" style="margin: 10px;">  
 
-#### [Products, Part 2](media/wireframes/logic/python/products-2-logic.png) ####
+[Products Python Logic Part 2](media/wireframes/logic/python/products-2-logic.png)  
 <img src="media/wireframes/logic/python/products-2-logic.png" width="800px" style="margin: 10px;">  
 
-#### [Products, Part 3](media/wireframes/logic/python/products-3-logic.png) ####
+[Products Python Logic Part 3](media/wireframes/logic/python/products-3-logic.png)  
 <img src="media/wireframes/logic/python/products-3-logic.png" width="800px" style="margin: 10px;">  
 
-#### [Products, Part 4](media/wireframes/logic/python/products-4-logic.png) ####
+[Products Python Logic Part 4](media/wireframes/logic/python/products-4-logic.png)  
 <img src="media/wireframes/logic/python/products-4-logic.png" width="800px" style="margin: 10px;">  
 
-#### [Basket](media/wireframes/logic/python/basket-logic.png) ####
+[Basket Python Logic](media/wireframes/logic/python/basket-logic.png)  
 <img src="media/wireframes/logic/python/basket-logic.png" width="800px" style="margin: 10px;">  
 
-#### [Checkout](media/wireframes/logic/python/checkout-logic.png) ####
+[Checkout Python Logic](media/wireframes/logic/python/checkout-logic.png)  
 <img src="media/wireframes/logic/python/checkout-logic.png" width="800px" style="margin: 10px;">  
 
-#### [Checkout Webhooks](media/wireframes/logic/python/checkout-webhooks-logic.png) ####
+[Checkout Webhooks Python Logic](media/wireframes/logic/python/checkout-webhooks-logic.png)  
 <img src="media/wireframes/logic/python/checkout-webhooks-logic.png" width="800px" style="margin: 10px;"> 
 
-#### [Profiles](media/wireframes/logic/python/profiles-logic.png) ####
+[Profiles Python Logic](media/wireframes/logic/python/profiles-logic.png)  
 <img src="media/wireframes/logic/python/profiles-logic.png" width="800px" style="margin: 10px;">  
 
 
 ### Form Validation ###
 Form validation is achieved using [Django Forms](https://docs.djangoproject.com/en/3.2/topics/forms/).
-Custom **Form Classes** are defined within the **Checkout**, **Home**, **Product** and **Profile** **Apps** in the 
-relevant forms.py modules in each **App**. 
+Custom **Django Form Classes** are defined within the **Checkout**, **Home**, **Product** and **Profile** **Apps** in the 
+relevant *forms.py* modules in each **App**. 
 See below table for **perkulater** form validation requirements:  
 
 App|Model|Form|Field|Django Field Type|Required|Maximum Length|Notes
@@ -502,14 +605,14 @@ Checkout|Order|OrderForm|email|EmailField|Yes|254|-
 Checkout|Order|OrderForm|phone_number|CharField|Yes|20|-
 Checkout|Order|OrderForm|address_1|CharField|Yes|80|-
 Checkout|Order|OrderForm|address_2|CharField|No|80|-
-Checkout|Order|OrderForm|town_or_city|CharField|Yes|-|-
+Checkout|Order|OrderForm|town_or_city|CharField|Yes|40|-
 Checkout|Order|OrderForm|county|CharField|No|80|-
 Checkout|Order|OrderForm|postcode|CharField|No|20|-
 Checkout|Order|OrderForm|country|CountryField|Yes|-
-Home|-|ContactForm|from_email|EmailField|Yes|-|-
+Home|-|ContactForm|from_email|EmailField|Yes|254|-
 Home|-|ContactForm|subject|CharField|Yes|100|-
 Home|-|ContactForm|message|CharField|Yes|-|TextArea widget
-Products|Product|ProductForm|category|ChoiceField|No|-|-
+Products|Product|ProductForm|category|ChoiceField|Yes|-|-
 Products|Product|ProductForm|name|CharField|Yes|254|-
 Products|Product|ProductForm|friendly_name|CharField|Yes|254|-
 Products|Product|ProductForm|friendly_price|CharField|Yes|100|-
@@ -541,21 +644,36 @@ Profiles|UserProfile|UserProfileForm|country|CountryField|No|-|-
 Profiles|-|OrderContactForm|message|CharField|Yes|-|TextArea widget
 
 ### JavaScript Code Logic ###
-[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) has been used to implement the following features:  
+[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) has been used to implement the following features:
 
-* Initialisation of [DataTables](https://datatables.net/), which are used to display the **Product** search results on the **Home** 
-page and the **Reviews** on the **Product View** page in a searchable, sortable, paginated data table format using a plug in.
+* [Base JavaScript Library](static/js/base.js) - inititlaise bootstrap toasts, build re-usable information and confirm modals, set select colour.
 
-* Clickable **Rating** stars on the **Product View** and **Product Add** forms. When the star icons are clicked on the 
-**Product View** and **Product Add** forms, a hidden form input with the id of "Rating" is updated to the correct "star" rating 
-between 1 and 5 using the **JavaScript** on click event handlers defined in the [Events](/static/js/events.js) module.
+* [Home JavaScript Library](home/static/home/js/home.js) - fade in animation on **perkulater** logo, achieved using **JQuery**.
 
-* When the **Product View** form is ready, the hidden form input with id "Rating" is read and the **Rating** star icons 
-are updated to reflect the correct rating value.
+* [Basket JavaScript Library](basket/static/basket/js/basket.js) - Product quantity plus and minus buttons and update link.
 
-See [UML Diagram](/media/wireframes/uml/) below:  
+* [Checkout JavaScript Library](basket/static/checkout/js/checkout.js) - Stripe card element and payment form submission.
 
-<img src="/media/wireframes/uml/events-logic.png" width="300px" style="margin: 10px;">  
+* [Products JavaScript Library](products/static/products/js/products.js) - Product rating stars, Product review rating stars, 
+Product quantity plus and minus buttons, Product price set, on-click event handlers to build information and confirm modals,
+on change event handler to update image filename of custom clearable file input.
+
+* [Profiles JavaScript Library](profiles/static/profiles/js/profiles.js) - Set country selector to correct placeholder colour.
+
+The high level **JavaScript** code logic for each **JavaScript Library** is explained in the [UML Logic Diagrams](media/wireframes/logic/js) below: 
+
+[Base JavaScript Library](media/wireframes/logic/js/base-js-logic.png)  
+<img src="media/wireframes/logic/js/base-js-logic.png" width="800px" style="margin: 10px;">  
+
+[Home, Profiles and Basket JavaScript Libraries](media/wireframes/logic/js/home-profiles-basket-js-logic.png)  
+<img src="media/wireframes/logic/js/home-profiles-basket-js-logic.png" width="800px" style="margin: 10px;">  
+
+[Checkout JavaScript Library](media/wireframes/logic/js/checkout-js-logic.png)  
+<img src="media/wireframes/logic/js/checkout-js-logic.png" width="800px" style="margin: 10px;">  
+
+[Products JavaScript Library](media/wireframes/logic/js/products-js-logic.png)  
+<img src="media/wireframes/logic/js/products-js-logic.png" width="800px" style="margin: 10px;">  
+
 
 ## Testing ##
 
