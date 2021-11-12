@@ -42,6 +42,14 @@
         - [Basket Models](#basket-models)
     - [Features Implemented](#features-implemented)
         - [Features Implemented in Phase 1](#features-implemented-in-phase-1)
+            - [Features Included In Base Template](#features-included-in-base-template)
+            - [Contact](#contact)
+            - [User Authentication System](#user-authentication-system)
+            - [Products](#products)
+            - [Messaging System](#messaging-system)
+            - [Basket](#basket)
+            - [Checkout](#checkout)
+            - [User Profile](#user-profile)
         - [Features To Be Implemented In Future Development Phases](#features-to-be-implemented-in-future-development-phases)
         - [Design Changes During The Phase 1 Development](#design-changes-during-the-phase-1-development)
     - [Responsive Styling](#responsive-styling)
@@ -444,7 +452,7 @@ features which require **Super User** privileges. The username is *testuser5* an
 * **Home Page**, shows a simple and elegent fade-in animation of the **perkulater** logo, a tagline *Coffee roasted with passion* and a large call to action **Shop** button:  
 <img src="media/testing/home.png" width="300px" style="margin: 10px;"> 
 
-**Features Included in Base Template**  
+#### Features Included in Base Template ##### 
 The following features are included in the **Base** template, and are shown an all pages except for the **Home** page:
 
 * **Background Image**, an attractive image of coffee beans being processed, masked with a an opaque linear gradient mask in the *Background Level 1* colour, to give the image a dark, faded look.
@@ -481,29 +489,57 @@ Includes hover and focus styling:
  * **Social Media Links**, links to **perkulater** social media sites, including hover styling:  
  <img src="media/testing/social-media-links.png" width="200px" style="margin: 10px;">  
 
+#### Contact ####
+
+* **Contact** may be accessed from **User Menu** if the **User** is signed in. Enables the **User** to contact **perkulater** using the form. If the **User** is signed in, populates email address. 
+Required fields are denoted with a *. Form includes input focus styling. **Keep Shopping** button links to **Products** page, and **Send Message** button submits message. 
+Buttons include hover styling. If message is sent succesfully, a toast message is displayed:  
+<img src="media/testing/contact.png" width="300px" style="margin: 10px;">
+<img src="media/testing/toast-success-contact.png" width="300px" style="margin: 10px;">  
+
+#### User Authentication System ####  
+The **User** authentication system is implemented using [django allauth](https://django-allauth.readthedocs.io/en/latest/installation.html). **allauth** templates have been customised to fit the look and feel of the **perkulater** site.  
+
  * **Sign In**, enables registered **Users** to **Sign In**, accessed from **User Menu**. **Sign Up** links to **Sign Up**, **Sign In** button submits **Sign Up** form and **Forgot Password** button links to **Password Reset**. Buttons and link include hover styling. Form errors are shown above the **Login** field. A **Toast Message** is shown on successful sign in:  
 <img src="media/testing/sign-in.png" width="300px" style="margin: 10px;">
-<img src="media/testing/sign-in-error.png" width="300px" style="margin: 10px;">  
+<img src="media/testing/sign-in-error.png" width="300px" style="margin: 10px;">
+<img src="media/testing/toast-success-sign-in.png" width="300px" style="margin: 10px;">  
 
  * **Sign Out**, enables signed in **Users** to **Sign Out**, accessed from **User Menu**.  
  **Sign Out** button submits sign out form. A **Toast Message** is shown on successful sign out:  
-<img src="media/testing/sign-out.png" width="300px" style="margin: 10px;">  
+<img src="media/testing/sign-out.png" width="300px" style="margin: 10px;">
+<img src="media/testing/toast-success-sign-out.png" width="300px" style="margin: 10px;">  
 
  * **Sign Up**, enables unautheticated **Users** to **Sign Up**, accessed from **User Menu**. **Sign In** links to **Sign In** and **Sign Up** button submits **Sign Up** form.  
 Button and link include hover styling. Any form errors are shown below each field. A **Toast Message** is shown on successful **Sign Up**, and an email is sent to the user for verification.  
 When the **User** clicks on the verification link, the **Confirm Email Address** page is shown:  
 <img src="media/testing/sign-up.png" width="300px" style="margin: 10px;">
-<img src="media/testing/sign-up-error.png" width="300px" style="margin: 10px;">  
+<img src="media/testing/sign-up-error.png" width="300px" style="margin: 10px;">
+<img src="media/testing/toast-information-confirmation-email.png" width="300px" style="margin: 10px;"> 
 
 * **Confirm Email Address**, displayed when verification email link is clicked. Enables unauthenticated **Users** to complete **Sign Up**, by pressing the **Confirm** button.  
 Button and email address link include hover styling.  
 A **Toast Message** is shown to provide feedback to the user that the email address has been succesfully confirmed.  
-The **User** is redirected to the **Sign In** page.  
-<img src="media/testing/sign-up-confirm-email.png" width="300px" style="margin: 10px;">  
+The **User** is redirected to the **Sign In** page:  
+<img src="media/testing/sign-up-confirm-email.png" width="300px" style="margin: 10px;">
+<img src="media/testing/toast-success-email-confirm.png" width="300px" style="margin: 10px;">
 
-* **Password Reset**, enables **User** to reset password. **User** may reset password by typing their email address in and hitting the **Reset My Password** button. Button includes hover styling. Any form errors are displayed below the email field:  
+* **Password Reset**, enables **User** to reset password. **User** may reset password by typing their email address in and hitting the **Reset My Password** button. Button includes hover styling. Any form errors are displayed below the email field. A link is sent to the **User's** email address.
+When the **User** clicks on the reset link, the **Change Password** page is shown:  
 <img src="media/testing/password-reset.png" width="300px" style="margin: 10px;">
 <img src="media/testing/password-reset-error.png" width="300px" style="margin: 10px;">  
+<img src="media/testing/password-reset-email-sent.png" width="300px" style="margin: 10px;">  
+
+* **Change Password**, displayed when password reset email link is clicked.  
+**User** may reset their password by typing the same new password in twice and hitting the **Change Password** button. Button includes hover styling.  
+Any form errors are displayed below the form fields.  
+The **Change Password** page is displayed to confirm to the **User** that their passsword has been changed and a **Toast Message** is shown:  
+<img src="media/testing/password-change.png" width="300px" style="margin: 10px;">
+<img src="media/testing/password-change-error.png" width="300px" style="margin: 10px;">  
+<img src="media/testing/password-change-success.png" width="300px" style="margin: 10px;">
+<img src="media/testing/toast-success-password-change.png" width="300px" style="margin: 10px;">  
+
+#### Products #### 
 
  * **Products**, displays all products. Products can be searched using the **Product Search**. If more **Product Categories** are added in a future development phase, **Products** will 
  automatically be able to be filtered by **Category**, by selecting the **Category** from the **Navigation Menu**.
@@ -613,13 +649,20 @@ If a **User** adds a new **Review**, the **Discount** specified in the **Offer**
 <img src="media/testing/product-review-edit.png" width="300px" style="margin: 10px;">
 <img src="media/testing/toast-success-add-review.png" width="300px" style="margin: 10px;">  
 
-* **Toast Messages**, to provide feedback to the user. Displayed at the top right of the screen underneath the **Product Search**. If a **Product** has been added to the **Basket**, 
-displays a preview of the basket.  **View Basket** button links to basket. Button includes hover styling:  
+#### Messaging System #### 
+
+* **Toast Messages** have been implemented using the [django messages framework](https://docs.djangoproject.com/en/3.2/ref/contrib/messages/) and 
+[**Bootstrap Toasts**](https://getbootstrap.com/docs/5.0/components/toasts/). **Toast Messages** provide feedback to the user, displayed at the 
+top right of the screen underneath the **Product Search**.  
+If a **Product** has been added to the **Basket**, the **Toast Message** also displays a 
+preview of the basket. The **View Basket** button links to the **Basket**. Button includes hover styling:  
 <img src="media/testing/toast-success-add-to-basket.png" width="300px" style="margin: 10px;">
-<img src="media/testing/toast-success-update-review.png" width="300px" style="margin: 10px;">  
-<img src="media/testing/toast-error.png" width="300px" style="margin: 10px;">
-<img src="media/testing/toast-warning.png" width="300px" style="margin: 10px;">  
-<img src="media/testing/toast-information.png" width="300px" style="margin: 10px;">  
+<img src="media/testing/toast-success-update-review.png" width="300px" style="margin: 10px;">
+<img src="media/testing/toast-error.png" width="300px" style="margin: 10px;">  
+<img src="media/testing/toast-warning.png" width="300px" style="margin: 10px;">
+<img src="media/testing/toast-information-confirmation-email.png" width="300px" style="margin: 10px;">  
+
+#### Basket #### 
 
 * **Basket**, accessed from **Basket** icon in navigation menu. Shows the **User** their curreent **Basket**. Includes a preview image of the **Product** which links to the **Product Detail** 
 page and includes hover styling. Also includes **Quantity Selector**, **Update** and **Remove** links to enable the **User** to update **Product** quantity in the basket, or remove the **Product** from the **Basket**. **Toast Message** is shown on update or removal of **Products** from **Basket**. **Quantity Selector**, **Update** and **Remove** links include hover styling. **Size** description, **Type** description and **Subtotal** are also shown for each **Product** in the **Basket**. **Total**, **Delivery** and **Grand Total** are shown below.  
@@ -629,6 +672,9 @@ If delivery charges are going to be applied at checkout, another information mes
 <img src="media/testing/basket.png" width="300px" style="margin: 10px;">
 <img src="media/testing/basket-discount.png" width="300px" style="margin: 10px;">
 <img src="media/testing/basket-no-discount.png" width="300px" style="margin: 10px;">  
+
+
+#### Checkout #### 
 
 * **Checkout**, accessed from **Checkout** button on **Basket** page. Form to enable checkout using **Stripe**. **Your Details** and **Delivery** fields are automatically populated from **UserProfile** model for signed in users. All input fields include focus styling and validation.  
 If **Save this delivery information to my profile** is checked, saves valid information given to the **User** and  **UserProfile** models on checkout.  
@@ -652,11 +698,8 @@ Total, Discount (if **Reward** has been applied), Delivery and Grand Total are s
 <img src="media/testing/checkout-success.png" width="300px" style="margin: 10px;">
 <img src="media/testing/toast-success-checkout.png" width="300px" style="margin: 10px;">  
 
-* **Contact** may be accessed from **User Menu** if the **User** is signed in. Enables the **User** to contact **perkulater** using the form. If the **User** is signed in, populates email address. 
-Required fields are denoted with a *. Form includes input focus styling. **Keep Shopping** button links to **Products** page, and **Send Message** button submits message. 
-Buttons include hover styling. If message is sent succesfully, a toast message is displayed:  
-<img src="media/testing/contact.png" width="300px" style="margin: 10px;">
-<img src="media/testing/toast-success-contact.png" width="300px" style="margin: 10px;">  
+
+#### User Profile #### 
 
 * **User Profile** may be accessed from **User Menu** if the **User** is signed in. Enables the **User** to update their default delivery information, and displays the **User's** **Order** history in a **Bootstrap** accordion to the right of the screen.  
 **Update Profile** button saves any valid updated information to the **User** and **UserProfile** models in the database and displays a **Toast** message. Button includes hover styling.  
