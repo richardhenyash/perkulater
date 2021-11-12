@@ -490,6 +490,10 @@ body {
     font-weight: 500;
 }
 
+.form-user .invalid-feedback {
+    color: var(--pink);
+}
+
 .blockLabels span {
     color: var(--pink);
     font-size: 1.2rem;
