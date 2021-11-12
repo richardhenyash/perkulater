@@ -463,8 +463,8 @@ Includes hover and focus styling:
  * **Basket Link**, links to the **Basket** page. Includes hover styling:  
  <img src="media/testing/basket-link.png" width="50px" style="margin: 10px;">  
 
- * **User Menu**, opens a dropdown menu. For non authenticated users, menu items are *Contact*, *Sign In* and *Sign Up*. For authenticated users, menu items are *Contact*, *Profile* and *Sign Out*. 
- For authenticated super users, menu items are *Add Product*, *Contact*, *Profile* and *Sign Out*. Includes hover styling.
+ * **User Menu**, opens a dropdown menu. For non authenticated users, menu items are *Contact*, *Sign In* and *Sign Up*. For signed in users, menu items are *Contact*, *Profile* and *Sign Out*. 
+ For signed in super users, menu items are *Add Product*, *Contact*, *Profile* and *Sign Out*. Includes hover styling.
 
  * **Category** menu, only shown if there is more than one **Product Category** present in the database (there is only currently one category - Coffee).
  Allows **Products** to be filtered by **Category** and includes hover styling:  
@@ -480,6 +480,30 @@ Includes hover and focus styling:
 
  * **Social Media Links**, links to **perkulater** social media sites, including hover styling:  
  <img src="media/testing/social-media-links.png" width="200px" style="margin: 10px;">  
+
+ * **Sign In**, enables registered **Users** to **Sign In**, accessed from **User Menu**. **Sign Up** links to **Sign Up**, **Sign In** button submits **Sign Up** form and **Forgot Password** button links to **Password Reset**. Buttons and link include hover styling. Form errors are shown above the **Login** field. A **Toast Message** is shown on successful sign in:  
+<img src="media/testing/sign-in.png" width="300px" style="margin: 10px;">
+<img src="media/testing/sign-in-error.png" width="300px" style="margin: 10px;">  
+
+ * **Sign Out**, enables signed in **Users** to **Sign Out**, accessed from **User Menu**.  
+ **Sign Out** button submits sign out form. A **Toast Message** is shown on successful sign out:  
+<img src="media/testing/sign-out.png" width="300px" style="margin: 10px;">  
+
+ * **Sign Up**, enables unautheticated **Users** to **Sign Up**, accessed from **User Menu**. **Sign In** links to **Sign In** and **Sign Up** button submits **Sign Up** form.  
+Button and link include hover styling. Any form errors are shown below each field. A **Toast Message** is shown on successful **Sign Up**, and an email is sent to the user for verification.  
+When the **User** clicks on the verification link, the **Confirm Email Address** page is shown:  
+<img src="media/testing/sign-up.png" width="300px" style="margin: 10px;">
+<img src="media/testing/sign-up-error.png" width="300px" style="margin: 10px;">  
+
+* **Confirm Email Address**, displayed when verification email link is clicked. Enables unauthenticated **Users** to complete **Sign Up**, by pressing the **Confirm** button.  
+Button and email address link include hover styling.  
+A **Toast Message** is shown to provide feedback to the user that the email address has been succesfully confirmed.  
+The **User** is redirected to the **Sign In** page.  
+<img src="media/testing/sign-up-confirm-email.png" width="300px" style="margin: 10px;">  
+
+* **Password Reset**, enables **User** to reset password. **User** may reset password by typing their email address in and hitting the **Reset My Password** button. Button includes hover styling. Any form errors are displayed below the email field:  
+<img src="media/testing/password-reset.png" width="300px" style="margin: 10px;">
+<img src="media/testing/password-reset-error.png" width="300px" style="margin: 10px;">  
 
  * **Products**, displays all products. Products can be searched using the **Product Search**. If more **Product Categories** are added in a future development phase, **Products** will 
  automatically be able to be filtered by **Category**, by selecting the **Category** from the **Navigation Menu**.
@@ -505,21 +529,30 @@ Includes hover and focus styling:
 Includes hover styling:  
  <img src="media/testing/product-image.png" width="200px" style="margin: 10px;">  
 
-* **Product Detail Summary**, includes **Product Name**, **Coffee Flavour Profile**, **Product Rating** and **Price**:  
+* **Product Detail Summary**, includes **Product Name**, **Coffee Flavour Profile** if the **Product** is a **Coffee** (or **Short Description** otherwise), **Product Rating** and **Price**:  
 <img src="media/testing/product-detail-summary.png" width="200px" style="margin: 10px;">  
 
-* **Keep Shopping Button**. Links to **Products** page. Includes hover styling:  
+* **Keep Shopping Button**, links to **Products** page. Includes hover styling:  
 <img src="media/testing/keep-shopping-button.png" width="100px" style="margin: 10px;"> 
 
-* **Product Information Button**, displays **Information Modal** for **Product**. Button name is set to **Category** model *friendly_name* field. **Information Modal** title is set to **Product** model *friendly_name* field. 
+* **Coffee Details**, if the product if a **Coffee**:  
+<img src="media/testing/coffee-details.png" width="300px" style="margin: 10px;"> 
+
+* **Product Information Button**, displays **Information Modal** for **Product**.  
+Detailed **Product** information will make give the **User** a much better understanding of the **Products** available, and make the **User** more comfortable making a purchase.  
+**Product Information Button** name is set to **Category** model *friendly_name* field. **Information Modal** title is set to **Product** model *friendly_name* field. 
 **Information Modal** content is read from the **Product** model *description_full* field, and is split into paragraphs using the delimiter specified in the *description_delimeter* field. 
 Includes hover styling:  
 <img src="media/testing/product-info.png" width="100px" style="margin: 10px;">  
+<img src="media/testing/modal-product-info.png" width="600px" style="margin: 10px;">  
 
-* **Size Information Button**, displays **Information Modal**. Button name and **Information Modal** title are set to **Category** model *size_description* field. 
+* **Size Information Button**, displays **Information Modal**.  
+Detailed **Size** information will make give the **User** a much better understanding of the **Product Sizes** available, and make the **User** more comfortable making a purchase.  
+**Size Information Button** name and **Information Modal** title are set to **Category** model *size_description* field. 
 **Information Modal** content is read from the **Category** model *size_information* field, and is split into paragraphs using the delimiter specified in the *information_delimeter* field. 
 Includes hover stlying:  
 <img src="media/testing/size-info.png" width="100px" style="margin: 10px;">  
+<img src="media/testing/modal-size-info.png" width="200px" style="margin: 10px;">  
 
 * **Size Selector**, allows **Size** read from the **Size** model to be selected, includes hover styling:  
 <img src="media/testing/size-selector.png" width="100px" style="margin: 10px;">  
@@ -527,19 +560,23 @@ Includes hover stlying:
 * **Type Selector**, allows **Type** read from the **Type** model to be selected, includes hover styling:  
 <img src="media/testing/type-selector.png" width="100px" style="margin: 10px;">  
 
-* **Type Information Button**, displays **Information Modal**. Button name and **Information Modal** title are set to **Category** model *type_description* field. 
+* **Type Information Button**, displays **Information Modal**.  
+Detailed **Type** information will give the **User** a much better understanding of the **Product Types** available, and make the **User** more comfortable making a purchase.  
+**Type Information Button** name and **Information Modal** title are set to **Category** model *type_description* field. 
 **Information Modal** content is read from the **Category** model *type_information* field, and is split into paragraphs using the delimiter specified in the *information_delimeter* field. 
 Includes hover stlying:  
 <img src="media/testing/type-info.png" width="100px" style="margin: 10px;">  
+<img src="media/testing/modal-type-info.png" width="300px" style="margin: 10px;">  
 
 * **Product Quantity**, allows product quantity to be selected. Minus button is greyed out and disabled when quantity is 1, Plus button is greyed out and disabled when quantity is 99. Includes hover styling:  
-<img src="media/testing/product-quantity.png" width="100px" style="margin: 10px;">  
+<img src="media/testing/product-detail-quantity.png" width="100px" style="margin: 10px;">  
 
 * **Product Price**, automatically updated on change of **Size**. Includes **Edit** link to edit prices if user is a **Super User**.
 <img src="media/testing/product-price.png" width="100px" style="margin: 10px;">  
 
-* **Add To Basket**, adds **Product** with selected Size, Type and Quantity to basket. Includes hover styling:  
+* **Add To Basket**, adds **Product** with selected Size, Type and Quantity to basket, and displays a **Toast** message. Includes hover styling.
 <img src="media/testing/product-add-to-basket-button.png" width="100px" style="margin: 10px;">  
+<img src="media/testing/toast-success-add-to-basket.png" width="300px" style="margin: 10px;">  
 
 * **Create Plan**, displays **Information Modal** explaining that **Create Plan** feature is coming soon.  
 Note that **Create Plan** feature has not been implemented as part of the phase 1 development. Button includes hover styling:  
@@ -549,9 +586,98 @@ Note that **Create Plan** feature has not been implemented as part of the phase 
 * **Edit**, links to **Product Edit** page. Only visible to **Super Users**. Includes hover styling:  
 <img src="media/testing/product-edit-button.png" width="100px" style="margin: 10px;">  
 
-* **Delete**, opens **Confirm Modal**, asking user to confirm deletion of **Product**. Only visible to **Super Users**. Button includes hover styling:  
+* **Delete**, opens **Confirm Modal**, asking user to confirm deletion of **Product**. Restricted to **Super Users**. Button includes hover styling:  
 <img src="media/testing/product-delete-button.png" width="100px" style="margin: 10px;">  
 <img src="media/testing/modal-product-delete-confirm.png" width="200px" style="margin: 10px;">  
+
+* **Customer Reviews**, displays **Reviews** for the **Product**, read from the **Review** model. **Add Review** link is shown if the **User** has not reviewed the **Product**.
+ If the **User** is not signed in, **Add Review** links to the **Sign In** page. If the user is signed in, links to the **Add Review** page. If the user has reviewed the **Product** before, 
+ **Edit** link is shown to allow the **User** to edit their **Review**.
+ If the **User** is signed in as a **Super User**, **Delete** link is also shown. If **Delete** link is clicked, **Review Delete Confirm** modal is shown. All links include hover styling:  
+<img src="media/testing/product-reviews.png" width="100px" style="margin: 10px;">  
+<img src="media/testing/modal-review-delete-confirm.png" width="200px" style="margin: 10px;">  
+
+* **Product Add**, restricted to **Super Users**. Enables a new **Product** to be added. **Select Image** button optionally allows an image to be selected. **View Products** button links back to **Products** page. **Add Product** button adds the new **Product** to the database. All form inputs include focus styling and validation, and all buttons include hover styling.  
+Displays **Toast Message** if product is added succesfully:   
+<img src="media/testing/product-add-1.png" width="45%" style="margin: 10px;">
+<img src="media/testing/product-add-2.png" width="45%" style="margin: 10px;">  
+
+* **Product Edit**, restricted to **Super Users**. Enables an existing **Product** to be edited: **Select Image** button optionally allows an image to be selected. **Back To Product** button links back to **Product Detail** page. **Update Product** button updates the **Product** in the database.  All form inputs include focus styling and validation, and all buttons include hover styling.  
+Displays **Toast Message** if product is updated succesfully:   
+<img src="media/testing/product-edit-1.png" width="45%" style="margin: 10px;">
+<img src="media/testing/product-edit-2.png" width="45%" style="margin: 10px;">  
+
+* **Product Review**, enables the **User** to rate and review a **Product**. **Back To Product** button links to **Product Detail** page. 
+**Submit Review** adds or updates the **Review** in the database.  
+If a **User** adds a new **Review**, the **Discount** specified in the **Offer** model object with *description* field set to *Review* (expressed as a percentage) is applied and a **Toast Message** is displayed. All buttons include hover styling:  
+<img src="media/testing/product-review-edit.png" width="300px" style="margin: 10px;">
+<img src="media/testing/toast-success-add-review.png" width="300px" style="margin: 10px;">  
+
+* **Toast Messages**, to provide feedback to the user. Displayed at the top right of the screen underneath the **Product Search**. If a **Product** has been added to the **Basket**, 
+displays a preview of the basket.  **View Basket** button links to basket. Button includes hover styling:  
+<img src="media/testing/toast-success-add-to-basket.png" width="300px" style="margin: 10px;">
+<img src="media/testing/toast-success-update-review.png" width="300px" style="margin: 10px;">  
+<img src="media/testing/toast-error.png" width="300px" style="margin: 10px;">
+<img src="media/testing/toast-warning.png" width="300px" style="margin: 10px;">  
+<img src="media/testing/toast-information.png" width="300px" style="margin: 10px;">  
+
+* **Basket**, accessed from **Basket** icon in navigation menu. Shows the **User** their curreent **Basket**. Includes a preview image of the **Product** which links to the **Product Detail** 
+page and includes hover styling. Also includes **Quantity Selector**, **Update** and **Remove** links to enable the **User** to update **Product** quantity in the basket, or remove the **Product** from the **Basket**. **Toast Message** is shown on update or removal of **Products** from **Basket**. **Quantity Selector**, **Update** and **Remove** links include hover styling. **Size** description, **Type** description and **Subtotal** are also shown for each **Product** in the **Basket**. **Total**, **Delivery** and **Grand Total** are shown below.  
+If the **User** has a **Reward** to be applied at checkout, the **Discount** is also shown. 
+If the **User** is not signed in, information text is displayed encouraging the **User** to sign in and add a new review to qualify for a discount. If the **User** is signed in but does not currently have a **Reward** to be applied, information text is displayed encouraging the **User** to add a new review to qualify for a discount. 
+If delivery charges are going to be applied at checkout, another information message explains how much more the user needs to spend in order to qualify for free UK delivery. **Keep Shopping** button links back to **Product** page, and **Checkout** button links to **Checkout** page. Buttons include hover styling:  
+<img src="media/testing/basket.png" width="300px" style="margin: 10px;">
+<img src="media/testing/basket-discount.png" width="300px" style="margin: 10px;">
+<img src="media/testing/basket-no-discount.png" width="300px" style="margin: 10px;">  
+
+* **Checkout**, accessed from **Checkout** button on **Basket** page. Form to enable checkout using **Stripe**. **Your Details** and **Delivery** fields are automatically populated from **UserProfile** model for signed in users. All input fields include focus styling and validation.  
+If **Save this delivery information to my profile** is checked, saves valid information given to the **User** and  **UserProfile** models on checkout.  
+**Payment** allows credit card number to be input. Any card errors are displayed below **Payment** input.  
+Information text is displayed below **Payment** input explaining how much the **Users** card will be charged. **Total**, **Delivery** and **Grand Total** are shown at the bottom of the page.  
+If the **User** has a **Reward**, the **Discount** is also shown.  
+If the **User** is not signed in, information text is displayed encouraging the **User** to sign in and add a new review to qualify for a discount. If the **User** is signed in but does not currently have a **Reward** to be applied, information text is displayed encouraging the **User** to add a new **Review** to qualify for a discount.  
+If delivery charges have been applied, another information message explains how much more the user needs to spend in order to qualify for free UK delivery. **Edit Basket** button links back to **Basket** page, and **Pay** button submits the payment via **Stripe**. Buttons include hover styling.  
+A **Product Summary** including **Product** name, preview image, quantity, size and type is also shown. The **Product** image links to the **Product Detail** page and includes hover styling. 
+After the **Pay** button is clicked, a the **Payment Form** is faded out and a **Loading Overlay** is shown while the payment is processed.  
+If **Checkout** is succesfull, **Checkout Success** page is displayed:  
+<img src="media/testing/checkout.png" width="300px" style="margin: 10px;">
+<img src="media/testing/checkout-discount.png" width="300px" style="margin: 10px;">  
+<img src="media/testing/checkout-no-discount.png" width="300px" style="margin: 10px;">
+<img src="media/testing/checkout-card-error.png" width="300px" style="margin: 10px;">  
+<img src="media/testing/loading-overlay.png" width="300px" style="margin: 10px;">
+
+* **Checkout Success**, shown on successful checkout.  Lets the **User** know that an email has been sent to their email address regarding their order. Gives the **User** their **Order** number and date and confirms the **User's** details and delivery details.  
+A **Product Summary** including **Product** name, preview image, quantity, size, type and subtotal is also shown. The **Product** image links to the **Product Detail** page and includes hover styling. 
+Total, Discount (if **Reward** has been applied), Delivery and Grand Total are shown at the bottom of the screen. **Keep Shopping** button links to **Products** page and includes hover styling.  A **Toast** message is also shown, confirming the **User's** email address and the **Order** number:  
+<img src="media/testing/checkout-success.png" width="300px" style="margin: 10px;">
+<img src="media/testing/toast-success-checkout.png" width="300px" style="margin: 10px;">  
+
+* **Contact** may be accessed from **User Menu** if the **User** is signed in. Enables the **User** to contact **perkulater** using the form. If the **User** is signed in, populates email address. 
+Required fields are denoted with a *. Form includes input focus styling. **Keep Shopping** button links to **Products** page, and **Send Message** button submits message. 
+Buttons include hover styling. If message is sent succesfully, a toast message is displayed:  
+<img src="media/testing/contact.png" width="300px" style="margin: 10px;">
+<img src="media/testing/toast-success-contact.png" width="300px" style="margin: 10px;">  
+
+* **User Profile** may be accessed from **User Menu** if the **User** is signed in. Enables the **User** to update their default delivery information, and displays the **User's** **Order** history in a **Bootstrap** accordion to the right of the screen.  
+**Update Profile** button saves any valid updated information to the **User** and **UserProfile** models in the database and displays a **Toast** message. Button includes hover styling.  
+**Orders** are shown by date, and expand when clicked. The **Order Number** links to the **Order History** page when clicked and includes hover styling.  
+A table showing **Product** name and quantity and **Order** grand total is also shown.  
+A **Review** link is displayed next to the **Product** name, enabling the **User** to **Review** the product using the **Product Review** functionality.  
+If **Product Review** is accessed from **User Profile**, back button text is changed to **Back To Profile** and link is updated to route user back to **User Profile**.  
+<img src="media/testing/user-profile.png" width="600px" style="margin: 10px;">  
+
+* **Order History** may be accessed from **User Profile** if the **User** is signed in, and has previously made an **Order**. 
+Enables the **User** to view a past order confirmation. A modified version of the **Checkout Success** page is displayed, showing the **Order** information for the relevant **Order** number. Title is changed to **Past Order Confirmation**, confirmation email text is updated, **Keep Shopping** button is hidden and **Back To Profile** and **Contact** buttons are displayed.  
+**Back To Profile** links to the **User Profile** page. **Contact** button links to **Order Contact**. Buttons include hover styling:  
+<img src="media/testing/order-history.png" width="600px" style="margin: 10px;">  
+
+**Order Contact** may be accessed from **Order History** if the **User** is signed in, and has previously made an **Order**.  
+Enables the **User** to contact **perkulater** about a specific **Order**.  
+The **Order** number and date are presented to the user, along with a form enabling a message to be submitted.  
+**View Order** button links back to **Order History**, and **Send Message** button submits message. Buttons include hover styling.  
+If message is sent succesfully, a toast message is displayed:  
+<img src="media/testing/order-contact.png" width="300px" style="margin: 10px;">
+<img src="media/testing/toast-success-order-contact.png" width="300px" style="margin: 10px;">m  
 
 #### Features To Be Implemented In Future Development Phases ####
 
