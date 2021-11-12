@@ -31,7 +31,11 @@
                 </div>
             </div>
             <h6 class="title-text-large text-center pt-2">{{ product.friendly_name }}</h6>
-            <h6 class="title-text-medium text-center pt-2">{{ coffee_detail.flavour_profile }}</h6>
+            {% if coffee_detail %}
+                <h6 class="title-text-medium text-center pt-2">{{ coffee_detail.flavour_profile }}</h6>
+            {% else %}
+                <h6 class="title-text-medium text-center pt-2">{{ product.get_short_description }}</h6>
+            {% endif %}
             <div id="product-rating-stars" class="product-rating-stars text-center" data-product-rating="{{ product.rating }}">
                 <i id="star-1" class="fas fa-star"></i>
                 <i id="star-2" class="fas fa-star"></i>
