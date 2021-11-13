@@ -602,3 +602,12 @@ def delete_review(request, product_id, user_id):
     )
     # Redirect to Product detail page
     return redirect(reverse('product_detail', args=[product.id]))
+
+
+@login_required
+def review_product_all(request):
+    """
+    Review all products - redirects user to view all products
+    """
+    # Redirect to all Products
+    return redirect(reverse('products'))

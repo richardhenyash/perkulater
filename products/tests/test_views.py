@@ -54,6 +54,11 @@ class TestProductViews(TestCase):
         found = resolve(f'/products/review_product/{product.id}/')
         self.assertEqual(found.url_name, "review_product")
 
+    def test_resolve_review_products_all(self):
+        """Test resolving all products reviews"""
+        found = resolve('/products/review_product/')
+        self.assertEqual(found.url_name, "review_products_all")
+
     def test_resolve_delete_review(self):
         """Test resolving delete review"""
         loginresponse = self.client.login(
@@ -280,6 +285,18 @@ class TestProductViews(TestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "products/review_product.html")
+
+    def test_get_all_reviews(self):
+        """Test returning all reviews redirects to products"""
+        # login as standard user
+        loginresponse = self.client.login(
+            username='unittestuser', password='unittestuserpassword')
+        self.assertTrue(loginresponse)
+        url = '/products/review_product/'
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 302)
+        url = '/products/'
+        self.assertRedirects(response, url)
 
     def test_post_edit_review(self):
         """Test editing a user review for a product"""
