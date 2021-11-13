@@ -446,7 +446,7 @@ For further information see [Deployment](#deployment).
 
 ### Features Implemented ###
 Please note that an account with **Super User** privileges has been created for testing purposes. This will facilitate testing of 
-features which require **Super User** privileges. The username is *testuser5* and the password is *testpassword5*.
+features which require **Super User** privileges. The *username* and *password* will be supplied on submission of the project.
 
 #### Features Implemented in Phase 1 ####
 * **Home Page**, shows a simple and elegent fade-in animation of the **perkulater** logo, a tagline *Coffee roasted with passion* and a large call to action **Shop** button:  
@@ -676,20 +676,24 @@ If delivery charges are going to be applied at checkout, another information mes
 
 #### Checkout #### 
 
-* **Checkout**, accessed from **Checkout** button on **Basket** page. Form to enable checkout using **Stripe**. **Your Details** and **Delivery** fields are automatically populated from **UserProfile** model for signed in users. All input fields include focus styling and validation.  
-If **Save this delivery information to my profile** is checked, saves valid information given to the **User** and  **UserProfile** models on checkout.  
+* **Checkout**, accessed from **Checkout** button on **Basket** page. Form to enable checkout using **Stripe**. **Your Details** and **Delivery** fields are automatically populated from **UserProfile** model for signed in users. All input fields include focus styling and validation:  
+
+Non authenticated **Users** are also permitted to check out, as from a business perspective it could dissuade potential customers from making a purchase if they are required to **Sign Up** for a **User** account in order to complete a purchase.  
+Non authenticated users **Users** are encouraged to **Sign Up** or **Sign In** with  text and links shown under the **Country** field.  
+If **Save this delivery information to my profile** is checked, valid information given in the **Checkout** form is saved to the **User** and  **UserProfile** models on checkout.  
 **Payment** allows credit card number to be input. Any card errors are displayed below **Payment** input.  
 Information text is displayed below **Payment** input explaining how much the **Users** card will be charged. **Total**, **Delivery** and **Grand Total** are shown at the bottom of the page.  
 If the **User** has a **Reward**, the **Discount** is also shown.  
-If the **User** is not signed in, information text is displayed encouraging the **User** to sign in and add a new review to qualify for a discount. If the **User** is signed in but does not currently have a **Reward** to be applied, information text is displayed encouraging the **User** to add a new **Review** to qualify for a discount.  
+If the **User** is not autheticated, information text is displayed encouraging the **User** to sign in and add a new review to qualify for a discount. If the **User** is signed in but does not currently have a **Reward** to be applied, information text is displayed encouraging the **User** to add a new **Review** to qualify for a discount.  
 If delivery charges have been applied, another information message explains how much more the user needs to spend in order to qualify for free UK delivery. **Edit Basket** button links back to **Basket** page, and **Pay** button submits the payment via **Stripe**. Buttons include hover styling.  
 A **Product Summary** including **Product** name, preview image, quantity, size and type is also shown. The **Product** image links to the **Product Detail** page and includes hover styling. 
 After the **Pay** button is clicked, a the **Payment Form** is faded out and a **Loading Overlay** is shown while the payment is processed.  
-If **Checkout** is succesfull, **Checkout Success** page is displayed:  
+If **Checkout** is succesful, **Checkout Success** page is displayed:  
 <img src="media/testing/checkout.png" width="300px" style="margin: 10px;">
-<img src="media/testing/checkout-discount.png" width="300px" style="margin: 10px;">  
-<img src="media/testing/checkout-no-discount.png" width="300px" style="margin: 10px;">
-<img src="media/testing/checkout-card-error.png" width="300px" style="margin: 10px;">  
+<img src="media/testing/checkout-unauthenticated.png" width="300px" style="margin: 10px;">  
+<img src="media/testing/checkout-discount.png" width="300px" style="margin: 10px;">
+<img src="media/testing/checkout-no-discount.png" width="300px" style="margin: 10px;">  
+<img src="media/testing/checkout-card-error.png" width="300px" style="margin: 10px;">
 <img src="media/testing/loading-overlay.png" width="300px" style="margin: 10px;">
 
 * **Checkout Success**, shown on successful checkout.  Lets the **User** know that an email has been sent to their email address regarding their order. Gives the **User** their **Order** number and date and confirms the **User's** details and delivery details.  
@@ -723,10 +727,38 @@ If message is sent succesfully, a toast message is displayed:
 <img src="media/testing/toast-success-order-contact.png" width="300px" style="margin: 10px;">m  
 
 #### Features To Be Implemented In Future Development Phases ####
+The following features have beend identified to add in **Future Development Phases**:  
+* **Create Plan** - to enable **Users** to subscribe to a regular delivery of their favourite coffee(s). 
+* **Create Customised Plan** - to enable **Users** to customise their **Plan** so that they can try a different coffee 
+each time their subscription is fulfilled, tailored to their specific taste preferences.  
+* **Gift Cards** - to enable **Users** to purchase **perkulater** gift cards for friends and family.
+* **Add Category** - to enable the **perkulater** store administrator to add new **Product** **Categories**.
+* **Edit Category** - to enable the **perkulater** store administrator to edit esiting **Product** **Categories**.
+* **Delete Category** - to enable the **perkulater** store administrator to delete existing **Product** lines.
+* **Track Sales Data** - to enable the **perkulater** store administrator to export and analyse sales data from the database.
+
 
 #### Design Changes During The Phase 1 Development ####
+After initial early **User** feedback, the following design changes were made:
+* **Add To Basket**, **Create Plan**, **Edit**, and **Delete** buttons on **Product Detail** page were re-sized to be consistent with the standard **perkulater** button size (class "btn-lg").  
+<img src="media/testing/product-detail-buttons.png" width="100px" style="margin: 10px;">  
+
+* Background colours on the **Size** and **Type** select elements on the **Product Detail** page were updated to the *--background-lvl2* colour:  
+<img src="media/testing/select-background-colour.png" width="100px" style="margin: 10px;">  
+
+* **Sign In** and **Sign Out** functionality was updated to route the user to the page they were previously on after successful **Sign In** or **Sign Out**. The **User** was previously rerouted to the **Home** page. This improves the navigational flow and overall **User Experience**. 
+* An additional view was added so that if the **User** is reviewing a product, then deletes the last part of the *review_product* url (resulting in a url of `products/review_product/`), they are redirected to the **Products** view.  
 
 ### Responsive Styling ###
+* The Navigation Menu is collapsible, and collapses to an icon on small devices less than 576 pixels wide. This is implemented using the **Bootstrap Navbar** component.  
+* The **Products** page is shown as as 2 items wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
+* The **Product Detail** page stacks logically on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
+* The **Product Summary** on the **Basket** page is shown as as 2 items wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
+* The **Product Summary** on the checkout page stacks underneath the **Payment Form** on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
+* The **Product Summary** on the **Checkout Success** page is shown as as 2 items wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
+* The **Order History** on the **User Profile** page stacks underneath the **User Profile Form** on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
+* The **Product Summary** on the **Order History** page is shown as as 2 items wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. This is implemented using the **Bootstrap grid** system.  
+* Various **Text** elements, the **perkulater logo**, **Form Labels**, **Links**, **Toast Messages**, **Containers** and extra large **Button** elements are re-sized on very small devices less than 370px wide. This is achieved using CSS media queries located in the **perkulater Custom CSS**.
 
 See **Responsive Design** section in [TESTING.md](TESTING.md) for further information and [Responsive Testing](/static/testing/responsive) screen prints.
 
@@ -850,55 +882,73 @@ Further testing information and screen prints can be found in [TESTING.md](TESTI
 
 ## Deployment ##
 The project has been developed using [Gitpod](https://www.Gitpod.io/) and [GitHub](https://github.com/). 
-The project was regularly commited to [GitHub](https://github.com/) during the initial development phase.
+The project was regularly commited to [GitHub](https://github.com/) during the initial development phase.  
 The website resides as a repository in [GitHub](https://github.com/), and has been been deployed 
-using [Heroku](https://dashboard.heroku.com/).
+using [Heroku](https://dashboard.heroku.com/).  
+Static files are stored using [Amazon AWS](https://aws.amazon.com/) in an **Amazon Web Services S3 Bucket**.
 
 In order to make a *Fork* or *Clone* of the project, a [GitHub](https://www.Gitpod.io/) account is required. 
 The [Gitpod Browser Extension](https://www.Gitpod.io/docs/browser-extension/) is also recommended.  
 
-The project may be *Forked* by following these steps:
-* Go to the [Project Code Repository Location](https://github.com/richardhenyash/freefrom) on [GitHub](https://github.com/).
+
+<details>
+<summary>To Fork the project:</summary>
+
+* Go to the [Project Code Repository Location](https://github.com/richardhenyash/perkulater) on [GitHub](https://github.com/).
 * In the top-right corner of the page, click *Fork*.  
 
 For further information on *Forking* a [GitHub](https://github.com/) repository, 
 see the [GitHub Documentation](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo).
+</details>
 
-The project may be *Cloned* by following these steps:
-* Go to the [Project Code Repository Location](https://github.com/richardhenyash/freefrom) on [GitHub](https://github.com/).
+<details>
+<summary>To Clone the project:</summary>
+
+* Go to the [Project Code Repository Location](https://github.com/richardhenyash/perkulater) on [GitHub](https://github.com/).
 * Select the *Code* dropdown and choose *GitHub CLI* under *Clone*. This will give you a *URL* that may be copied into the clipboard. 
 * Open the Git Bash command line interface in [Gitpod](https://www.Gitpod.io/).
 * Change the current working directory to the location where you would like the cloned directory to reside.
 * Type `git clone`, and then paste the *URL* copied earlier, eg:  
-`$ git clone https://github.com/richardhenyash/free-from`
+`$ git clone https://github.com/richardhenyash/perkulater`
 * Press Enter to create the local clone.
 * Any required **Python** dependencies should be installed locally using `$ pip install -r requirements.txt`.
 
-The code may also be downloaded to a local computer by following these steps:
-* Go to the [Project Code Repository Location](https://github.com/richardhenyash/freefrom) on [GitHub](https://github.com/).
+For further information on *Cloning* a [GitHub](https://github.com/) repository, see the 
+[GitHub Documentation](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
+</details>
+
+
+<details>
+<summary>To Download the project:</summary>
+
+* Go to the [Project Code Repository Location](https://github.com/richardhenyash/perkulater) on [GitHub](https://github.com/).
 * Select the *Code* dropdown and choose the *Download ZIP* option.
 * This will download a copy of the entire project locally as a .zip file. 
 * Any required **Python** dependencies should be installed locally using the terminal command `$ pip install -r requirements.txt`.
+</details>
 
-For further information on *Cloning* a [GitHub](https://github.com/) repository, see the 
-[GitHub Documentation](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
+<details>
+<summary>To set up the local testing environment:</summary>
 
-To set up the local testing environment once the code has been *Cloned* or *Forked*, an [env.py](/static/testing/deployment/example_env.py) file should be created in the root directory. The [env.py](/static/testing/deployment/example_env.py) file should be included in the *gitignore* file, as it contains sensitive information and should not be committed to a public **GitHub** repository. The [env.py](/static/testing/deployment/example_env.py) file should include the following *environment* variables:  
+To set up the local testing environment once the code has been *Cloned* or *Forked*, 
+the following *environment variables* should be added to the [Gitpod](https://www.Gitpod.io/) *environment variables*.   
+[Gitpod](https://www.Gitpod.io/) *environment variables* can be accessed from the top right of the [Gitpod](https://www.Gitpod.io/) home screen, 
+by clicking on the *User* icon and selecting *Settings*, then *Variables* from the left hand menu.  
 
 Variable|Value|
 --------|-----|
-IP|0.0.0.0|
-PORT|5000
-SECRET_KEY|`your_secret_key`
-MONGO_DBNAME|The Mongo database name, currently set to `freefrom`
-MONGO_URI|The Mongo connection string, currently set to `mongodb+srv://<username>:<password>@<clustername>.z6xjx.mongodb.net/<database_name>?retryWrites=true&w=majority`
-MAIL_USERNAME|The mail account that **Contact** emails will be sent to. Currently set to `freefrom.contact@gmail.com`
-MAIL_PASSWORD|The mail password associated with the mail account that **Contact** emails will be sent to.  
+DVELOPMENT|True|
+SECRET_KEY|`your_django_secret_key`
+STRIPE_PUBLIC_KEY|`your_stripe_public_key`
+STRIPE_SECRET_KEY|`your_stripe_secret_key`
+STRIPE_WH_SECRET|`your_stripe_webhook_secret_key`
 
-Please see [Example env.py file](/static/testing/deployment/example_env.py).
+Note that the *Scope* for each variable should be set to the correct repositiry name, e.g. `richardhenyash/perkulater`.
+</details>
 
+<details>
+<summary>To deploy the website to Heroku:</summary>
 
-The steps required to deploy the website to [Heroku](https://dashboard.heroku.com/) are as follows:
 * To dump the data from your mysql development database to a json file, use following command at the terminal *note - manage.py must be connected to your local mysql development database*:
 `python3 manage.py dumpdata --exclude auth.permission --exclude contenttypes > db.json`
 * Log in to **Heroku**, and create a new **App** by clicking the *New* button in the top right of 
@@ -911,9 +961,11 @@ then click *Create app*.
 which lists all the **Python** dependencies.
 * Import dj_database_url in settings.py.
 * Connect the **POSTGRES** database by setting `DATABASES` in settings.py to the following, where `database_url` is as per the config vars in Heroku settings:
-    `DATABASES = {`
-        `'default': dj_database_url.parse(database_url)`
-    `}`
+```
+    DATABASES = {
+        'default': dj_database_url.parse(database_url)
+    }
+```
 
 * Run `python3 manage.py showmigrations` at the terminal to show migrations to be applied to the new POSTGRES database.
 * Run `python3 manage.py migrate --plan` at the terminal to check the migrations.
@@ -951,28 +1003,33 @@ section and select *GitHub*.
 * Confirm that the application is automatically deploying to **Heroku** by checking the *Build Log* in the *Activity* tab.
 * **Heroku** is now succesfully connected to **GitHub** and any changes made in the **GitHub** repository 
 will be automatically pushed to **Heroku**.
+</details>
 
-Static files are stored in an **Amazon Web Services S3 Bucket**. The process followed to deploy static files to **Amazon S3** was as follows:
+<details>
+<summary>To deploy static files to Amazon AWS, and configure Heroku to read static files from Amazon AWS:</summary>
+
 * Create an **Amazon Web Services** account.
 * Sign in and go to the **AWS Management Console**.
 * Open S3 and create a bucket in S3 (select region closest to your location) - note, uncheck *Block Public Access* and acknowledge that the bucket will be public.
 * Open the bucket settings.
 * On *Properties* tab, turn on static website hosting (use index.html for Index document and error.html for Error document).
 * On *Permissions* tab, paste the following Cross-origin resource sharing (CORS) cofiguration:
-`[`
-  `{`
-      `"AllowedHeaders": [`
-          `"Authorization"`
-      `],`
-      `"AllowedMethods": [`
-          `"GET"`
-      `],`
-      `"AllowedOrigins": [`
-          `"*"`
-      `],`
-      `"ExposeHeaders": []`
-  `}`
-`]`
+```
+    [
+        {
+            "AllowedHeaders": [
+                "Authorization"
+            ],
+            "AllowedMethods": [
+                "GET"
+            ],
+            "AllowedOrigins": [
+                "*"
+            ],
+            "ExposeHeaders": []
+        }
+    ]
+```
 * On *Bucket Policy* tab, go to *Policy Generator* and use the following settings:
 Type of Policy: *S3 Bucket Policy*
 Effect: *Allow*
@@ -991,10 +1048,12 @@ onto the end of the *Resource* line, as per the example below, where `bucketname
 * Create a policy by selecting *Create Policy* in *Policies* under *Access Management*.
 * Go to the *JSON* tab, select *Import Managed Policy* and import the *AmazonS3FullAccess* policy.
 * Edit the *Resource* section as per the example below, where `bucketname` is the Amazon S3 bucket name:
-`"Resource": [`
-    `"arn:aws:s3:::bucketname",`
-    `"arn:aws:s3:::bucketname/*"`
-`]`
+```
+    "Resource": [
+        "arn:aws:s3:::bucketname",
+        "arn:aws:s3:::bucketname/*"
+    ]
+```
 * Click `Review Policy`, give the policy a name and decription amd click *Create Policy*.
 * Attach the policy to the group created earlier by selecting the group in *Groups* under *Access Management*, 
 clicking *Attach Policy* in the *Permissions* tab and selecting the policy created in the previous step.
@@ -1005,26 +1064,31 @@ clicking *Attach Policy* in the *Permissions* tab and selecting the policy creat
 * Freeze requirements using `pip3 freeze > requirements.txt`.
 * Add `'storages'` to `INSTALLED_APPS` in `settings.py`.
 * Add the following settings to `settings.py`, where `bucketname` is the Amazon S3 bucket name (e.g. `perkulater`) and `region` is the bucket region name (e.g. `'eu-west-2'` for the currently deployed perkulater site):
-`if 'USE_AWS' in os.environ:`
-    `# Cache control`
-    `AWS_S3_OBJECT_PARAMETERS = {`
-        `'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',`
-        `'CacheControl': 'max-age=94608000',`
-    `}`    
-    `# Bucket Config`
-    `AWS_STORAGE_BUCKET_NAME = 'bucketname'`
-    `AWS_S3_REGION_NAME = 'bucketregion'`
-    `AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')`
-    `AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')`
-    `AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'`
-    `# Static and media files`
-    `STATICFILES_STORAGE = 'custom_storages.StaticStorage'`
-    `STATICFILES_LOCATION = 'static'`
-    `DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'`
-    `MEDIAFILES_LOCATION = 'media'`
-    `# Override static and media URLs in production`
-    `STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'`
-    `MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'`
+```
+    if 'USE_AWS' in os.environ:
+        # Cache control
+        AWS_S3_OBJECT_PARAMETERS = {
+            'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+            'CacheControl': 'max-age=94608000',
+        }
+
+        # Bucket Config
+        AWS_STORAGE_BUCKET_NAME = 'bucketname'
+        AWS_S3_REGION_NAME = 'region'
+        AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+        AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+        # Static and media files
+        STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+        STATICFILES_LOCATION = 'static'
+        DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+        MEDIAFILES_LOCATION = 'media'
+
+        # Override static and media URLs in production
+        STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+        MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+```
 
 * **Important** - make sure that the amazon access key and secret access keys are kept secret, as these keys could be used to charge amazon services to your account!
 * In the *Dashboard* for the new application, click on *Settings* menu > *Reveal Config Vars*.
@@ -1037,17 +1101,19 @@ AWS_SECRET_ACCESS_KEY|`your_aws_secret_access_key`
 USE_AWS|`True`
 
 * Create a file called `custom_storages.py` in the project root. Add the following code to the file:
-
-`from django.conf import settings`
-`from storages.backends.s3boto3 import S3Boto3Storage`
-
-
-`class StaticStorage(S3Boto3Storage):`
-    `location = settings.STATICFILES_LOCATION`
+```
+    from django.conf import settings
+    from storages.backends.s3boto3 import S3Boto3Storage
 
 
-`class MediaStorage(S3Boto3Storage):`
-    `location = settings.MEDIAFILES_LOCATION`
+    class StaticStorage(S3Boto3Storage):
+        location = settings.STATICFILES_LOCATION
+
+
+    class MediaStorage(S3Boto3Storage):
+        location = settings.MEDIAFILES_LOCATION
+
+```
 
 * Update, commit and push the code to **GitHub** and **Heroku** using the 
 `git add`, `git commit` and `git push` commands.
@@ -1060,6 +1126,11 @@ USE_AWS|`True`
 * Click *Upload* and select all of the required images.
 * Under *Permissions* set *Grant Public Read Access* and confirm.
 * Click *Next* and then *Upload* to complete upload of images.
+</details>
+
+<details>
+<summary>To Configure Stripe for the deployed site :</summary>
+
 * Go to the [Webhook Admin](https://dashboard.stripe.com/test/webhooks) area within **Stripe**.
 * Click *Add Endpoint*, and enter the deployed **Heroku** site url followed by `/checkout/wh/`, e.g. `https//appname.herokuapp.com/checkout.wh/` where `appname` is the application name, and add all events.
 * Click on the endpoint, and click *Reveal* to reveal the *Webhook Secret Key*. Add the key to the **Heroku** environment variables as per the table below.
@@ -1073,54 +1144,37 @@ STRIPE_WH_SECRET|`your_stripe_webhook_secret_key`
 
 * In the **Webhook Admin** area of **Stripe**, select the new *Webhook Endpoint* and test it by hitting the *Send Test Event* button and selecting the `payment_intent.created` event. Stripe should display messgae `Webhook received from Stripe: payment_intent.created`.
 * The deployment to **Heroku** and **Amazon Web Services S3** is now complete.
+</details>
 
 ## Credits ##
 
-* [Pin Clip Art](https://www.pinclipart.com/) for the coffee bean logo.
-
-
-* Thanks to help from Shaun at code instutute, [https://getbootstrap.com/docs/5.0/components/toasts/#usage], and [https://stackoverflow.com/questions/63515279/how-to-initialize-toasts-with-javascript-in-bootstrap-5]
-* Accepting a payment in Stripe: https://stripe.com/docs/payments/accept-a-payment.
-* Using google fonts with stripe: https://stackoverflow.com/questions/43824382/custom-font-src-with-stripe/56985340.
-* CSS loader - loading.io https://loading.io/css/
-* loading overlay - boutique ado project.
-* Stripe webhook handler - code referenced from: https://stripe.com/docs/payments/handling-payment-events
-* Django test client issues:
-https://stackoverflow.com/questions/45533539/django-test-client-get-returns-404-instead-of-200
-https://stackoverflow.com/questions/29425256/django-test-client-gets-404-but-browser-works
-https://stackoverflow.com/questions/23447685/false-404-from-django-test
-
-* Django signals [https://simpleisbetterthancomplex.com/tutorial/2016/07/28/how-to-create-django-signals.html]
-* Django aggregate (used to calculate product average ratings)[https://docs.djangoproject.com/en/3.2/topics/db/aggregation/].
-* Django contact form [https://hellowebbooks.com/news/tutorial-setting-up-a-contact-form-with-django/].
-* Using Django extensions to visualise the Django data model[https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16].
-
-* John CI for his determination in helping me to fix an issue with the image field on my product edit form.
-
-* [Vector Stock](https://www.vectorstock.com/) for the attractive dove logo.
-* [DataTables](https://datatables.net/) for the brilliant tables plug in.
-* [WTForms](https://wtforms.readthedocs.io/en/2.3.x/) for the excellent form validation library and 
-[Crash Course](https://wtforms.readthedocs.io/en/2.3.x/crash_course/) which I followed to implement the **Form Validation**.
-* [wftorms-validators](https://pypi.org/project/wtforms-validators/) for the awesome additional form validation library.
-* My mentor [Reuben Ferrante](https://github.com/arex18) for the examples which helped me implement the **Form Validation**, [Flask Blueprints](https://flask.palletsprojects.com/en/2.0.x/blueprints/) and **Python Unit Testing**.
+* Thanks to **Shaun** at **Code Institute** and the following links for assistance in getting **Toast Messages** configured and working with **Bootstrap 5**:  
+[Bootstrap 5 Toasts Documentation](https://getbootstrap.com/docs/5.0/components/toasts/#usage)  
+[Bootstrap 5 Toasts Stack Overflow Link](https://stackoverflow.com/questions/63515279/how-to-initialize-toasts-with-javascript-in-bootstrap-5)
+* Thanks to **Chris Zeilinski** at **Code Institute** for your dedicated assistance with helping me to get **Django Automated Testing** set up. The following links were also very helpful:  
+[Django Testing Stack Overflow Link 1](https://stackoverflow.com/questions/45533539/django-test-client-get-returns-404-instead-of-200)  
+[Django Testing Stack Overflow Link 2](https://stackoverflow.com/questions/29425256/django-test-client-gets-404-but-browser-works)  
+[Django Testing Stack Overflow Link 3](https://stackoverflow.com/questions/23447685/false-404-from-django-test)
+* Thanks to **John** at **Code Institute** for his determination in helping me to fix an issue with the image field on the **Product Add** and **Product Edit** forms.  
+* Information, help and example code for accepting a payment in **Stripe**: [Stripe Documentation Link](https://stripe.com/docs/payments/accept-a-payment).  
+* Stripe **Webhook** code was referenced from: [Stripe Webhook Example Code](https://stripe.com/docs/payments/handling-payment-events) and modified to suit the specific project needs.  
+* Using **Google Fonts** with **Stripe**: [Stripe Stack Overflow Link](https://stackoverflow.com/questions/43824382/custom-font-src-with-stripe/56985340).
+* CSS loader implemented using [loading.io](https://loading.io/css/).
+* Django signals, used to automatically update order totals and calculate product average ratings: [Django Signal Tutorial Link](https://simpleisbetterthancomplex.com/tutorial/2016/07/28/how-to-create-django-signals.html).
+* Django aggregate, used to calculate product average ratings and order total: [Django Aggregate Documentation Link](https://docs.djangoproject.com/en/3.2/topics/db/aggregation/).
+* Django contact form implementation: [Django Contact Form Tutorial Link]([https://hellowebbooks.com/news/tutorial-setting-up-a-contact-form-with-django/).
+* Using Django extensions to visualise the Django data model: [Django Extensions Medium Link](https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16).  
 * [Google Fonts](https://fonts.google.com/) for the attractive fonts used on the site, which enabled me to get started quickly.
 * [hex 2 rgba](http://hex2rgba.devoth.com/) for the hex to RGBA conversion tool.
-* The excellent [Code Institute](https://codeinstitute.net/) course material which enabled me to succefully implement the project.
-* [ColorSpace](https://mycolor.space/) for the colour ideas generated using the colour pallete generator.
+* The excellent [Code Institute](https://codeinstitute.net/) course material which enabled me to succefully implement the project. I have lent on the **Boutique Ado** example project for guidance on how to implement the **Basket**, **Checkout** and **Stripe** payment system including **Webhooks**.  
+* [Coolors](https://coolors.co/) for the colour ideas generated using the colour pallete generator.
 * [favicon.io](https://favicon.io/favicon-converter/) for the favicon conversion tool.
-* The following [link](https://datatables.net/forums/discussion/51763/page-paging-number-color-styles) for information on **DataTables** 
-page and page number styling.
-* The following [link](https://docs.python.org/3/library/unittest.html#) for information on **unittest**, used for **Python Unit Testing**.
-* The following [link](http://docs.mongoengine.org/guide/mongomock.html) for information on **mongomock**, used to create a "mock" of 
-the **Mongo DB** for **Python Unit Testing**.
-
 
 ## Acknowledgements ##
 
 Many thanks to the following for help and inspiration during this project:
 * My mentor [Reuben Ferrante](https://github.com/arex18) for helping to get me started off on the right footing, for the insightful
-review and comments on the site and for the help with **Form validation**, [Flask Blueprints](https://flask.palletsprojects.com/en/2.0.x/blueprints/), **Python Code Refactoring** and **Python Unit Testing**.  
-* [Neringa Bickmore](https://github.com/neringabickmore) for your encouragement with my project idea.
-* [Ben Kavanagh](https://github.com/BAK2K3) for the very helpful comments on the site and general 
- encouragement, and for the excellent online seminar on **Python Classes**.
-* The [Code Institute](https://codeinstitute.net/) [slack](https://slack.com/intl/en-gb/) community, for all your encouragement and help.
+review and comments on the site and for the help with using **Django Extensions** to visualise the data model.  
+* [Neringa Bickmore](https://github.com/neringabickmore) for your encouragement with my project idea.  
+* [Ben Kavanagh](https://github.com/BAK2K3) for the very helpful comments on the site and general encouragement.  
+* The [Code Institute](https://codeinstitute.net/) [slack](https://slack.com/intl/en-gb/) community, for all your encouragement and help.  
