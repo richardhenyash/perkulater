@@ -40,7 +40,8 @@ def basket_contents(request):
         # If product exists in database
         if product:
             # Get Product Category, Size and Type
-            product_category = get_object_or_404(Category, name=product.category)
+            product_category = get_object_or_404(
+                Category, name=product.category)
             product_size = get_object_or_404(Size, id=product_size_id)
             product_type = get_object_or_404(Type, id=product_type_id)
             # Get Product Price
