@@ -107,9 +107,22 @@
                                 </tr>
                             {% endif %}
                             <tr>
-                                <td class="text-medium text-bold total-table-title px-2 pt-0 pb-1">Delivery</td>
+                                <td class="text-medium text-bold total-table-title px-2 pt-0 pb-1">
+                                    Delivery
+                                    <a class="button-info" id="deliveryInformationBtn" href="#" role="button"
+                                        data-information-modal-size=""
+                                        data-information-modal-title="Delivery Information"
+                                        data-information-modal-content=
+                                            "Minimum delivery charge is £{{ delivery_minimum|floatformat:0 }}.<br>
+                                            Free delivery is applied for all orders over £{{ free_delivery_amount|floatformat:0 }}.<br>
+                                            Otherwise, delivery is charged at {{ delivery_percentage|floatformat:0 }}% of order total.">
+                                        <i class="fas fa-lg fa-info-circle px-1"></i>
+                                    </a>
+                                </td>
                                 {% if delivery > 0 %}
-                                    <td class="text-medium text-bold pt-0 pb-1">£{{ delivery }}</td>
+                                    <td class="text-medium text-bold pt-0 pb-1">
+                                        £{{ delivery }}
+                                    </td>
                                 {% else %}
                                     <td class="text-medium text-bold pt-0 pb-1">Free!</td>
                                 {% endif %}
@@ -189,6 +202,7 @@
             </div>
         </div>
     </div>
+    {% include 'includes/information_modal.html' %}
 </section>
 {% endblock %}
 

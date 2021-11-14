@@ -6,6 +6,11 @@
 /*jshint esversion: 6 */
 /* globals $, incrementQuantity */
 
+// On click event handler added to delivery information button to build modal dialog
+$("#deliveryInformationBtn").click(function() {
+    (buildInformationModal("#deliveryInformationBtn", "information-modal-title", null, "#informationModal", ""));
+});
+
 // On click event handler added to basket quantity minus and plus buttons to increase or decrease product quantity
 $('.basket-quantity-input').each(function () {
     // Get input and button id's

@@ -6,6 +6,11 @@
 /*jshint esversion: 6 */
 /* globals $, Stripe */
 
+// On click event handler added to delivery information button to build modal dialog
+$("#deliveryInformationBtn").click(function() {
+    (buildInformationModal("#deliveryInformationBtn", "information-modal-title", null, "#informationModal", ""));
+});
+
 // Accepting a payment in Stripe: https://stripe.com/docs/payments/accept-a-payment
 // Stripe.js and Stripe elements: https://stripe.com/docs/stripe-js
 // Using google fonts with stripe: https://stackoverflow.com/questions/43824382/custom-font-src-with-stripe/56985340
