@@ -1,7 +1,7 @@
 # perkulater #
 [perkulater Live Site](https://perkulater.herokuapp.com/)  
 
-<img src="media/testing/perkulater-responsive-home.png" width="100%" style="margin: 10px;">  
+<img src="media/testing/perkulater-responsive-home.png" width="100%" style="margin: 20px;">  
 
 ## Contents ##
 - [Background](#background)
@@ -140,7 +140,7 @@ Merchandise|Add company branded merchadise to the product line|1|1|Op-11|3
 
 See **perkulater** strategy chart below. Opportunities to be included for phase 1 are shown in *Red*, and opportunities to be deferred to a future development phase are shown in *Grey*: 
 
-<img src="media/wireframes/perkulater-strategy-chart.png" width="600px" style="margin: 10px;">
+<img src="media/wireframes/perkulater-strategy-chart.png" width="600px" style="margin: 20px;">
 
 ### Project Scope ###
 #### User Demographics ####
@@ -235,31 +235,31 @@ F23|Customised Subscription Service|Customise the subscription service so that c
 
 See **perkulater** scope chart below. Opportunities to be included for phase 1 are shown in *Red*, and opportunities to be deferred to a future development phase are shown in *Grey*: 
 
-<img src="media/wireframes/perkulater-scope-chart.png" width="600px" style="margin: 10px;">
+<img src="media/wireframes/perkulater-scope-chart.png" width="600px" style="margin: 20px;">
 
 ### Site Map ###
 A preliminary [Site Map](media/wireframes/perkulater-site-map.png) was produced for the **Phase 1** development, and is shown below. Note that the **Create Plan** 
 route is also shown. This feature will be implemented in a later devleopment phase, but has been included in the **Site Map** for planning purposes. 
 
-<img src="media/wireframes/perkulater-site-map.svg" width="600px" style="margin: 10px;">
+<img src="media/wireframes/perkulater-site-map.svg" width="600px" style="margin: 20px;">
 
 ### Wireframes ### 
 [Initial Wireframes](media/wireframes/rev0) were produced showing the **Products**, **Product Detail**, **Basket**, **Checkout**, **Sign Up**, **Sign In**, **User Profile**, **Order Detail**, **Order Contact** and **Product Review** page layouts. Note that a wireframe has also been created for the **Create Plan** page layout, which will be implemented in a future developemnt phase.
 The **Products** and **Product Detail** page layouts are shown below:  
 
-<img src="media/wireframes/rev0/products.png" width="600px" style="margin: 10px;">  
+<img src="media/wireframes/rev0/products.png" width="600px" style="margin: 20px;">  
 
-<img src="media/wireframes/rev0/product-detail.png" width="600px" style="margin: 10px;">
+<img src="media/wireframes/rev0/product-detail.png" width="600px" style="margin: 20px;">
 
 [Responsive design wireframes](media/wireframes/rev1) were then produced showing the **Products**, **Product Detail**, **Basket**, **Checkout**, **Create Plan** and **Order Detail** page layouts on **Tablet** and **Phone**. Note that wireframes have also been created for the **Create Plan** page layout, which will be implemented in a future developemnt phase.
 The [Responsive design wireframes](media/wireframes/rev1) for the **Products** and **Product Detail** page layouts are shown below: 
 <p float="left">
-    <img src="media/wireframes/rev1/products-tablet.png" width="400px" style="margin: 10px;">
-    <img src="media/wireframes/rev1/product-detail-tablet.png" width="400px" style="margin: 10px;">
+    <img src="media/wireframes/rev1/products-tablet.png" width="400px" style="margin: 20px;">
+    <img src="media/wireframes/rev1/product-detail-tablet.png" width="400px" style="margin: 20px;">
 </p>
 <p float="left">
     <img src="media/wireframes/rev1/products-phone.png" width="300px" style="margin: 10px; margin-bottom: 80px">
-    <img src="media/wireframes/rev1/product-detail-phone.png" width="300px" style="margin: 10px;">
+    <img src="media/wireframes/rev1/product-detail-phone.png" width="300px" style="margin: 20px;">
 </p>
 
 ### Design Choices ###
@@ -285,9 +285,9 @@ the background to convey depth, and contrasting highlighting colours are used fo
 using the [Coolors](https://coolors.co/) **Colour Palette** generator. The final **Colour Palette** selected 
 is shown below: 
 
-<img src="media/wireframes/colour-palette-bg.png" width="800px" style="margin: 10px;">  
+<img src="media/wireframes/colour-palette-bg.png" width="800px" style="margin: 20px;">  
 
-<img src="media/wireframes/colour-palette-fg.png" width="800px" style="margin: 10px;">  
+<img src="media/wireframes/colour-palette-fg.png" width="800px" style="margin: 20px;">  
 
 * #121212 *Background Level 0* - used for background layering.
 * #1F1F1F *Background Level 1* - main background colour, used for background layering and for masking the background image.
@@ -375,12 +375,12 @@ The project data schema was initially planned using [dbdiagram.io](https://dbdia
 Please note that the planned schema includes the table **Subscription** which was added for planning purposes. **Subscriptions** do not form part of the phase 1 development but may be 
 implemented in a future development phase.  
 
-<img src="media/wireframes/perkulater-data-model-planned.png" width="100%" style="margin: 10px;"> 
+<img src="media/wireframes/perkulater-data-model-planned.png" width="100%" style="margin: 20px;"> 
 
 The final data schema was exported directly fom the **Django** model using [django-extensions](https://django-extensions.readthedocs.io/en/latest/), [pydot](https://github.com/pydot/pydot) 
 and [GraphViz](https://graphviz.org/). The final data scehma is shown below:  
 
-<img src="media/wireframes/perkulater-data-model-final.svg" width="100%" style="margin: 10px;"> 
+<img src="media/wireframes/perkulater-data-model-final.svg" width="100%" style="margin: 20px;"> 
 
 The database schema was designed for maximum future scalablity and flexibility. Additional future product lines can be easily accomodated due to the design of the schema. 
 **Product** **Categories**, **Types**, **Sizes**, **Prices** and **Coffee** details are all broken out into seperate related tables to provide maximum flexibility. **perkulater** 
@@ -451,7 +451,7 @@ features which require **Super User** privileges. The *username* and *password* 
 
 #### Features Implemented in Phase 1 ####
 * **Home Page**, shows a simple and elegent fade-in animation of the **perkulater** logo, a tagline *Coffee roasted with passion* and a large call to action **Shop** button:  
-<img src="media/testing/home.png" width="300px" style="margin: 10px;"> 
+<img src="media/testing/home.png" width="300px" style="margin: 20px;"> 
 
 #### Features Included in Base Template ##### 
 The following features are included in the **Base** template, and are shown an all pages except for the **Home** page:
@@ -495,179 +495,179 @@ Includes hover and focus styling:
 * **Contact** may be accessed from **User Menu** if the **User** is signed in. Enables the **User** to contact **perkulater** using the form. If the **User** is signed in, populates email address. 
 Required fields are denoted with a *. Form includes input focus styling. **Keep Shopping** button links to **Products** page, and **Send Message** button submits message. 
 Buttons include hover styling. If message is sent succesfully, a toast message is displayed:  
-<img src="media/testing/contact.png" width="300px" style="margin: 10px;">
-<img src="media/testing/toast-success-contact.png" width="300px" style="margin: 10px;">  
+<img src="media/testing/contact.png" width="300px" style="margin: 20px;">
+<img src="media/testing/toast-success-contact.png" width="300px" style="margin: 20px;">  
 
 #### User Authentication System ####  
 The **User** authentication system is implemented using [django allauth](https://django-allauth.readthedocs.io/en/latest/installation.html). **allauth** templates have been customised to fit the look and feel of the **perkulater** site.  
 
  * **Sign In**, enables registered **Users** to **Sign In**, accessed from **User Menu**. **Sign Up** links to **Sign Up**, **Sign In** button submits **Sign Up** form and **Forgot Password** button links to **Password Reset**. Buttons and link include hover styling. Form errors are shown above the **Login** field. A **Toast Message** is shown on successful sign in:  
 <p float="left">
-    <img src="media/testing/sign-in.png" width="300px" style="margin: 10px;">
-    <img src="media/testing/sign-in-error.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/sign-in.png" width="300px" style="margin: 20px;">
+    <img src="media/testing/sign-in-error.png" width="300px" style="margin: 20px;">
 </p>
-<img src="media/testing/toast-success-sign-in.png" width="300px" style="margin: 10px;">  
+<img src="media/testing/toast-success-sign-in.png" width="300px" style="margin: 20px;">  
 
  * **Sign Out**, enables signed in **Users** to **Sign Out**, accessed from **User Menu**.  
  **Sign Out** button submits sign out form. A **Toast Message** is shown on successful sign out: 
  <p float="left">
-    <img src="media/testing/sign-out.png" width="300px" style="margin: 10px;">
-    <img src="media/testing/toast-success-sign-out.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/sign-out.png" width="300px" style="margin: 20px;">
+    <img src="media/testing/toast-success-sign-out.png" width="300px" style="margin: 20px;">
 </p>
 
 * **Sign Up**, enables unautheticated **Users** to **Sign Up**, accessed from **User Menu**. **Sign In** links to **Sign In** and **Sign Up** button submits **Sign Up** form.  
 Button and link include hover styling. Any form errors are shown below each field. A **Toast Message** is shown on successful **Sign Up**, and an email is sent to the user for verification.  
 When the **User** clicks on the verification link, the **Confirm Email Address** page is shown: 
 <p float="left"> 
-    <img src="media/testing/sign-up.png" width="300px" style="margin: 10px;">
-    <img src="media/testing/sign-up-error.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/sign-up.png" width="300px" style="margin: 20px;">
+    <img src="media/testing/sign-up-error.png" width="300px" style="margin: 20px;">
 </p>
-<img src="media/testing/toast-information-confirmation-email.png" width="300px" style="margin: 10px;">  
+<img src="media/testing/toast-information-confirmation-email.png" width="300px" style="margin: 20px;">  
 
 * **Confirm Email Address**, displayed when verification email link is clicked. Enables unauthenticated **Users** to complete **Sign Up**, by pressing the **Confirm** button.  
 Button and email address link include hover styling.  
 A **Toast Message** is shown to provide feedback to the user that the email address has been succesfully confirmed.  
 The **User** is redirected to the **Sign In** page: 
 <p float="left">
-    <img src="media/testing/sign-up-confirm-email.png" width="300px" style="margin: 10px;">
-    <img src="media/testing/toast-success-email-confirm.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/sign-up-confirm-email.png" width="300px" style="margin: 20px;">
+    <img src="media/testing/toast-success-email-confirm.png" width="300px" style="margin: 20px;">
 </p>
 
 * **Password Reset**, enables **User** to reset password. **User** may reset password by typing their email address in and hitting the **Reset My Password** button. Button includes hover styling. Any form errors are displayed below the email field. A link is sent to the **User's** email address.
 When the **User** clicks on the reset link, the **Change Password** page is shown: 
 <p float="left"> 
-    <img src="media/testing/password-reset.png" width="300px" style="margin: 10px;">
-    <img src="media/testing/password-reset-error.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/password-reset.png" width="300px" style="margin: 20px;">
+    <img src="media/testing/password-reset-error.png" width="300px" style="margin: 20px;">
 </p>
-<img src="media/testing/password-reset-email-sent.png" width="300px" style="margin: 10px;">  
+<img src="media/testing/password-reset-email-sent.png" width="300px" style="margin: 20px;">  
 
 * **Change Password**, displayed when password reset email link is clicked.  
 **User** may reset their password by typing the same new password in twice and hitting the **Change Password** button. Button includes hover styling.  
 Any form errors are displayed below the form fields.  
 The **Change Password** page is displayed to confirm to the **User** that their passsword has been changed and a **Toast Message** is shown: 
 <p float="left">
-    <img src="media/testing/password-change.png" width="300px" style="margin: 10px;">
-    <img src="media/testing/password-change-error.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/password-change.png" width="300px" style="margin: 20px;">
+    <img src="media/testing/password-change-error.png" width="300px" style="margin: 20px;">
 </p>
 <p float="left">
-    <img src="media/testing/password-change-success.png" width="300px" style="margin: 10px;">
-    <img src="media/testing/toast-success-password-change.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/password-change-success.png" width="300px" style="margin: 20px;">
+    <img src="media/testing/toast-success-password-change.png" width="300px" style="margin: 20px;">
 </p>
 
 #### Products #### 
 
  * **Products**, displays all products. Products can be searched using the **Product Search**. If more **Product Categories** are added in a future development phase, **Products** will 
  automatically be able to be filtered by **Category**, by selecting the **Category** from the **Navigation Menu**.
-<img src="media/testing/products.png" width="600px" style="margin: 10px;"> 
+<img src="media/testing/products.png" width="600px" style="margin: 20px;"> 
 
 * **Offer Banner**, display offers read in from the **Offer** model, if the *display_in_banner* field is set to `True`:  
- <img src="media/testing/offer-banner.png" width="400px" style="margin: 10px;">   
+ <img src="media/testing/offer-banner.png" width="400px" style="margin: 20px;">   
 
  * **Product Image**, links to **Product Detail** page if clicked. Includes hover styling:  
- <img src="media/testing/product-image.png" width="200px" style="margin: 10px;">  
+ <img src="media/testing/product-image.png" width="200px" style="margin: 20px;">  
 
  * **Product Summary**, includes **Product Name** (read from **Product** model *friendly_name* field), **Product Rating** (read from **Product** model *rating* field), and **Price** (read from **Product** model *friendly_price* field):  
- <img src="media/testing/product-summary.png" width="200px" style="margin: 10px;">  
+ <img src="media/testing/product-summary.png" width="200px" style="margin: 20px;">  
 
  * **Buy Button**, links to **Product Detail** page, includes hover styling:  
- <img src="media/testing/product-buy-button.png" width="200px" style="margin: 10px;"> 
+ <img src="media/testing/product-buy-button.png" width="200px" style="margin: 20px;"> 
 
 * **Product Detail**, displays product details:  
-<img src="media/testing/product-detail.png" width="600px" style="margin: 10px;">  
+<img src="media/testing/product-detail.png" width="600px" style="margin: 20px;">  
 
  * **Product Image**, opens **Information Modal** for **Product** if clicked. **Information Modal** title is set to **Product** model *friendly_name* field. 
 **Information Modal** content is read from the **Product** model *description_full* field, and is split into paragraphs using the delimiter specified in the *description_delimeter* field. 
 Includes hover styling:  
- <img src="media/testing/product-image.png" width="200px" style="margin: 10px;">  
+ <img src="media/testing/product-image.png" width="200px" style="margin: 20px;">  
 
 * **Product Detail Summary**, includes **Product Name**, **Coffee Flavour Profile** if the **Product** is a **Coffee** (or **Short Description** otherwise), **Product Rating** and **Price**:  
-<img src="media/testing/product-detail-summary.png" width="200px" style="margin: 10px;">  
+<img src="media/testing/product-detail-summary.png" width="200px" style="margin: 20px;">  
 
 * **Keep Shopping Button**, links to **Products** page. Includes hover styling:  
-<img src="media/testing/keep-shopping-button.png" width="100px" style="margin: 10px;"> 
+<img src="media/testing/keep-shopping-button.png" width="100px" style="margin: 20px;"> 
 
 * **Coffee Details**, if the product if a **Coffee**:  
-<img src="media/testing/coffee-details.png" width="300px" style="margin: 10px;"> 
+<img src="media/testing/coffee-details.png" width="300px" style="margin: 20px;"> 
 
 * **Product Information Button**, displays **Information Modal** for **Product**.  
 Detailed **Product** information will make give the **User** a much better understanding of the **Products** available, and make the **User** more comfortable making a purchase.  
 **Product Information Button** name is set to **Category** model *friendly_name* field. **Information Modal** title is set to **Product** model *friendly_name* field. 
 **Information Modal** content is read from the **Product** model *description_full* field, and is split into paragraphs using the delimiter specified in the *description_delimeter* field. 
 Includes hover styling:  
-<img src="media/testing/product-info.png" width="100px" style="margin: 10px;">  
-<img src="media/testing/modal-product-info.png" width="600px" style="margin: 10px;">  
+<img src="media/testing/product-info.png" width="100px" style="margin: 20px;">  
+<img src="media/testing/modal-product-info.png" width="600px" style="margin: 20px;">  
 
 * **Size Information Button**, displays **Information Modal**.  
 Detailed **Size** information will make give the **User** a much better understanding of the **Product Sizes** available, and make the **User** more comfortable making a purchase.  
 **Size Information Button** name and **Information Modal** title are set to **Category** model *size_description* field. 
 **Information Modal** content is read from the **Category** model *size_information* field, and is split into paragraphs using the delimiter specified in the *information_delimeter* field. 
 Includes hover stlying:  
-<img src="media/testing/size-info.png" width="100px" style="margin: 10px;">  
-<img src="media/testing/modal-size-info.png" width="200px" style="margin: 10px;">  
+<img src="media/testing/size-info.png" width="100px" style="margin: 20px;">  
+<img src="media/testing/modal-size-info.png" width="200px" style="margin: 20px;">  
 
 * **Size Selector**, allows **Size** read from the **Size** model to be selected, includes hover styling:  
-<img src="media/testing/size-selector.png" width="100px" style="margin: 10px;">  
+<img src="media/testing/size-selector.png" width="100px" style="margin: 20px;">  
 
 * **Type Selector**, allows **Type** read from the **Type** model to be selected, includes hover styling:  
-<img src="media/testing/type-selector.png" width="100px" style="margin: 10px;">  
+<img src="media/testing/type-selector.png" width="100px" style="margin: 20px;">  
 
 * **Type Information Button**, displays **Information Modal**.  
 Detailed **Type** information will give the **User** a much better understanding of the **Product Types** available, and make the **User** more comfortable making a purchase.  
 **Type Information Button** name and **Information Modal** title are set to **Category** model *type_description* field. 
 **Information Modal** content is read from the **Category** model *type_information* field, and is split into paragraphs using the delimiter specified in the *information_delimeter* field. 
 Includes hover stlying:  
-<img src="media/testing/type-info.png" width="100px" style="margin: 10px;">  
-<img src="media/testing/modal-type-info.png" width="300px" style="margin: 10px;">  
+<img src="media/testing/type-info.png" width="100px" style="margin: 20px;">  
+<img src="media/testing/modal-type-info.png" width="300px" style="margin: 20px;">  
 
 * **Product Quantity**, allows product quantity to be selected. Minus button is greyed out and disabled when quantity is 1, Plus button is greyed out and disabled when quantity is 99. Includes hover styling:  
-<img src="media/testing/product-detail-quantity.png" width="100px" style="margin: 10px;">  
+<img src="media/testing/product-detail-quantity.png" width="100px" style="margin: 20px;">  
 
 * **Product Price**, automatically updated on change of **Size**. Includes **Edit** link to edit prices if user is a **Super User**.
-<img src="media/testing/product-price.png" width="100px" style="margin: 10px;">  
+<img src="media/testing/product-price.png" width="100px" style="margin: 20px;">  
 
 * **Add To Basket**, adds **Product** with selected Size, Type and Quantity to basket, and displays a **Toast** message. Includes hover styling.
-<img src="media/testing/product-add-to-basket-button.png" width="100px" style="margin: 10px;">  
-<img src="media/testing/toast-success-add-to-basket.png" width="300px" style="margin: 10px;">  
+<img src="media/testing/product-add-to-basket-button.png" width="100px" style="margin: 20px;">  
+<img src="media/testing/toast-success-add-to-basket.png" width="300px" style="margin: 20px;">  
 
 * **Create Plan**, displays **Information Modal** explaining that **Create Plan** feature is coming soon.  
 Note that **Create Plan** feature has not been implemented as part of the phase 1 development. Button includes hover styling:  
-<img src="media/testing/product-create-plan-button.png" width="100px" style="margin: 10px;">  
-<img src="media/testing/modal-create-plan.png" width="200px" style="margin: 10px;">  
+<img src="media/testing/product-create-plan-button.png" width="100px" style="margin: 20px;">  
+<img src="media/testing/modal-create-plan.png" width="200px" style="margin: 20px;">  
 
 * **Edit**, links to **Product Edit** page. Only visible to **Super Users**. Includes hover styling:  
-<img src="media/testing/product-edit-button.png" width="100px" style="margin: 10px;">  
+<img src="media/testing/product-edit-button.png" width="100px" style="margin: 20px;">  
 
 * **Delete**, opens **Confirm Modal**, asking user to confirm deletion of **Product**. Restricted to **Super Users**. Button includes hover styling:  
-<img src="media/testing/product-delete-button.png" width="100px" style="margin: 10px;">  
-<img src="media/testing/modal-product-delete-confirm.png" width="200px" style="margin: 10px;">  
+<img src="media/testing/product-delete-button.png" width="100px" style="margin: 20px;">  
+<img src="media/testing/modal-product-delete-confirm.png" width="200px" style="margin: 20px;">  
 
 * **Customer Reviews**, displays **Reviews** for the **Product**, read from the **Review** model. **Add Review** link is shown if the **User** has not reviewed the **Product**.
  If the **User** is not signed in, **Add Review** links to the **Sign In** page. If the user is signed in, links to the **Add Review** page. If the user has reviewed the **Product** before, 
  **Edit** link is shown to allow the **User** to edit their **Review**.
  If the **User** is signed in as a **Super User**, **Delete** link is also shown. If **Delete** link is clicked, **Review Delete Confirm** modal is shown. All links include hover styling:  
-<img src="media/testing/product-reviews.png" width="100px" style="margin: 10px;">  
-<img src="media/testing/modal-review-delete-confirm.png" width="200px" style="margin: 10px;">  
+<img src="media/testing/product-reviews.png" width="100px" style="margin: 20px;">  
+<img src="media/testing/modal-review-delete-confirm.png" width="200px" style="margin: 20px;">  
 
 * **Product Add**, restricted to **Super Users**. Enables a new **Product** to be added. **Select Image** button optionally allows an image to be selected. **View Products** button links back to **Products** page. **Add Product** button adds the new **Product** to the database. All form inputs include focus styling and validation, and all buttons include hover styling.  
 Displays **Toast Message** if product is added succesfully:   
 <p float="left">
-    <img src="media/testing/product-add-1.png" width="45%" style="margin: 10px;">
-    <img src="media/testing/product-add-2.png" width="45%" style="margin: 10px;">
+    <img src="media/testing/product-add-1.png" width="45%" style="margin: 20px;">
+    <img src="media/testing/product-add-2.png" width="45%" style="margin: 20px;">
 </p>
 
 * **Product Edit**, restricted to **Super Users**. Enables an existing **Product** to be edited: **Select Image** button optionally allows an image to be selected. **Back To Product** button links back to **Product Detail** page. **Update Product** button updates the **Product** in the database.  All form inputs include focus styling and validation, and all buttons include hover styling.  
 Displays **Toast Message** if product is updated succesfully:
 <p float="left">   
-    <img src="media/testing/product-edit-1.png" width="45%" style="margin: 10px;">
-    <img src="media/testing/product-edit-2.png" width="45%" style="margin: 10px;">
+    <img src="media/testing/product-edit-1.png" width="45%" style="margin: 20px;">
+    <img src="media/testing/product-edit-2.png" width="45%" style="margin: 20px;">
 </p> 
 
 * **Product Review**, enables the **User** to rate and review a **Product**. **Back To Product** button links to **Product Detail** page. 
 **Submit Review** adds or updates the **Review** in the database.  
 If a **User** adds a new **Review**, the **Discount** specified in the **Offer** model object with *description* field set to *Review* (expressed as a percentage) is applied and a **Toast Message** is displayed. All buttons include hover styling:  
 <p float="left">
-    <img src="media/testing/product-review-edit.png" width="300px" style="margin: 10px;">
-    <img src="media/testing/toast-success-add-review.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/product-review-edit.png" width="300px" style="margin: 20px;">
+    <img src="media/testing/toast-success-add-review.png" width="300px" style="margin: 20px;">
 </p>
 
 #### Messaging System #### 
@@ -678,14 +678,14 @@ top right of the screen underneath the **Product Search**.
 If a **Product** has been added to the **Basket**, the **Toast Message** also displays a 
 preview of the basket. The **View Basket** button links to the **Basket**. Button includes hover styling:  
 <p float="left">
-    <img src="media/testing/toast-success-add-to-basket.png" width="300px" style="margin: 10px;">
-    <img src="media/testing/toast-success-update-review.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/toast-success-add-to-basket.png" width="300px" style="margin: 20px;">
+    <img src="media/testing/toast-success-update-review.png" width="300px" style="margin: 20px;">
 </p>
 <p float="left">
-    <img src="media/testing/toast-error.png" width="300px" style="margin: 10px;">
-    <img src="media/testing/toast-warning.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/toast-error.png" width="300px" style="margin: 20px;">
+    <img src="media/testing/toast-warning.png" width="300px" style="margin: 20px;">
 </p>
-<img src="media/testing/toast-information-confirmation-email.png" width="300px" style="margin: 10px;">
+<img src="media/testing/toast-information-confirmation-email.png" width="300px" style="margin: 20px;">
 
 #### Basket #### 
 
@@ -694,9 +694,9 @@ page and includes hover styling. Also includes **Quantity Selector**, **Update**
 If the **User** has a **Reward** to be applied at checkout, the **Discount** is also shown. 
 If the **User** is not signed in, information text is displayed encouraging the **User** to sign in and add a new review to qualify for a discount. If the **User** is signed in but does not currently have a **Reward** to be applied, information text is displayed encouraging the **User** to add a new review to qualify for a discount. 
 If delivery charges are going to be applied at checkout, another information message explains how much more the user needs to spend in order to qualify for free UK delivery. **Keep Shopping** button links back to **Product** page, and **Checkout** button links to **Checkout** page. Buttons include hover styling:  
-<img src="media/testing/basket.png" width="300px" style="margin: 10px;">
-<img src="media/testing/basket-discount.png" width="300px" style="margin: 10px;">
-<img src="media/testing/basket-no-discount.png" width="300px" style="margin: 10px;">  
+<img src="media/testing/basket.png" width="300px" style="margin: 20px;">
+<img src="media/testing/basket-discount.png" width="300px" style="margin: 20px;">
+<img src="media/testing/basket-no-discount.png" width="300px" style="margin: 20px;">  
 
 
 #### Checkout #### 
@@ -714,24 +714,24 @@ A **Product Summary** including **Product** name, preview image, quantity, size 
 After the **Pay** button is clicked, a the **Payment Form** is faded out and a **Loading Overlay** is shown while the payment is processed.  
 If **Checkout** is succesful, **Checkout Success** page is displayed:  
 <p float="left">
-    <img src="media/testing/checkout.png" width="300px" style="margin: 10px;">
-    <img src="media/testing/checkout-unauthenticated.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/checkout.png" width="300px" style="margin: 20px;">
+    <img src="media/testing/checkout-unauthenticated.png" width="300px" style="margin: 20px;">
 </p>
 <p float="left">
-    <img src="media/testing/checkout-discount.png" width="300px" style="margin: 10px;">
-    <img src="media/testing/checkout-no-discount.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/checkout-discount.png" width="300px" style="margin: 20px;">
+    <img src="media/testing/checkout-no-discount.png" width="300px" style="margin: 20px;">
 </p>
 <p float="left">
-    <img src="media/testing/checkout-card-error.png" width="300px" style="margin: 10px;">
-    <img src="media/testing/loading-overlay.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/checkout-card-error.png" width="300px" style="margin: 20px;">
+    <img src="media/testing/loading-overlay.png" width="300px" style="margin: 20px;">
 </p>
 
 * **Checkout Success**, shown on successful checkout.  Lets the **User** know that an email has been sent to their email address regarding their order. Gives the **User** their **Order** number and date and confirms the **User's** details and delivery details.  
 A **Product Summary** including **Product** name, preview image, quantity, size, type and subtotal is also shown. The **Product** image links to the **Product Detail** page and includes hover styling. 
 Total, Discount (if **Reward** has been applied), Delivery and Grand Total are shown at the bottom of the screen. **Keep Shopping** button links to **Products** page and includes hover styling.  A **Toast** message is also shown, confirming the **User's** email address and the **Order** number:  
 <p float="left">
-    <img src="media/testing/checkout-success.png" width="300px" style="margin: 10px;">
-    <img src="media/testing/toast-success-checkout.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/checkout-success.png" width="300px" style="margin: 20px;">
+    <img src="media/testing/toast-success-checkout.png" width="300px" style="margin: 20px;">
 </p>
 
 #### User Profile #### 
@@ -742,12 +742,12 @@ Total, Discount (if **Reward** has been applied), Delivery and Grand Total are s
 A table showing **Product** name and quantity and **Order** grand total is also shown.  
 A **Review** link is displayed next to the **Product** name, enabling the **User** to **Review** the product using the **Product Review** functionality.  
 If **Product Review** is accessed from **User Profile**, back button text is changed to **Back To Profile** and link is updated to route user back to **User Profile**.  
-<img src="media/testing/user-profile.png" width="600px" style="margin: 10px;">  
+<img src="media/testing/user-profile.png" width="600px" style="margin: 20px;">  
 
 * **Order History** may be accessed from **User Profile** if the **User** is signed in, and has previously made an **Order**. 
 Enables the **User** to view a past order confirmation. A modified version of the **Checkout Success** page is displayed, showing the **Order** information for the relevant **Order** number. Title is changed to **Past Order Confirmation**, confirmation email text is updated, **Keep Shopping** button is hidden and **Back To Profile** and **Contact** buttons are displayed.  
 **Back To Profile** links to the **User Profile** page. **Contact** button links to **Order Contact**. Buttons include hover styling:  
-<img src="media/testing/order-history.png" width="600px" style="margin: 10px;">  
+<img src="media/testing/order-history.png" width="600px" style="margin: 20px;">  
 
 **Order Contact** may be accessed from **Order History** if the **User** is signed in, and has previously made an **Order**.  
 Enables the **User** to contact **perkulater** about a specific **Order**.  
@@ -755,8 +755,8 @@ The **Order** number and date are presented to the user, along with a form enabl
 **View Order** button links back to **Order History**, and **Send Message** button submits message. Buttons include hover styling.  
 If message is sent succesfully, a toast message is displayed: 
 <p float="left">
-    <img src="media/testing/order-contact.png" width="300px" style="margin: 10px;">
-    <img src="media/testing/toast-success-order-contact.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/order-contact.png" width="300px" style="margin: 20px;">
+    <img src="media/testing/toast-success-order-contact.png" width="300px" style="margin: 20px;">
 </p>
 
 #### Features To Be Implemented In Future Development Phases ####
@@ -774,10 +774,10 @@ each time their subscription is fulfilled, tailored to their specific taste pref
 #### Design Changes During The Phase 1 Development ####
 After initial early **User** feedback, the following design changes were made:
 * **Add To Basket**, **Create Plan**, **Edit**, and **Delete** buttons on **Product Detail** page were re-sized to be consistent with the standard **perkulater** button size (class "btn-lg").  
-<img src="media/testing/product-detail-buttons.png" width="100px" style="margin: 10px;">  
+<img src="media/testing/product-detail-buttons.png" width="100px" style="margin: 20px;">  
 
 * Background colours on the **Size** and **Type** select elements on the **Product Detail** page were updated to the *--background-lvl2* colour:  
-<img src="media/testing/select-background-colour.png" width="100px" style="margin: 10px;">  
+<img src="media/testing/select-background-colour.png" width="100px" style="margin: 20px;">  
 
 * **Sign In** and **Sign Out** functionality was updated to route the user to the page they were previously on after successful **Sign In** or **Sign Out**. The **User** was previously rerouted to the **Home** page. This improves the navigational flow and overall **User Experience**. 
 * An additional view was added so that if the **User** is reviewing a product, then deletes the last part of the *review_product* url (resulting in a url of `products/review_product/`), they are redirected to the **Products** view.  
@@ -799,31 +799,31 @@ See **Responsive Design** section in [TESTING.md](TESTING.md) for further inform
 The high level **Python** code logic for each **Django App** is explained in the [UML Logic Diagrams](media/wireframes/logic/python) below: 
 
 [Home](media/wireframes/logic/python/home-logic.png)  
-<img src="media/wireframes/logic/python/home-logic.png" width="800px" style="margin: 10px;">
+<img src="media/wireframes/logic/python/home-logic.png" width="800px" style="margin: 20px;">
 
 [Products Part 1](media/wireframes/logic/python/products-1-logic.png)  
-<img src="media/wireframes/logic/python/products-1-logic.png" width="800px" style="margin: 10px;">  
+<img src="media/wireframes/logic/python/products-1-logic.png" width="800px" style="margin: 20px;">  
 
 [Products Python Logic Part 2](media/wireframes/logic/python/products-2-logic.png)  
-<img src="media/wireframes/logic/python/products-2-logic.png" width="800px" style="margin: 10px;">  
+<img src="media/wireframes/logic/python/products-2-logic.png" width="800px" style="margin: 20px;">  
 
 [Products Python Logic Part 3](media/wireframes/logic/python/products-3-logic.png)  
-<img src="media/wireframes/logic/python/products-3-logic.png" width="800px" style="margin: 10px;">  
+<img src="media/wireframes/logic/python/products-3-logic.png" width="800px" style="margin: 20px;">  
 
 [Products Python Logic Part 4](media/wireframes/logic/python/products-4-logic.png)  
-<img src="media/wireframes/logic/python/products-4-logic.png" width="800px" style="margin: 10px;">  
+<img src="media/wireframes/logic/python/products-4-logic.png" width="800px" style="margin: 20px;">  
 
 [Basket Python Logic](media/wireframes/logic/python/basket-logic.png)  
-<img src="media/wireframes/logic/python/basket-logic.png" width="800px" style="margin: 10px;">  
+<img src="media/wireframes/logic/python/basket-logic.png" width="800px" style="margin: 20px;">  
 
 [Checkout Python Logic](media/wireframes/logic/python/checkout-logic.png)  
-<img src="media/wireframes/logic/python/checkout-logic.png" width="800px" style="margin: 10px;">  
+<img src="media/wireframes/logic/python/checkout-logic.png" width="800px" style="margin: 20px;">  
 
 [Checkout Webhooks Python Logic](media/wireframes/logic/python/checkout-webhooks-logic.png)  
-<img src="media/wireframes/logic/python/checkout-webhooks-logic.png" width="800px" style="margin: 10px;"> 
+<img src="media/wireframes/logic/python/checkout-webhooks-logic.png" width="800px" style="margin: 20px;"> 
 
 [Profiles Python Logic](media/wireframes/logic/python/profiles-logic.png)  
-<img src="media/wireframes/logic/python/profiles-logic.png" width="800px" style="margin: 10px;">  
+<img src="media/wireframes/logic/python/profiles-logic.png" width="800px" style="margin: 20px;">  
 
 
 ### Form Validation ###
@@ -897,16 +897,16 @@ on change event handler to update image filename of custom clearable file input.
 The high level **JavaScript** code logic for each **JavaScript Library** is explained in the [UML Logic Diagrams](media/wireframes/logic/js) below: 
 
 [Base JavaScript Library](media/wireframes/logic/js/base-js-logic.png)  
-<img src="media/wireframes/logic/js/base-js-logic.png" width="800px" style="margin: 10px;">  
+<img src="media/wireframes/logic/js/base-js-logic.png" width="800px" style="margin: 20px;">  
 
 [Home, Profiles and Basket JavaScript Libraries](media/wireframes/logic/js/home-profiles-basket-js-logic.png)  
-<img src="media/wireframes/logic/js/home-profiles-basket-js-logic.png" width="800px" style="margin: 10px;">  
+<img src="media/wireframes/logic/js/home-profiles-basket-js-logic.png" width="800px" style="margin: 20px;">  
 
 [Checkout JavaScript Library](media/wireframes/logic/js/checkout-js-logic.png)  
-<img src="media/wireframes/logic/js/checkout-js-logic.png" width="800px" style="margin: 10px;">  
+<img src="media/wireframes/logic/js/checkout-js-logic.png" width="800px" style="margin: 20px;">  
 
 [Products JavaScript Library](media/wireframes/logic/js/products-js-logic.png)  
-<img src="media/wireframes/logic/js/products-js-logic.png" width="800px" style="margin: 10px;">  
+<img src="media/wireframes/logic/js/products-js-logic.png" width="800px" style="margin: 20px;">  
 
 
 ## Testing ##
