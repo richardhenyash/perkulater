@@ -706,7 +706,9 @@ preview of the basket. The **View Basket** button links to the **Basket**. Butto
 * **Basket**, accessed from the **Basket** icon in the navigation menu. Shows the **User** their current **Basket**. Includes a preview image of the **Product** which links to the **Product Detail** 
 page and includes hover styling.  
 Also includes **Quantity Selector**, **Update** and **Remove** links to enable the **User** to update **Product** quantity in the basket, or remove the **Product** from the **Basket**. **Toast Message** is shown on update or removal of **Products** from **Basket**. **Quantity Selector**, **Update** and **Remove** links include hover styling.  
-**Size** description, **Type** description and **Subtotal** are also shown for each **Product** in the **Basket**. **Total**, **Delivery** and **Grand Total** are shown below.  
+**Size** description, **Type** description and **Subtotal** are also shown for each **Product** in the **Basket**.  
+**Total**, **Delivery** and **Grand Total** are shown underneath. The **Delivery Information Button** opens the **Delivery Information Modal**, 
+which explains how the delivery charges are calculated, enabling the **User** to make an informed purchase.   
 If the **User** has a **Reward** to be applied at checkout, the **Discount** is also shown. 
 If the **User** is not signed in, information text is displayed encouraging the **User** to sign in and add a new review to qualify for a discount. If the **User** is signed in but does not currently have a **Reward** to be applied, information text is displayed encouraging the **User** to add a new review to qualify for a discount. 
 If delivery charges are going to be applied at checkout, another information message explains how much more the user needs to spend in order to qualify for free UK delivery. **Keep Shopping** button links back to **Product** page, and **Checkout** button links to **Checkout** page. Buttons include hover styling:  
@@ -724,7 +726,9 @@ Non authenticated **Users** are also permitted to check out, as from a business 
 Non authenticated **Users** are encouraged to **Sign Up** or **Sign In** with text and links shown under the **Country** field.  
 If **Save this delivery information to my profile** is checked, valid information given in the **Checkout** form is saved to the **User** and  **UserProfile** models on checkout.  
 The **Payment** input allows credit card number to be input. Any card errors are displayed below the **Payment** input.  
-Information text is displayed below the **Payment** input explaining how much the **User's** card will be charged. **Total**, **Delivery** and **Grand Total** are shown at the bottom of the page.  
+Information text is displayed below the **Payment** input explaining how much the **User's** card will be charged.
+**Total**, **Delivery** and **Grand Total** are shown underneath. The **Delivery Information Button** opens the **Delivery Information Modal**, 
+which explains how the delivery charges are calculated, enabling the **User** to make an informed purchase.   
 If the **User** has a **Reward**, the **Discount** is also shown.  
 If the **User** is not authenticated, information text is displayed encouraging the **User** to sign in and add a new review to qualify for a discount. If the **User** is signed in but does not currently have a **Reward** to be applied, information text is displayed encouraging the **User** to add a new **Review** to qualify for a discount.  
 If delivery charges have been applied, another information message explains how much more the user needs to spend in order to qualify for free UK delivery. **Edit Basket** button links back to **Basket** page, and **Pay** button submits the payment via **Stripe**. Buttons include hover styling.  
@@ -793,14 +797,18 @@ each time their subscription is fulfilled, tailored to their specific taste pref
 #### Design Changes During The Phase 1 Development ####
 After initial early **User** feedback, the following design changes were made:
 * **Add To Basket**, **Create Plan**, **Edit**, and **Delete** buttons on **Product Detail** page were re-sized to be consistent with the standard **perkulater** button size (*class "btn-lg"*).  
-<img src="media/testing/product-detail-buttons.png" width="100px" style="margin: 20px;">  
+<img src="media/testing/product-detail-buttons.png" width="200px" style="margin: 20px;">  
 
 * Background colours on the **Size** and **Type** select elements on the **Product Detail** page were updated to the *--background-lvl2* colour:  
 <img src="media/testing/select-background-colour.png" width="100px" style="margin: 20px;">  
 
 * **Sign In** and **Sign Out** functionality was updated to route the user to the page they were previously on after successful **Sign In** or **Sign Out**. The **User** was previously rerouted to the **Home** page. This improves the navigational flow and overall **User Experience**. 
 * An additional view was added so that if the **User** is reviewing a product, then deletes the last part of the *review_product* url (resulting in a url of `products/review_product/`), they are redirected to the **Products** view. 
-* **Delivery Information Button** and **Delivery Information Modal** were added to the **Basket** andd **Checkout** pages to clearly explain how the **Delivery** charges are calculated. This information will help the **User** to make an informed purchase.  
+* **Delivery Information Button** and **Delivery Information Modal** were added to the **Basket** andd **Checkout** pages to clearly explain how the **Delivery** charges are calculated. This information will help the **User** to make an informed purchase:  
+<p float="left">
+    <img src="media/testing/delivery-information-button.png" width="200px" style="margin: 20px;">  
+    <img src="media/testing/delivery-information-modal.png" width="300px" style="margin: 20px;">  
+</p>
 
 ### Responsive Styling ###
 * The Navigation Menu is collapsible, and collapses to an icon on small devices less than 576 pixels wide. This is implemented using the **Bootstrap Navbar** component.  
