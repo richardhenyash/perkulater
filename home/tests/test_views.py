@@ -34,7 +34,7 @@ class TestHomeViews(TestCase):
         self.assertTemplateUsed(response, "home/contact.html")
 
     def test_post_contact(self):
-        """Test succesfully submitting the contact form"""
+        """Test successfully submitting the contact form"""
         response = self.client.post(
             '/contact/',
             {
@@ -49,4 +49,4 @@ class TestHomeViews(TestCase):
         all_messages = [msg for msg in get_messages(response.wsgi_request)]
         self.assertEqual(
             all_messages[0].message,
-            "Contact email sent succesfully.")
+            "Contact email sent successfully.")

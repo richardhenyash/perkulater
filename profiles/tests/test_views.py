@@ -153,4 +153,4 @@ class TestProfileViews(TestCase):
         all_messages = [msg for msg in get_messages(response.wsgi_request)]
         self.assertEqual(
             all_messages[0].message,
-            "Order contact email sent succesfully.")
+            "Order contact email sent successfully.")

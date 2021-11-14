@@ -169,7 +169,7 @@ As a **Potential Customer**, I would like to be able to:
 * Learn about where the coffee beans are sourced from, so I can make an informed purchasing decision.
 * Understand the delivery charges, and how much I need to spend to get free delivery, so I can make an informed purchasing decision.
 * Add products to my cart, so I can make a purchase.
-* Receive confirmation of my purchase via email, so I can be confident that the purchase has been made succesfully.
+* Receive confirmation of my purchase via email, so I can be confident that the purchase has been made successfully.
 * Register on the site, so I can make a repeat purchase more easily and get access to any rewards on offer.
 * Contact the business with a general query.
 * Subscribe for a regular purchase of a product (this feature will be added in a future development phase).
@@ -194,10 +194,10 @@ As a **Business Owner**, I would like to be able to:
 
 #### Constraints #####
 * Developer skill set - the Developer is currently learning **Python** and **Django**. 
-This may impact on which features can be succesfully implemented during the phase 1 development.
+This may impact on which features can be successfully implemented during the phase 1 development.
 * Developer's available time - the developer is working full time whilst studying.
 This coupled with the developer's current skills constraints may impact which features 
-can be succesfully implemented during the phase 1 development.
+can be successfully implemented during the phase 1 development.
 
 #### Business Rules ####
 It is not envisaged at this stage that the **perkulater** will become a real business. The site has been created for the purposes of satisfying the criteria for the **Code Institute** Full Stack Development Course Milestone Project 4.
@@ -439,7 +439,7 @@ receiver when a **User** object is updated or created.
 (expressed as a percentage), and is applied the user's next order. After the user's next order is placed with the *discount* applied, the *discount* field is reset.
 
 #### Basket Models ####
-* **Basket** - related to **User**. The *clear_basket* field is set by the **Stripe** webhook handler function to indicate that the order was succesfully created 
+* **Basket** - related to **User**. The *clear_basket* field is set by the **Stripe** webhook handler function to indicate that the order was successfully created 
 in the webhook handler and that the **Basket** can be cleared. 
 
 [perkulater](https://perkulater.herokuapp.com/) is deployed using [Heroku](https://dashboard.heroku.com/). 
@@ -494,7 +494,7 @@ Includes hover and focus styling:
 
 * **Contact** may be accessed from **User Menu** if the **User** is signed in. Enables the **User** to contact **perkulater** using the form. If the **User** is signed in, populates email address. 
 Required fields are denoted with a *. Form includes input focus styling. **Keep Shopping** button links to **Products** page, and **Send Message** button submits message. 
-Buttons include hover styling. If message is sent succesfully, a toast message is displayed:  
+Buttons include hover styling. If message is sent successfully, a toast message is displayed:  
 <img src="media/testing/contact.png" width="300px" style="margin: 20px;">
 <img src="media/testing/toast-success-contact.png" width="300px" style="margin: 20px;">  
 
@@ -526,7 +526,7 @@ When the **User** clicks on the verification link, the **Confirm Email Address**
 
 * **Confirm Email Address**, displayed when verification email link is clicked. Enables unauthenticated **Users** to complete **Sign Up**, by pressing the **Confirm** button.  
 Button and email address link include hover styling.  
-A **Toast Message** is shown to provide feedback to the user that the email address has been succesfully confirmed.  
+A **Toast Message** is shown to provide feedback to the user that the email address has been successfully confirmed.  
 The **User** is redirected to the **Sign In** page: 
 <p float="left">
     <img src="media/testing/sign-up-confirm-email.png" width="300px" style="margin: 20px;">
@@ -649,14 +649,14 @@ Note that **Create Plan** feature has not been implemented as part of the phase 
 <img src="media/testing/modal-review-delete-confirm.png" width="200px" style="margin: 20px;">  
 
 * **Product Add**, restricted to **Super Users**. Enables a new **Product** to be added. **Select Image** button optionally allows an image to be selected. **View Products** button links back to **Products** page. **Add Product** button adds the new **Product** to the database. All form inputs include focus styling and validation, and all buttons include hover styling.  
-Displays **Toast Message** if product is added succesfully:   
+Displays **Toast Message** if product is added successfully:   
 <p float="left">
     <img src="media/testing/product-add-1.png" width="45%" style="margin: 20px;">
     <img src="media/testing/product-add-2.png" width="45%" style="margin: 20px;">
 </p>
 
 * **Product Edit**, restricted to **Super Users**. Enables an existing **Product** to be edited: **Select Image** button optionally allows an image to be selected. **Back To Product** button links back to **Product Detail** page. **Update Product** button updates the **Product** in the database.  All form inputs include focus styling and validation, and all buttons include hover styling.  
-Displays **Toast Message** if product is updated succesfully:
+Displays **Toast Message** if product is updated successfully:
 <p float="left">   
     <img src="media/testing/product-edit-1.png" width="45%" style="margin: 20px;">
     <img src="media/testing/product-edit-2.png" width="45%" style="margin: 20px;">
@@ -756,7 +756,7 @@ Enables the **User** to view a past order confirmation. A modified version of th
 Enables the **User** to contact **perkulater** about a specific **Order**.  
 The **Order** number and date are presented to the user, along with a form enabling a message to be submitted.  
 **View Order** button links back to **Order History**, and **Send Message** button submits message. Buttons include hover styling.  
-If message is sent succesfully, a toast message is displayed: 
+If message is sent successfully, a toast message is displayed: 
 <p float="left">
     <img src="media/testing/order-contact.png" width="300px" style="margin: 20px;">
     <img src="media/testing/toast-success-order-contact.png" width="300px" style="margin: 20px;">
@@ -1035,9 +1035,9 @@ section and select *GitHub*.
 * Update, commit and push the code to **GitHub** and **Heroku** using the 
 `git add`, `git commit` and `git push` commands.
 * **Heroku** will receive the code from **GitHub** and build the **App** with the required packages and dependencies.
-* Once complete, you should see the message *Your app was succesfully deployed*.
+* Once complete, you should see the message *Your app was successfully deployed*.
 * Confirm that the application is automatically deploying to **Heroku** by checking the *Build Log* in the *Activity* tab.
-* **Heroku** is now succesfully connected to **GitHub** and any changes made in the **GitHub** repository 
+* **Heroku** is now successfully connected to **GitHub** and any changes made in the **GitHub** repository 
 will be automatically pushed to **Heroku**.
 </details>
 
@@ -1154,8 +1154,8 @@ USE_AWS|`True`
 * Update, commit and push the code to **GitHub** and **Heroku** using the 
 `git add`, `git commit` and `git push` commands.
 * **Heroku** will receive the code from **GitHub** and build the **App** with the required packages and dependencies.
-* Once complete, you should see the message *Your app was succesfully deployed* inm **Heroku**.
-* Confirm that the static files have been collected succesfully by checking the *Build Log* in the *Activity* tab in **Heroku**.
+* Once complete, you should see the message *Your app was successfully deployed* inm **Heroku**.
+* Confirm that the static files have been collected successfully by checking the *Build Log* in the *Activity* tab in **Heroku**.
 * Open go to the **Amazon S3** management console and open the bucket.
 * The static files should now be present in the directory `static/`.
 * Create a new folder in the bucket called `media/`.

@@ -59,7 +59,7 @@ def contact(request):
                 email.send(fail_silently=False)
                 # Success message
                 messages.success(
-                    request, "Contact email sent succesfully.",
+                    request, "Contact email sent successfully.",
                     extra_tags='admin')
                 contact_email_sent = True
             except SMTPException as smtp_error:
