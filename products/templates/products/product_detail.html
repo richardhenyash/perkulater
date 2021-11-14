@@ -22,7 +22,7 @@
                     <a id="productInformationImgLink" href="#" role="button"
                         data-information-modal-title="{{ product.friendly_name }}"
                         data-information-modal-size="modal-xl">
-                        {% if  product.image %}
+                        {% if product.image %}
                             <img src="{{ product.image.url }}" alt="{{ product.friendly_name }}" class="w-100">
                         {% else %}
                             <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.friendly_name }}" class="w-100 p-1">
