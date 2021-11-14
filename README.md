@@ -495,49 +495,63 @@ Includes hover and focus styling:
 Required fields are denoted with a *. Form includes input focus styling. **Keep Shopping** button links to **Products** page, and **Send Message** button submits message. 
 Buttons include hover styling. If message is sent succesfully, a toast message is displayed:  
 <img src="media/testing/contact.png" width="300px" style="margin: 10px;">
-<img src="media/testing/toast-success-contact.png" width="300px" style="margin: 10px;">   
+<img src="media/testing/toast-success-contact.png" width="300px" style="margin: 10px;">  
 
 #### User Authentication System ####  
 The **User** authentication system is implemented using [django allauth](https://django-allauth.readthedocs.io/en/latest/installation.html). **allauth** templates have been customised to fit the look and feel of the **perkulater** site.  
 
  * **Sign In**, enables registered **Users** to **Sign In**, accessed from **User Menu**. **Sign Up** links to **Sign Up**, **Sign In** button submits **Sign Up** form and **Forgot Password** button links to **Password Reset**. Buttons and link include hover styling. Form errors are shown above the **Login** field. A **Toast Message** is shown on successful sign in:  
-<img src="media/testing/sign-in.png" width="300px" style="margin: 10px;">
-<img src="media/testing/sign-in-error.png" width="300px" style="margin: 10px;">  
+<p float="left">
+    <img src="media/testing/sign-in.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/sign-in-error.png" width="300px" style="margin: 10px;">
+</p>
 <img src="media/testing/toast-success-sign-in.png" width="300px" style="margin: 10px;">  
 
  * **Sign Out**, enables signed in **Users** to **Sign Out**, accessed from **User Menu**.  
- **Sign Out** button submits sign out form. A **Toast Message** is shown on successful sign out:  
-<img src="media/testing/sign-out.png" width="50%" style="margin: 10px;">
-<img src="media/testing/toast-success-sign-out.png" width="50%" style="margin: 10px;">  
+ **Sign Out** button submits sign out form. A **Toast Message** is shown on successful sign out: 
+ <p float="left">
+    <img src="media/testing/sign-out.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/toast-success-sign-out.png" width="300px" style="margin: 10px;">
+</p>
 
- * **Sign Up**, enables unautheticated **Users** to **Sign Up**, accessed from **User Menu**. **Sign In** links to **Sign In** and **Sign Up** button submits **Sign Up** form.  
+* **Sign Up**, enables unautheticated **Users** to **Sign Up**, accessed from **User Menu**. **Sign In** links to **Sign In** and **Sign Up** button submits **Sign Up** form.  
 Button and link include hover styling. Any form errors are shown below each field. A **Toast Message** is shown on successful **Sign Up**, and an email is sent to the user for verification.  
-When the **User** clicks on the verification link, the **Confirm Email Address** page is shown:  
-<img src="media/testing/sign-up.png" width="300px" style="margin: 10px;">
-<img src="media/testing/sign-up-error.png" width="300px" style="margin: 10px;">
-<img src="media/testing/toast-information-confirmation-email.png" width="300px" style="margin: 10px;"> 
+When the **User** clicks on the verification link, the **Confirm Email Address** page is shown: 
+<p float="left"> 
+    <img src="media/testing/sign-up.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/sign-up-error.png" width="300px" style="margin: 10px;">
+</p>
+<img src="media/testing/toast-information-confirmation-email.png" width="300px" style="margin: 10px;">  
 
 * **Confirm Email Address**, displayed when verification email link is clicked. Enables unauthenticated **Users** to complete **Sign Up**, by pressing the **Confirm** button.  
 Button and email address link include hover styling.  
 A **Toast Message** is shown to provide feedback to the user that the email address has been succesfully confirmed.  
-The **User** is redirected to the **Sign In** page:  
-<img src="media/testing/sign-up-confirm-email.png" width="300px" style="margin: 10px;">
-<img src="media/testing/toast-success-email-confirm.png" width="300px" style="margin: 10px;">
+The **User** is redirected to the **Sign In** page: 
+<p float="left">
+    <img src="media/testing/sign-up-confirm-email.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/toast-success-email-confirm.png" width="300px" style="margin: 10px;">
+</p>
 
 * **Password Reset**, enables **User** to reset password. **User** may reset password by typing their email address in and hitting the **Reset My Password** button. Button includes hover styling. Any form errors are displayed below the email field. A link is sent to the **User's** email address.
-When the **User** clicks on the reset link, the **Change Password** page is shown:  
-<img src="media/testing/password-reset.png" width="300px" style="margin: 10px;">
-<img src="media/testing/password-reset-error.png" width="300px" style="margin: 10px;">  
+When the **User** clicks on the reset link, the **Change Password** page is shown: 
+<p float="left"> 
+    <img src="media/testing/password-reset.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/password-reset-error.png" width="300px" style="margin: 10px;">
+</p>
 <img src="media/testing/password-reset-email-sent.png" width="300px" style="margin: 10px;">  
 
 * **Change Password**, displayed when password reset email link is clicked.  
 **User** may reset their password by typing the same new password in twice and hitting the **Change Password** button. Button includes hover styling.  
 Any form errors are displayed below the form fields.  
-The **Change Password** page is displayed to confirm to the **User** that their passsword has been changed and a **Toast Message** is shown:  
-<img src="media/testing/password-change.png" width="300px" style="margin: 10px;">
-<img src="media/testing/password-change-error.png" width="300px" style="margin: 10px;">  
-<img src="media/testing/password-change-success.png" width="300px" style="margin: 10px;">
-<img src="media/testing/toast-success-password-change.png" width="300px" style="margin: 10px;">  
+The **Change Password** page is displayed to confirm to the **User** that their passsword has been changed and a **Toast Message** is shown: 
+<p float="left">
+    <img src="media/testing/password-change.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/password-change-error.png" width="300px" style="margin: 10px;">
+</p>
+<p float="left">
+    <img src="media/testing/password-change-success.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/toast-success-password-change.png" width="300px" style="margin: 10px;">
+</p>
 
 #### Products #### 
 
@@ -635,19 +649,25 @@ Note that **Create Plan** feature has not been implemented as part of the phase 
 
 * **Product Add**, restricted to **Super Users**. Enables a new **Product** to be added. **Select Image** button optionally allows an image to be selected. **View Products** button links back to **Products** page. **Add Product** button adds the new **Product** to the database. All form inputs include focus styling and validation, and all buttons include hover styling.  
 Displays **Toast Message** if product is added succesfully:   
-<img src="media/testing/product-add-1.png" width="45%" style="margin: 10px;">
-<img src="media/testing/product-add-2.png" width="45%" style="margin: 10px;">  
+<p float="left">
+    <img src="media/testing/product-add-1.png" width="45%" style="margin: 10px;">
+    <img src="media/testing/product-add-2.png" width="45%" style="margin: 10px;">
+</p>
 
 * **Product Edit**, restricted to **Super Users**. Enables an existing **Product** to be edited: **Select Image** button optionally allows an image to be selected. **Back To Product** button links back to **Product Detail** page. **Update Product** button updates the **Product** in the database.  All form inputs include focus styling and validation, and all buttons include hover styling.  
-Displays **Toast Message** if product is updated succesfully:   
-<img src="media/testing/product-edit-1.png" width="45%" style="margin: 10px;">
-<img src="media/testing/product-edit-2.png" width="45%" style="margin: 10px;">  
+Displays **Toast Message** if product is updated succesfully:
+<p float="left">   
+    <img src="media/testing/product-edit-1.png" width="45%" style="margin: 10px;">
+    <img src="media/testing/product-edit-2.png" width="45%" style="margin: 10px;">
+</p> 
 
 * **Product Review**, enables the **User** to rate and review a **Product**. **Back To Product** button links to **Product Detail** page. 
 **Submit Review** adds or updates the **Review** in the database.  
 If a **User** adds a new **Review**, the **Discount** specified in the **Offer** model object with *description* field set to *Review* (expressed as a percentage) is applied and a **Toast Message** is displayed. All buttons include hover styling:  
-<img src="media/testing/product-review-edit.png" width="300px" style="margin: 10px;">
-<img src="media/testing/toast-success-add-review.png" width="300px" style="margin: 10px;">  
+<p float="left">
+    <img src="media/testing/product-review-edit.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/toast-success-add-review.png" width="300px" style="margin: 10px;">
+</p>
 
 #### Messaging System #### 
 
@@ -656,11 +676,15 @@ If a **User** adds a new **Review**, the **Discount** specified in the **Offer**
 top right of the screen underneath the **Product Search**.  
 If a **Product** has been added to the **Basket**, the **Toast Message** also displays a 
 preview of the basket. The **View Basket** button links to the **Basket**. Button includes hover styling:  
-<img src="media/testing/toast-success-add-to-basket.png" width="300px" style="margin: 10px;">
-<img src="media/testing/toast-success-update-review.png" width="300px" style="margin: 10px;">
-<img src="media/testing/toast-error.png" width="300px" style="margin: 10px;">  
-<img src="media/testing/toast-warning.png" width="300px" style="margin: 10px;">
-<img src="media/testing/toast-information-confirmation-email.png" width="300px" style="margin: 10px;">  
+<p float="left">
+    <img src="media/testing/toast-success-add-to-basket.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/toast-success-update-review.png" width="300px" style="margin: 10px;">
+</p>
+<p float="left">
+    <img src="media/testing/toast-error.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/toast-warning.png" width="300px" style="margin: 10px;">
+</p>
+<img src="media/testing/toast-information-confirmation-email.png" width="300px" style="margin: 10px;">
 
 #### Basket #### 
 
@@ -676,10 +700,9 @@ If delivery charges are going to be applied at checkout, another information mes
 
 #### Checkout #### 
 
-* **Checkout**, accessed from **Checkout** button on **Basket** page. Form to enable checkout using **Stripe**. **Your Details** and **Delivery** fields are automatically populated from **UserProfile** model for signed in users. All input fields include focus styling and validation:  
-
+* **Checkout**, accessed from **Checkout** button on **Basket** page. Form to enable checkout using **Stripe**. **Your Details** and **Delivery** fields are automatically populated from **UserProfile** model for signed in users. All input fields include focus styling and validation.  
 Non authenticated **Users** are also permitted to check out, as from a business perspective it could dissuade potential customers from making a purchase if they are required to **Sign Up** for a **User** account in order to complete a purchase.  
-Non authenticated users **Users** are encouraged to **Sign Up** or **Sign In** with  text and links shown under the **Country** field.  
+Non authenticated **Users** are encouraged to **Sign Up** or **Sign In** with text and links shown under the **Country** field.  
 If **Save this delivery information to my profile** is checked, valid information given in the **Checkout** form is saved to the **User** and  **UserProfile** models on checkout.  
 **Payment** allows credit card number to be input. Any card errors are displayed below **Payment** input.  
 Information text is displayed below **Payment** input explaining how much the **Users** card will be charged. **Total**, **Delivery** and **Grand Total** are shown at the bottom of the page.  
@@ -689,19 +712,26 @@ If delivery charges have been applied, another information message explains how 
 A **Product Summary** including **Product** name, preview image, quantity, size and type is also shown. The **Product** image links to the **Product Detail** page and includes hover styling. 
 After the **Pay** button is clicked, a the **Payment Form** is faded out and a **Loading Overlay** is shown while the payment is processed.  
 If **Checkout** is succesful, **Checkout Success** page is displayed:  
-<img src="media/testing/checkout.png" width="300px" style="margin: 10px;">
-<img src="media/testing/checkout-unauthenticated.png" width="300px" style="margin: 10px;">  
-<img src="media/testing/checkout-discount.png" width="300px" style="margin: 10px;">
-<img src="media/testing/checkout-no-discount.png" width="300px" style="margin: 10px;">  
-<img src="media/testing/checkout-card-error.png" width="300px" style="margin: 10px;">
-<img src="media/testing/loading-overlay.png" width="300px" style="margin: 10px;">
+<p float="left">
+    <img src="media/testing/checkout.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/checkout-unauthenticated.png" width="300px" style="margin: 10px;">
+</p>
+<p float="left">
+    <img src="media/testing/checkout-discount.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/checkout-no-discount.png" width="300px" style="margin: 10px;">
+</p>
+<p float="left">
+    <img src="media/testing/checkout-card-error.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/loading-overlay.png" width="300px" style="margin: 10px;">
+</p>
 
 * **Checkout Success**, shown on successful checkout.  Lets the **User** know that an email has been sent to their email address regarding their order. Gives the **User** their **Order** number and date and confirms the **User's** details and delivery details.  
 A **Product Summary** including **Product** name, preview image, quantity, size, type and subtotal is also shown. The **Product** image links to the **Product Detail** page and includes hover styling. 
 Total, Discount (if **Reward** has been applied), Delivery and Grand Total are shown at the bottom of the screen. **Keep Shopping** button links to **Products** page and includes hover styling.  A **Toast** message is also shown, confirming the **User's** email address and the **Order** number:  
-<img src="media/testing/checkout-success.png" width="300px" style="margin: 10px;">
-<img src="media/testing/toast-success-checkout.png" width="300px" style="margin: 10px;">  
-
+<p float="left">
+    <img src="media/testing/checkout-success.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/toast-success-checkout.png" width="300px" style="margin: 10px;">
+</p>
 
 #### User Profile #### 
 
@@ -722,9 +752,11 @@ Enables the **User** to view a past order confirmation. A modified version of th
 Enables the **User** to contact **perkulater** about a specific **Order**.  
 The **Order** number and date are presented to the user, along with a form enabling a message to be submitted.  
 **View Order** button links back to **Order History**, and **Send Message** button submits message. Buttons include hover styling.  
-If message is sent succesfully, a toast message is displayed:  
-<img src="media/testing/order-contact.png" width="300px" style="margin: 10px;">
-<img src="media/testing/toast-success-order-contact.png" width="300px" style="margin: 10px;">m  
+If message is sent succesfully, a toast message is displayed: 
+<p float="left">
+    <img src="media/testing/order-contact.png" width="300px" style="margin: 10px;">
+    <img src="media/testing/toast-success-order-contact.png" width="300px" style="margin: 10px;">
+</p>
 
 #### Features To Be Implemented In Future Development Phases ####
 The following features have beend identified to add in **Future Development Phases**:  
