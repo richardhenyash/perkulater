@@ -460,35 +460,35 @@ The following features are included in the **Base** template, and are shown an a
 
 * **Bootstrap Collapsing Navigation Menu**, navigation menu featuring **perkulater logo**, **Product Search**, **Basket Link**, **User Menu** and **Tagline**. 
 Collapses to **Menu Icon** on smaller devices.  
- <img src="media/testing/navigation-menu.png" width="800px" style="margin: 10px;"> 
+ <img src="media/testing/navigation-menu.png" width="800px" style="margin: 20px;"> 
 
 * **perkulater logo**, links to **Products** page if clicked.  
- <img src="media/testing/perkulater-logo.png" width="200px" style="margin: 10px;">  
+ <img src="media/testing/perkulater-logo.png" width="200px" style="margin: 20px;">  
 
 * **Product Search**, enables the user to search for **Products**. Returns any the **Products** page with any products that contain the search string entered in the **Product** model *name* or *description_short* fields. 
 Includes hover and focus styling:  
- <img src="media/testing/product-search.png" width="200px" style="margin: 10px;">   
+ <img src="media/testing/product-search.png" width="200px" style="margin: 20px;">   
 
  * **Basket Link**, links to the **Basket** page. Includes hover styling:  
- <img src="media/testing/basket-link.png" width="50px" style="margin: 10px;">  
+ <img src="media/testing/basket-link.png" width="50px" style="margin: 20px;">  
 
  * **User Menu**, opens a dropdown menu. For non authenticated users, menu items are *Contact*, *Sign In* and *Sign Up*. For signed in users, menu items are *Contact*, *Profile* and *Sign Out*. 
  For signed in super users, menu items are *Add Product*, *Contact*, *Profile* and *Sign Out*. Includes hover styling.
 
  * **Category** menu, only shown if there is more than one **Product Category** present in the database (there is only currently one category - Coffee).
  Allows **Products** to be filtered by **Category** and includes hover styling:  
- <img src="media/testing/category-menu.png" width="200px" style="margin: 10px;"> 
+ <img src="media/testing/category-menu.png" width="200px" style="margin: 20px;"> 
 
  * **Tagline**, tagline explaining a little bit more about **perkulater**, to encourage users to make a purchase:  
- <img src="media/testing/tagline.png" width="400px" style="margin: 10px;"> 
+ <img src="media/testing/tagline.png" width="400px" style="margin: 20px;"> 
 
 * **Footer**, featuring **Footer Tagline** and **Social Media Links**.
 
 * **Footer Tagline**, tagline exaplaining a little bit more about **perkulater**, to encourage users to make a purchase:  
- <img src="media/testing/footer-tagline.png" width="600px" style="margin: 10px;">  
+ <img src="media/testing/footer-tagline.png" width="600px" style="margin: 20px;">  
 
  * **Social Media Links**, links to **perkulater** social media sites, including hover styling:  
- <img src="media/testing/social-media-links.png" width="200px" style="margin: 10px;">  
+ <img src="media/testing/social-media-links.png" width="200px" style="margin: 20px;">  
 
 #### Contact ####
 
