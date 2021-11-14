@@ -68,7 +68,7 @@ class Product(models.Model):
     def get_short_description(self):
         """
         Return the first item of the short description
-        split with the delimeter
+        split with the delimiter
         """
         delim = self.description_delimiter
         return self.description_short.split(delim)[0]
@@ -76,7 +76,7 @@ class Product(models.Model):
     def get_description_array(self):
         """
         Return an array of the full description
-        split with the delimeter
+        split with the delimiter
         """
         delim = self.description_delimiter
         return self.description_full.split(delim)

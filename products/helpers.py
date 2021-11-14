@@ -1,7 +1,7 @@
 def get_product_offer_str(product_offers, delim):
     """
     Helper function to return a string of product offer
-    full descriptions concatenated with the given delimeter.
+    full descriptions concatenated with the given delimiter.
     """
     product_offer_str = ""
     # Loop through product offers

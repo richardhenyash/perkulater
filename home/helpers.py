@@ -1,7 +1,7 @@
 def keyvalue_to_delimited_string(objcoll, key, delim):
     """
     Function to convert a key value to a delimeted string,
-    given object collection, key and delimeter
+    given object collection, key and delimiter
     """
     strvalue = ""
     # Loop through object collection

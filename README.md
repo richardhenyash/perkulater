@@ -68,9 +68,9 @@ With the rise in home working seen in 2020 and 2021 due to the coronavirus pande
 [World Coffee Portal](https://www.worldcoffeeportal.com/Latest/InsightAnalysis/2020/November/Home-Is-Where-the-Coffee-Is)  
 [BBC News](https://www.bbc.com/future/bespoke/made-on-earth/how-the-coffee-trade-survived-Covid-19.html)  
 
-**Perkulater** aims to provide great quality, ethically sourced and expertly roasted coffee beans and ground coffee, delivered to your home. The business will initially focus on providing a just a handful of lovingly curated, high quality coffees. If the initial business proves to be successful, the future growth strategy would be to begin to expand into offering **cold brew**, **coffee making equipment** e.g. V60 drippers, stove top espresso pots, AeroPress coffee makers etc., **coffee pods** and eventually **branded merchandise**.
+**perkulater** aims to provide great quality, ethically sourced and expertly roasted coffee beans and ground coffee, delivered to your home. The business will initially focus on providing a just a handful of lovingly curated, high quality coffees. If the initial business proves to be successful, the future growth strategy would be to begin to expand into offering **cold brew**, **coffee making equipment** e.g. V60 drippers, stove top espresso pots, AeroPress coffee makers etc., **coffee pods** and eventually **branded merchandise**.
 
-Please note that at this stage, **perkulater** is a ficticious store which has been created for the purposes of satisfying the requirements for the **Code Institute** Full Stack Development Course Milestone Project 4.
+Please note that at this stage, **perkulater** is a fictitious store which has been created for the purposes of satisfying the requirements for the **Code Institute** Full Stack Development Course Milestone Project 4.
 
 ## Mission Statement ##
 To provide great quality, ethically sourced and expertly roasted coffee beans and ground coffee, delivered to your home.
@@ -86,7 +86,7 @@ Short interviews were carried out with potential customers.
 * "Are the beans roasted by perkulater?"
 * "Are the coffee beans responsibly sourced?"
 * "Are the coffee beans available in whole beans and ground?"
-* "Which coffee machines are the ground coffees and coffe beans suitable for?"
+* "Which coffee machines are the ground coffees and coffee beans suitable for?"
 * "What is the price?"
 * "What are the delivery costs?"
 * "Is there positive feedback from happy customers?"
@@ -98,7 +98,7 @@ Short interviews were carried out with potential customers.
 * "I would like to be able to purchase a gift card for friends or family."
 
 ## Business Objectives ##
-Although the business is ficticous at this stage, the following business objectives have been considered as part of the overall development strategy:  
+Although the business is fictitious at this stage, the following business objectives have been considered as part of the overall development strategy:  
 * Provide a high quality, well designed online shop that enables secure purchases, inspires confidence in the quality of the product, and increases the likelyhood of repeat purchases and subscriptions.
 * Provide the ability and incentivise customers to leave positive feedback and reviews on the products, to inspire confidence in new customers.
 * Grow the brand over time, starting with coffee beans and ground coffee and scaling up to add more products as the brand grows.
@@ -144,7 +144,7 @@ See **perkulater** strategy chart below. Opportunities to be included for phase 
 
 ### Project Scope ###
 #### User Demographics ####
-* The primary users of the site will be consumers who are looking for high quality, etically sourced coffee beans and ground coffee for home delivery. 
+* The primary users of the site will be consumers who are looking for high quality, ethically sourced coffee beans and ground coffee for home delivery. 
 * A simple, clean and modern looking, well layed out site with the key information being easy to find and purchases being easy to make in a few clicks would suit this demographic.
 
 #### User Requirements ####
@@ -220,17 +220,17 @@ F08|Order Summary|See a summary of previous orders|5|4|Op-2|1
 F09|Order Contact|Contact the business owner about a specific order|5|4|Op-2|1
 F10|Review Product|Review a product I have purchased|5|4|Op-2|1
 F11|Reward for Reviewing Product|Give a customer a reward for reviewing a product, to incentivise reviews|5|4|Op-2|1
-F12|Add Product|Enables users with required privelages to add a product|5|4|Op-2|1
-F13|Edit Product|Enables users with required privelages to edit a product|5|4|Op-2|1
-F14|Delete Product|Enables users with required privelages to delete a product|5|4|Op-2|1
-F15|Edit Prices|Enables users with required privelages to edit prices|5|4|Op-2|1
-F16|Delete Review|Enables users with required privelages to delete a review|5|4|Op-2|1
-F17|Add Category|Enables users with required privelages to add a category|2|4|Op-2|2
-F18|Edit Category|Enables users with required privelages to edit a category|2|4|Op-2|2
-F19|Delete Category|Enables users with required privelages to delete a category|2|4|Op-2|2
+F12|Add Product|Enables users with required privileges to add a product|5|4|Op-2|1
+F13|Edit Product|Enables users with required privileges to edit a product|5|4|Op-2|1
+F14|Delete Product|Enables users with required privileges to delete a product|5|4|Op-2|1
+F15|Edit Prices|Enables users with required privileges to edit prices|5|4|Op-2|1
+F16|Delete Review|Enables users with required privileges to delete a review|5|4|Op-2|1
+F17|Add Category|Enables users with required privileges to add a category|2|4|Op-2|2
+F18|Edit Category|Enables users with required privileges to edit a category|2|4|Op-2|2
+F19|Delete Category|Enables users with required privileges to delete a category|2|4|Op-2|2
 F20|Subscribe|Enables users to subscribe for regular coffee delivery|3|3|Op-5|2
 F21|Purchase Gift Card|Enables users to purchase a gift card|2|3|Op-4|2
-F22|Track sales data|Enables users with required privelages to export sales data from the database|3|2|Op-2|2
+F22|Track sales data|Enables users with required privileges to export sales data from the database|3|2|Op-2|2
 F23|Customised Subscription Service|Customise the subscription service so that customers can try different coffee each time their subscription is fulfilled tailored to their specific taste preferences|3|2|Op-6|2
 
 See **perkulater** scope chart below. Opportunities to be included for phase 1 are shown in *Red*, and opportunities to be deferred to a future development phase are shown in *Grey*: 
@@ -244,14 +244,14 @@ route is also shown. This feature will be implemented in a later devleopment pha
 <img src="media/wireframes/perkulater-site-map.svg" width="600px" style="margin: 20px;">
 
 ### Wireframes ### 
-[Initial Wireframes](media/wireframes/rev0) were produced showing the **Products**, **Product Detail**, **Basket**, **Checkout**, **Sign Up**, **Sign In**, **User Profile**, **Order Detail**, **Order Contact** and **Product Review** page layouts. Note that a wireframe has also been created for the **Create Plan** page layout, which will be implemented in a future developemnt phase.
+[Initial Wireframes](media/wireframes/rev0) were produced showing the **Products**, **Product Detail**, **Basket**, **Checkout**, **Sign Up**, **Sign In**, **User Profile**, **Order Detail**, **Order Contact** and **Product Review** page layouts. Note that a wireframe has also been created for the **Create Plan** page layout, which will be implemented in a future development phase.
 The **Products** and **Product Detail** page layouts are shown below:  
 
 <img src="media/wireframes/rev0/products.png" width="600px" style="margin: 20px;">  
 
 <img src="media/wireframes/rev0/product-detail.png" width="600px" style="margin: 20px;">
 
-[Responsive design wireframes](media/wireframes/rev1) were then produced showing the **Products**, **Product Detail**, **Basket**, **Checkout**, **Create Plan** and **Order Detail** page layouts on **Tablet** and **Phone**. Note that wireframes have also been created for the **Create Plan** page layout, which will be implemented in a future developemnt phase.
+[Responsive design wireframes](media/wireframes/rev1) were then produced showing the **Products**, **Product Detail**, **Basket**, **Checkout**, **Create Plan** and **Order Detail** page layouts on **Tablet** and **Phone**. Note that wireframes have also been created for the **Create Plan** page layout, which will be implemented in a future development phase.
 The [Responsive design wireframes](media/wireframes/rev1) for the **Products** and **Product Detail** page layouts are shown below: 
 <p float="left">
     <img src="media/wireframes/rev1/products-tablet.png" width="400px" style="margin: 20px;">
@@ -336,9 +336,9 @@ is shown below:
 * [Google Fonts](https://fonts.google.com/)
 * [django-allauth](https://django-allauth.readthedocs.io/en/latest/index.html) - user authentication and account management.
 * [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) - **Amazon Web Services SDK** for python. Used to configure **Amazon Web Services S3** storage of static files.
-* [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - enables enhannced rendering of Django forms including integration with **Bootstrap**.
-* [dj-database-url](https://pypi.org/project/dj-database-url/) - Django database configuration utility. Used to configure connection to the **Heroku** deployed postgres dataabase.
-* [django-countries](https://pypi.org/project/django-countries/) - Django aplication providing country choices for use with forms etc. Used to populate country choices on the **Country** dropdowns.
+* [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - enables enhanced rendering of Django forms including integration with **Bootstrap**.
+* [dj-database-url](https://pypi.org/project/dj-database-url/) - Django database configuration utility. Used to configure connection to the **Heroku** deployed postgres database.
+* [django-countries](https://pypi.org/project/django-countries/) - Django application providing country choices for use with forms etc. Used to populate country choices on the **Country** dropdowns.
 * [django-extensions](https://django-extensions.readthedocs.io/en/latest/) - Collection of custom extensions for **Django***. Used to automatically create data schema diagram for the **Django** model.
 * [django-storages](https://django-storages.readthedocs.io/en/latest/) - Custom storage backends for **Django**. Used to configure **Amazon Web Services S3** storage of static files.
 * [gunicorn](https://gunicorn.org/) - Python WSGI HTTP Server for UNIX. Used as part of the **Heroku** deployment process.
@@ -378,18 +378,18 @@ implemented in a future development phase.
 <img src="media/wireframes/perkulater-data-model-planned.png" width="100%" style="margin: 20px;"> 
 
 The final data schema was exported directly fom the **Django** model using [django-extensions](https://django-extensions.readthedocs.io/en/latest/), [pydot](https://github.com/pydot/pydot) 
-and [GraphViz](https://graphviz.org/). The final data scehma is shown below:  
+and [GraphViz](https://graphviz.org/). The final data schema is shown below:  
 
 <img src="media/wireframes/perkulater-data-model-final.svg" width="100%" style="margin: 20px;"> 
 
-The database schema was designed for maximum future scalablity and flexibility. Additional future product lines can be easily accomodated due to the design of the schema. 
-**Product** **Categories**, **Types**, **Sizes**, **Prices** and **Coffee** details are all broken out into seperate related tables to provide maximum flexibility. **perkulater** 
+The database schema was designed for maximum future scalablity and flexibility. Additional future product lines can be easily accommodated due to the design of the schema. 
+**Product** **Categories**, **Types**, **Sizes**, **Prices** and **Coffee** details are all broken out into separate related tables to provide maximum flexibility. **perkulater** 
 custom models, fields, relationships and methods are explained below:
 
 #### Products Models ####
-* **Product** - related to **Category**, **Price**, **Coffee**, **Offer**, **Review** and **Subscription**. The *description_delimeter* field is used to store a delimeter which 
-can optionally split the *description_full* field into seperate paragraphs for rendering in the **Product Information** pop up modal. The *description_short* field can also be 
-optionally split using the delimeter specified in the *description_delimeter* field - the first part of the short description is shown underneath the product name in the 
+* **Product** - related to **Category**, **Price**, **Coffee**, **Offer**, **Review** and **Subscription**. The *description_delimeter* field is used to store a delimiter which 
+can optionally split the *description_full* field into separate paragraphs for rendering in the **Product Information** pop up modal. The *description_short* field can also be 
+optionally split using the delimiter specified in the *description_delimeter* field - the first part of the short description is shown underneath the product name in the 
 **Product Detail** view. The *friendly_name* and *friendy_price* fields are used to display the name and price on the **Product Summary** and **Product Detail** pages. 
 The *rating* field stores an automatically calculated average rating which is updated using a **Django** signal when a review is added, deleted or edited. There are currently 
 four **Products** defined - *Jump Leads*, *Morning Glory*, *Our House Is Your House* and *Unleaded*.
@@ -400,16 +400,16 @@ The *size_description* field stores the **Size** descriptor, which is displayed 
 The *size_information* field stores information about the related **Sizes** which is displayed to the user in the **Size Information** modal. 
 The *type_description* field stores the **Type** descriptor, which is displayed to the user in the **Product Detail** view and is currently set to *Type*.
 The *type_information* field stores information about the related **Types** which is displayed to the user in the **Type Information** modal. 
-Both the *size_information* and *type_information* fields are split into paragraphs for display using the delimeter specified in the *information_delimiter* field.
+Both the *size_information* and *type_information* fields are split into paragraphs for display using the delimiter specified in the *information_delimiter* field.
 There is currently only one **Category**, called **Coffee**. If more **Categories** are added in future development phases, the *friendly_name* field will be automatically 
 shown in the **Navigation Menu**, and the user will be able to filter by **Category** using the **Navigation Nenu** links.
 
 * **Coffee** - related to **Product**. Stores additional information which is only relevant to products with **Category** set to **Coffee**.
 
-* **Type** - related to **Category** and **OrderLineItem**. Product **Types** are stored in a seperate model - this allows for different **Types** to be applied as 
+* **Type** - related to **Category** and **OrderLineItem**. Product **Types** are stored in a separate model - this allows for different **Types** to be applied as 
 required to each **Category**. **Coffee** currently has four **Types** defined, *Coarse*, *Medium*, *Fine* and *Whole Bean*.
 
-* **Price** - related to **Product** and **Size**. Product **Prices** are stored in a seperate model - this allows for a different **Price** to be applied to each product and 
+* **Price** - related to **Product** and **Size**. Product **Prices** are stored in a separate model - this allows for a different **Price** to be applied to each product and 
 related to the **Size** table. Each Product **Size** has a default price, which is applied by default but may be subsequently updated by the **Store Owner** using the 
 **Edit Prices** functionality. The product *sku* is unique to the **Price** and is stored in this model.
 
