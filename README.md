@@ -799,7 +799,8 @@ After initial early **User** feedback, the following design changes were made:
 <img src="media/testing/select-background-colour.png" width="100px" style="margin: 20px;">  
 
 * **Sign In** and **Sign Out** functionality was updated to route the user to the page they were previously on after successful **Sign In** or **Sign Out**. The **User** was previously rerouted to the **Home** page. This improves the navigational flow and overall **User Experience**. 
-* An additional view was added so that if the **User** is reviewing a product, then deletes the last part of the *review_product* url (resulting in a url of `products/review_product/`), they are redirected to the **Products** view.  
+* An additional view was added so that if the **User** is reviewing a product, then deletes the last part of the *review_product* url (resulting in a url of `products/review_product/`), they are redirected to the **Products** view. 
+* **Delivery Information Button** and **Delivery Information Modal** were added to the **Basket** andd **Checkout** pages to clearly explain how the **Delivery** charges are calculated. This information will help the **User** to make an informed purchase.  
 
 ### Responsive Styling ###
 * The Navigation Menu is collapsible, and collapses to an icon on small devices less than 576 pixels wide. This is implemented using the **Bootstrap Navbar** component.  
