@@ -694,8 +694,10 @@ page and includes hover styling. Also includes **Quantity Selector**, **Update**
 If the **User** has a **Reward** to be applied at checkout, the **Discount** is also shown. 
 If the **User** is not signed in, information text is displayed encouraging the **User** to sign in and add a new review to qualify for a discount. If the **User** is signed in but does not currently have a **Reward** to be applied, information text is displayed encouraging the **User** to add a new review to qualify for a discount. 
 If delivery charges are going to be applied at checkout, another information message explains how much more the user needs to spend in order to qualify for free UK delivery. **Keep Shopping** button links back to **Product** page, and **Checkout** button links to **Checkout** page. Buttons include hover styling:  
-<img src="media/testing/basket.png" width="300px" style="margin: 20px;">
-<img src="media/testing/basket-discount.png" width="300px" style="margin: 20px;">
+<p float="left">
+    <img src="media/testing/basket.png" width="300px" style="margin: 20px;">
+    <img src="media/testing/basket-discount.png" width="300px" style="margin: 20px;">
+</p>
 <img src="media/testing/basket-no-discount.png" width="300px" style="margin: 20px;">  
 
 
@@ -706,7 +708,7 @@ Non authenticated **Users** are also permitted to check out, as from a business 
 Non authenticated **Users** are encouraged to **Sign Up** or **Sign In** with text and links shown under the **Country** field.  
 If **Save this delivery information to my profile** is checked, valid information given in the **Checkout** form is saved to the **User** and  **UserProfile** models on checkout.  
 **Payment** allows credit card number to be input. Any card errors are displayed below **Payment** input.  
-Information text is displayed below **Payment** input explaining how much the **Users** card will be charged. **Total**, **Delivery** and **Grand Total** are shown at the bottom of the page.  
+Information text is displayed below **Payment** input explaining how much the **User's** card will be charged. **Total**, **Delivery** and **Grand Total** are shown at the bottom of the page.  
 If the **User** has a **Reward**, the **Discount** is also shown.  
 If the **User** is not autheticated, information text is displayed encouraging the **User** to sign in and add a new review to qualify for a discount. If the **User** is signed in but does not currently have a **Reward** to be applied, information text is displayed encouraging the **User** to add a new **Review** to qualify for a discount.  
 If delivery charges have been applied, another information message explains how much more the user needs to spend in order to qualify for free UK delivery. **Edit Basket** button links back to **Basket** page, and **Pay** button submits the payment via **Stripe**. Buttons include hover styling.  
@@ -726,9 +728,10 @@ If **Checkout** is succesful, **Checkout Success** page is displayed:
     <img src="media/testing/loading-overlay.png" width="300px" style="margin: 20px;">
 </p>
 
-* **Checkout Success**, shown on successful checkout.  Lets the **User** know that an email has been sent to their email address regarding their order. Gives the **User** their **Order** number and date and confirms the **User's** details and delivery details.  
-A **Product Summary** including **Product** name, preview image, quantity, size, type and subtotal is also shown. The **Product** image links to the **Product Detail** page and includes hover styling. 
-Total, Discount (if **Reward** has been applied), Delivery and Grand Total are shown at the bottom of the screen. **Keep Shopping** button links to **Products** page and includes hover styling.  A **Toast** message is also shown, confirming the **User's** email address and the **Order** number:  
+* **Checkout Success**, shown on successful checkout.  Lets the **User** know that an email has been sent to their email address confirming their order. Gives the **User** their **Order** number and date and confirms the **User's** details and delivery details.  
+A **Product Summary** including **Product** name, preview image, quantity, size, type and subtotal is also shown. The **Product** image links to the **Product Detail** page and includes hover styling.  
+**Total**, **Discount** (if **Reward** has been applied), **Delivery** and **Grand Total** are shown at the bottom of the screen.  
+**Keep Shopping** button links to **Products** page and includes hover styling.  A **Toast** message is also shown, confirming the **User's** email address and the **Order** number:  
 <p float="left">
     <img src="media/testing/checkout-success.png" width="300px" style="margin: 20px;">
     <img src="media/testing/toast-success-checkout.png" width="300px" style="margin: 20px;">
@@ -773,7 +776,7 @@ each time their subscription is fulfilled, tailored to their specific taste pref
 
 #### Design Changes During The Phase 1 Development ####
 After initial early **User** feedback, the following design changes were made:
-* **Add To Basket**, **Create Plan**, **Edit**, and **Delete** buttons on **Product Detail** page were re-sized to be consistent with the standard **perkulater** button size (class "btn-lg").  
+* **Add To Basket**, **Create Plan**, **Edit**, and **Delete** buttons on **Product Detail** page were re-sized to be consistent with the standard **perkulater** button size (*class "btn-lg"*).  
 <img src="media/testing/product-detail-buttons.png" width="100px" style="margin: 20px;">  
 
 * Background colours on the **Size** and **Type** select elements on the **Product Detail** page were updated to the *--background-lvl2* colour:  
@@ -784,9 +787,9 @@ After initial early **User** feedback, the following design changes were made:
 
 ### Responsive Styling ###
 * The Navigation Menu is collapsible, and collapses to an icon on small devices less than 576 pixels wide. This is implemented using the **Bootstrap Navbar** component.  
-* The **Products** page is shown as as 2 items wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
+* The **Products** page is shown as a 2 item wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
 * The **Product Detail** page stacks logically on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
-* The **Product Summary** on the **Basket** page is shown as as 2 items wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
+* The **Product Summary** on the **Basket** page is shown as a 2 item wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
 * The **Product Summary** on the checkout page stacks underneath the **Payment Form** on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
 * The **Product Summary** on the **Checkout Success** page is shown as as 2 items wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
 * The **Order History** on the **User Profile** page stacks underneath the **User Profile Form** on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
