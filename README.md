@@ -253,13 +253,14 @@ The **Products** and **Product Detail** page layouts are shown below:
 
 [Responsive design wireframes](media/wireframes/rev1) were then produced showing the **Products**, **Product Detail**, **Basket**, **Checkout**, **Create Plan** and **Order Detail** page layouts on **Tablet** and **Phone**. Note that wireframes have also been created for the **Create Plan** page layout, which will be implemented in a future developemnt phase.
 The [Responsive design wireframes](media/wireframes/rev1) for the **Products** and **Product Detail** page layouts are shown below: 
-
-<img src="media/wireframes/rev1/products-tablet.png" width="400px" style="margin: 10px;">
-<img src="media/wireframes/rev1/product-detail-tablet.png" width="400px" style="margin: 10px;">  
-<br>
-<img src="media/wireframes/rev1/products-phone.png" width="300px" style="margin: 10px; margin-bottom: 80px">
-<img src="media/wireframes/rev1/product-detail-phone.png" width="300px" style="margin: 10px;">  
-
+<p float="left">
+    <img src="media/wireframes/rev1/products-tablet.png" width="400px" style="margin: 10px;">
+    <img src="media/wireframes/rev1/product-detail-tablet.png" width="400px" style="margin: 10px;">
+</p>
+<p float="left">
+    <img src="media/wireframes/rev1/products-phone.png" width="300px" style="margin: 10px; margin-bottom: 80px">
+    <img src="media/wireframes/rev1/product-detail-phone.png" width="300px" style="margin: 10px;">
+</p>
 
 ### Design Choices ###
 
