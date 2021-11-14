@@ -174,7 +174,7 @@ class Stripe_WebHook_Handler:
                     user_reward = Reward.objects.filter(user=user).first()
                     user_reward.discount = 0.00
                     user_reward.save()
-                    # Set flag to clear basket on succesful order creation
+                    # Set flag to clear basket on successful order creation
                     basketobj = Basket.objects.filter(user=user).first()
                     if basketobj:
                         basketobj.clear_basket = True

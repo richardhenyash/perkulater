@@ -200,7 +200,7 @@ def checkout_success(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
     # Get categories
     categories_all = Category.objects.all()
-    # If user is autheticated
+    # If user is authenticated
     if request.user.is_authenticated:
         # Get UserProfile
         profile = UserProfile.objects.get(user=request.user)
