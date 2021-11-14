@@ -339,7 +339,7 @@ is shown below:
 * [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - enables enhanced rendering of Django forms including integration with **Bootstrap**.
 * [dj-database-url](https://pypi.org/project/dj-database-url/) - Django database configuration utility. Used to configure connection to the **Heroku** deployed postgres database.
 * [django-countries](https://pypi.org/project/django-countries/) - Django application providing country choices for use with forms etc. Used to populate country choices on the **Country** dropdowns.
-* [django-extensions](https://django-extensions.readthedocs.io/en/latest/) - Collection of custom extensions for **Django***. Used to automatically create data schema diagram for the **Django** model.
+* [django-extensions](https://django-extensions.readthedocs.io/en/latest/) - Collection of custom extensions for **Django**. Used to automatically create data schema diagram for the **Django** model.
 * [django-storages](https://django-storages.readthedocs.io/en/latest/) - Custom storage backends for **Django**. Used to configure **Amazon Web Services S3** storage of static files.
 * [gunicorn](https://gunicorn.org/) - Python WSGI HTTP Server for UNIX. Used as part of the **Heroku** deployment process.
 * [pillow](https://pillow.readthedocs.io/en/stable/) - Python imaging library.
@@ -390,7 +390,8 @@ custom models, fields, relationships and methods are explained below:
 * **Product** - related to **Category**, **Price**, **Coffee**, **Offer**, **Review** and **Subscription**. The *description_delimiter* field is used to store a delimiter which 
 can optionally split the *description_full* field into separate paragraphs for rendering in the **Product Information** pop up modal. The *description_short* field can also be 
 optionally split using the delimiter specified in the *description_delimiter* field - the first part of the short description is shown underneath the product name in the 
-**Product Detail** view. The *friendly_name* and *friendly_price* fields are used to display the name and price on the **Product Summary** and **Product Detail** pages. 
+**Product Detail** view, if the **Product** is not a **Coffee**.  
+The *friendly_name* and *friendly_price* fields are used to display the name and price on the **Product Summary** and **Product Detail** pages. 
 The *rating* field stores an automatically calculated average rating which is updated using a **Django** signal when a review is added, deleted or edited. There are currently 
 four **Products** defined - *Jump Leads*, *Morning Glory*, *Our House Is Your House* and *Unleaded*.
 
@@ -404,7 +405,8 @@ Both the *size_information* and *type_information* fields are split into paragra
 There is currently only one **Category**, called **Coffee**. If more **Categories** are added in future development phases, the *friendly_name* field will be automatically 
 shown in the **Navigation Menu**, and the user will be able to filter by **Category** using the **Navigation Nenu** links.
 
-* **Coffee** - related to **Product**. Stores additional information which is only relevant to products with **Category** set to **Coffee**.
+* **Coffee** - related to **Product**. Stores additional information which is only relevant to products with **Category** set to **Coffee**. If the **Product** is a **Coffee**, 
+the *flavour_profile* is shown underneath the product name in the **Product Detail** view.  
 
 * **Type** - related to **Category** and **OrderLineItem**. Product **Types** are stored in a separate model - this allows for different **Types** to be applied as 
 required to each **Category**. **Coffee** currently has four **Types** defined, *Coarse*, *Medium*, *Fine* and *Whole Bean*.
@@ -465,7 +467,7 @@ Collapses to **Menu Icon** on smaller devices.
 * **perkulater logo**, links to **Products** page if clicked.  
  <img src="media/testing/perkulater-logo.png" width="200px" style="margin: 20px;">  
 
-* **Product Search**, enables the user to search for **Products**. Returns any the **Products** page with any products that contain the search string entered in the **Product** model *name* or *description_short* fields. 
+* **Product Search**, enables the user to search for **Products**. Returns the **Products** page with any products that contain the search string entered in the **Product** model *name* or *description_short* fields. 
 Includes hover and focus styling:  
  <img src="media/testing/product-search.png" width="200px" style="margin: 20px;">   
 
@@ -487,7 +489,8 @@ Includes hover and focus styling:
 * **Footer Tagline**, tagline explaining a little bit more about **perkulater**, to encourage users to make a purchase:  
  <img src="media/testing/footer-tagline.png" width="600px" style="margin: 20px;">  
 
- * **Social Media Links**, links to **perkulater** social media sites, including hover styling:  
+ * **Social Media Links**, links to **perkulater** social media sites, including hover styling. 
+ Please note that as **perkulater** is not a real store at this stage, the **Social Media Links** do not link to **Perkulater** specific pages.   
  <img src="media/testing/social-media-links.png" width="200px" style="margin: 20px;">  
 
 #### Contact ####
@@ -501,7 +504,8 @@ Buttons include hover styling. If message is sent successfully, a toast message 
 #### User Authentication System ####  
 The **User** authentication system is implemented using [django allauth](https://django-allauth.readthedocs.io/en/latest/installation.html). **allauth** templates have been customised to fit the look and feel of the **perkulater** site.  
 
- * **Sign In**, enables registered **Users** to **Sign In**, accessed from **User Menu**. **Sign Up** links to **Sign Up**, **Sign In** button submits **Sign Up** form and **Forgot Password** button links to **Password Reset**. Buttons and link include hover styling. Form errors are shown above the **Login** field. A **Toast Message** is shown on successful sign in:  
+ * **Sign In**, enables registered **Users** to **Sign In**, accessed from **User Menu**. Required fields are denoted with a *.  
+ **Sign Up** links to **Sign Up**, **Sign In** button submits **Sign Up** form and **Forgot Password** button links to **Password Reset**. Buttons and link include hover styling. Form errors are shown above the **Login** field. A **Toast Message** is shown on successful sign in:  
 <p float="left">
     <img src="media/testing/sign-in.png" width="300px" style="margin: 20px;">
     <img src="media/testing/sign-in-error.png" width="300px" style="margin: 20px;">
@@ -515,7 +519,8 @@ The **User** authentication system is implemented using [django allauth](https:/
     <img src="media/testing/toast-success-sign-out.png" width="300px" style="margin: 20px;">
 </p>
 
-* **Sign Up**, enables unauthenticated **Users** to **Sign Up**, accessed from **User Menu**. **Sign In** links to **Sign In** and **Sign Up** button submits **Sign Up** form.  
+* **Sign Up**, enables unauthenticated **Users** to **Sign Up**, accessed from **User Menu**. Required fields are denoted with a *.  
+**Sign In** links to **Sign In** and **Sign Up** button submits **Sign Up** form.  
 Button and link include hover styling. Any form errors are shown below each field. A **Toast Message** is shown on successful **Sign Up**, and an email is sent to the user for verification.  
 When the **User** clicks on the verification link, the **Confirm Email Address** page is shown: 
 <p float="left"> 
@@ -533,7 +538,9 @@ The **User** is redirected to the **Sign In** page:
     <img src="media/testing/toast-success-email-confirm.png" width="300px" style="margin: 20px;">
 </p>
 
-* **Password Reset**, enables **User** to reset password. **User** may reset password by typing their email address in and hitting the **Reset My Password** button. Button includes hover styling. Any form errors are displayed below the email field. A link is sent to the **User's** email address.
+* **Password Reset**, enables **User** to reset password. **User** may reset password by typing their email address in and hitting the **Reset My Password** button. 
+Required fields are denoted with a *.  
+Button includes hover styling. Any form errors are displayed below the email field. A link is sent to the **User's** email address.
 When the **User** clicks on the reset link, the **Change Password** page is shown: 
 <p float="left"> 
     <img src="media/testing/password-reset.png" width="300px" style="margin: 20px;">
@@ -542,7 +549,7 @@ When the **User** clicks on the reset link, the **Change Password** page is show
 <img src="media/testing/password-reset-email-sent.png" width="300px" style="margin: 20px;">  
 
 * **Change Password**, displayed when password reset email link is clicked.  
-**User** may reset their password by typing the same new password in twice and hitting the **Change Password** button. Button includes hover styling.  
+**User** may reset their password by typing the same new password in twice and hitting the **Change Password** button. Button includes hover styling. Required fields are denoted with a *.  
 Any form errors are displayed below the form fields.  
 The **Change Password** page is displayed to confirm to the **User** that their password has been changed and a **Toast Message** is shown: 
 <p float="left">
@@ -589,8 +596,8 @@ Includes hover styling:
 * **Coffee Details**, if the product if a **Coffee**:  
 <img src="media/testing/coffee-details.png" width="300px" style="margin: 20px;"> 
 
-* **Product Information Button**, displays **Information Modal** for **Product**.  
-Detailed **Product** information will make give the **User** a much better understanding of the **Products** available, and make the **User** more comfortable making a purchase.  
+* **Product Information Button**, displays **Information Modal** for the **Product**.  
+Detailed **Product** information will give the **User** a much better understanding of the **Products** available, and make the **User** more comfortable making a purchase.  
 **Product Information Button** name is set to **Category** model *friendly_name* field. **Information Modal** title is set to **Product** model *friendly_name* field. 
 **Information Modal** content is read from the **Product** model *description_full* field, and is split into paragraphs using the delimiter specified in the *description_delimiter* field. 
 Includes hover styling:  
@@ -598,12 +605,14 @@ Includes hover styling:
 <img src="media/testing/modal-product-info.png" width="600px" style="margin: 20px;">  
 
 * **Size Information Button**, displays **Information Modal**.  
-Detailed **Size** information will make give the **User** a much better understanding of the **Product Sizes** available, and make the **User** more comfortable making a purchase.  
+Detailed **Size** information will give the **User** a much better understanding of the **Product Sizes** available, and make the **User** more comfortable making a purchase.  
 **Size Information Button** name and **Information Modal** title are set to **Category** model *size_description* field. 
 **Information Modal** content is read from the **Category** model *size_information* field, and is split into paragraphs using the delimiter specified in the *information_delimiter* field. 
-Includes hover styling:  
-<img src="media/testing/size-info.png" width="100px" style="margin: 20px;">  
-<img src="media/testing/modal-size-info.png" width="200px" style="margin: 20px;">  
+Includes hover styling: 
+<p float="left">
+    <img src="media/testing/size-info.png" width="100px" style="margin: 20px;">
+    <img src="media/testing/modal-size-info.png" width="200px" style="margin: 20px;">
+</p>
 
 * **Size Selector**, allows **Size** read from the **Size** model to be selected, includes hover styling:  
 <img src="media/testing/size-selector.png" width="100px" style="margin: 20px;">  
@@ -616,8 +625,10 @@ Detailed **Type** information will give the **User** a much better understanding
 **Type Information Button** name and **Information Modal** title are set to **Category** model *type_description* field. 
 **Information Modal** content is read from the **Category** model *type_information* field, and is split into paragraphs using the delimiter specified in the *information_delimiter* field. 
 Includes hover styling:  
-<img src="media/testing/type-info.png" width="100px" style="margin: 20px;">  
-<img src="media/testing/modal-type-info.png" width="300px" style="margin: 20px;">  
+<p float="left">
+    <img src="media/testing/type-info.png" width="100px" style="margin: 20px;">
+    <img src="media/testing/modal-type-info.png" width="300px" style="margin: 20px;">
+</p>
 
 * **Product Quantity**, allows product quantity to be selected. Minus button is greyed out and disabled when quantity is 1, Plus button is greyed out and disabled when quantity is 99. Includes hover styling:  
 <img src="media/testing/product-detail-quantity.png" width="100px" style="margin: 20px;">  
@@ -648,21 +659,24 @@ Note that **Create Plan** feature has not been implemented as part of the phase 
 <img src="media/testing/product-reviews.png" width="100px" style="margin: 20px;">  
 <img src="media/testing/modal-review-delete-confirm.png" width="200px" style="margin: 20px;">  
 
-* **Product Add**, restricted to **Super Users**. Enables a new **Product** to be added. **Select Image** button optionally allows an image to be selected. **View Products** button links back to **Products** page. **Add Product** button adds the new **Product** to the database. All form inputs include focus styling and validation, and all buttons include hover styling.  
+* **Product Add**, restricted to **Super Users**. Enables a new **Product** to be added. Required fields are denoted with a *.  
+**Select Image** button optionally allows an image to be selected. **View Products** button links back to **Products** page. **Add Product** button adds the new **Product** to the database. All form inputs include focus styling and validation, and all buttons include hover styling.  
 Displays **Toast Message** if product is added successfully:   
 <p float="left">
     <img src="media/testing/product-add-1.png" width="45%" style="margin: 20px;">
     <img src="media/testing/product-add-2.png" width="45%" style="margin: 20px;">
 </p>
 
-* **Product Edit**, restricted to **Super Users**. Enables an existing **Product** to be edited: **Select Image** button optionally allows an image to be selected. **Back To Product** button links back to **Product Detail** page. **Update Product** button updates the **Product** in the database.  All form inputs include focus styling and validation, and all buttons include hover styling.  
+* **Product Edit**, restricted to **Super Users**. Enables an existing **Product** to be edited. Required fields are denoted with a *.  
+**Select Image** button optionally allows an image to be selected. **Back To Product** button links back to **Product Detail** page. **Update Product** button updates the **Product** in the database.  All form inputs include focus styling and validation, and all buttons include hover styling.  
 Displays **Toast Message** if product is updated successfully:
 <p float="left">   
     <img src="media/testing/product-edit-1.png" width="45%" style="margin: 20px;">
     <img src="media/testing/product-edit-2.png" width="45%" style="margin: 20px;">
 </p> 
 
-* **Product Review**, enables the **User** to rate and review a **Product**. **Back To Product** button links to **Product Detail** page. 
+* **Product Review**, enables the **User** to rate and review a **Product**. Required fields are denoted with a *.  
+**Back To Product** button links to **Product Detail** page. 
 **Submit Review** adds or updates the **Review** in the database.  
 If a **User** adds a new **Review**, the **Discount** specified in the **Offer** model object with *description* field set to *Review* (expressed as a percentage) is applied and a **Toast Message** is displayed. All buttons include hover styling:  
 <p float="left">
@@ -689,8 +703,10 @@ preview of the basket. The **View Basket** button links to the **Basket**. Butto
 
 #### Basket #### 
 
-* **Basket**, accessed from **Basket** icon in navigation menu. Shows the **User** their current **Basket**. Includes a preview image of the **Product** which links to the **Product Detail** 
-page and includes hover styling. Also includes **Quantity Selector**, **Update** and **Remove** links to enable the **User** to update **Product** quantity in the basket, or remove the **Product** from the **Basket**. **Toast Message** is shown on update or removal of **Products** from **Basket**. **Quantity Selector**, **Update** and **Remove** links include hover styling. **Size** description, **Type** description and **Subtotal** are also shown for each **Product** in the **Basket**. **Total**, **Delivery** and **Grand Total** are shown below.  
+* **Basket**, accessed from the **Basket** icon in the navigation menu. Shows the **User** their current **Basket**. Includes a preview image of the **Product** which links to the **Product Detail** 
+page and includes hover styling.  
+Also includes **Quantity Selector**, **Update** and **Remove** links to enable the **User** to update **Product** quantity in the basket, or remove the **Product** from the **Basket**. **Toast Message** is shown on update or removal of **Products** from **Basket**. **Quantity Selector**, **Update** and **Remove** links include hover styling.  
+**Size** description, **Type** description and **Subtotal** are also shown for each **Product** in the **Basket**. **Total**, **Delivery** and **Grand Total** are shown below.  
 If the **User** has a **Reward** to be applied at checkout, the **Discount** is also shown. 
 If the **User** is not signed in, information text is displayed encouraging the **User** to sign in and add a new review to qualify for a discount. If the **User** is signed in but does not currently have a **Reward** to be applied, information text is displayed encouraging the **User** to add a new review to qualify for a discount. 
 If delivery charges are going to be applied at checkout, another information message explains how much more the user needs to spend in order to qualify for free UK delivery. **Keep Shopping** button links back to **Product** page, and **Checkout** button links to **Checkout** page. Buttons include hover styling:  
@@ -703,16 +719,16 @@ If delivery charges are going to be applied at checkout, another information mes
 
 #### Checkout #### 
 
-* **Checkout**, accessed from **Checkout** button on **Basket** page. Form to enable checkout using **Stripe**. **Your Details** and **Delivery** fields are automatically populated from **UserProfile** model for signed in users. All input fields include focus styling and validation.  
+* **Checkout**, accessed from **Checkout** button on **Basket** page. Form to enable checkout using **Stripe**. **Your Details** and **Delivery** fields are automatically populated from **UserProfile** model for signed in users. Required fields are denoted with a *. All input fields include focus styling and validation.  
 Non authenticated **Users** are also permitted to check out, as from a business perspective it could dissuade potential customers from making a purchase if they are required to **Sign Up** for a **User** account in order to complete a purchase.  
 Non authenticated **Users** are encouraged to **Sign Up** or **Sign In** with text and links shown under the **Country** field.  
 If **Save this delivery information to my profile** is checked, valid information given in the **Checkout** form is saved to the **User** and  **UserProfile** models on checkout.  
-**Payment** allows credit card number to be input. Any card errors are displayed below **Payment** input.  
-Information text is displayed below **Payment** input explaining how much the **User's** card will be charged. **Total**, **Delivery** and **Grand Total** are shown at the bottom of the page.  
+The **Payment** input allows credit card number to be input. Any card errors are displayed below the **Payment** input.  
+Information text is displayed below the **Payment** input explaining how much the **User's** card will be charged. **Total**, **Delivery** and **Grand Total** are shown at the bottom of the page.  
 If the **User** has a **Reward**, the **Discount** is also shown.  
 If the **User** is not authenticated, information text is displayed encouraging the **User** to sign in and add a new review to qualify for a discount. If the **User** is signed in but does not currently have a **Reward** to be applied, information text is displayed encouraging the **User** to add a new **Review** to qualify for a discount.  
 If delivery charges have been applied, another information message explains how much more the user needs to spend in order to qualify for free UK delivery. **Edit Basket** button links back to **Basket** page, and **Pay** button submits the payment via **Stripe**. Buttons include hover styling.  
-A **Product Summary** including **Product** name, preview image, quantity, size and type is also shown. The **Product** image links to the **Product Detail** page and includes hover styling. 
+A **Product Summary** including **Product** name, preview image, quantity, size and type is also shown. The **Product** image links to the **Product Detail** page and includes hover styling.  
 After the **Pay** button is clicked, a the **Payment Form** is faded out and a **Loading Overlay** is shown while the payment is processed.  
 If **Checkout** is successful, **Checkout Success** page is displayed:  
 <p float="left">
@@ -754,7 +770,7 @@ Enables the **User** to view a past order confirmation. A modified version of th
 
 **Order Contact** may be accessed from **Order History** if the **User** is signed in, and has previously made an **Order**.  
 Enables the **User** to contact **perkulater** about a specific **Order**.  
-The **Order** number and date are presented to the user, along with a form enabling a message to be submitted.  
+The **Order** number and date are presented to the user, along with a form enabling a message to be submitted. Required fields are denoted with a *.  
 **View Order** button links back to **Order History**, and **Send Message** button submits message. Buttons include hover styling.  
 If message is sent successfully, a toast message is displayed: 
 <p float="left">
@@ -770,7 +786,7 @@ each time their subscription is fulfilled, tailored to their specific taste pref
 * **Gift Cards** - to enable **Users** to purchase **perkulater** gift cards for friends and family.
 * **Add Category** - to enable the **perkulater** store administrator to add new **Product** **Categories**.
 * **Edit Category** - to enable the **perkulater** store administrator to edit existing **Product** **Categories**.
-* **Delete Category** - to enable the **perkulater** store administrator to delete existing **Product** lines.
+* **Delete Category** - to enable the **perkulater** store administrator to delete existing **Product** **Categories**.
 * **Track Sales Data** - to enable the **perkulater** store administrator to export and analyse sales data from the database.
 
 
@@ -791,9 +807,9 @@ After initial early **User** feedback, the following design changes were made:
 * The **Product Detail** page stacks logically on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
 * The **Product Summary** on the **Basket** page is shown as a 2 item wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
 * The **Product Summary** on the checkout page stacks underneath the **Payment Form** on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
-* The **Product Summary** on the **Checkout Success** page is shown as as 2 items wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
+* The **Product Summary** on the **Checkout Success** page is shown as a 2 item wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
 * The **Order History** on the **User Profile** page stacks underneath the **User Profile Form** on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
-* The **Product Summary** on the **Order History** page is shown as as 2 items wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. This is implemented using the **Bootstrap grid** system.  
+* The **Product Summary** on the **Order History** page is shown as a 2 item wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. This is implemented using the **Bootstrap grid** system.  
 * Various **Text** elements, the **perkulater logo**, **Form Labels**, **Links**, **Toast Messages**, **Containers** and extra large **Button** elements are re-sized on very small devices less than 370px wide. This is achieved using CSS media queries located in the **perkulater Custom CSS**.
 
 See **Responsive Design** section in [TESTING.md](TESTING.md) for further information and [Responsive Testing](/static/testing/responsive) screen prints.
@@ -804,7 +820,7 @@ The high level **Python** code logic for each **Django App** is explained in the
 [Home](media/wireframes/logic/python/home-logic.png)  
 <img src="media/wireframes/logic/python/home-logic.png" width="800px" style="margin: 20px;">
 
-[Products Part 1](media/wireframes/logic/python/products-1-logic.png)  
+[Products Python Logic Part 1](media/wireframes/logic/python/products-1-logic.png)  
 <img src="media/wireframes/logic/python/products-1-logic.png" width="800px" style="margin: 20px;">  
 
 [Products Python Logic Part 2](media/wireframes/logic/python/products-2-logic.png)  
@@ -1198,7 +1214,7 @@ STRIPE_WH_SECRET|`your_stripe_webhook_secret_key`
 * CSS loader implemented using [loading.io](https://loading.io/css/).
 * Django signals, used to automatically update order totals and calculate product average ratings: [Django Signal Tutorial Link](https://simpleisbetterthancomplex.com/tutorial/2016/07/28/how-to-create-django-signals.html).
 * Django aggregate, used to calculate product average ratings and order total: [Django Aggregate Documentation Link](https://docs.djangoproject.com/en/3.2/topics/db/aggregation/).
-* Django contact form implementation: [Django Contact Form Tutorial Link]([https://hellowebbooks.com/news/tutorial-setting-up-a-contact-form-with-django/).
+* Django contact form implementation: [Django Contact Form Tutorial Link](https://hellowebbooks.com/news/tutorial-setting-up-a-contact-form-with-django/).
 * Using Django extensions to visualise the Django data model: [Django Extensions Medium Link](https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16).  
 * [Google Fonts](https://fonts.google.com/) for the attractive fonts used on the site, which enabled me to get started quickly.
 * [hex 2 rgba](http://hex2rgba.devoth.com/) for the hex to RGBA conversion tool.
