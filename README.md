@@ -99,7 +99,7 @@ Short interviews were carried out with potential customers.
 
 ## Business Objectives ##
 Although the business is fictitious at this stage, the following business objectives have been considered as part of the overall development strategy:  
-* Provide a high quality, well designed online shop that enables secure purchases, inspires confidence in the quality of the product, and increases the likelyhood of repeat purchases and subscriptions.
+* Provide a high quality, well designed online shop that enables secure purchases, inspires confidence in the quality of the product, and increases the likelihood of repeat purchases and subscriptions.
 * Provide the ability and incentivise customers to leave positive feedback and reviews on the products, to inspire confidence in new customers.
 * Grow the brand over time, starting with coffee beans and ground coffee and scaling up to add more products as the brand grows.
 * Track sales data to inform future business strategy.
@@ -115,7 +115,7 @@ Although the business is fictitious at this stage, the following business object
 * Purchase high quality cold brew coffee in a can (this product line could potentially be added in a future development phase).
 * Purchase high quality coffee making equipment (this product line could potentially be added in a future development phase).
 * Purchase high quality, great tasting coffee pods (this product line could potentially be added in a future development phase).
-* Purchase branded merchadise (this product line could potentially be added in a future development phase).
+* Purchase branded merchandise (this product line could potentially be added in a future development phase).
 
 ## UX ##
 
@@ -136,7 +136,7 @@ Customised subscription service|Customise the subscription service so that custo
 Cold brew|Add cold brew to the product line|3|2|Op-8|2
 Coffee making equipment|Add coffee making equipment e.g. V60 drippers, filters, stove top espresso pots, AeroPresses, espresso machines etc to the product line|2|2|Op-9|2
 Pods|Add coffee pods compatible with popular coffee machines to the product line|3|2|Op-10|2
-Merchandise|Add company branded merchadise to the product line|1|1|Op-11|3
+Merchandise|Add company branded merchandise to the product line|1|1|Op-11|3
 
 See **perkulater** strategy chart below. Opportunities to be included for phase 1 are shown in *Red*, and opportunities to be deferred to a future development phase are shown in *Grey*: 
 
@@ -239,7 +239,7 @@ See **perkulater** scope chart below. Opportunities to be included for phase 1 a
 
 ### Site Map ###
 A preliminary [Site Map](media/wireframes/perkulater-site-map.png) was produced for the **Phase 1** development, and is shown below. Note that the **Create Plan** 
-route is also shown. This feature will be implemented in a later devleopment phase, but has been included in the **Site Map** for planning purposes. 
+route is also shown. This feature will be implemented in a later development phase, but has been included in the **Site Map** for planning purposes. 
 
 <img src="media/wireframes/perkulater-site-map.svg" width="600px" style="margin: 20px;">
 
@@ -331,7 +331,7 @@ is shown below:
 ### Libraries and Tools ###
 * [MindMup](https://www.mindmup.com/) - used to produce the **Site Map**.
 * [Balsamiq](https://balsamiq.com/) - used to produce **Wireframes**.
-* [dbdiagram](https://dbdiagram.io/home) - used to plan and visualise the data shema prior to and during development.
+* [dbdiagram](https://dbdiagram.io/home) - used to plan and visualise the data schema prior to and during development.
 * [Font Awesome](https://fontawesome.com/)
 * [Google Fonts](https://fonts.google.com/)
 * [django-allauth](https://django-allauth.readthedocs.io/en/latest/index.html) - user authentication and account management.
@@ -387,10 +387,10 @@ The database schema was designed for maximum future scalablity and flexibility. 
 custom models, fields, relationships and methods are explained below:
 
 #### Products Models ####
-* **Product** - related to **Category**, **Price**, **Coffee**, **Offer**, **Review** and **Subscription**. The *description_delimeter* field is used to store a delimiter which 
+* **Product** - related to **Category**, **Price**, **Coffee**, **Offer**, **Review** and **Subscription**. The *description_delimiter* field is used to store a delimiter which 
 can optionally split the *description_full* field into separate paragraphs for rendering in the **Product Information** pop up modal. The *description_short* field can also be 
-optionally split using the delimiter specified in the *description_delimeter* field - the first part of the short description is shown underneath the product name in the 
-**Product Detail** view. The *friendly_name* and *friendy_price* fields are used to display the name and price on the **Product Summary** and **Product Detail** pages. 
+optionally split using the delimiter specified in the *description_delimiter* field - the first part of the short description is shown underneath the product name in the 
+**Product Detail** view. The *friendly_name* and *friendly_price* fields are used to display the name and price on the **Product Summary** and **Product Detail** pages. 
 The *rating* field stores an automatically calculated average rating which is updated using a **Django** signal when a review is added, deleted or edited. There are currently 
 four **Products** defined - *Jump Leads*, *Morning Glory*, *Our House Is Your House* and *Unleaded*.
 
@@ -418,13 +418,13 @@ Each Product **Size** has a default price, which is applied by default but may b
 **Coffee** currently has two **Sizes** defined, *250g* and *1kg*. 
 
 * **Offer** - optionally related to **Product**. Stores **Offers**. If *display_in_banner* field is set to `True`, displays the value of the *description_full* field in the **Offer Banner**.
-The values of the fields *free_delivery_amount*, *delivery_minumum* and *delivery_precentage* on the *Delivery* offer are used to calculate delivery costs. 
+The values of the fields *free_delivery_amount*, *delivery_minimum* and *delivery_percentage* on the *Delivery* offer are used to calculate delivery costs. 
 The value of the *discount* field on the *Review* offer (expressed as a percentage) is used to calculate the discount given as a **Reward** on the next order for leaving a **Review**.
 
 * **Review** - related to **Product** and **User**. Stores **Product Reviews**. A **Django** signal updates the **Product** *rating* field when a review is added, deleted or edited.
 
 #### Checkout Models ####
-* **Order** - related to **OrderlIneItem** abd **UserProfile**. Stores **Orders** after successful checkout. **Order** *order_number* field is automatically added on save. 
+* **Order** - related to **OrderLineItem** abd **UserProfile**. Stores **Orders** after successful checkout. **Order** *order_number* field is automatically added on save. 
 **Order** *discount*, *order_total*, *previous_total*, *delivery* and *grand_total* fields are automatically updated using a **Django** signal when an **OrderLineItem** 
 is added or deleted.
 
@@ -450,7 +450,7 @@ Please note that an account with **Super User** privileges has been created for 
 features which require **Super User** privileges. The *username* and *password* will be supplied on submission of the project.
 
 #### Features Implemented in Phase 1 ####
-* **Home Page**, shows a simple and elegent fade-in animation of the **perkulater** logo, a tagline *Coffee roasted with passion* and a large call to action **Shop** button:  
+* **Home Page**, shows a simple and elegant fade-in animation of the **perkulater** logo, a tagline *Coffee roasted with passion* and a large call to action **Shop** button:  
 <img src="media/testing/home.png" width="300px" style="margin: 20px;"> 
 
 #### Features Included in Base Template ##### 
@@ -484,7 +484,7 @@ Includes hover and focus styling:
 
 * **Footer**, featuring **Footer Tagline** and **Social Media Links**.
 
-* **Footer Tagline**, tagline exaplaining a little bit more about **perkulater**, to encourage users to make a purchase:  
+* **Footer Tagline**, tagline explaining a little bit more about **perkulater**, to encourage users to make a purchase:  
  <img src="media/testing/footer-tagline.png" width="600px" style="margin: 20px;">  
 
  * **Social Media Links**, links to **perkulater** social media sites, including hover styling:  
@@ -515,7 +515,7 @@ The **User** authentication system is implemented using [django allauth](https:/
     <img src="media/testing/toast-success-sign-out.png" width="300px" style="margin: 20px;">
 </p>
 
-* **Sign Up**, enables unautheticated **Users** to **Sign Up**, accessed from **User Menu**. **Sign In** links to **Sign In** and **Sign Up** button submits **Sign Up** form.  
+* **Sign Up**, enables unauthenticated **Users** to **Sign Up**, accessed from **User Menu**. **Sign In** links to **Sign In** and **Sign Up** button submits **Sign Up** form.  
 Button and link include hover styling. Any form errors are shown below each field. A **Toast Message** is shown on successful **Sign Up**, and an email is sent to the user for verification.  
 When the **User** clicks on the verification link, the **Confirm Email Address** page is shown: 
 <p float="left"> 
@@ -544,7 +544,7 @@ When the **User** clicks on the reset link, the **Change Password** page is show
 * **Change Password**, displayed when password reset email link is clicked.  
 **User** may reset their password by typing the same new password in twice and hitting the **Change Password** button. Button includes hover styling.  
 Any form errors are displayed below the form fields.  
-The **Change Password** page is displayed to confirm to the **User** that their passsword has been changed and a **Toast Message** is shown: 
+The **Change Password** page is displayed to confirm to the **User** that their password has been changed and a **Toast Message** is shown: 
 <p float="left">
     <img src="media/testing/password-change.png" width="300px" style="margin: 20px;">
     <img src="media/testing/password-change-error.png" width="300px" style="margin: 20px;">
@@ -576,7 +576,7 @@ The **Change Password** page is displayed to confirm to the **User** that their 
 <img src="media/testing/product-detail.png" width="600px" style="margin: 20px;">  
 
  * **Product Image**, opens **Information Modal** for **Product** if clicked. **Information Modal** title is set to **Product** model *friendly_name* field. 
-**Information Modal** content is read from the **Product** model *description_full* field, and is split into paragraphs using the delimiter specified in the *description_delimeter* field. 
+**Information Modal** content is read from the **Product** model *description_full* field, and is split into paragraphs using the delimiter specified in the *description_delimiter* field. 
 Includes hover styling:  
  <img src="media/testing/product-image.png" width="200px" style="margin: 20px;">  
 
@@ -592,7 +592,7 @@ Includes hover styling:
 * **Product Information Button**, displays **Information Modal** for **Product**.  
 Detailed **Product** information will make give the **User** a much better understanding of the **Products** available, and make the **User** more comfortable making a purchase.  
 **Product Information Button** name is set to **Category** model *friendly_name* field. **Information Modal** title is set to **Product** model *friendly_name* field. 
-**Information Modal** content is read from the **Product** model *description_full* field, and is split into paragraphs using the delimiter specified in the *description_delimeter* field. 
+**Information Modal** content is read from the **Product** model *description_full* field, and is split into paragraphs using the delimiter specified in the *description_delimiter* field. 
 Includes hover styling:  
 <img src="media/testing/product-info.png" width="100px" style="margin: 20px;">  
 <img src="media/testing/modal-product-info.png" width="600px" style="margin: 20px;">  
@@ -600,8 +600,8 @@ Includes hover styling:
 * **Size Information Button**, displays **Information Modal**.  
 Detailed **Size** information will make give the **User** a much better understanding of the **Product Sizes** available, and make the **User** more comfortable making a purchase.  
 **Size Information Button** name and **Information Modal** title are set to **Category** model *size_description* field. 
-**Information Modal** content is read from the **Category** model *size_information* field, and is split into paragraphs using the delimiter specified in the *information_delimeter* field. 
-Includes hover stlying:  
+**Information Modal** content is read from the **Category** model *size_information* field, and is split into paragraphs using the delimiter specified in the *information_delimiter* field. 
+Includes hover styling:  
 <img src="media/testing/size-info.png" width="100px" style="margin: 20px;">  
 <img src="media/testing/modal-size-info.png" width="200px" style="margin: 20px;">  
 
@@ -614,8 +614,8 @@ Includes hover stlying:
 * **Type Information Button**, displays **Information Modal**.  
 Detailed **Type** information will give the **User** a much better understanding of the **Product Types** available, and make the **User** more comfortable making a purchase.  
 **Type Information Button** name and **Information Modal** title are set to **Category** model *type_description* field. 
-**Information Modal** content is read from the **Category** model *type_information* field, and is split into paragraphs using the delimiter specified in the *information_delimeter* field. 
-Includes hover stlying:  
+**Information Modal** content is read from the **Category** model *type_information* field, and is split into paragraphs using the delimiter specified in the *information_delimiter* field. 
+Includes hover styling:  
 <img src="media/testing/type-info.png" width="100px" style="margin: 20px;">  
 <img src="media/testing/modal-type-info.png" width="300px" style="margin: 20px;">  
 
@@ -689,7 +689,7 @@ preview of the basket. The **View Basket** button links to the **Basket**. Butto
 
 #### Basket #### 
 
-* **Basket**, accessed from **Basket** icon in navigation menu. Shows the **User** their curreent **Basket**. Includes a preview image of the **Product** which links to the **Product Detail** 
+* **Basket**, accessed from **Basket** icon in navigation menu. Shows the **User** their current **Basket**. Includes a preview image of the **Product** which links to the **Product Detail** 
 page and includes hover styling. Also includes **Quantity Selector**, **Update** and **Remove** links to enable the **User** to update **Product** quantity in the basket, or remove the **Product** from the **Basket**. **Toast Message** is shown on update or removal of **Products** from **Basket**. **Quantity Selector**, **Update** and **Remove** links include hover styling. **Size** description, **Type** description and **Subtotal** are also shown for each **Product** in the **Basket**. **Total**, **Delivery** and **Grand Total** are shown below.  
 If the **User** has a **Reward** to be applied at checkout, the **Discount** is also shown. 
 If the **User** is not signed in, information text is displayed encouraging the **User** to sign in and add a new review to qualify for a discount. If the **User** is signed in but does not currently have a **Reward** to be applied, information text is displayed encouraging the **User** to add a new review to qualify for a discount. 
@@ -710,11 +710,11 @@ If **Save this delivery information to my profile** is checked, valid informatio
 **Payment** allows credit card number to be input. Any card errors are displayed below **Payment** input.  
 Information text is displayed below **Payment** input explaining how much the **User's** card will be charged. **Total**, **Delivery** and **Grand Total** are shown at the bottom of the page.  
 If the **User** has a **Reward**, the **Discount** is also shown.  
-If the **User** is not autheticated, information text is displayed encouraging the **User** to sign in and add a new review to qualify for a discount. If the **User** is signed in but does not currently have a **Reward** to be applied, information text is displayed encouraging the **User** to add a new **Review** to qualify for a discount.  
+If the **User** is not authenticated, information text is displayed encouraging the **User** to sign in and add a new review to qualify for a discount. If the **User** is signed in but does not currently have a **Reward** to be applied, information text is displayed encouraging the **User** to add a new **Review** to qualify for a discount.  
 If delivery charges have been applied, another information message explains how much more the user needs to spend in order to qualify for free UK delivery. **Edit Basket** button links back to **Basket** page, and **Pay** button submits the payment via **Stripe**. Buttons include hover styling.  
 A **Product Summary** including **Product** name, preview image, quantity, size and type is also shown. The **Product** image links to the **Product Detail** page and includes hover styling. 
 After the **Pay** button is clicked, a the **Payment Form** is faded out and a **Loading Overlay** is shown while the payment is processed.  
-If **Checkout** is succesful, **Checkout Success** page is displayed:  
+If **Checkout** is successful, **Checkout Success** page is displayed:  
 <p float="left">
     <img src="media/testing/checkout.png" width="300px" style="margin: 20px;">
     <img src="media/testing/checkout-unauthenticated.png" width="300px" style="margin: 20px;">
@@ -763,13 +763,13 @@ If message is sent successfully, a toast message is displayed:
 </p>
 
 #### Features To Be Implemented In Future Development Phases ####
-The following features have beend identified to add in **Future Development Phases**:  
+The following features have been identified to add in **Future Development Phases**:  
 * **Create Plan** - to enable **Users** to subscribe to a regular delivery of their favourite coffee(s). 
 * **Create Customised Plan** - to enable **Users** to customise their **Plan** so that they can try a different coffee 
 each time their subscription is fulfilled, tailored to their specific taste preferences.  
 * **Gift Cards** - to enable **Users** to purchase **perkulater** gift cards for friends and family.
 * **Add Category** - to enable the **perkulater** store administrator to add new **Product** **Categories**.
-* **Edit Category** - to enable the **perkulater** store administrator to edit esiting **Product** **Categories**.
+* **Edit Category** - to enable the **perkulater** store administrator to edit existing **Product** **Categories**.
 * **Delete Category** - to enable the **perkulater** store administrator to delete existing **Product** lines.
 * **Track Sales Data** - to enable the **perkulater** store administrator to export and analyse sales data from the database.
 
@@ -883,7 +883,7 @@ Profiles|-|OrderContactForm|message|CharField|Yes|-|TextArea widget
 ### JavaScript Code Logic ###
 [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) has been used to implement the following features:
 
-* [Base JavaScript Library](static/js/base.js) - inititlaise bootstrap toasts, build re-usable information and confirm modals, set select colour.
+* [Base JavaScript Library](static/js/base.js) - initialise bootstrap toasts, build re-usable information and confirm modals, set select colour.
 
 * [Home JavaScript Library](home/static/home/js/home.js) - fade in animation on **perkulater** logo, achieved using **JQuery**.
 
@@ -918,7 +918,7 @@ Further testing information and screen prints can be found in [TESTING.md](TESTI
 
 ## Deployment ##
 The project has been developed using [Gitpod](https://www.Gitpod.io/) and [GitHub](https://github.com/). 
-The project was regularly commited to [GitHub](https://github.com/) during the initial development phase.  
+The project was regularly committed to [GitHub](https://github.com/) during the initial development phase.  
 The website resides as a repository in [GitHub](https://github.com/), and has been been deployed 
 using [Heroku](https://dashboard.heroku.com/).  
 Static files are stored using [Amazon AWS](https://aws.amazon.com/) in an **Amazon Web Services S3 Bucket**.
@@ -973,13 +973,13 @@ by clicking on the *User* icon and selecting *Settings*, then *Variables* from t
 
 Variable|Value|
 --------|-----|
-DVELOPMENT|True|
+DEVELOPMENT|True|
 SECRET_KEY|`your_django_secret_key`
 STRIPE_PUBLIC_KEY|`your_stripe_public_key`
 STRIPE_SECRET_KEY|`your_stripe_secret_key`
 STRIPE_WH_SECRET|`your_stripe_webhook_secret_key`
 
-Note that the *Scope* for each variable should be set to the correct repositiry name, e.g. `richardhenyash/perkulater`.
+Note that the *Scope* for each variable should be set to the correct repository name, e.g. `richardhenyash/perkulater`.
 </details>
 
 <details>
@@ -1094,7 +1094,7 @@ onto the end of the *Resource* line, as per the example below, where `bucketname
 * Attach the policy to the group created earlier by selecting the group in *Groups* under *Access Management*, 
 clicking *Attach Policy* in the *Permissions* tab and selecting the policy created in the previous step.
 * Create a user by selecting *Add User* in *Policies* under *Access Management* and select *Programmatic access*.
-* Assign the user to the use group created eralier, and check that the group has the policy created earlier attached.
+* Assign the user to the use group created earlier, and check that the group has the policy created earlier attached.
 * Download the .csv file containing the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`.
 * Install `boto3` and  `django-storages`.
 * Freeze requirements using `pip3 freeze > requirements.txt`.
@@ -1178,7 +1178,7 @@ STRIPE_PUBLIC_KEY|`your_stripe_public_key`
 STRIPE_SECRET_KEY|`your_stripe_secret_key`
 STRIPE_WH_SECRET|`your_stripe_webhook_secret_key`
 
-* In the **Webhook Admin** area of **Stripe**, select the new *Webhook Endpoint* and test it by hitting the *Send Test Event* button and selecting the `payment_intent.created` event. Stripe should display messgae `Webhook received from Stripe: payment_intent.created`.
+* In the **Webhook Admin** area of **Stripe**, select the new *Webhook Endpoint* and test it by hitting the *Send Test Event* button and selecting the `payment_intent.created` event. Stripe should display message `Webhook received from Stripe: payment_intent.created`.
 * The deployment to **Heroku** and **Amazon Web Services S3** is now complete.
 </details>
 
@@ -1202,8 +1202,8 @@ STRIPE_WH_SECRET|`your_stripe_webhook_secret_key`
 * Using Django extensions to visualise the Django data model: [Django Extensions Medium Link](https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16).  
 * [Google Fonts](https://fonts.google.com/) for the attractive fonts used on the site, which enabled me to get started quickly.
 * [hex 2 rgba](http://hex2rgba.devoth.com/) for the hex to RGBA conversion tool.
-* The excellent [Code Institute](https://codeinstitute.net/) course material which enabled me to succefully implement the project. I have lent on the **Boutique Ado** example project for guidance on how to implement the **Basket**, **Checkout** and **Stripe** payment system including **Webhooks**.  
-* [Coolors](https://coolors.co/) for the colour ideas generated using the colour pallete generator.
+* The excellent [Code Institute](https://codeinstitute.net/) course material which enabled me to successfully implement the project. I have lent on the **Boutique Ado** example project for guidance on how to implement the **Basket**, **Checkout** and **Stripe** payment system including **Webhooks**.  
+* [Coolors](https://coolors.co/) for the colour ideas generated using the colour palette generator.
 * [favicon.io](https://favicon.io/favicon-converter/) for the favicon conversion tool.
 * [Multi Device Website Mockup Generator](https://techsini.com/multi-mockup/index.php) for the responsive mock-up.
 
