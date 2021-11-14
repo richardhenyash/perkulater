@@ -1,7 +1,7 @@
 # perkulater #
 [perkulater Live Site](https://perkulater.herokuapp.com/)  
 
-<img src="" width="100%" style="margin: 10px;">
+<img src="media/testing/perkulater-responsive-home.png" width="100%" style="margin: 10px;">  
 
 ## Contents ##
 - [Background](#background)
@@ -494,21 +494,21 @@ Includes hover and focus styling:
 * **Contact** may be accessed from **User Menu** if the **User** is signed in. Enables the **User** to contact **perkulater** using the form. If the **User** is signed in, populates email address. 
 Required fields are denoted with a *. Form includes input focus styling. **Keep Shopping** button links to **Products** page, and **Send Message** button submits message. 
 Buttons include hover styling. If message is sent succesfully, a toast message is displayed:  
-<img src="media/testing/contact.png" width="300px" style="margin: 10px;">
-<img src="media/testing/toast-success-contact.png" width="300px" style="margin: 10px;">  
+<img src="media/testing/contact.png" width="45%" style="margin: 10px;">
+<img src="media/testing/toast-success-contact.png" width="45%" style="margin: 10px;">  
 
 #### User Authentication System ####  
 The **User** authentication system is implemented using [django allauth](https://django-allauth.readthedocs.io/en/latest/installation.html). **allauth** templates have been customised to fit the look and feel of the **perkulater** site.  
 
  * **Sign In**, enables registered **Users** to **Sign In**, accessed from **User Menu**. **Sign Up** links to **Sign Up**, **Sign In** button submits **Sign Up** form and **Forgot Password** button links to **Password Reset**. Buttons and link include hover styling. Form errors are shown above the **Login** field. A **Toast Message** is shown on successful sign in:  
 <img src="media/testing/sign-in.png" width="300px" style="margin: 10px;">
-<img src="media/testing/sign-in-error.png" width="300px" style="margin: 10px;">
+<img src="media/testing/sign-in-error.png" width="300px" style="margin: 10px;">  
 <img src="media/testing/toast-success-sign-in.png" width="300px" style="margin: 10px;">  
 
  * **Sign Out**, enables signed in **Users** to **Sign Out**, accessed from **User Menu**.  
  **Sign Out** button submits sign out form. A **Toast Message** is shown on successful sign out:  
-<img src="media/testing/sign-out.png" width="300px" style="margin: 10px;">
-<img src="media/testing/toast-success-sign-out.png" width="300px" style="margin: 10px;">  
+<img src="media/testing/sign-out.png" width="50%" style="margin: 10px;">
+<img src="media/testing/toast-success-sign-out.png" width="50%" style="margin: 10px;">  
 
  * **Sign Up**, enables unautheticated **Users** to **Sign Up**, accessed from **User Menu**. **Sign In** links to **Sign In** and **Sign Up** button submits **Sign Up** form.  
 Button and link include hover styling. Any form errors are shown below each field. A **Toast Message** is shown on successful **Sign Up**, and an email is sent to the user for verification.  
@@ -1169,6 +1169,7 @@ STRIPE_WH_SECRET|`your_stripe_webhook_secret_key`
 * The excellent [Code Institute](https://codeinstitute.net/) course material which enabled me to succefully implement the project. I have lent on the **Boutique Ado** example project for guidance on how to implement the **Basket**, **Checkout** and **Stripe** payment system including **Webhooks**.  
 * [Coolors](https://coolors.co/) for the colour ideas generated using the colour pallete generator.
 * [favicon.io](https://favicon.io/favicon-converter/) for the favicon conversion tool.
+* [Multi Device Website Mockup Generator](https://techsini.com/multi-mockup/index.php) for the responsive mock-up.
 
 ## Acknowledgements ##
 
