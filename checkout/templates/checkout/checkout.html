@@ -246,9 +246,9 @@
 {% endblock %}
 
 {% block extrapostloadjs %}
+    {{ block.super }}
     <!-- Stripe JavaScript -->
     <script src="https://js.stripe.com/v3/"></script>
-    {{ block.super }}
     {{ stripe_public_key|json_script:"id_stripe_public_key" }}
     {{ client_secret|json_script:"id_client_secret" }}
     <script src="{% static 'checkout/js/checkout.js' %}"></script>
