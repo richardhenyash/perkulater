@@ -494,8 +494,8 @@ Includes hover and focus styling:
 * **Contact** may be accessed from **User Menu** if the **User** is signed in. Enables the **User** to contact **perkulater** using the form. If the **User** is signed in, populates email address. 
 Required fields are denoted with a *. Form includes input focus styling. **Keep Shopping** button links to **Products** page, and **Send Message** button submits message. 
 Buttons include hover styling. If message is sent succesfully, a toast message is displayed:  
-<img src="media/testing/contact.png" width="45%" style="margin: 10px;">
-<img src="media/testing/toast-success-contact.png" width="45%" style="margin: 10px;">  
+<img src="media/testing/contact.png" width="300px" style="margin: 10px;">
+<img src="media/testing/toast-success-contact.png" width="300px" style="margin: 10px;">   
 
 #### User Authentication System ####  
 The **User** authentication system is implemented using [django allauth](https://django-allauth.readthedocs.io/en/latest/installation.html). **allauth** templates have been customised to fit the look and feel of the **perkulater** site.  
