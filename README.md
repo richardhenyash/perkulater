@@ -332,6 +332,7 @@ is shown below:
 * [MindMup](https://www.mindmup.com/) - used to produce the **Site Map**.
 * [Balsamiq](https://balsamiq.com/) - used to produce **Wireframes**.
 * [dbdiagram](https://dbdiagram.io/home) - used to plan and visualise the data schema prior to and during development.
+* [Modernizr](https://modernizr.com/docs) - used to provide support for **Web3** ccompressed images with fallback, to increase performance.  
 * [Font Awesome](https://fontawesome.com/)
 * [Google Fonts](https://fonts.google.com/)
 * [django-allauth](https://django-allauth.readthedocs.io/en/latest/index.html) - user authentication and account management.
@@ -1225,6 +1226,8 @@ STRIPE_WH_SECRET|`your_stripe_webhook_secret_key`
 * Django aggregate, used to calculate product average ratings and order total: [Django Aggregate Documentation Link](https://docs.djangoproject.com/en/3.2/topics/db/aggregation/).
 * Django contact form implementation: [Django Contact Form Tutorial Link](https://hellowebbooks.com/news/tutorial-setting-up-a-contact-form-with-django/).
 * Using Django extensions to visualise the Django data model: [Django Extensions Medium Link](https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16).  
+* The following links for using **WebP** images with fallback: [WebP Images Link 1](https://usefulangle.com/post/114/webp-image-in-html-with-fallback), [WebP Images Link 2](https://css-tricks.com/using-webp-images/).  
+* The [Modernizr](https://modernizr.com/docs) documentation for help on installing and configuring [Modernizr](https://modernizr.com/docs) to detect **WebP** image support.  
 * [Google Fonts](https://fonts.google.com/) for the attractive fonts used on the site, which enabled me to get started quickly.
 * [hex 2 rgba](http://hex2rgba.devoth.com/) for the hex to RGBA conversion tool.
 * The excellent [Code Institute](https://codeinstitute.net/) course material which enabled me to successfully implement the project. I have lent on the **Boutique Ado** example project for guidance on how to implement the **Basket**, **Checkout** and **Stripe** payment system including **Webhooks**.  
