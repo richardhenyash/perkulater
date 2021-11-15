@@ -1227,7 +1227,7 @@ STRIPE_WH_SECRET|`your_stripe_webhook_secret_key`
 * Django contact form implementation: [Django Contact Form Tutorial Link](https://hellowebbooks.com/news/tutorial-setting-up-a-contact-form-with-django/).
 * Using Django extensions to visualise the Django data model: [Django Extensions Medium Link](https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16).  
 * The following links for using **WebP** images with fallback: [WebP Images Link 1](https://usefulangle.com/post/114/webp-image-in-html-with-fallback), [WebP Images Link 2](https://css-tricks.com/using-webp-images/).  
-* The [Modernizr](https://modernizr.com/docs) documentation for help on installing and configuring [Modernizr](https://modernizr.com/docs) to detect **WebP** image support.  
+* The [Modernizr](https://modernizr.com/docs) documentation and the following [Hongkiat](https://www.hongkiat.com/blog/modernizr/) link for help on installing and configuring [Modernizr](https://modernizr.com/docs) to detect **WebP** image support.  
 * [Google Fonts](https://fonts.google.com/) for the attractive fonts used on the site, which enabled me to get started quickly.
 * [hex 2 rgba](http://hex2rgba.devoth.com/) for the hex to RGBA conversion tool.
 * The excellent [Code Institute](https://codeinstitute.net/) course material which enabled me to successfully implement the project. I have lent on the **Boutique Ado** example project for guidance on how to implement the **Basket**, **Checkout** and **Stripe** payment system including **Webhooks**.  
