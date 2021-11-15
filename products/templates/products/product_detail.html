@@ -68,6 +68,7 @@
                         {{ product.get_description_array|json_script:"product-description-array" }}
                         <td class="text-bold px-3 text-nowrap pt-1 pb-0">{{ product_category.friendly_name }}
                             <a class="button-info" id="productInformationBtn" href="#" role="button"
+                                aria-label="Product Informaton Button"
                                 data-information-modal-size="modal-xl"
                                 data-information-modal-title="{{ product.friendly_name }}">
                                 <i class="fas fa-lg fa-info-circle px-1"></i>
@@ -94,6 +95,7 @@
                                 {{ product_category.get_size_information_array|json_script:"size-information-array" }}
                                 <p class="text-medium text-bold mt-2 px-3">{{ product_category.size_description }}
                                     <a class="button-info" id="sizeInformationBtn" href="#" role="button"
+                                        aria-label="Size Information Button"
                                         data-information-modal-size=""
                                         data-information-modal-title="{{ product_category.size_description }}">
                                         <i class="fas fa-lg fa-info-circle px-1"></i>
@@ -115,6 +117,7 @@
                                 {{ product_category.get_type_information_array|json_script:"type-information-array" }}
                                 <p class="text-medium text-bold mt-2 px-3">{{ product_category.type_description }}
                                     <a class="button-info" id="typeInformationBtn" href="#" role="button"
+                                        aria-label="Type Information Button"
                                         data-information-modal-size=""
                                         data-information-modal-title="{{ product_category.type_description }}">
                                         <i class="fas fa-lg fa-info-circle px-1"></i>
@@ -140,8 +143,8 @@
                                     <div class="col-7">
                                         <div class="input-group">
                                             <input id="product-quantity" name="product-quantity" type="text" readonly class="product-quantity-input form-control text-center" placeholder="1" value="1" aria-label="Quantity">
-                                            <button id="product-quantity-minus-btn" class="btn btn-lg btn-outline-light btn-outline-green" type="button" disabled><i class="fas fa-minus fa-sm"></i></button>
-                                            <button id="product-quantity-plus-btn" class="btn btn-lg btn-outline-light btn-outline-green" type="button"><i class="fas fa-plus fa-sm"></i></button>
+                                            <button id="product-quantity-minus-btn" class="btn btn-lg btn-outline-light btn-outline-green" type="button" disabled aria-label="Quantity Minus Button"><i class="fas fa-minus fa-sm"></i></button>
+                                            <button id="product-quantity-plus-btn" class="btn btn-lg btn-outline-light btn-outline-green" type="button"  aria-label="Quantity Plus Button"><i class="fas fa-plus fa-sm"></i></button>
                                         </div>
                                     </div>
                                     <div class="col-5"></div>

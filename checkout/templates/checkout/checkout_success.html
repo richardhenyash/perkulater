@@ -140,7 +140,7 @@
                                 <div class="row d-flex align-items-center">
                                     <div class="col-4 p-3">
                                         <div class="product-container image-container">
-                                            <a href="{% url 'product_detail' lineitem.product.id %}">
+                                            <a href="{% url 'product_detail' lineitem.product.id %}" aria-label="{{ lineitem.product.name }}">
                                                 {% if  lineitem.product.image %}
                                                     <picture>
                                                         <source srcset="{{ lineitem.product.image.url }}" type="image/webp">
