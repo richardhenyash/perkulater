@@ -23,7 +23,11 @@
                         data-information-modal-title="{{ product.friendly_name }}"
                         data-information-modal-size="modal-xl">
                         {% if product.image %}
-                            <img src="{{ product.image.url }}" alt="{{ product.friendly_name }}" class="w-100">
+                            <picture>
+                                <source srcset="{{ product.image.url }}" type="image/webp">
+                                <source srcset="{{ product.image_alt.url }}" type="image/jpeg"> 
+                                <img src="{{ product.image_alt.url }}" alt="{{ product.friendly_name }}" class="w-100">
+                            </picture>
                         {% else %}
                             <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.friendly_name }}" class="w-100 p-1">
                         {% endif %}

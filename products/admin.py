@@ -12,6 +12,7 @@ class ProductAdmin(admin.ModelAdmin):
         'category',
         'rating',
         'image',
+        'image_alt',
     )
 
     ordering = ('name',)
