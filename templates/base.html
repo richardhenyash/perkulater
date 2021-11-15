@@ -147,8 +147,9 @@
             {% include 'includes/externaljs.html' %}            
             <!-- Link to Base JavaScript -->
             <script src="{% static 'js/base.js' %}"></script>
+            <!-- Link to Custom Modernizr JavaScript -->
+            <script src="{% static 'js/libraries/modernizr-custom.js' %}"></script>
         {% endblock %}
-
         {% block extrapostloadjs %}
         {% endblock %}
     </body>

@@ -25,9 +25,9 @@
 html {
     font-size: 62.5%;
 }
-    
-/*-- Body --*/
-body {
+
+/*-- Body, support for non WebP compatible browsers --*/
+.no-webp body {
     font-family: var(--bodyfont);
     color: var(--white);
     font-size: 1.6rem;
@@ -42,6 +42,26 @@ body {
         linear-gradient(to bottom, rgba(31, 31, 31, 1.0), rgba(31, 31, 31, 0.75)),
         /* bottom, image */
         url('/media/pexels-juan-pablo-serrano-arenas-894695.jpg') no-repeat center fixed;
+    background-size: cover;
+    background-color: var(--background-lvl1);
+}
+
+/*-- Body, support added for WebP background image to improve performance for WebP compatible browsers--*/
+.webp body {
+    font-family: var(--bodyfont);
+    color: var(--white);
+    font-size: 1.6rem;
+    min-height: 100vh;
+    background:
+        /* top, transparent black, with gradient */
+        -webkit-linear-gradient(to bottom,  rgba(31, 31, 31, 1.0), rgba(31, 31, 31, 0.75)), /* Chrome10+,Safari5.1+ */
+        /* bottom, image */
+        url('/media/pexels-juan-pablo-serrano-arenas-894695.webp') no-repeat center fixed; 
+    background:
+        /* top, transparent black, with gradient */
+        linear-gradient(to bottom, rgba(31, 31, 31, 1.0), rgba(31, 31, 31, 0.75)),
+        /* bottom, image */
+        url('/media/pexels-juan-pablo-serrano-arenas-894695.webp') no-repeat center fixed;
     background-size: cover;
     background-color: var(--background-lvl1);
 }
