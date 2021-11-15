@@ -1,5 +1,7 @@
 from django import forms
-from .widgets import CustomClearableFileInput
+from .widgets import (
+    CustomClearableFileInputDefault,
+    CustomClearableFileInputAlt)
 from .models import Category, Coffee, Product, Price, Review
 
 
@@ -15,7 +17,7 @@ class ProductForm(forms.ModelForm):
             'category', 'name', 'friendly_name',
             'friendly_price', 'description_full',
             'description_short', 'description_delimiter',
-            'image'
+            'image', 'image_alt',
         )
         # Set field labels
         labels = {
@@ -25,10 +27,16 @@ class ProductForm(forms.ModelForm):
             'description_short': 'Short Description',
             'description_delimiter': 'Description Delimiter',
             'image': 'Image',
+            'image_alt': 'Alternative Image',
         }
     # Set image field, use custom widget
     image = forms.ImageField(
-        label='Image', required=False, widget=CustomClearableFileInput)
+        label='Image', required=False, widget=CustomClearableFileInputDefault)
+
+    # Set alternate image field, use custom widget
+    image_alt = forms.ImageField(
+        label='Alternative Image',
+        required=False, widget=CustomClearableFileInputAlt)
 
     def __init__(self, *args, **kwargs):
         """

@@ -103,9 +103,16 @@ $('#id_size').change(function() {
 
 // On change event handler added to image in custom clearable file input
 // Displays new file name
-$('#new-image').change(function() {
-    let file = $('#new-image')[0].files[0];
-    $('#filename').text(`Image will be set to: ${file.name}`);
+$('#new_image').change(function() {
+    let file = $('#new_image')[0].files[0];
+    $('#filename_image').text(`Image will be set to: ${file.name}`);
+});
+
+// On change event handler added to alternate image in custom clearable file input
+// Displays new file name
+$('#new_image_alt').change(function() {
+    let file = $('#new_image_alt')[0].files[0];
+    $('#filename_image_alt').text(`Image will be set to: ${file.name}`);
 });
 
 /**

@@ -28,13 +28,12 @@
                         <fieldset class="pt-2">
                             <legend class="field-label">Product Details</legend>
                             {% for field in product_form %}
-                                {% if field.name != 'image' %}
+                                {% if field.name != 'image' and field.name != 'image_alt'  %}
                                     {{ field | as_crispy_field }}
                                 {% else %}
                                     {{ field }}
                                 {% endif %}
                             {% endfor %}
-
                         </fieldset>
                         <fieldset class="pt-2" id="coffee-details">
                             <legend class="field-label">Coffee Details</legend>

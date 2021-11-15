@@ -112,7 +112,11 @@
                                         <div class="product-container image-container">
                                             <a href="{% url 'product_detail' basket_item.product_id %}">
                                                 {% if  basket_item.product.image %}
-                                                    <img src="{{ basket_item.product.image.url }}" alt="{{ basket_item.product.friendly_name }}" class="w-100 p-1">
+                                                    <picture>
+                                                        <source srcset="{{ basket_item.product.image.url }}" type="image/webp">
+                                                        <source srcset="{{ basket_item.product.image_alt.url }}" type="image/jpeg"> 
+                                                        <img src="{{ basket_item.product.image_alt.url }}" alt="{{ basket_item.product.friendly_name }}" class="w-100 p-1">
+                                                    </picture>
                                                 {% else %}
                                                     <img src="{{ MEDIA_URL }}noimage.png" alt="{{ basket_item.product.friendly_name }}" class="w-100 p-1">
                                                 {% endif %}

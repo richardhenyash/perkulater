@@ -13,9 +13,9 @@
 {% endif %}
 <div class="py-2 mt-2">
     <span class="btn btn-outline-light btn-lg btn-outline-green btn-file px-4">
-        Select Image <input id="new-image" type="{{ widget.type }}" name="{{ widget.name }}" accept="image/*">
+        Select Image <input id="new_{{ widget.name }}" type="{{ widget.type }}" name="{{ widget.name }}" accept="image/*">
     </span>
 </div>
 <div class="py-1">
-    <strong><span class="text-small text-bold fg-blue" id="filename"></span></strong>
+    <strong><span class="text-small text-bold fg-blue" id="filename_{{ widget.name }}"></span></strong>
 </div>

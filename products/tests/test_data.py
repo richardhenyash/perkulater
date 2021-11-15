@@ -59,7 +59,8 @@ def build_test_data():
         description_short=desc_short,
         description_delimiter=";",
         rating=4.50,
-        image="jump-leads-front-transparent.png",
+        image="jump-leads-front-transparent.webp",
+        image_alt="jump-leads-front-transparent.png",
     )
     Type.objects.create(
         category=category,

@@ -142,7 +142,11 @@
                                         <div class="product-container image-container">
                                             <a href="{% url 'product_detail' lineitem.product.id %}">
                                                 {% if  lineitem.product.image %}
-                                                    <img src="{{ lineitem.product.image.url }}" alt="{{ lineitem.product.friendly_name }}" class="w-100 p-1">
+                                                    <picture>
+                                                        <source srcset="{{ lineitem.product.image.url }}" type="image/webp">
+                                                        <source srcset="{{ lineitem.product.image_alt.url }}" type="image/jpeg"> 
+                                                        <img src="{{ lineitem.product.image_alt.url }}" alt="{{ linetiem.product.friendly_name }}" class="w-100 p-1">
+                                                    </picture>
                                                 {% else %}
                                                     <img src="{{ MEDIA_URL }}noimage.png" alt="{{ lineitem.product.friendly_name }}" class="w-100 p-1">
                                                 {% endif %}

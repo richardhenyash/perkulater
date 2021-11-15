@@ -30,6 +30,7 @@ class TestProductForm(TestCase):
             'description_short': desc_short,
             'description_delimiter': ";",
             'image': "",
+            'image_alt': "",
             'rating': "",
         })
         self.assertFalse(form.is_valid())
@@ -53,6 +54,7 @@ class TestProductForm(TestCase):
             'description_short': desc_short,
             'description_delimiter': ";",
             'image': "",
+            'image_alt': "",
             'rating': "",
         })
         self.assertFalse(form.is_valid())
@@ -77,6 +79,7 @@ class TestProductForm(TestCase):
             'description_short': desc_short,
             'description_delimiter': ";",
             'image': "",
+            'image_alt': "",
             'rating': "",
         })
         self.assertFalse(form.is_valid())
@@ -98,6 +101,7 @@ class TestProductForm(TestCase):
             'description_short': desc_short,
             'description_delimiter': ";",
             'image': "",
+            'image_alt': "",
             'rating': "",
         })
         self.assertFalse(form.is_valid())
@@ -120,6 +124,7 @@ class TestProductForm(TestCase):
             'description_short': "",
             'description_delimiter': ";",
             'image': "",
+            'image_alt': "",
             'rating': "",
         })
         self.assertFalse(form.is_valid())
@@ -143,6 +148,7 @@ class TestProductForm(TestCase):
             'description_full': desc_full,
             'description_short': desc_short,
             'image': "",
+            'image_alt': "",
             'rating': "",
         })
         self.assertFalse(form.is_valid())
@@ -167,6 +173,7 @@ class TestProductForm(TestCase):
             'description_short': desc_short,
             'description_delimiter': ";",
             'image': "",
+            'image_alt': "",
             'rating': "",
         })
         self.assertTrue(form.is_valid())
@@ -188,6 +195,7 @@ class TestProductForm(TestCase):
             'description_short': desc_short,
             'description_delimiter': ";",
             'image': "",
+            'image_alt': "",
             'rating': "",
         })
         self.assertTrue(form.is_valid())
@@ -200,7 +208,7 @@ class TestProductForm(TestCase):
             'category', 'name', 'friendly_name',
             'friendly_price', 'description_full',
             'description_short', 'description_delimiter',
-            'image'])
+            'image', 'image_alt'])
 
     def test_fields_are_explicit_in_form_metaclass(self):
         """Test to check fields are explicit in form metaclass"""
@@ -209,7 +217,7 @@ class TestProductForm(TestCase):
             'category', 'name', 'friendly_name',
             'friendly_price', 'description_full',
             'description_short', 'description_delimiter',
-            'image'))
+            'image', 'image_alt'))
 
 
 class TestCoffeeForm(TestCase):
