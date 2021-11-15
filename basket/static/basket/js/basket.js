@@ -4,7 +4,7 @@
 * @version 1.1.1
 */
 /*jshint esversion: 6 */
-/* globals $, incrementQuantity */
+/* globals $, incrementQuantity, buildInformationModal */
 
 // On click event handler added to delivery information button to build modal dialog
 $("#deliveryInformationBtn").click(function() {
