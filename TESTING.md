@@ -24,26 +24,30 @@ regularly during the development process. **The HTML Source Code** was regularly
 using **Google Chrome** (right click, *View page source*) and passed through the 
 [W3C Markup Validation Service](https://validator.w3.org/).  
 Various minor errors were encountered and corrected during the final **HTML** validation check. 
-All HTML code now passes validation with no errors or warnings. See [HTML Validation Reports](media/testing/validation/html)
+All HTML code now passes validation with no errors or warnings. See [HTML Validation Reports](media/testing/validation/html).
 
 ### Custom CSS Styling ###
-[Custom CSS styling](/static/css/style.css) was validated using the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/).  
-No errors were generated. Some "Due to their dynamic nature, CSS variables are currently not statically checked" 
+**Custom CSS Styling** from [base.css](static/css/base.css), [basket.css](basket/static/basket/css/basket.css), 
+[checkout.css](checkout/static/checkout/css/checkout.css), [home.css](home/static/home/css/home.css), 
+[products.css](products/static/products/css/products.css), and [profiles.css](profiles/static/profiles/css/profiles.css)
+was validated using the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/).  
+No errors were generated. Some *"Due to their dynamic nature, CSS variables are currently not statically checked"* 
 warnings were generated. See [CSS Validation Reports](/static/testing/validation/css).  
-These warnings are related to the global variables declared at the top of the [Custom Base CSS](/static/css/style.css). 
+These warnings are related to the global variables declared at the top of [base.css](/static/css/base.css). 
 The warnings are generated because the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) 
-does not currently support CSS global variable declaration and are not considered to be an issue. 
+does not currently support CSS global variable declaration, and are not considered to be an issue. 
 See [Github Link](https://github.com/w3c/css-validator/pull/173).
-Some additional "vendor extension" warnings were also generated in **base.css**. These warnings are not considered to be an issue 
-and the vendor extensions are to enable correct display of the **Background Image** linear gradient and various **Form** elements.  
+Some additional *"vendor extension"* warnings were also generated in **base.css**. These warnings are not considered to be an issue - 
+the vendor extensions are to enable correct display of the **Background Image** linear gradient and various **Form** elements.  
 
 ### JavaScript Code Testing ##
-The custom **base**, **basket**, **checkout**, **home**, **products**, and **profiles** **JavaScript Code Libraries** 
-were validated using the [JSHint](https://jshint.com/about/) static code analysis tool, and passed without errors or warnings.
+The custom [base.js](static/js/base.js), [basket.js](basket/static/basket/js/basket.js), [checkout.js](checkout/static/checkout/js/checkout.js), 
+[home.js](home/static/home/js/home.js), [products.js](products/static/products/js/products.js), and [profiles.js](profiles/static/profiles/js/profiles.js) 
+**JavaScript Code Libraries** were validated using the [JSHint](https://jshint.com/about/) static code analysis tool, and passed without errors or warnings.
 See [JavaScript Event Handler Module Validation](/static/testing/validation/js/events-jshint-validation.pdf). 
 Due to the lack of complexity of **JavaScript** code implemented on the project, **Automated Unit Testing** 
 of the **JavaScript** code was considered unecessary. All **JavaScript** functions and event handlers in the custom **JavaScript Code Libraries** 
-have been thoroughly manually tested as part of the [Manual Testing](#manual-testing) process.  
+have been thoroughly manually de-bugged and tested in the console as part of the [Manual Testing](#manual-testing) process.  
 
 ### Python Code Testing ##
 All **Python Code** was thoroughly de-bugged and tested at the command line during the development process, and has been validated 
@@ -55,190 +59,253 @@ exclude = */migrations/*.py, *__init__.py, *_pychache_*
 per-file-ignores = *apps.py:F401, *settings.py:E501
 ```
 The settings exclude **django** migrations, `__init__.py`, and `_pychache_` files, as these are system generated files and do not need to be checked.  
-*F401* (imported but unused) errors are ignored for *apps.py, as flake8 was throwing an error on **Django** signals being imported but unused. 
+*F401* (imported but unused) errors are ignored for *apps.py, as flake8 was generating an error on **Django** signals being imported but unused. 
 Signals need to be imported into the **app** config files to ensure correct operation of the code.  
-*E501* (line too long) errors are ignored for `settings.py` as it is not possible to shorten these lines of code without causing application errors.  
+*E501* (line too long) errors are ignored for `settings.py` as it is not possible to shorten the effected lines of code without causing application errors.  
 
-**Flake 8** output is shown here [Python Code Automated Testing And Flake8 Output](/static/testing/validation/python/python-automated-testing-output.png).
+**Flake 8** output is shown here [Python Code Automated Testing And Flake8 Output](media/testing/validation/python/python-automated-testing-output.png).
 
 Python **Automated Unit Testing** was also implemented using the [Django Unit Testing](https://docs.djangoproject.com/en/3.2/topics/testing/overview/) framework.  
 . **Unit Tests** have been written for all **Forms**, **Model Methods**, **Signals** and **Views**, for each **Django App** in  the **perkulater** project. 
-A total of **137** **Unit Tests** have been written. Once **Unit Testing** was implemented, **Unit Tests** were run each time a feature was added or changed.  
-All **137** tests run successfully without errors or warnings, see [Python Code Automated Testing And Flake8 Output](/static/testing/validation/python/python-automated-testing-output.png).  
+A total of **137** **Unit Tests** have been written. Afetr **Unit Testing** was implemented, **Unit Tests** were run each time a feature was added or changed.  
+All **137** tests run successfully without errors or warnings, see [Python Code Automated Testing And Flake8 Output](media/testing/validation/python/python-automated-testing-output.png).  
 
 ### Automated Performance And Quality Testing ###
 Performance and Quality was tested with the [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en) 
 extension for [Google Chrome](https://www.google.com/intl/en_uk/chrome/). 
 
-Initial [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en) scores were:
-* **Performance** 84%
-* **Accessibility** 90%
-* **Best Practices** 93%
-* **SEO** 94%  
+Initial [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en) scores are tabulated below:  
 
-See [Initial Lighthouse Report](/static/testing/validation/performance/lighthouse-report-1.pdf).
+Page|Performance|Accessiblity|Best Practices|SEO|
+----|-----------|------------|--------------|---|
+Home|98|100|100|100
+Products|81|100|100|92
+Product Detail|85|91|100|92
 
-To improve **Accesibility**, the *name* and *aria-label* atttributes were added to the **Search** and **Add** 
-buttons as required on the **Home** page.
+See [Initial Lighthouse Reports](media/testing/validation/performance/initial).
 
-To improve **Best Practices** and **Performance**, the [FreeFrom logo](/static/testing/logo.png) was re-sized to 
-94px x 100px and compressed using the [GIMP](https://www.gimp.org/) and [RIOT](https://riot-optimizer.com/) 
-image manipulation and optimisation tools and the *defer* attribute was added to the script HTML tags, 
-to defer loading of the **JavaScript** files.
+To improve **Accesibility** and **SEO**, missing *href tags* and *aria-label* atttributes were added to the some of the buttons and links in the **HTML Templates**.
 
-Final [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en) scores were:
-* **Performance** 86%
-* **Accessibility** 98%
-* **Best Practices** 100%
-* **SEO** 94%  
+To improve **Best Practices** and **Performance**, the **Product** images were resized to 317px x 422px (the maximum size the image is displyed at), 
+and compressed using the [RIOT](https://riot-optimizer.com/) image optimisation tool.  
+The **Background** image was also re-sized to 2400px x 1600px and compressed using the [RIOT](https://riot-optimizer.com/) image optimisation tool.  
+[WebP](https://developers.google.com/speed/webp) versions of the **Product** and **Background** images were created, resulting in much smalller image files.  
+*Webp* images are implemented for the **Product** images with *png* fallback for browsers that do not support *Webp* using the html *picture* tag.  
+An additional field, *image_alt* was added to the **Product** model to enable the fallback inage to be specified for each product.  
+The **Product Add** and **Product Edit** pages were uopdated to include image file selectors for the new *image_alt* field.  
+This will enable the **perkulater** strore administrator to add a *Webp* image with *png* or *jpg* fallback for any future **Products**. 
+A *Webp* image with *png* fallback was also implemented for the **Background** image using the [Modernizr](https://modernizr.com/) browser detector tool.  
+A custom comfiguration of [Modernizr](https://modernizr.com/), customized to detect *WebP* image support, has been added to the **perkulater** code base: [libraries](static/js/libraries).  
+This detects if the browser has *Webp* support, and adds a css class (either *webp* or *no-webp*) to the *html* element.  
+The [base.css](static/css/base.css) was updated to test for *WebP* image support, and load the correct **Background Image**.  
 
-See [Final Lighthouse Report](/static/testing/validation/performance/lighthouse-report-2.pdf).
+Loading of **Stripe JavaScript** was moved from the **base** template to the **checkout** template, to reduce overhead on pages where **Stripe** is not required.  
 
-Note that the slightly lower performance score of 86% is due to render blocking resources (mainly from **Bootstrap**) and 
-unused CSS (also from **Bootstrap**). To improve performance, consideration should be given in a **Future Development Phase** 
-to optimising **Bootstrap** and **DataTables** by only importing the required components. 
+These changes resulted in a significant increase in **Performance**.  
+
+Final [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en) scores are tabulated below:  
+
+Page|Performance|Accessiblity|Best Practices|SEO|
+----|-----------|------------|--------------|---|
+Home|99|100|100|100
+Products|97|100|100|100
+Product Detail|98|100|100|100
+Product Add|98|100|100|100
+Product Edit|99|100|100|100
+Product Review|98|100|100|100
+Basket|98|100|100|100
+Checkout|92|100|100|100
+Checkout Success|97|100|100|100
+Contact|99|100|100|100
+Sign In|99|100|100|100
+Sign Up|99|100|100|100
+User Profile|98|100|100|100
+Order Details|98|100|100|100
+Order Contact|98|100|100|100
+
+
+See [Final Lighthouse Reports](media/testing/validation/performance/final).
+
+To further improve performance, consideration should be given in a **Future Development Phase** to optimising **Bootstrap** by only importing the required components. 
 See this [Link](https://getbootstrap.com/docs/5.0/customize/optimize/) for further information.
 
 ## User Stories Testing ###
-* ***As a User, I would like to be able to register on the site.***  
-The user is able to **Register** on the site using the **Register** form, which can be accessed from **Home Page Alert Links** 
-or from the **Sign In** form. Once the **Register** form has been populated and the [Form Validation](#form-validation) and checking has been 
-passed, the user is registered on the database, redirected back to the **Home** page, and notified with a message 
-at the top of the screen. The **Home Page Alert** is updated to remove the **Sign In** and **Register** links and shows the 
-**User Name** of the signed in user. The **Navigation Menu** shows a link to **Sign Out**:  
-
-<img src="/static/testing/user-stories/home-signedout.png" width="90%" style="margin: 10px;">  
-<img src="/static/testing/user-stories/signin.png" width="400px" style="margin: 10px;">  
-<img src="/static/testing/user-stories/home-signedin.png" width="90%" style="margin: 10px;">  
+As a **Potential Customer**, I would like to be able to:  
+<br>
+* Immediately understand the intent of the site.  
+The **Home Page** explains the purpose of the **perkulater** site, in a simple and elegant way:    
+<img src="media/testing/home.png" width="300px" style="margin: 20px;">  
 
 
-* ***As a User, I would like to be able to sign in to the site.***  
-The user is able to **Sign In** to the site using the **Sign In** form which can be accessed from **Home Page Alert Links** 
-or from the **Sign In** link on the **Navigation Menu**. The **Sign In** form also has a link to the **Register** form. 
-Once the **Sign In** form has been populated and the [Form Validation](#form-validation) and checking has been passed, the user is signed in, 
-redirected back to the **Home** page, and notified with a message at the top of the screen. 
-The **Home Page Alert** is updated to remove the **Sign In** and **Register** links and shows the 
-**User Name** of the signed in user. The **Navigation Menu** shows a link to **Sign Out**:  
-<img src="/static/testing/user-stories/home-signedout.png" width="90%" style="margin: 10px;">  
-<img src="/static/testing/user-stories/signin.png" width="400px" style="margin: 10px;">  
-<img src="/static/testing/user-stories/home-signedin.png" width="90%" style="margin: 10px;">  
+* View and navigate the site on all devices.  
+**Responsive Design** using **Bootstrap** has been implemented on the **perkulater** site, to enable the site to be viewed and navigated on all devices.  
+See [Responsive Design](#responsive-design) section.  
 
-* ***As a User, I would like to be able to sign out of the site.***  
-If the user is **Signed In**, the **Navigation Menu** shows a link to **Sign Out**. If the link is clicked, the user 
-is redirected back to the **Home** page and notified with a message at the top of the screen:  
-<img src="/static/testing/user-stories/navigation-menu-signedout.png" align="left" width="70%" style="margin: 10px;">
-<img src="/static/testing/user-stories/signout-success.png" width="20%" style="margin: 10px;">  
+* Learn about the coffees on offer, including a description of the flavours, so I can make an informed purchasing decision.  
+The **Product Detail** page includes detailed information about the **Coffees** on offer:  
+<img src="media/testing/product-detail.png" width="400px" style="margin: 20px;">  
 
-* ***As a User, I am searching for a product which is free from one or more allergens.***  
-The user is able to optionally type part or all of a **Product** name into the **Search** input and 
-may also optionally select the **Category** and **Allergens** to **Search** based on. Products are 
-returned into the product list below. Each product can be viewed in more detail by clicking on 
-the **Product Name Link** in the **Product Results Table**.
-The **Search** also works if no details are input (all products are returned into the product list). 
-Screen prints showing the results of various typical product searches are shown below:  
-<img src="/static/testing/user-stories/product-search-1.png" width="90%" style="margin: 10px;">  
-<img src="/static/testing/user-stories/product-search-2.png" width="90%" style="margin: 10px;">  
-<img src="/static/testing/user-stories/product-search-3.png" width="90%" style="margin: 10px;">  
-<img src="/static/testing/user-stories/product-search-4.png" width="90%" style="margin: 10px;">  
-<img src="/static/testing/user-stories/product-search-5.png" width="90%" style="margin: 10px;">  
-<img src="/static/testing/user-stories/product-search-6.png" width="90%" style="margin: 10px;">  
-<img src="/static/testing/user-stories/product-search-7.png" width="90%" style="margin: 10px;">  
-<img src="/static/testing/user-stories/product-search-8.png" width="90%" style="margin: 10px;">  
+* Learn about where the coffee beans are sourced from, so I can make an informed purchasing decision.  
+The **Product Information Modal**, accessed from the **Product Information Button** on the **Product Detail Page** contains further detailed information about the **Product** on offer.  
+Functionality has been tested and works as expected:  
+<img src="media/testing/modal-product-info.png" width="600px" style="margin: 20px;">  
 
-* ***As a User, I have found a product which is free from one or more allergens, and I want to add it to the database.***  
-If the user is **Signed In**, they may add a product to the database using the **Add** button on the **Home** page. 
-Once the [Form Validation](#form-validation) and checking has been passed, the new **Product** is added to the database and the user is redirected 
-to the **Product View** page, and notified with a message at the top of the screen:  
-<img src="/static/testing/user-stories/product-add.png" width="400px" align="left" style="margin: 10px;">
-<img src="/static/testing/user-stories/product-add-success.png" width="400px" style="margin: 10px;">  
+* Understand the delivery charges, and how much I need to spend to get free delivery, so I can make an informed purchasing decision.  
+Information on the **Delivery Charges** can be found in the **Delivery Information Modal**, accessed from **Delivery Information Button** on the **Basket** and **Checkout** pages, 
+and the **Free Delivery** offer is also shown in the **Offer Banner**.  
+Functionality has been tested and works as expected:  
+<img src="media/testing/delivery-information-modal.png" width="300px" style="margin: 20px;">  
+<img src="media/testing/offer-banner.png" width="600px" style="margin: 20px;">  
 
-* ***As a User, I have tried a product and would like to rate it.***  
-* ***As a User, I have tried a product and would like to review it.***  
-If the user is **Signed In**, they may rate and review products on the **Product View** page. 
-Once the [Form Validation](#form-validation) and checking has been passed and the review and rating has been 
-succesfully added, the user is notified with a message at the top of the screen:  
-<img src="/static/testing/user-stories/product-rate-review.png" width="400px" align="left" style="margin: 10px;">
-<img src="/static/testing/user-stories/product-rate-review-success.png" width="400px" style="margin: 10px;">  
+* Add products to my cart, so I can make a purchase.  
+Products can be added to the **Basket** using the **Add To Basket** button on the **Product Detail** page.  
+Functionality has been tested and works as expected:  
+<img src="media/testing/product-add-to-basket-button.png" width="150px" style="margin: 20px;">  
 
-* ***As a User, I would like to edit an existing product.***
-If the user is **Signed In**, they may **Edit** a product by clicking the **Edit Product** button from the **Product View** 
-page. The **Product Edit** form is presented, and once the [Form Validation](#form-validation) and checking has been passed and the product has been 
-successfully updated, the user is redirected to the **Product View** page for the updated **Product**, 
-and is notified with a message at the top of the screen:  
-<img src="/static/testing/user-stories/product-edit.png" width="400px" align="left" style="margin: 10px;">
-<img src="/static/testing/user-stories/product-edit-success.png" width="400px" style="margin: 10px;">  
+* Receive confirmation of my purchase via email, so I can be confident that the purchase has been made successfully.  
+A confirmation email is sent to the **User** when they make a purchase.  
+Functionality has been tested and works as expected:  
+<img src="media/testing/order-confirmation-email.png" width="500px" style="margin: 20px;">  
 
-* ***As a User, I would like to delete an existing product.***
-If the user is **Signed In**, they may **Delete** a product that they have added. If the user is **Signed In** with **Admin** 
-privileges, they may **Delete** any product from the database. The **Product Delete** feature is accessed from the **Product Edit** form, 
-using the **Delete** button. If the **Delete** button is clicked, the user is asked to confirm that they want to **Delete** the **Product**. 
-If the user clicks **Cancel**, they are redirected back to the **Product Edit** form. If the user clicks **Delete**, the product is 
-deleted from the database and the user is redirected to the **Home** page and notified with a message at the top of the screen:  
-<img src="/static/testing/user-stories/product-delete.png" width="400px" style="margin: 10px;">  
-<img src="/static/testing/user-stories/product-delete-confirm.png" width="80%" style="margin: 10px;">  
-<img src="/static/testing/user-stories/product-delete-success.png" width="200px" style="margin: 10px;">  
+* Register on the site, so I can make a repeat purchase more easily and get access to any rewards on offer.  
+The **Sign Up** page allows an unautheticated user to register for an account.  
+**Form Validation** and functionality has been tested and works as expected:  
+<img src="media/testing/sign-up.png" width="500px" style="margin: 20px;">  
 
-* ***As a User, I would like to add a new product category.***
-If the user is **Signed In** and has **Admin** privileges, the **Categories** menu is shown in the **Navigation Menu**. 
-The user can pick **Add Category** from the **Categories Menu** and populate the new **Category** name in the form input. 
-Once the form has passed [Form Validation](#form-validation) and checking and the new **Category** has been succesfully added, 
-the user is redirected to the **Home** page and is notified with a message at the top of the screen:  
-<img src="/static/testing/user-stories/category-add.png" width="400px" style="margin: 10px;">  
-<img src="/static/testing/user-stories/category-add-success.png" width="200px" style="margin: 10px;">  
+* Contact the business with a general query.  
+The **Contact** page allows any **User** of the site to contact the business.  
+**Form Validation** and functionality has been tested and works as expected:  
+<img src="media/testing/contact.png" width="500px" style="margin: 20px;">  
 
-* ***As a User, I would like to edit an existing product category.***
-If the user is **Signed In** and has **Admin** privileges, the **Categories** menu is shown in the **Navigation Menu**. 
-The user can pick **Edit Category** from the **Categories Menu**, pick the **Category** to edit from the **Category Selector**
-and populate the new **Category** name in the form input. 
-Once the form has passed [Form Validation](#form-validation) and checking and the **Category** has been succesfully edited, 
-the user is redirected to the **Home** page and is notified with a message at the top of the screen:  
-<img src="/static/testing/user-stories/category-edit.png" width="400px" style="margin: 10px;">  
-<img src="/static/testing/user-stories/category-edit-success.png" width="200px" style="margin: 10px;">  
+* Subscribe for a regular purchase of a product.  
+This feature does not form part of the **Phase 1 Development**, and will be added in a future development phase.  
 
-* ***As a User, I would like to delete an existing product category.***
-If the user is **Signed In** and has **Admin** privileges, the **Categories** menu is shown in the **Navigation Menu**. 
-The user can pick **Delete Category** from the **Categories Menu**, and pick the **Category** name to delete from the 
-**Category Selector**. If the **Delete** button is clicked, the user is asked to confirm that they want to **Delete** the **Category**. 
-If the user clicks **Cancel**, they are redirected back to the **Category Delete** form. If the user clicks **Delete**, the **Category** is 
-deleted from the database, the user is redirected to the **Home** page and is notified with a message at the top of the screen:  
-<img src="/static/testing/user-stories/category-delete.png" width="400px" style="margin: 10px;">  
-<img src="/static/testing/user-stories/category-delete-confirm.png" width="80%" style="margin: 10px;">
-<img src="/static/testing/user-stories/category-delete-success.png" width="200px" style="margin: 10px;">  
+As a **Registered User**, I would like to be able to:  
+<br>
+* Sign in to my account. 
+The **Sign In** page allows a registered user to **Sign In** to their account.  
+**Form Validation** and functionality has been tested and works as expected:  
+<img src="media/testing/sign-in.png" width="500px" style="margin: 20px;">  
 
-* ***As a User, I would like to add a new allergen.***  
-If the user is **Signed In** and has **Admin** privileges, the **Allergens** menu is shown in the **Navigation Menu**. 
-The user can pick **Add Allergen** from the **Allergens Menu** and populate the new **Allergen** name in the form input. 
-Once the form has passed [Form Validation](#form-validation) and checking and the new **Allergen** has been added, the user is redirected to the 
-**Home** page and is notified with a message at the top of the screen:  
-<img src="/static/testing/user-stories/allergen-add.png" width="400px" style="margin: 10px;">  
-<img src="/static/testing/user-stories/allergen-add-success.png" width="200px" style="margin: 10px;">  
+* Sign out of my account.  
+The **Sign Out** page allows a signed in user to **Sign Out** of their account.  
+Functionality has been tested and works as expected:    
+<img src="media/testing/sign-out.png" width="250px" style="margin: 20px;">  
 
-* ***As a User, I would like to edit an existing allergen.***
-If the user is **Signed In** and has **Admin** privileges, the **Allergens** menu is shown in the **Navigation Menu**. 
-The user can pick **Edit Allergen** from the **Allergen Menu**, pick the **Allergen** to edit from the **Allergen Seelctor**  
-and populate the new **Allergen** name in the form input. 
-Once the form has passed [Form Validation](#form-validation) and checking and the **Allergen** has been succesfully edited, the user is notified with a message 
-at the top of the screen:  
-<img src="/static/testing/user-stories/allergen-edit.png" width="400px" style="margin: 10px;">  
-<img src="/static/testing/user-stories/allergen-edit-success.png" width="200px" style="margin: 10px;">  
+* Recover a forgotten password.
+The **Forgot Password** page allows a registered user to reset their password.  
+**Form Validation** and functionality has been tested and works as expected:  
+<p float="left">
+    <img src="media/testing/password-reset.png" width="300px" style="margin: 20px;">
+    <img src="media/testing/password-reset-email-sent.png" width="300px" style="margin: 20px;">
+</p>
+<p float="left">
+    <img src="media/testing/password-reset-email.png" width="300px" style="margin: 20px;">
+    <img src="media/testing/password-change.png" width="200px" style="margin: 20px;">
+    <img src="media/testing/password-change-success.png" width="150px" style="margin: 20px;">
+</p>
 
-* ***As a User, I would like to delete an existing allergen.***
-If the user is **Signed In** and has **Admin** privileges, the **Allergens** menu is shown in the **Navigation Menu**. 
-The user can pick **Delete Allergen** from the **Allergens Menu**, and pick the **Allergen** name to delete from the 
-**Allergen Selector**. If the **Delete** button is clicked, the user is asked to confirm that they want to **Delete** the **Allergen**. 
-If the user clicks **Cancel**, they are redirected back to the **Allergen Delete** form. If the user clicks **Delete**, the **Allergen** is 
-deleted from the database and the user is notified with a message at the top of the screen:  
-<img src="/static/testing/user-stories/allergen-delete.png" width="400px" style="margin: 10px;">  
-<img src="/static/testing/user-stories/allergen-delete-confirm.png" width="80%" style="margin: 10px;">
-<img src="/static/testing/user-stories/allergen-delete-success.png" width="200px" style="margin: 10px;">  
+* View and update my personal profile, including default delivery details.  
+The **User Profile** page allows a registered **User** to update their personal profile and default delivery information.  
+**Form Validation** and functionality has been tested and works as expected:  
+<img src="media/testing/user-profile.png" width="600px" style="margin: 20px;">  
 
-* ***As a User, I would like to be able to contact the developer.***   
-The user may access the **Contact Form** from the **Footer Link**. If the user is **Signed In**, their email address is populated 
-automatically. Once the user has populated the **Contact Form** and the form has passed [Form Validation](#form-validation) and checking and has 
-been succesfully submitted, a message is displayed at the top of the screen:  
-<img src="/static/testing/user-stories/contact-developer.png" width="300px" style="margin: 10px;">  
-<img src="/static/testing/user-stories/contact-developer-success.png" width="200px" style="margin: 10px;">  
-<img src="/static/testing/user-stories/contact-developer-email.png" width="500px" style="margin: 10px;">  
+* See a summary of my previous orders.  
+The **User Profile** page allows a registered **User** to see a summary of their **Order History**.  
+Detailed information about each **Order** can be found on the **Order History** page, accessed by clicking on the **Order Number**.  
+The functionality has been tested and works as expected:  
+<img src="media/testing/user-profile.png" width="600px" style="margin: 20px;">  
+<img src="media/testing/order-history.png" width="600px" style="margin: 20px;">  
+
+* Contact the business about a specific order.  
+The business can be contacted about a specific order using the **Order Contact** page, accessed from the **Order History** page.  
+**Form Validation** and functionality has been tested and works as expected:  
+<p float="left">
+    <img src="media/testing/order-contact.png" width="300px" style="margin: 20px;">
+    <img src="media/testing/order-contact-email.png" width="300px" style="margin: 20px;">
+</p>
+
+* Add reviews to products, to help other customers make informed purchasing decisions.  
+Customers can add a new **review** using the **Add Review** link in the **Customer Review** section of the **Product Detail** page.  
+**Reviews** may also be added using the **Review** links in the **Order History** section of the **User Profile** page.  
+**Form Validation** and functionality has been tested and works as expected:  
+<img src="media/testing/product-reviews.png" width="500px" style="margin: 20px;">  
+<p float="left">
+    <img src="media/testing/order-history-links.png" width="200px" style="margin: 20px;"> 
+    <img src="media/testing/product-review-add.png" width="300px" style="margin: 20px;">
+</p>
+
+* Edit previous reviews.  
+Customers can edit existing reviews using the **Edit** link in the **Customer Review** section of the **Product Detail** page.  
+**Reviews** may also be edited using the **Review** links in the **Order History** section of the **User Profile** page.  
+**Form Validation** and functionality has been tested and works as expected:  
+<img src="media/testing/product-reviews.png" width="500px" style="margin: 20px;">  
+<p float="left">
+    <img src="media/testing/order-history-links.png" width="200px" style="margin: 20px;"> 
+    <img src="media/testing/product-review-edit.png" width="300px" style="margin: 20px;">
+</p>
+
+As a **Business Owner**, I would like to be able to:
+* Incentivise customers to add reviews to products, so that other customers will feel more confident about making a purchase.  
+A **Reward** system has been implemented, where a registered **User** can get 10% off their next **order** by adding a new **Review**. 
+This is communicated to the **User** in the **Offer Banner**, and on the **Basket** and **Checkout** pages.  
+The functionality has been tested and works as expected:  
+<img src="media/testing/offer-banner.png" width="600px" style="margin: 20px;">  
+<p float="left">
+    <img src="media/testing/basket-no-discount.png" width="300px" style="margin: 20px;"> 
+    <img src="media/testing/basket-discount.png" width="300px" style="margin: 20px;">
+</p>
+<p float="left">
+    <img src="media/testing/checkout-no-discount.png" width="300px" style="margin: 20px;"> 
+    <img src="media/testing/checkout-discount.png" width="300px" style="margin: 20px;">
+</p>
+
+* Add, edit and delete products.  
+**Products** may be added using the **Product Add** page, accessed from the **User Menu** if the **User** is signed in as a **Super User**.  
+**Products** may be edited using the **Product Edit** page, accessed from the **Product Detail** page if the **User** is signed in as a **Super User**.  
+**Products** may be edited using the **Product Delete** button, accessed from the **Product Detail** page if the **User** is signed in as a **Super User**.  
+**Form Validation** and functionality has been tested and works as expected:  
+<p float="left">
+    <img src="media/testing/product-add-1.png" width="300px" style="margin: 20px;">
+    <img src="media/testing/product-add-2.png" width="300px" style="margin: 20px;"> 
+</p>
+<p float="left">
+    <img src="media/testing/product-edit-1.png" width="300px" style="margin: 20px;">
+    <img src="media/testing/product-edit-2.png" width="300px" style="margin: 20px;"> 
+</p>
+<p float="left">
+    <img src="media/testing/product-delete-button.png" width="100px" style="margin: 20px;">
+    <img src="media/testing/modal-product-delete-confirm.png" width="250px" style="margin: 20px;">
+</p>
+
+* Edit product prices.  
+**Product** **Prices** can be edited using the **Edit Prices** page, accessed from the **Product Detail** page **Price Edit** link if the **User** is signed in as a **Super User**.  
+**Form Validation** and functionality has been tested and works as expected:  
+<p float="left">
+    <img src="media/testing/product-price.png" width="200px" style="margin: 20px;">
+    <img src="media/testing/product-prices-edit.png" width="300px" style="margin: 20px;">
+</p>
+
+* Delete user reviews, in case malicious reviews are added.  
+**User** reviews may be deleted by selecting the **Delete Review** links in the **Customer Reviews** section of the **Product Detail** page, if the **User** is signed in as a **Super User**.  
+The functionality has been tested and works as expected:  
+<img src="media/testing/product-reviews.png" width="500px" style="margin: 20px;">  
+<img src="media/testing/modal-review-delete-confirm.png" width="300px" style="margin: 20px;"> 
+
+
+* Add, edit and delete product categories.  
+This feature does not form part of the **Phase 1 Development**, and will be added in a future development phase.  
+* Track sales data, to inform future purchasing decisions.  
+This feature does not form part of the **Phase 1 Development**, and will be added in a future development phase.  
+
+
+
+
+
+
+
+
+
 
 ## Manual Testing ##
 The site has been manually tested thoroughly over a 3 week period. See [Bugs Fixed During Testing](#bugs-fixed-during-testing) 
