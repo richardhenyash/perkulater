@@ -677,6 +677,13 @@ Displays **Toast Message** if product is updated successfully:
     <img src="media/testing/product-edit-2.png" width="45%" style="margin: 20px;">
 </p> 
 
+* **Edit Prices**, restricted to **Super Users**. Enables **Product Prices** to be edited. Required fields are denoted with a *.  
+Displays **Toast Message** if **Price** is updated successfully:
+<p float="left">   
+    <img src="media/testing/product-prices-edit.png" width="300px" style="margin: 20px;">
+    <img src="media/testing/toast-success-price-updated.png" width="300px" style="margin: 20px;">
+</p> 
+
 * **Product Review**, enables the **User** to rate and review a **Product**. Required fields are denoted with a *.  
 **Back To Product** button links to **Product Detail** page. 
 **Submit Review** adds or updates the **Review** in the database.  
