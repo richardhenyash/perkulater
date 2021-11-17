@@ -28,6 +28,8 @@
                                 <source srcset="{{ product.image_alt.url }}" type="image/jpeg"> 
                                 <img src="{{ product.image_alt.url }}" alt="{{ product.friendly_name }}" class="w-100">
                             </picture>
+                        {% elif product.image %}
+                            <img src="{{ product.image.url }}" alt="{{ product.friendly_name }}" class="w-100">
                         {% else %}
                             <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.friendly_name }}" class="w-100 p-1">
                         {% endif %}

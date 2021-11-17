@@ -117,6 +117,8 @@
                                                         <source srcset="{{ basket_item.product.image_alt.url }}" type="image/jpeg"> 
                                                         <img src="{{ basket_item.product.image_alt.url }}" alt="{{ basket_item.product.friendly_name }}" class="w-100 p-1">
                                                     </picture>
+                                                {% elif basket_item.product.image %}
+                                                    <img src="{{ basket_item.product.image.url }}" alt="{{ basket_item.product.friendly_name }}" class="w-100 p-1">
                                                 {% else %}
                                                     <img src="{{ MEDIA_URL }}noimage.png" alt="{{ basket_item.product.friendly_name }}" class="w-100 p-1">
                                                 {% endif %}

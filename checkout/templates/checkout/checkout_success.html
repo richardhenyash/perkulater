@@ -147,6 +147,8 @@
                                                         <source srcset="{{ lineitem.product.image_alt.url }}" type="image/jpeg"> 
                                                         <img src="{{ lineitem.product.image_alt.url }}" alt="{{ linetiem.product.friendly_name }}" class="w-100 p-1">
                                                     </picture>
+                                                {% elif lineitem.product.image %}
+                                                    <img src="{{ lineitem.product.image.url }}" alt="{{ linetiem.product.friendly_name }}" class="w-100 p-1">                                                    
                                                 {% else %}
                                                     <img src="{{ MEDIA_URL }}noimage.png" alt="{{ lineitem.product.friendly_name }}" class="w-100 p-1">
                                                 {% endif %}
