@@ -360,7 +360,8 @@ Product Detail|Price Edit Link|Yes|Yes|Yes|Pass|Only shown if signed-in as super
 Product Detail|Add To Basket Button|Yes|Yes|Yes|Pass|
 Product Detail|Create Plan Button|Yes|Yes|Yes|Pass|Links to Information Modal, explains that feature is coming soon.
 Product Detail|Edit Button|Yes|Yes|Yes|Pass|Only shown if signed-in as super-user. Links to **Product Edit**.
-Product Detail|Delete Button|Yes|Yes|Yes|Pass|Only shown if signed-in as super-user. Links to **Confirm Modal**.
+Product Detail|Delete Button|Yes|Yes|Yes|Pass|Only shown if signed-in as super-user. Links to **Confirm Modal**, to confirm deletion of **Product**.
+Product Detail|Confirm Modal|Yes|Yes|Yes|Pass|Title and content correctly populated. Close and Delete buttons function as expected.  
 Product Detail|Customer Reviews - Container|Yes|-|-|Pass|
 Product Detail|Customer Reviews - User name|Yes|-|Yes|Pass|
 Product Detail|Customer Reviews - Rating Stars|Yes|-|Yes|Pass|
@@ -368,126 +369,69 @@ Product Detail|Customer Reviews - Review|Yes|-|Yes|Pass|
 Product Detail|Customer Reviews - Review Add Link|Yes|Yes|Yes|Pass|Only shown if User has not reviewed Product. Liks to **Sign In** if not signed in. Otherwise links to **Product Review**.
 Product Detail|Customer Reviews - Review Delete Link|Yes|Yes|Yes|Pass|If not signed in, not shown. if signed in as standard User, Only shown for User's own reviews. If signed in as Super User, shown on all reviews. Links to **Confirm Modal**.
 Product Detail|Customer Reviews - Review Edit Link|Yes|Yes|Yes|Pass|If not signed in, not shown. If signed in, only shown for User's own reviews. Links to **Product Review**.
-Add Product|Category|Yes|Yes|Yes|Pass|Dropdown populated correctly
-Add Product|Name|Yes|Yes|Yes|Pass|Field required
-Add Product|Display Name|Yes|Yes|Yes|Pass|Field required
-Add Product|Display Price|Yes|Yes|Yes|Pass|Field required
+Add Product|Title|Yes|-|-|Pass|
+Add Product|Horizontal Rule|Yes|-|-|Pass|
+Add Product|Fieldset Labels|Yes|-|-|Pass|
+Add Product|Field Labels|Yes|-|-|Pass|Required fields denoted with *.
+Add Product|Category|Yes|Yes|Yes|Pass|Dropdown populated correctly.
+Add Product|Name|Yes|Yes|Yes|Pass|Field required.
+Add Product|Display Name|Yes|Yes|Yes|Pass|Field required.
+Add Product|Display Price|Yes|Yes|Yes|Pass|Field required.
 Add Product|Full Description|Yes|Yes|Yes|Pass|Field required. Delimiter can be used to split into paragraphs in **Information Modal**.
 Add Product|Short Description|Yes|Yes|Yes|Pass|Field required.
 Add Product|Description Delimeter|Yes|Yes|Yes|Pass|Field required. Limited to 3 characters.
 Add Product|Image|Yes|Yes|Yes|Pass|Custom clearable file input widget correctly displayed. Image filename text displayed after selection.
 Add Product|Alternative Image|Yes|Yes|Yes|Pass|Custom clearable file input widget correctly displayed. Image filename text displayed after selection.
-Add Product|Coffee Details|Yes|Yes|Yes|Pass|All fields are required.
+Add Product|Coffee Details - Country Of Origin|Yes|Yes|Yes|Pass|Field required.
+Add Product|Coffee Details - Farm|Yes|Yes|Yes|Pass|Field required.
+Add Product|Coffee Details - Owner|Yes|Yes|Yes|Pass|Field required.
+Add Product|Coffee Details - Variety|Yes|Yes|Yes|Pass|Field required.
+Add Product|Coffee Details - Altitude|Yes|Yes|Yes|Pass|Field required.
+Add Product|Coffee Details - Town|Yes|Yes|Yes|Pass|Field required.
+Add Product|Coffee Details - Region|Yes|Yes|Yes|Pass|Field required.
+Add Product|Coffee Details - Flavour Profile|Yes|Yes|Yes|Pass|Field required.
+Add Product|View Products Button|Yes|Yes|Yes|Pass|Links to **Products** page.
+Add Product|Add Product Button|Yes|Yes|Yes|Pass|Add new **Product** to the database.
+Edit Product|Title|Yes|-|-|Pass|
+Edit Product|Horizontal Rule|Yes|-|-|Pass|
+Edit Product|Fieldset Labels|Yes|-|-|Pass|
+Edit Product|Field Labels|Yes|-|-|Pass|Required fields denoted with *.
+Edit Product|Category|Yes|Yes|Yes|Pass|Dropdown populated correctly.
+Edit Product|Name|Yes|Yes|Yes|Pass|Field required.
+Edit Product|Display Name|Yes|Yes|Yes|Pass|Field required.
+Edit Product|Display Price|Yes|Yes|Yes|Pass|Field required.
+Edit Product|Full Description|Yes|Yes|Yes|Pass|Field required. Delimiter can be used to split into paragraphs in **Information Modal**.
+Edit Product|Short Description|Yes|Yes|Yes|Pass|Field required.
+Edit Product|Description Delimeter|Yes|Yes|Yes|Pass|Field required. Limited to 3 characters.
+Edit Product|Image|Yes|Yes|Yes|Pass|Custom clearable file input widget correctly displayed. Image filename text displayed after selection.
+Edit Product|Alternative Image|Yes|Yes|Yes|Pass|Custom clearable file input widget correctly displayed. Image filename text displayed after selection.
+Edit Product|Coffee Details - Country Of Origin|Yes|Yes|Yes|Pass|Field required.
+Edit Product|Coffee Details - Farm|Yes|Yes|Yes|Pass|Field required.
+Edit Product|Coffee Details - Owner|Yes|Yes|Yes|Pass|Field required.
+Edit Product|Coffee Details - Variety|Yes|Yes|Yes|Pass|Field required.
+Edit Product|Coffee Details - Altitude|Yes|Yes|Yes|Pass|Field required.
+Edit Product|Coffee Details - Town|Yes|Yes|Yes|Pass|Field required.
+Edit Product|Coffee Details - Region|Yes|Yes|Yes|Pass|Field required.
+Edit Product|Coffee Details - Flavour Profile|Yes|Yes|Yes|Pass|Field required.
+Edit Product|Back To Product Button|Yes|Yes|Yes|Pass|Links to **Product Detail** page.
+Edit Product|Update Product Button|Yes|Yes|Yes|Pass|Updates **Product** in the database.
+Edit Prices|Title|Yes|-|-|Pass|
+Edit Prices|Horizontal Rule|Yes|-|-|Pass|
+Edit Prices|Product Name|Yes|-|-|Pass|
+Edit Prices|Field Labels|Yes|-|-|Pass|Required fields denoted with *.
+Edit Prices|Size Dropdown|Yes|Yes|Yes|Pass|Populated with correct options.
+Edit Prices|Price|Yes|Yes|Yes|Pass|Decimal required.
+Edit Prices|Back To Product Button|Yes|Yes|Yes|Pass|Links to **Product Detail** page. Shown If accessed from **Product Detail** page.
+Edit Prices|Update Price Button|Yes|Yes|Yes|Pass|Updates **Price** in the database for the relevant **Product**.  
+Review Product|Title|Yes|-|-|Pass|
+Review Product|Horizontal Rule|Yes|-|-|Pass|
+Review Product|Field Labels|Yes|-|-|Pass|Required fields denoted with *.
+Review Product|Rating Stars|Yes|-|Yes|Pass|
+Review Product|Review|Yes|Yes|Yes|Pass|Field required.
+Review Product|Back To Product Button|Yes|Yes|Yes|Pass|Links to **Product Detail** page. Shown If accessed from **Product Detail** page.
+Review Product|Back To Profile Button|Yes|Yes|Yes|Pass|Links to **Product Detail** page. Shown If accessed from **User Profile** page.
+Review Product|Submit Review Button|Yes|Yes|Yes|Pass|Updates **Review** in the database. Calculates average **Product** rating automatically.  
 
-
-Product Detail|Confirm Modal|Yes|Yes|Yes|Pass|Close and Delete buttons work as expected.
-
-
-* **FreeFrom** logo link has been tested and links to home page if selected:  
-<img src="/static/testing/logo.png" width="300px" style="margin: 10px;">  
-
-* **Home Page Alert Links** have been tested and function correctly including hover styling, linking to **Sign In** and **Register** pages:  
-<img src="/static/testing/home-alert-new.png" width="700px" style="margin: 10px;">  
-
-* **Navigation Menu** has been tested and works as intended. When user is not **Signed In**, **Home** and **Sign in** links are displayed and 
-the links function correctly. If user is **Signed In** but does not have **Admin** privileges, **Home** and **Sign Out** links are displayed 
-and function correctly. If user is **Signed In** and has **Admin** privileges, **Home**, **Allergens**, **Categories**, and **Sign Out** links 
-are displayed and function correctly. **Allergens** and **Categories** drop down menus function correctly. 
-**Navigation Menu Hover Styling** has been implemented and is working as intended:  
-<img src="/static/testing/navigation-menu-guest.png" width="150px" style="margin: 10px;">
-<img src="/static/testing/navigation-menu-user.png" width="150px" style="margin: 10px;">
-<img src="/static/testing/navigation-menu-admin.png" width="400px" style="margin: 10px;"> 
-
-* **Search Input**, has been tested and functions correctly, allowing user to optionally input product search criteria to filter search results:  
-<img src="/static/testing/search.png" width="500px" style="margin: 10px;">  
-
-* **Category Selector** has been tested and functions correctly, allowing user to optionally select category to filter search results:  
-<img src="/static/testing/category.png" width="500px" style="margin: 10px;">  
-
-* **Search Button** functions correctly (including hover styling) and returns matched products in the **Product Results Table**. 
-Resizes if user is not signed in and add button is not displayed:  
-<img src="/static/testing/search-button.png" width="100px" style="margin: 10px;">  
-
-* **Add Button** functions correctly (including hover styling) and links to the **Product Add** form. Only shown if user is signed in:  
-<img src="/static/testing/add-button.png" width="100px" style="margin: 10px;">  
-
-* **Allergen Selector** functions correctly and allows user to optionally select allergens to filter search results:  
-<img src="/static/testing/allergen-selector.png" width="80%" style="margin: 10px;">  
-
-* **Product Results Table** functions correctly and displays product search results as expected. 
-**Product** name link has been tested and links to **Product View** page:
-<img src="/static/testing/results-table.png" width="80%" style="margin: 10px;"> 
-
-* **Sign In** functions correctly (including [Form Validation](#form-validation) and button **Hover Styling**) and enables user to sign in. 
-Link to **Register** functions correctly (including hover styling):  
-<img src="/static/testing/signin.png" width="500px" style="margin: 10px;"> 
-
-* **Register** form functions correctly (including [Form Validation](#form-validation) and button **Hover Styling**) and allows user to register:  
-<img src="/static/testing/register.png" width="500px" style="margin: 10px;"> 
-
-* **Product View** functions correctly and displays product details. If user is not **Signed In**, displays links to **Sign In** and 
-**Register** forms. Links function correctly (including hover styling).
-If user is signed in, **Review** and **Rating** inputs and buttons are displayed as intended and function 
-correctly (including form validation and hover styling).   
-**Add** button functions as intended (including [Form Validation](#form-validation) and hover styling), enabling user to review and rate product.  
-**Add** button text functions as intended and is changed to **Update** if the user has already reviewed the product.  
-**Update** button functions as intended (including form validation and hover styling) and updates review and rating if the product 
-has already been reviewed by the user.  
-**Edit Product** button is displayed if user is **Signed In** and functions correctly (including hover styling), linking to **Product Edit** page.  
-**Add Product** button is displayed if user is **Signed In** and functions correctly (including hover styling), to **Product Add** page.  
-User reviews are displayed as intended below in the **User Reviews Table**:  
-<img src="/static/testing/product-view-signedout.png" width="500px" style="margin: 10px;">  
-<img src="/static/testing/product-view-update-review-new.png" width="500px" style="margin: 10px;">  
-  
-* **Product Edit** form functions correctly (including [Form Validation](#form-validation) and button **Hover Styling**). 
-**Delete** button is shown if the product has been added by the signed in **User**, or if the signed in **User** has **Admin** privileges:  
-<img src="/static/testing/product-edit.png" width="500px" style="margin: 10px;">  
-
-* **Product Delete Confirm** form functions correctly (including button **Hover Styling**):  
-<img src="/static/testing/product-delete-confirm.png" width="800px" style="margin: 10px;">  
-
-* **Product Add** form functions correctly (including [Form Validation](#form-validation) and button **Hover Styling**):  
-<img src="/static/testing/product-add.png" width="500px" style="margin: 10px;">  
-
-* **Allergen Add** form functions correctly (including [Form Validation](#form-validation) and button **Hover Styling**):  
-<img src="/static/testing/allergen-add.png" width="500px" style="margin: 10px;">  
-
-* **Allergen Edit** form functions correctly (including [Form Validation](#form-validation) and button **Hover Styling**):  
-<img src="/static/testing/allergen-edit.png" width="500px" style="margin: 10px;">  
-
-* **Allergen Delete** form functions correctly (including [Form Validation](#form-validation) and button **Hover Styling**):  
-<img src="/static/testing/allergen-delete.png" width="500px" style="margin: 10px;">  
-
-* **Allergen Delete Confirm** form functions correctly (including button **Hover Styling**):  
-<img src="/static/testing/allergen-delete-confirm.png" width="800px" style="margin: 10px;">  
-
-* **Category Add** form functions correctly (including [Form Validation](#form-validation) and button **Hover Styling**):  
-<img src="/static/testing/category-add.png" width="500px" style="margin: 10px;">  
-
-* **Category Edit** form functions correctly (including [Form Validation](#form-validation) and button **Hover Styling**):  
-<img src="/static/testing/category-edit.png" width="500px" style="margin: 10px;">  
-
-* **Category Delete** form functions correctly (including [Form Validation](#form-validation) and button **Hover Styling**):  
-<img src="/static/testing/category-delete.png" width="500px" style="margin: 10px;">  
-
-* **Category Delete Confirm** form functions correctly (including button **Hover Styling**):  
-<img src="/static/testing/category-delete-confirm.png" width="800px" style="margin: 10px;">  
-
-* **Footer Contact Developer Link** functions correctly (including **Hover Styling**) and links to **Contact Developer** form:  
-<img src="/static/testing/contact-link.png" width="150px" style="margin: 10px;">  
-
-* **Footer GitHub Link** functions correctly (including **Hover Styling**) and links to developer page on [GitHub](https://github.com/richardhenyash):  
-<img src="/static/testing/github-link.png" width="40px" style="margin: 10px;">  
-
-* **Contact Developer** form functions correctly (including [Form Validation](#form-validation) and button **Hover Styling**), enabling developer to be contacted by email:  
-<img src="/static/testing/user-stories/contact-developer.png" width="300px" style="margin: 10px;">  
-<img src="/static/testing/user-stories/contact-developer-success.png" width="200px" style="margin: 10px;">  
-<img src="/static/testing/user-stories/contact-developer-email.png" width="400px" style="margin: 10px;">
-
-* **Error Page** functions correctly and returns a customised error message and link to the **Home** page if an error is encountered. 
-Link hover styling functions correctly:  
-<img src="/static/testing/error-page-not-found.png" width="400px" align="left" style="margin: 10px;">
-<img src="/static/testing/error-product-not-found.png" width="400px" style="margin: 10px;">  
 
 ### Form Validation ###
 Validation for all **Forms** implemented using [WTForms](https://wtforms.readthedocs.io/en/2.3.x/) and **Python** has been 
@@ -547,14 +491,8 @@ using a combination of manual testing across various devices and the [Browsersta
 No issues were uncovered during **Browser Compatibility Testing**.
 
 ### Bugs Fixed During Testing ###
-* **Search Input**, **Category Selector**,  and **Allergen Selector** now populate with previously selected values when search results are displayed.
-* **Product Results Table**, **Allergen Selector** and **Category Selector** are now sorted in alphabetic order.
-* A missing CSS class was added to the **Edit Product** button.
-* A bug was fixed where **Products** rating one star were not correctly displayed in the **Product Results Table**.
-* On the **Product View** form, newly added user **Reviews** and **Ratings** are now added or updated in the 
-**Reviews Table** after hitting the **Add** or **Update** button.
-* The **Product Add** route was updated to redirect to the **Product View** of the successfully added product. 
-* The **Category Edit** and **Allergen Edit** routes were updated to populate the **Category** or **Allergen** selector with previously selected values if the **Edit** form fails **Validation** or **Checking**.
+* **Product Image** tempate logic was updated so that if **Product** *image_alt* is not specified, **Product Image** display defaults to the image specified in the *product.image* field. If **Product** *image* and *image_alt* are both specified, **Product Image** defaults to the image specified in the *image* field, and displays the image specified in the *inage__alt* field as a fallback if the browser is not compatible. This improves performance by serving a *WebP* image if the browser is compatible, or a *png* image if not. 
+
 
 ### Bugs Remaining ###
-* There are no known bugs remaining.
+* **Product Delete** - it should be noted that currently, if a **Product** is deleted, the **Order History** page will not display the **Product**, as it no longer exists in the database.  This is due to the relational design of the database. Past **Orders** are linked to the **Products** model. Fixing this problem would require a considerable redesign of the **Data Schema**. Logically, it would be best to add a *discontinued* field to the **Product** model in a **Future Devleopment Phase** to indicate whether the product is has been discontinued, and filter the products on the **Products** page to display only **Products** that are currently available for sale. This would enable historical **Products** to remain in the database, but not to be available to purchase.  
