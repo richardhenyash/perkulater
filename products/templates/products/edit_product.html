@@ -31,6 +31,7 @@
                                 {% if field.name != 'image' and field.name != 'image_alt'  %}
                                     {{ field | as_crispy_field }}
                                 {% else %}
+                                    <h2 class="pt-2">{{ field.label }}</h2>
                                     {{ field }}
                                 {% endif %}
                             {% endfor %}
