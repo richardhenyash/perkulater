@@ -13,7 +13,7 @@
                 <div class="product-container">
                     <div class="image-container px-5">
                         <a href="{% url 'product_detail' product.id %}">
-                            {% if product.image %}
+                            {% if product.image and product.image_alt %}
                                 <picture>
                                     <source srcset="{{ product.image.url }}" type="image/webp">
                                     <source srcset="{{ product.image_alt.url }}" type="image/jpeg"> 

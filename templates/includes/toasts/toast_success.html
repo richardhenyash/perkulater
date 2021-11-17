@@ -27,7 +27,7 @@
                                         <div class="row d-flex align-items-center">
                                             <div class="col-4 p-3">
                                                 <div class="product-detail-container">
-                                                    {% if  basket_item.product.image %}
+                                                    {% if  basket_item.product.image and basket_item.product.image_alt %}
                                                         <picture>
                                                             <source srcset="{{ basket_item.product.image.url }}" type="image/webp">
                                                             <source srcset="{{ basket_item.product.image_alt.url }}" type="image/jpeg"> 

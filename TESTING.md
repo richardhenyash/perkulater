@@ -299,23 +299,89 @@ This feature does not form part of the **Phase 1 Development**, and will be adde
 This feature does not form part of the **Phase 1 Development**, and will be added in a future development phase.  
 
 
-
-
-
-
-
-
-
-
 ## Manual Testing ##
 The site has been manually tested thoroughly over a 3 week period. See [Bugs Fixed During Testing](#bugs-fixed-during-testing) 
-for bugs uncovered and fixed during the manual testing process. Please note that an account with **Admin** privileges has been 
-created for testing purposes. This will facilitate testing of features which require **Admin** privileges. 
-The username is *testadmin1* and the password is *testadmin1*.
-
+for bugs uncovered and fixed during the manual testing process.  
+Please note that an account with **Super User** privileges has been created for testing purposes. This will facilitate testing of 
+features which require **Super User** privileges. The *username* and *password* will be supplied on submission of the project.
 
 ### Features ###
 The following **Features** have been explicitly tested:
+
+Page or Section|Feature|Style Check|Hover, Focus Style Check|Functionality Check|Pass, Fail|Notes
+---------------|-------|-----------|------------------------|-------------------|----------|-----
+Home|Fade-in Animation|Yes|-|Yes|Pass|-
+Home|Logo|Yes|-|-|Pass|-
+Home|Horizontal Rule|Yes|-|-|Pass|-
+Home|Tagline|Yes|-|Yes|Pass|-
+Home|Shop Button|Yes|Yes|Pass|Links to **Products**
+Navigation Menu|Logo|Yes|-|Yes|Pass|-
+Navigation Menu|Tagline|Yes|-|-|Pass|-
+Navigation Menu|Search Input|Yes|Yes|Yes|Pass|-
+Navigation Menu|Search Button|Yes|Yes|Yes|Pass|Returns search results
+Navigation Menu|Basket Icon|Yes|Yes|Yes|Pass|-
+Navigation Menu|User Droppdown Menu - Contact|Yes|Yes|Yes|Pass|-
+Navigation Menu|User Droppdown Menu - Sign In|Yes|Yes|Yes|Pass|-
+Navigation Menu|User Droppdown Menu - Profile|Yes|Yes|Yes|Pass|Only shown if signed-in
+Navigation Menu|User Droppdown Menu - Sign Out|Yes|Yes|Yes|Pass|Only shown if signed-in
+Navigation Menu|User Droppdown Menu - Add Product|Yes|Yes|Yes|Pass|Only shown if signed-in as super-user
+Navigation Menu|Horizontal Rule|Yes|-|-|Pass|-
+Footer|Horizontal Rule|Yes|-|-|Pass|-
+Footer|Tagline|Yes|-|Yes|Pass|-
+Footer|Horizontal Rule|Yes|-|-|Pass|-
+Footer|Social Media Links|Yes|Yes|Yes|Pass|perkulater social media accounts not created at this stage
+Products|Offer Banner|Yes|-|-|Pass|-
+Products|Product Image Link|Yes|Yes|Yes|Pass|Links to **Product Detail**
+Products|Product Name|Yes|-|-|Pass|-
+Products|Product Rating Stars|Yes|-|Yes|Pass|-
+Products|Product Price|Yes|-|-|Pass|-
+Products|Buy Button|Yes|Yes|Yes|Pass|-
+Product Detail|Product Image Link|Yes|Yes|Yes|Pass|Links to **Product Information Modal**
+Product Detail|Product Name|Yes|-|-|Pass|
+Product Detail|Coffee Flavour Profile|Yes|-|-|Pass|
+Product Detail|Product Rating Stars|Yes|-|Yes|Pass|Correctly updated from *product_rating* field.
+Product Detail|Product Price|Yes|-|-|Pass|
+Product Detail|Keep Shopping Button|Yes|Yes|Yes|Pass|Links to **Products**.
+Product Detail|Coffee Information Link|Yes|Yes|Yes|Pass|Links to **Product Information Modal**
+Product Detail|Product Information Modal|Yes|Yes|Yes|Pass|Information correctly split into paragraphs with delimiter.
+Product Detail|Coffee Details - Container|Yes|-|-|Pass
+Product Detail|Coffee Details - Text|Yes|-|-|Pass|-
+Product Detail|Coffee Options - Container|Yes|-|-|Pass
+Product Detail|Size Information Link|Yes|Yes|Yes|Pass|Links to **Size Information Modal**.
+Product Detail|Size Information Modal|Yes|Yes|Yes|Pass|Title and content of modal correctly set.
+Product Detail|Size Select|Yes|Yes|Yes|Pass|Options correctly populated
+Product Detail|Type Information Link|Yes|Yes|Yes|Pass|Links to **Type Information Modal**.
+Product Detail|Type Information Modal|Yes|Yes|Yes|Pass|Title and content of modal correctly set.
+Product Detail|Type Select|Yes|Yes|Yes|Pass|Options correctly populated.
+Product Detail|Quantity Buttons|Yes|Yes|Yes|Pass|Buttons update price on click, disabled correctly when quantity is 1 or 99.
+Product Detail|Quantity Input|Yes|-|Yes|Pass|Quantity input is greyed out and automatically updated by quantity buttons.
+Product Detail|Price|Yes|-|Yes|Pass|Price automatically updated by quantity buttons.
+Product Detail|Price Edit Link|Yes|Yes|Yes|Pass|Only shown if signed-in as super-user, links to **Edit Price**.
+Product Detail|Add To Basket Button|Yes|Yes|Yes|Pass|
+Product Detail|Create Plan Button|Yes|Yes|Yes|Pass|Links to Information Modal, explains that feature is coming soon.
+Product Detail|Edit Button|Yes|Yes|Yes|Pass|Only shown if signed-in as super-user. Links to **Product Edit**.
+Product Detail|Delete Button|Yes|Yes|Yes|Pass|Only shown if signed-in as super-user. Links to **Confirm Modal**.
+Product Detail|Customer Reviews - Container|Yes|-|-|Pass|
+Product Detail|Customer Reviews - User name|Yes|-|Yes|Pass|
+Product Detail|Customer Reviews - Rating Stars|Yes|-|Yes|Pass|
+Product Detail|Customer Reviews - Review|Yes|-|Yes|Pass|
+Product Detail|Customer Reviews - Review Add Link|Yes|Yes|Yes|Pass|Only shown if User has not reviewed Product. Liks to **Sign In** if not signed in. Otherwise links to **Product Review**.
+Product Detail|Customer Reviews - Review Delete Link|Yes|Yes|Yes|Pass|If not signed in, not shown. if signed in as standard User, Only shown for User's own reviews. If signed in as Super User, shown on all reviews. Links to **Confirm Modal**.
+Product Detail|Customer Reviews - Review Edit Link|Yes|Yes|Yes|Pass|If not signed in, not shown. If signed in, only shown for User's own reviews. Links to **Product Review**.
+Add Product|Category|Yes|Yes|Yes|Pass|Dropdown populated correctly
+Add Product|Name|Yes|Yes|Yes|Pass|Field required
+Add Product|Display Name|Yes|Yes|Yes|Pass|Field required
+Add Product|Display Price|Yes|Yes|Yes|Pass|Field required
+Add Product|Full Description|Yes|Yes|Yes|Pass|Field required. Delimiter can be used to split into paragraphs in **Information Modal**.
+Add Product|Short Description|Yes|Yes|Yes|Pass|Field required.
+Add Product|Description Delimeter|Yes|Yes|Yes|Pass|Field required. Limited to 3 characters.
+Add Product|Image|Yes|Yes|Yes|Pass|Custom clearable file input widget correctly displayed. Image filename text displayed after selection.
+Add Product|Alternative Image|Yes|Yes|Yes|Pass|Custom clearable file input widget correctly displayed. Image filename text displayed after selection.
+Add Product|Coffee Details|Yes|Yes|Yes|Pass|All fields are required.
+
+
+Product Detail|Confirm Modal|Yes|Yes|Yes|Pass|Close and Delete buttons work as expected.
+
 
 * **FreeFrom** logo link has been tested and links to home page if selected:  
 <img src="/static/testing/logo.png" width="300px" style="margin: 10px;">  

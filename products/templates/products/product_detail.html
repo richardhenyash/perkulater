@@ -22,7 +22,7 @@
                     <a id="productInformationImgLink" href="#" role="button"
                         data-information-modal-title="{{ product.friendly_name }}"
                         data-information-modal-size="modal-xl">
-                        {% if product.image %}
+                        {% if product.image and product.image_alt %}
                             <picture>
                                 <source srcset="{{ product.image.url }}" type="image/webp">
                                 <source srcset="{{ product.image_alt.url }}" type="image/jpeg"> 
