@@ -10,6 +10,14 @@
 - [User Stories Testing](#user-stories-testing)
 - [Manual Testing](#manual-testing)
     - [Features](#form-validation)
+        - [Home](#home)
+        - [Base Template](#base-template)
+        - [User Authentication](#user-authentication)
+        - [Contact](#contact)
+        - [Products](#products)
+        - [Basket](#basket)
+        - [Checkout](#checkout)
+        - [User Profile](#user-profile)
     - [Form Validation](#form-validation)
     - [Responsive Design](#responsive-design)
     - [Browser Compatibility Testing](#browser-compatibility-testing)
@@ -308,13 +316,18 @@ features which require **Super User** privileges. The *username* and *password* 
 ### Features ###
 The following **Features** have been explicitly tested:
 
+#### Home ####
 Page or Section|Feature|Style Check|Hover, Focus Style Check|Functionality Check|Pass, Fail|Notes
 ---------------|-------|-----------|------------------------|-------------------|----------|-----
 Home|Fade-in Animation|Yes|-|Yes|Pass|-
 Home|Logo|Yes|-|-|Pass|-
 Home|Horizontal Rule|Yes|-|-|Pass|-
 Home|Tagline|Yes|-|Yes|Pass|-
-Home|Shop Button|Yes|Yes|Pass|Links to **Products**
+Home|Shop Button|Yes|Yes|Yes|Pass|Links to **Products**
+
+#### Base Template ####
+Page or Section|Feature|Style Check|Hover, Focus Style Check|Functionality Check|Pass, Fail|Notes
+---------------|-------|-----------|------------------------|-------------------|----------|-----
 Navigation Menu|Logo|Yes|-|Yes|Pass|-
 Navigation Menu|Tagline|Yes|-|-|Pass|-
 Navigation Menu|Search Input|Yes|Yes|Yes|Pass|-
@@ -330,6 +343,67 @@ Footer|Horizontal Rule|Yes|-|-|Pass|-
 Footer|Tagline|Yes|-|Yes|Pass|-
 Footer|Horizontal Rule|Yes|-|-|Pass|-
 Footer|Social Media Links|Yes|Yes|Yes|Pass|perkulater social media accounts not created at this stage
+
+#### User Authentication ####
+Page or Section|Feature|Style Check|Hover, Focus Style Check|Functionality Check|Pass, Fail|Notes
+---------------|-------|-----------|------------------------|-------------------|----------|-----
+Sign Up|Title|Yes|-|-|Pass|
+Sign Up|Sign In Link|Yes|Yes|Yes|Pass|Links to **Sign In** page.
+Sign Up|Field Labels|Yes|-|-|Pass|Required fields denoted with *.
+Sign Up|Field Placeholders|Yes|-|-|Pass|
+Sign Up|E-mail|Yes|Yes|Yes|Pass|Field required. Must be a valid email address.
+Sign Up|E-mail (again)|Yes|Yes|Yes|Pass|Field required. Must match E-mail.
+Sign Up|Username|Yes|Yes|Yes|Pass|Field required. Must be fewer than 150 characters. Must be unique.
+Sign Up|Password|Yes|Yes|Yes|Pass|Must at least 8 characters.
+Sign Up|Password (again)|Yes|Yes|Yes|Pass|Must match password.
+Sign Up|Sign Up Button|Yes|Yes|Yes|Sends confirmation email to **User**.
+Sign Up - Verify Email|Title|Yes|-|-|
+Sign Up - Verify Email|Test|Yes|-|-|
+Sign Up - Confirm Email|Title|Yes|-|-|Pass|
+Sign Up - Confirm Email|Text|Yes|-|-|Pass|Correct email address shown in green.
+Sign Up - Confirm Email|Confirm Button|Yes|Yes|Yes|Pass|Links to Sign In page, with username and password populated.
+Sign In|Title|Yes|-|-|Pass|
+Sign In|Text|Yes|-|-|Pass|
+Sign In|Sign Up Link|Yes|Yes|Yes|Pass|Links to **Sign Up** page.
+Sign In|Field Labels|Yes|-|-|Pass|Required fields denoted with *.
+Sign In|Field Placeholders|Yes|-|-|Pass|
+Sign In|Login|Yes|Yes|Yes|Pass|Field required. Must match username or email address stored in database
+Sign In|Password|Yes|Yes|Yes|Pass|Field required. Must match password stored in database.
+Sign In|Remember Me Checkbox|Yes|Yes|Yes|Autofills Login and Password if checked.
+Sign In|Sign In Button|Yes|Yes|Yes|Signs **User** in, links to the page the **User** was on previously.
+Sign In|Forgot Password Button|Yes|Yes|Yes|Links to the **Password Reset** page.
+Sign Out|Title|Yes|-|-|Pass|
+Sign Out|Text|Yes|-|-|Pass|
+Sign Out|Sign Out Button|Yes|Yes|Yes|Signs out **User**, links to the **Products** page.
+Password Reset|Title|Yes|-|-|Pass|
+Password Reset|Text|Yes|-|-|Pass|
+Password Reset|Field Labels|Yes|-|-|Pass|Required fields denoted with *.
+Password Reset|Field Placeholders|Yes|-|-|Pass|
+Password Reset|E-mail|Yes|Yes|Yes|Pass|Field required. Must be a valid, registered email address.
+Password Reset - Email Sent|Title|Yes|-|-|Pass|
+Password Reset - Email Sent|Text|Yes|-|-|Pass|
+Password Reset - Change Password|Title|Yes|-|-|Pass|
+Password Reset - Change Password|New Password|Yes|Yes|Yes|Pass|Must at least 8 characters.
+Password Reset - Change Password|Mew Password (again)|Yes|Yes|Yes|Pass|Must match password.
+Password Reset - Success|Title|Yes|-|-|Pass|
+Password Reset - Success|Text|Yes|-|-|Pass|
+
+#### Contact ####
+Page or Section|Feature|Style Check|Hover, Focus Style Check|Functionality Check|Pass, Fail|Notes
+---------------|-------|-----------|------------------------|-------------------|----------|-----
+Contact|Title|Yes|-|-|Pass|
+Contact|Horizontal Rule|Yes|-|-|Pass|-
+Contact|Field Labels|Yes|-|-|Pass|Required fields denoted with *.
+Contact|Field Placeholders|Yes|-|-|Pass|
+Contact|Email|Yes|Yes|Yes|Pass|Field required. Must be a valid email address.
+Contact|Subject|Yes|Yes|Yes|Pass|Field required.
+Contact|Message|Yes|Yes|Yes|Pass|Field required.
+Contact|Keep Shopping Button|Yes|Yes|Yes|Links to the **Products** page.
+Contact|Send Message Button|Yes|Yes|Yes|Sends contact message. Message received in **perkulater** email account inbox.
+
+#### Products ####
+Page or Section|Feature|Style Check|Hover, Focus Style Check|Functionality Check|Pass, Fail|Notes
+---------------|-------|-----------|------------------------|-------------------|----------|-----
 Products|Offer Banner|Yes|-|-|Pass|-
 Products|Product Image Link|Yes|Yes|Yes|Pass|Links to **Product Detail**
 Products|Product Name|Yes|-|-|Pass|-
@@ -373,6 +447,7 @@ Add Product|Title|Yes|-|-|Pass|
 Add Product|Horizontal Rule|Yes|-|-|Pass|
 Add Product|Fieldset Labels|Yes|-|-|Pass|
 Add Product|Field Labels|Yes|-|-|Pass|Required fields denoted with *.
+Add Product|Field Placeholders|Yes|-|-|Pass|Required fields denoted with *.
 Add Product|Category|Yes|Yes|Yes|Pass|Dropdown populated correctly.
 Add Product|Name|Yes|Yes|Yes|Pass|Field required.
 Add Product|Display Name|Yes|Yes|Yes|Pass|Field required.
@@ -396,6 +471,7 @@ Edit Product|Title|Yes|-|-|Pass|
 Edit Product|Horizontal Rule|Yes|-|-|Pass|
 Edit Product|Fieldset Labels|Yes|-|-|Pass|
 Edit Product|Field Labels|Yes|-|-|Pass|Required fields denoted with *.
+Edit Product|Field Placeholders|Yes|-|-|Pass|Required fields denoted with *.
 Edit Product|Category|Yes|Yes|Yes|Pass|Dropdown populated correctly.
 Edit Product|Name|Yes|Yes|Yes|Pass|Field required.
 Edit Product|Display Name|Yes|Yes|Yes|Pass|Field required.
@@ -430,16 +506,151 @@ Review Product|Rating Stars|Yes|-|Yes|Pass|
 Review Product|Review|Yes|Yes|Yes|Pass|Field required.
 Review Product|Back To Product Button|Yes|Yes|Yes|Pass|Links to **Product Detail** page. Shown If accessed from **Product Detail** page.
 Review Product|Back To Profile Button|Yes|Yes|Yes|Pass|Links to **Product Detail** page. Shown If accessed from **User Profile** page.
-Review Product|Submit Review Button|Yes|Yes|Yes|Pass|Updates **Review** in the database. Calculates average **Product** rating automatically.  
+Review Product|Submit Review Button|Yes|Yes|Yes|Pass|Updates **Review** in the database. Calculates average **Product** rating automatically.
 
+#### Basket ####
+Page or Section|Feature|Style Check|Hover, Focus Style Check|Functionality Check|Pass, Fail|Notes
+---------------|-------|-----------|------------------------|-------------------|----------|-----
+Basket|Title|Yes|-|-|Pass|
+Basket|Horizontal Rule|Yes|-|-|Pass|
+Basket|Product Name|Yes|-|-|Pass|
+Basket|Product Image Link|Yes|Yes|Yes|Pass|Links to **Product Detail** page.
+Basket|Quantity Buttons|Yes|Yes|Yes|Pass|Buttons update price on click, disabled correctly when quantity is 1 or 99.
+Basket|Quantity Input|Yes|-|Yes|Pass|Quantity input is greyed out and automatically updated by quantity buttons.
+Basket|Update Link|Yes|Yes|Yes|Pass|Updates Subtotal, Total, Discount, Deliver and Grand Total.
+Basket|Remove Link|Yes|Yes|Yes|Pass|Removes **Product** from **Basket**. Updates Subtotal, Total, Discount, Delivery and Grand Total.
+Basket|Size|Yes|-|-|Pass|
+Basket|Type|Yes|-|-|Pass|
+Basket|Subtotal|Yes|-|-|Pass|Updated correctly by **Update Link**.
+Basket|Horizontal Rule|Yes|-|-|Pass|
+Basket|Total|Yes|-|-|Pass|Updated correctly by **Update Link** and **Remove Link**.
+Basket|Discount|Yes|-|-|Pass|Updated correctly by **Update Link** and **Remove Link**. Only shown if **Discount** applied.
+Basket|Delivery|Yes|-|-|Pass|Updated correctly by **Update Link** and **Remove Link**.
+Basket|Delivery Information Button|Yes|Yes|Yes|Pass|Opens **Information Modal** explaining delivery charges. 
+Basket|Grand Total|Yes|-|-|Pass|Updated correctly by **Update Link** and **Remove Link**.
+Basket|Review Discount Information Text|Yes|-|-|Pass|Not shown if discount applied.
+Basket|Free Delivery Information Text|Yes|-|-|Pass|Not shown if free delivery applied.
+Basket|Keep Shopping Button|Yes|Yes|Yes|Pass|Links to **Products**.
+Basket|Checkout Button|Yes|Yes|Yes|Pass|Links to **Checkout**.
+
+#### Checkout ####
+Page or Section|Feature|Style Check|Hover, Focus Style Check|Functionality Check|Pass, Fail|Notes
+---------------|-------|-----------|------------------------|-------------------|----------|-----
+Checkout|Title|Yes|-|-|Pass|
+Checkout|Horizontal Rule|Yes|-|-|Pass|
+Checkout|Fieldset Labels|Yes|-|-|Pass|
+Checkout|Field Placeholders|Yes|-|-|Pass|Required fields denoted with *.
+Checkout|Full Name|Yes|Yes|Yes|Pass|Field required.
+Checkout|Email Address|Yes|Yes|Yes|Pass|Field required. Must be a valid email address.
+Checkout|Phone Number|Yes|Yes|Yes|Pass|Field required.
+Checkout|Street Address 1|Yes|Yes|Yes|Pass|Field required.
+Checkout|Street Address 2|Yes|Yes|Yes|Pass|Field not required.
+Checkout|Town Or City|Yes|Yes|Yes|Pass|Field required.
+Checkout|County, State Or Locality|Yes|Yes|Yes|Pass|Field not required.
+Checkout|Post Code|Yes|Yes|Yes|Pass|Field not required.
+Checkout|Country|Yes|Yes|Yes|Fail|Dropdown populated correctly. If user is not signed in and auto-populates fields in Chrome, colour is changed to white. 
+Checkout|Save Delivery Information Checkbox|Yes|Yes|Yes|Pass|Only shown if **User** is signed in. Information is saved to **User Profile** if checked.
+Checkout|Sign Up Link|Yes|Yes|Yes|Pass|Only shown if **User** is not signed in. Links to **Sign Up**.
+Checkout|Sign In Link|Yes|Yes|Yes|Pass|Only shown if **User** is not signed in. Links to **Sign In**.
+Checkout|Payment Input|Yes|Yes|Yes|Pass|Card errors are shown below **Payment Input**.
+Checkout|Card Charge Information Text|Yes|Yes|Yes|Pass|Card charge amount is updated correctly.
+Checkout|Edit Basket Button|Yes|Yes|Yes|Pass|Links to **Basket**.
+Checkout|Pay Button|Yes|Yes|Yes|Pass|Submits **Payment Form** and Links to **Checkout Success**.
+Checkout|Product Summary Text|Yes|-|-|Pass|
+Checkout|Horizontal Rule|Yes|-|-|Pass|
+Checkout|Product Name|Yes|-|-|Pass|
+Checkout|Product Image Link|Yes|Yes|Yes|Pass|Links to **Product Detail** page.
+Checkout|Quantity|Yes|-|-|Pass|
+Checkout|Size|Yes|-|-|Pass|
+Checkout|Type|Yes|-|-|Pass|
+Checkout|Subtotal|Yes|-|-|Pass|
+Checkout|Horizontal Rule|Yes|-|-|Pass|
+Checkout|Total|Yes|-|-|Pass|
+Checkout|Discount|Yes|-|-|Pass|Only shown if **Discount** applied.
+Checkout|Delivery|Yes|-|-|Pass|
+Checkout|Delivery Information Button|Yes|Yes|Yes|Pass|Opens **Information Modal** explaining delivery charges. 
+Checkout|Grand Total|Yes|-|-|Pass|
+Checkout|Review Discount Information Text|Yes|-|-|Pass|Not shown if discount applied.
+Checkout|Free Delivery Information Text|Yes|-|-|Pass|Not shown if free delivery applied.
+Checkout Success|Title|Yes|-|-|Pass|
+Checkout Success|Horizontal Rule|Yes|-|-|Pass|
+Checkout Success|Order Information Text|Yes|-|-|Pass|Email, Order Number, Order Date are correct.
+Checkout Success|Horizontal Rule|Yes|-|-|Pass|
+Checkout Success|Your Details Text|Yes|-|-|Pass|name, email and phone number checked and correct.
+Checkout Success|Delivery Details Text|Yes|-|-|Pass|Delivery Details checked and correct.
+Checkout Success|Horizontal Rule|Yes|-|-|Pass|
+Checkout Success|Product Name|Yes|-|-|Pass|
+Checkout Success|Product Image Link|Yes|Yes|Yes|Pass|Links to **Product Detail** page.
+Checkout Success|Size|Yes|-|-|Pass|
+Checkout Success|Type|Yes|-|-|Pass|
+Checkout Success|Quantity|Yes|-|-|Pass|
+Checkout Success|Subtotal|Yes|-|-|Pass|
+Checkout Success|Horizontal Rule|Yes|-|-|Pass|
+Checkout Success|Total|Yes|-|-|Pass|
+Checkout Success|Discount|Yes|-|-|Pass|Only shown if **Discount** applied.
+Checkout Success|Delivery|Yes|-|-|Pass|
+Checkout Success|Grand Total|Yes|-|-|Pass|
+Checkout Success|Keep Shopping Button|Yes|Yes|Yes|Pass|Links to **Products**.
+
+#### User Profile ####
+Page or Section|Feature|Style Check|Hover, Focus Style Check|Functionality Check|Pass, Fail|Notes
+---------------|-------|-----------|------------------------|-------------------|----------|-----
+User Profile|Title|Yes|-|-|Pass|
+User Profile|Horizontal Rule|Yes|-|-|Pass|
+User Profile|Fieldset Labels|Yes|-|-|Pass|
+User Profile|Field Placeholders|Yes|-|-|Pass|Required fields denoted with *.
+User Profile|First Name|Yes|Yes|Yes|Pass|Field required.
+User Profile|Last Name|Yes|Yes|Yes|Pass|Field required.
+User Profile|Phone Number|Yes|Yes|Yes|Pass|Field required.
+User Profile|Street Address 1|Yes|Yes|Yes|Pass|Field required.
+User Profile|Street Address 2|Yes|Yes|Yes|Pass|Field not required.
+User Profile|Town Or City|Yes|Yes|Yes|Pass|Field required.
+User Profile|County, State Or Locality|Yes|Yes|Yes|Pass|Field not required.
+User Profile|Post Code|Yes|Yes|Yes|Pass|Field not required.
+User Profile|Country|Yes|Yes|Yes|Pass|Dropdown populated correctly.
+User Profile|Update Profile Button|Yes|Yes|Yes|Pass|Updates **UserProfile** in database.
+User Profile|Order History Title|-|-|Pass|
+User Profile|Order History Title|-|-|Pass|
+User Profile|Order History Accordion|-|Yes|Pass|Accordion items shown by date.
+User Profile|Order History Accordion - Open Accordion Button|-|Yes|Pass|Expoands accordion as expected.
+User Profile|Order History Accordion - Order Number Link|Yes|Yes|Pass|Links to **Order History**.
+User Profile|Order History Accordion - Product Name|-|-|Pass|
+User Profile|Order History Accordion - Product Review Link|Yes|Yes|Pass|Links to **Product Review**. Back button text in **Product Review** changed to **Back To Profile**. 
+User Profile|Order History Accordion - Product Quantity|-|-|Pass|
+User Profile|Order History Accordion - Grand Total|-|-|Pass|
+Order History|Title|Yes|-|-|Pass|
+Order History|Horizontal Rule|Yes|-|-|Pass|
+Order History|Order Information Text|Yes|-|-|Pass|Email, Order Number, Order Date are correct.
+Order History|Horizontal Rule|Yes|-|-|Pass|
+Order History|Your Details Text|Yes|-|-|Pass|name, email and phone number checked and correct.
+Order History|Delivery Details Text|Yes|-|-|Pass|Delivery Details checked and correct.
+Order History|Horizontal Rule|Yes|-|-|Pass|
+Order History|Product Name|Yes|-|-|Pass|
+Order History|Product Image Link|Yes|Yes|Yes|Pass|Links to **Product Detail** page.
+Order History|Size|Yes|-|-|Pass|
+Order History|Type|Yes|-|-|Pass|
+Order History|Quantity|Yes|-|-|Pass|
+Order History|Subtotal|Yes|-|-|Pass|
+Order History|Horizontal Rule|Yes|-|-|Pass|
+Order History|Total|Yes|-|-|Pass|
+Order History|Discount|Yes|-|-|Pass|Only shown if **Discount** applied.
+Order History|Delivery|Yes|-|-|Pass|
+Order History|Grand Total|Yes|-|-|Pass|
+Order History|Back To Profile Button|Yes|Yes|Yes|Pass|Links to **User Profile**.
+Order History|Contact Button|Yes|Yes|Yes|Pass|Links to **Order Contact**.
+Order Contact|Title|Yes|-|-|Pass|
+Order Contact|Horizontal Rule|Yes|-|-|Pass|-
+Order Contact|Order Number|Yes|-|-|Pass|Populated correctly from database.
+Order Contact|Order Date|Yes|-|-|Pass|Populated correctly from database.
+Order Contact|Field Labels|Yes|-|-|Pass|Required fields denoted with *.
+Order Contact|Field Placeholders|Yes|-|-|Pass|
+Order Contact|Message|Yes|Yes|Yes|Pass|Field required.
+Order Contact|View Order Button|Yes|Yes|Yes|Links to the **Order History** page.
+Order Contact|Send Message Button|Yes|Yes|Yes|Sends contact message. Message received in **perkulater** email account inbox.
 
 ### Form Validation ###
-Validation for all **Forms** implemented using [WTForms](https://wtforms.readthedocs.io/en/2.3.x/) and **Python** has been 
-thoroughly manually tested. See [Form Validation Testing Screen Prints](/static/testing/forms), a selection of which are shown below:  
-<img src="/static/testing/forms/product-add-form-validation.png" width="600px" style="margin: 10px;">  
-<img src="/static/testing/forms/allergen-add-form-validation.png" width="600px" style="margin: 10px;">  
-<img src="/static/testing/forms/register-form-validation.png" width="500px" style="margin: 10px;">  
-<img src="/static/testing/forms/contact-form-validation.png" width="500px" style="margin: 10px;">  
+Validation for all **Forms** implemented using [Django Forms](https://docs.djangoproject.com/en/3.2/topics/forms/) has been 
+thoroughly tested and documented as part of the [Manual Testing](#manual-testing) procedure.
 
 ### Responsive Design ###
 * Responsive design has been tested by using [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) 
@@ -492,7 +703,8 @@ No issues were uncovered during **Browser Compatibility Testing**.
 
 ### Bugs Fixed During Testing ###
 * **Product Image** tempate logic was updated so that if **Product** *image_alt* is not specified, **Product Image** display defaults to the image specified in the *product.image* field. If **Product** *image* and *image_alt* are both specified, **Product Image** defaults to the image specified in the *image* field, and displays the image specified in the *inage__alt* field as a fallback if the browser is not compatible. This improves performance by serving a *WebP* image if the browser is compatible, or a *png* image if not. 
-
+* Placeholders were added to **Contact Form** and **Order Contact Form** and *textarea* placeholder styling was added to **base** css.
 
 ### Bugs Remaining ###
 * **Product Delete** - it should be noted that currently, if a **Product** is deleted, the **Order History** page will not display the **Product**, as it no longer exists in the database.  This is due to the relational design of the database. Past **Orders** are linked to the **Products** model. Fixing this problem would require a considerable redesign of the **Data Schema**. Logically, it would be best to add a *discontinued* field to the **Product** model in a **Future Devleopment Phase** to indicate whether the product is has been discontinued, and filter the products on the **Products** page to display only **Products** that are currently available for sale. This would enable historical **Products** to remain in the database, but not to be available to purchase.  
+* **Country** dropdown select - If user is not signed in and auto-populates the form fields in Chrome, select colour is changed to white. 
