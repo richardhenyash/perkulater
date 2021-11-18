@@ -606,11 +606,11 @@ body {
 @media (min-width: 768px) {
     .container-custom {
         width: 720px;
-        min-height: 70vh;
+        min-height: 65vh;
     }
     .container-custom-sm {
         width: 500px;
-        min-height: 70vh;
+        min-height: 65vh;
     }
 }
 
