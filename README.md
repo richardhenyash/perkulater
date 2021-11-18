@@ -1,7 +1,7 @@
 # perkulater #
 [perkulater Live Site](https://perkulater.herokuapp.com/)  
 
-<img src="media/testing/perkulater-responsive-home.png" width="100%" style="margin: 20px;">  
+<img src="media/testing/responsive/perkulater-responsive-home.png" width="100%" style="margin: 20px;">  
 
 ## Contents ##
 - [Background](#background)
