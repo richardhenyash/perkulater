@@ -90,4 +90,10 @@ class OrderContactForm(forms.Form):
     """
     An Order contact form
     """
+    def __init__(self, *args, **kwargs):
+        """
+        Set placeholders
+        """
+        super().__init__(*args, **kwargs)
+        self.fields['message'].widget.attrs['placeholder'] = 'Message'
     message = forms.CharField(required=True, widget=forms.Textarea)
