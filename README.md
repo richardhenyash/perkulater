@@ -793,9 +793,11 @@ If message is sent successfully, a toast message is displayed:
 
 #### Features To Be Implemented In Future Development Phases ####
 The following features have been identified to add in **Future Development Phases**:  
+* **About Us** page - to explain more about **perkulater** to potential customers.
 * **Create Plan** - to enable **Users** to subscribe to a regular delivery of their favourite coffee(s). 
 * **Create Customised Plan** - to enable **Users** to customise their **Plan** so that they can try a different coffee 
-each time their subscription is fulfilled, tailored to their specific taste preferences.  
+each time their subscription is fulfilled, tailored to their specific taste preferences. 
+* **Pagination** buttons could be added to the **Products** page, to allow for more **Products** to be added and displayed neatly. 
 * **Gift Cards** - to enable **Users** to purchase **perkulater** gift cards for friends and family.
 * **Add Category** - to enable the **perkulater** store administrator to add new **Product** **Categories**.
 * **Edit Category** - to enable the **perkulater** store administrator to edit existing **Product** **Categories**.
@@ -825,8 +827,10 @@ After initial early **User** feedback, the following design changes were made:
 * The **Product Detail** page stacks logically on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
 * The **Product Summary** on the **Basket** page is shown as a 2 item wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
 * The **Product Summary** on the checkout page stacks underneath the **Payment Form** on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
+* **Delivery Details** on the **Checkout Success** page stacks underneath the **Your Details** on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
 * The **Product Summary** on the **Checkout Success** page is shown as a 2 item wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
-* The **Order History** on the **User Profile** page stacks underneath the **User Profile Form** on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
+* The **Order History** on the **User Profile** page stacks underneath the **User Profile Form** on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system. 
+* **Delivery Details** on the **Order History** page stacks underneath the **Your Details** on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system. 
 * The **Product Summary** on the **Order History** page is shown as a 2 item wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. This is implemented using the **Bootstrap grid** system.  
 * Various **Text** elements, the **perkulater logo**, **Form Labels**, **Links**, **Toast Messages**, **Containers** and extra large **Button** elements are re-sized on very small devices less than 370px wide. This is achieved using CSS media queries located in the **perkulater Custom CSS**.
 
@@ -1226,6 +1230,7 @@ STRIPE_WH_SECRET|`your_stripe_webhook_secret_key`
 [Django Testing Stack Overflow Link 2](https://stackoverflow.com/questions/29425256/django-test-client-gets-404-but-browser-works)  
 [Django Testing Stack Overflow Link 3](https://stackoverflow.com/questions/23447685/false-404-from-django-test)
 * Thanks to **John** at **Code Institute** for his determination in helping me to fix an issue with the image field on the **Product Add** and **Product Edit** forms.  
+* The following [Stack Overflow Link](https://stackoverflow.com/questions/66335238/changing-the-color-arrow-in-bootstrap) for help on changing the **Bootstrap** accordion arrow colour.  
 * Information, help and example code for accepting a payment in **Stripe**: [Stripe Documentation Link](https://stripe.com/docs/payments/accept-a-payment).  
 * Stripe **Webhook** code was referenced from: [Stripe Webhook Example Code](https://stripe.com/docs/payments/handling-payment-events) and modified to suit the specific project needs.  
 * Using **Google Fonts** with **Stripe**: [Stripe Stack Overflow Link](https://stackoverflow.com/questions/43824382/custom-font-src-with-stripe/56985340).
