@@ -19,8 +19,10 @@
         - [Checkout](#checkout)
         - [User Profile](#user-profile)
     - [Form Validation](#form-validation)
-    - [Responsive Design](#responsive-design)
+    - [Responsive Design Testing](#responsive-design-testing)
     - [Browser Compatibility Testing](#browser-compatibility-testing)
+    - [Stripe Webhook Handler Testing](#stripe-webhook-handler-testing)
+    - [Restricted Features Security Testing](#restricted-features-security-testing)
 - [Bugs Fixed During Testing](#bugs-fixed-during-testing)
 - [Bugs Remaining](#bugs-remaining)
 
@@ -648,46 +650,144 @@ Order Contact|Message|Yes|Yes|Yes|Pass|Field required.
 Order Contact|View Order Button|Yes|Yes|Yes|Links to the **Order History** page.
 Order Contact|Send Message Button|Yes|Yes|Yes|Sends contact message. Message received in **perkulater** email account inbox.
 
+#### Toast Messages ####
+Page or Section|Feature|Style Check|Hover, Focus Style Check|Functionality Check|Pass, Fail|Notes
+---------------|-------|-----------|------------------------|-------------------|----------|-----
+Toast Message|Title|Yes|-|-|Pass|Title and colour shown correctly for Success, Warning, Information and Error Messages.
+Toast Message|Test|Yes|-|-|Pass|
+Toast Message|Horizontal Rule|Yes|-|-|Pass|
+Toast Message|Product Name|Yes|-|-|Pass|
+Toast Message|Product Image|Yes|-|-|Pass|
+Toast Message|Quantity|Yes|-|-|Pass|
+Toast Message|Size|Yes|-|-|Pass|
+Toast Message|Type|Yes|-|-|Pass|
+Toast Message|Subtotal|Yes|-|-|Pass|
+Toast Message|Horizontal Rule|Yes|-|-|Pass|
+Toast Message|Total|Yes|-|-|Pass|
+Toast Message|Discount|Yes|-|-|Pass|Only shown if **Discount** applied.
+Toast Message|Delivery|Yes|-|-|Pass|
+Toast Message|Grand Total|Yes|-|-|Pass|
+Toast Message|Review Discount Information Text|Yes|-|-|Pass|Not shown if discount applied.
+Toast Message|Free Delivery Information Text|Yes|-|-|Pass|Not shown if free delivery applied.
+
 ### Form Validation ###
 Validation for all **Forms** implemented using [Django Forms](https://docs.djangoproject.com/en/3.2/topics/forms/) has been 
 thoroughly tested and documented as part of the [Manual Testing](#manual-testing) procedure.
 
-### Responsive Design ###
+### Responsive Design Testing ###
 * Responsive design has been tested by using [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools) 
 to emulate viewing the website on a number of devices with varying screen dimensions, 
 including iPhone 5/SE, iPhone 6/7/8, iPhone 6/7/8 plus, iPhone 11, iPad, iPad Pro, Moto G4, Galaxy S5, Surface Duo, 
 Galaxy Fold, Widescreen Laptop and Desktop PC. 
-See [Responsive Design Testing](/static/testing/responsive/) screen prints, a selection of which are shown below:  
-<img src="/static/testing/responsive/home-phone.png" width="300px" align="left" style="margin: 10px;">
-<img src="/static/testing/responsive/product-view-phone.png" width="300px" style="margin: 10px;">  
-<img src="/static/testing/responsive/home-ipad.png" width="300px" align="left" style="margin: 10px;">
-<img src="/static/testing/responsive/product-view-ipad.png" width="300px" style="margin: 10px;">  
-<img src="/static/testing/responsive/home-medium.png" width="300px" align="left" style="margin: 10px;">
-<img src="/static/testing/responsive/product-view-medium.png" width="300px" style="margin: 10px;">  
-<img src="/static/testing/responsive/home-widescreen.png" width="300px" align="left" style="margin: 10px;">
-<img src="/static/testing/responsive/product-view-widescreen.png" width="300px" style="margin: 10px;">  
-
+See [Responsive Design Testing](media/testing/responsive/) screen prints, a selection of which are shown below:  
+<p float="left">
+    <img src="media/testing/responsive/home-iphone-678.png" width="280px" style="margin: 20px;">
+    <img src="media/testing/responsive/home-ipad.png" width="380px" style="margin: 20px;">
+</p>
+<p float="left">
+    <img src="media/testing/responsive/home-medium-screen.png" width="600px" style="margin: 20px;">
+</p>
+<p float="left">
+    <img src="media/testing/responsive/products-iphone-678.png" width="280px" style="margin: 20px;">
+    <img src="media/testing/responsive/products-ipad.png" width="380px" style="margin: 20px;">
+</p>
+<p float="left">
+    <img src="media/testing/responsive/products-medium-screen.png" width="600px" style="margin: 20px;">
+</p>
+<p float="left">
+    <img src="media/testing/responsive/product-detail-iphone-678.png" width="280px" style="margin: 20px;">
+    <img src="media/testing/responsive/product-detail-ipad.png" width="380px" style="margin: 20px;">
+</p>
+<p float="left">
+    <img src="media/testing/responsive/product-detail-medium-screen.png" width="600px" style="margin: 20px;">
+</p>
+<p float="left">
+    <img src="media/testing/responsive/basket-iphone-678.png" width="280px" style="margin: 20px;">
+    <img src="media/testing/responsive/basket-ipad.png" width="380px" style="margin: 20px;">
+</p>
+<p float="left">
+    <img src="media/testing/responsive/basket-medium-screen.png" width="600px" style="margin: 20px;">
+</p>
+<p float="left">
+    <img src="media/testing/responsive/checkout-iphone-678.png" width="280px" style="margin: 20px;">
+    <img src="media/testing/responsive/checkout-ipad.png" width="380px" style="margin: 20px;">
+</p>
+<p float="left">
+    <img src="media/testing/responsive/checkout-medium-screen.png" width="600px" style="margin: 20px;">
+</p>
+<p float="left">
+    <img src="media/testing/responsive/checkout-success-iphone-678.png" width="280px" style="margin: 20px;">
+    <img src="media/testing/responsive/checkout-success-ipad.png" width="380px" style="margin: 20px;">
+</p>
+<p float="left">
+    <img src="media/testing/responsive/checkout-success-medium-screen.png" width="600px" style="margin: 20px;">
+</p>
+<p float="left">
+    <img src="media/testing/responsive/user-profile-iphone-678.png" width="280px" style="margin: 20px;">
+    <img src="media/testing/responsive/user-profile-ipad.png" width="380px" style="margin: 20px;">
+</p>
+<p float="left">
+    <img src="media/testing/responsive/user-profile-medium-screen.png" width="600px" style="margin: 20px;">
+</p>
+<p float="left">
+    <img src="media/testing/responsive/order-contact-iphone-678.png" width="280px" style="margin: 20px;">
+    <img src="media/testing/responsive/order-contact-ipad.png" width="380px" style="margin: 20px;">
+</p>
+<p float="left">
+    <img src="media/testing/responsive/order-contact-medium-screen.png" width="600px" style="margin: 20px;">
+</p>
 
 * Responsive design was then further tested using the 
 [Responsive Viewer](https://chrome.google.com/webstore/detail/responsive-viewer/inmopeiepgfljkpkidclfgbgbmfcennb?hl=en)
 plug in for chrome. This emulates viewing the website on a large number of devices, 
 including iPhone XR, iPhone XS Max, iPhone XS, iPhone X, Galaxy S9 Plus, Galaxy S8 Plus, Galaxy S9, Note 8, Note S8, Pixel 3 and Pixel 3XL.  
 See [Responsive Design Testing](/static/testing/responsive) screen prints, a selection of which are also shown below:  
-<img src="/static/testing/responsive/responsive-viewer-home-phone1.png" width="300px" align="left" style="margin: 10px;">
-<img src="/static/testing/responsive/responsive-viewer-home-phone2.png" width="300px" style="margin: 10px;">  
-<img src="/static/testing/responsive/responsive-viewer-product-edit-phone1.png" width="300px" align="left" style="margin: 10px;">
-<img src="/static/testing/responsive/responsive-viewer-product-edit-phone2.png" width="300px" style="margin: 10px;">   
+<p float="left">
+    <img src="media/testing/responsive/home-responsive-1.png" width="400px" style="margin: 20px;">
+    <img src="media/testing/responsive/home-responsive-2.png" width="400px" style="margin: 20px;">
+</p>
+<p float="left">
+    <img src="media/testing/responsive/products-responsive-1.png" width="400px" style="margin: 20px;">
+    <img src="media/testing/responsive/products-responsive-2.png" width="400px" style="margin: 20px;">
+</p>
+<p float="left">
+    <img src="media/testing/responsive/product-detail-responsive-1.png" width="400px" style="margin: 20px;">
+    <img src="media/testing/responsive/product-detail-responsive-2.png" width="400px" style="margin: 20px;">
+</p>
+<p float="left">
+    <img src="media/testing/responsive/basket-responsive-1.png" width="400px" style="margin: 20px;">
+    <img src="media/testing/responsive/basket-responsive-2.png" width="400px" style="margin: 20px;">
+</p>
+<p float="left">
+    <img src="media/testing/responsive/checkout-responsive-1.png" width="400px" style="margin: 20px;">
+    <img src="media/testing/responsive/checkout-responsive-2.png" width="400px" style="margin: 20px;">
+</p>
+<p float="left">
+    <img src="media/testing/responsive/checkout-success-responsive-1.png" width="400px" style="margin: 20px;">
+    <img src="media/testing/responsive/checkout-success-responsive-2.png" width="400px" style="margin: 20px;">
+</p>
+<p float="left">
+    <img src="media/testing/responsive/user-profile-responsive-1.png" width="400px" style="margin: 20px;">
+    <img src="media/testing/responsive/user-profile-responsive-2.png" width="400px" style="margin: 20px;">
+</p>
+<p float="left">
+    <img src="media/testing/responsive/order-contact-responsive-1.png" width="400px" style="margin: 20px;">
+    <img src="media/testing/responsive/order-contact-responsive-2.png" width="400px" style="margin: 20px;">
+</p>
 
 The following **Responsive** features were specifically tested:
-* The **Navigation Menu** collapses as intended to an icon on small devices less than 768 pixels wide:  
-<img src="/static/testing/responsive/navigation-menu-phone-collapsed.png" width="250px" style="margin: 10px;">  
+* The **Navigation Menu** collapses as intended to an icon on small devices less than 576 pixels wide. Checked:  
+<img src="media/testing/responsive/navigation-menu-collapsed.png" width="250px" style="margin: 20px;">  
 
-* The **Search Input**, **Category Selector**, **Search Button** and **Add Button** stack as intended on small devices less than 768 pixels wide.  
-<img src="/static/testing/responsive/home-stacked.png" width="400px" style="margin: 10px;">  
-
-* The **Product Results Table** and **User Reviews Table** columns collapse on smaller devices as intended:  
-<img src="/static/testing/responsive/search-results-collapsed.png" width="300px" align="left" style="margin: 10px;">
-<img src="/static/testing/responsive/reviews-collapsed.png" width="250px" style="margin: 10px;">  
+* The **Products** page is shown as a 2 item wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. Checked.
+* The **Product Detail** page stacks logically on devices less than 768 pixels wide. Checked.
+* The **Product Summary** on the **Basket** page is shown as a 2 item wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. Checked.
+* **Delivery Details** on the **Checkout Success** page stacks underneath the **Your Details** on devices less than 768 pixels wide. Checked.
+* The **Product Summary** on the **Checkout Success** page is shown as a 2 item wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. Checked. 
+* **Delivery Details** on the **Order History** page stacks underneath the **Your Details** on devices less than 768 pixels wide. Checked.
+* The **Order History** on the **User Profile** page stacks underneath the **User Profile Form** on devices less than 768 pixels wide. Checked. 
+* The **Product Summary** on the **Order History** page is shown as a 2 item wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. Checked.
+* Various **Text** elements, the **perkulater logo**, **Form Labels**, **Links**, **Toast Messages**, **Containers** and extra large **Button** elements are re-sized on very small devices less than 370px wide. Checked.
 
 ### Browser Compatibility Testing ###
 The website was tested on the following browsers and operating systems, 
@@ -699,11 +799,24 @@ using a combination of manual testing across various devices and the [Browsersta
 * [Firefox](https://www.mozilla.org/en-GB/firefox/new/) ([Windows 10](https://www.microsoft.com/en-us/windows) and [Mac OS Big Sur](https://www.apple.com/uk/macos/big-sur/)).
 * [Opera](https://www.opera.com/) ([Windows 10](https://www.microsoft.com/en-us/windows) and [Mac OS Big Sur](https://www.apple.com/uk/macos/big-sur/)).  
 
-No issues were uncovered during **Browser Compatibility Testing**.
+One minor issue was uncovered during **Browser Compatibility Testing**.  
+Placeholder text for the *textarea* input on the **Contact** and **Order Contact** was not displaying in the correct colour. Vendor specific placeholder styling was added to the **base** css to rectify the issue. 
+
+### Stripe Webhook Handler Testing ###
+The following tests have been run on the **Stripe** webhook handler:  
+* Checkout a purchase succesfully, and check the **Stripe** *Webhook* panel. The *Response* is shown as *200 OK* and the *webhook* has correctly returned `SUCCESS: Verified order already in database`.
+* Comment out **Payment Form** submission in [checkout.js](checkout/static/checkout/js/checkout.js) to simulate a form submission error, and checkout a purchase.
+Within the **Stripe** *Webhook* panel, the *Response* is shown as *200 OK* and the *webhook* has correcty returned `SUCCESS: Created order in webhook`. The database was also checked to confirm that the **Order** has been added correctly by the *webhook*.  
+<img src="media/testing/stripe-webhook-handler-1.png" width="600px" style="margin: 20px;">  
+<img src="media/testing/stripe-webhook-handler-2.png" width="600px" style="margin: 20px;">
+
+### Restricted Features Security Testing ###
 
 ### Bugs Fixed During Testing ###
-* **Product Image** tempate logic was updated so that if **Product** *image_alt* is not specified, **Product Image** display defaults to the image specified in the *product.image* field. If **Product** *image* and *image_alt* are both specified, **Product Image** defaults to the image specified in the *image* field, and displays the image specified in the *inage__alt* field as a fallback if the browser is not compatible. This improves performance by serving a *WebP* image if the browser is compatible, or a *png* image if not. 
-* Placeholders were added to **Contact Form** and **Order Contact Form** and *textarea* placeholder styling was added to **base** css.
+* If **Product** *image* and *image_alt* fields are both specified for the **Product**, **Product Image** defaults to the image specified in the *image* field, and displays the image specified in the *image__alt* field as a fallback if the browser is not compatible. This improves performance by serving a *WebP* image if the browser is compatible, or a *png* image if not.  **Product Image** template logic was updated so that if **Product** *image_alt* is not specified, **Product Image** display defaults to the image specified in the *product.image* field.
+* Placeholders were added to **Contact Form** and **Order Contact Form**, and *textarea* placeholder styling was added to **base** css.
+* Vendor specific *input* and *textarea* placeholder styling was added to the **base** css.
+* Custom container minumum height values and media queries were updated to calculated values, equal to the screen real estate available. This ensures that the footer is placed at the bottom of the screen with no overflow on pages where less informationis displayed. 
 
 ### Bugs Remaining ###
 * **Product Delete** - it should be noted that currently, if a **Product** is deleted, the **Order History** page will not display the **Product**, as it no longer exists in the database.  This is due to the relational design of the database. Past **Orders** are linked to the **Products** model. Fixing this problem would require a considerable redesign of the **Data Schema**. Logically, it would be best to add a *discontinued* field to the **Product** model in a **Future Devleopment Phase** to indicate whether the product is has been discontinued, and filter the products on the **Products** page to display only **Products** that are currently available for sale. This would enable historical **Products** to remain in the database, but not to be available to purchase.  
