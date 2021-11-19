@@ -138,7 +138,7 @@ body {
 /*-- Containers --*/
 .container-custom,
 .container-custom-sm {
-    min-height: calc(100vh - 35rem);
+    min-height: calc(100vh - 36rem);
 }
 
 .container-dark {
