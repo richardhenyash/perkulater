@@ -456,8 +456,20 @@ body {
     opacity: 1;
 }
 
-.form-user input::-ms-input-placeholder,
-.form-user textarea::-ms-input-placeholder {
+.form-user input::-webkit-input-placeholder,
+.form-user textarea::-webkit-input-placeholder {
+    color: var(--whitehighlight);
+    opacity: 1;
+}
+
+.form-user input:-moz-placeholder,
+.form-user textarea:-moz-placeholder {
+    color: var(--whitehighlight);
+    opacity: 1;
+}
+
+.form-user input::-moz-placeholder,
+.form-user textarea::-moz-placeholder {
     color: var(--whitehighlight);
     opacity: 1;
 }
