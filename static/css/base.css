@@ -138,7 +138,7 @@ body {
 /*-- Containers --*/
 .container-custom,
 .container-custom-sm {
-    min-height: 50vh;
+    min-height: calc(100vh - 35rem);
 }
 
 .container-dark {
@@ -600,17 +600,29 @@ body {
     color: var(--white);
 }
 
+.footer-text {
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
 /*-- Media Queries --*/
 
 /*-- Custom Containers--*/
 @media (min-width: 768px) {
     .container-custom {
         width: 720px;
-        min-height: 65vh;
     }
     .container-custom-sm {
         width: 500px;
-        min-height: 65vh;
+    }
+}
+
+@media (max-width: 767px) {
+    .container-custom {
+        min-height: calc(100vh - 40rem);
+    }
+    .container-custom-sm {
+        min-height: calc(100vh - 40rem);
     }
 }
 
