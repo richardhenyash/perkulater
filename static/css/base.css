@@ -450,30 +450,35 @@ body {
     opacity: 1;
 }
 
+/* Internet Explorer 10+ */
 .form-user input:-ms-input-placeholder,
 .form-user textarea:-ms-input-placeholder {
     color: var(--whitehighlight);
     opacity: 1;
 }
 
+/* Chrome/Opera/Safari */
 .form-user input::-webkit-input-placeholder,
 .form-user textarea::-webkit-input-placeholder {
     color: var(--whitehighlight);
     opacity: 1;
 }
 
+/* Firefox 18- */
 .form-user input:-moz-placeholder,
 .form-user textarea:-moz-placeholder {
     color: var(--whitehighlight);
     opacity: 1;
 }
 
+/* Firefox 19+ */
 .form-user input::-moz-placeholder,
 .form-user textarea::-moz-placeholder {
     color: var(--whitehighlight);
     opacity: 1;
 }
 
+/* Chrome/Opera/Safari */
 .form-user input:-webkit-autofill,
 .form-user input:-webkit-autofill:focus,
 .form-user textarea:-webkit-autofill,
