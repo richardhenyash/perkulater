@@ -741,7 +741,7 @@ See [Responsive Design Testing](media/testing/responsive/) screen prints, a sele
 [Responsive Viewer](https://chrome.google.com/webstore/detail/responsive-viewer/inmopeiepgfljkpkidclfgbgbmfcennb?hl=en)
 plug in for chrome. This emulates viewing the website on a large number of devices, 
 including iPhone XR, iPhone XS Max, iPhone XS, iPhone X, Galaxy S9 Plus, Galaxy S8 Plus, Galaxy S9, Note 8, Note S8, Pixel 3 and Pixel 3XL.  
-See [Responsive Design Testing](/static/testing/responsive) screen prints, a selection of which are also shown below:  
+See [Responsive Design Testing](media/testing/responsive) screen prints, a selection of which are also shown below:  
 <p float="left">
     <img src="media/testing/responsive/home-responsive-1.png" width="400px" style="margin: 20px;">
     <img src="media/testing/responsive/home-responsive-2.png" width="400px" style="margin: 20px;">
@@ -811,13 +811,15 @@ Within the **Stripe** *Webhook* panel, the *Response* is shown as *200 OK* and t
 <img src="media/testing/stripe-webhook-handler-2.png" width="600px" style="margin: 20px;">
 
 ### Restricted Features Security Testing ###
+* **Product Add**, **Product Edit**, **Product Delete**, **Edit Prices** and **Delete Review** are all restricted to **Super Users**. If an unauthenticated **User** attemps to navigate to any of these pages by manually typing the *url* into the search bar, they are redirected to the **Sign In** page. This is accomplished by applying the **django** `@login_required` decorater on the **View** functions.  If an authenticated **User** who is not a **Super User** attemps to navigate to any of these pages by manually typing the *url* into the search bar, they are redirected to the **Products** page and a **Toast Message** is shown. This functionality has been checked and is working as expected. 
+* **Review Product**, **User Profile**, **Order History** and **Order Contact** are all restricted to authenticated **Users**. If an unauthenticated **User** attemps to navigate to any of these pages by manually typing the *url* into the search bar, they are redirected to the **Sign In** page. This is accomplished by applying the **django** `@login_required` decorater on the **View** functions. This functionality has been checked and is working as expected.  
 
 ### Bugs Fixed During Testing ###
-* If **Product** *image* and *image_alt* fields are both specified for the **Product**, **Product Image** defaults to the image specified in the *image* field, and displays the image specified in the *image__alt* field as a fallback if the browser is not compatible. This improves performance by serving a *WebP* image if the browser is compatible, or a *png* image if not.  **Product Image** template logic was updated so that if **Product** *image_alt* is not specified, **Product Image** display defaults to the image specified in the *product.image* field.
+* **Product Image** template logic was updated so that if **Product** *image_alt* is not specified, **Product Image** display defaults to the image specified in the *product.image* field.
 * Placeholders were added to **Contact Form** and **Order Contact Form**, and *textarea* placeholder styling was added to **base** css.
 * Vendor specific *input* and *textarea* placeholder styling was added to the **base** css.
-* Custom container minumum height values and media queries were updated to calculated values, equal to the screen real estate available. This ensures that the footer is placed at the bottom of the screen with no overflow on pages where less informationis displayed. 
+* Custom container minumum height values and media queries were updated to calculated values, equal to the screen real estate available. This ensures that the footer is placed at the bottom of the screen with no overflow on pages where less information is displayed. 
 
 ### Bugs Remaining ###
 * **Product Delete** - it should be noted that currently, if a **Product** is deleted, the **Order History** page will not display the **Product**, as it no longer exists in the database.  This is due to the relational design of the database. Past **Orders** are linked to the **Products** model. Fixing this problem would require a considerable redesign of the **Data Schema**. Logically, it would be best to add a *discontinued* field to the **Product** model in a **Future Devleopment Phase** to indicate whether the product is has been discontinued, and filter the products on the **Products** page to display only **Products** that are currently available for sale. This would enable historical **Products** to remain in the database, but not to be available to purchase.  
-* **Country** dropdown select - If user is not signed in and auto-populates the form fields in Chrome, select colour is changed to white. 
+* **Country** dropdown select - If the **User** is not signed in and auto-populates the form fields using **Google Chrome**, select colour is changed to white. 
