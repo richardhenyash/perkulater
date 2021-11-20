@@ -359,8 +359,8 @@ Sign Up|Username|Yes|Yes|Yes|Pass|Field required. Must be fewer than 150 charact
 Sign Up|Password|Yes|Yes|Yes|Pass|Must at least 8 characters.
 Sign Up|Password (again)|Yes|Yes|Yes|Pass|Must match password.
 Sign Up|Sign Up Button|Yes|Yes|Yes|Pass|Sends confirmation email to **User**.
-Sign Up - Verify Email|Title|Yes|-|-|
-Sign Up - Verify Email|Test|Yes|-|-|
+Sign Up - Verify Email|Title|Yes|-|-|Pass|
+Sign Up - Verify Email|Test|Yes|-|-|Pass|
 Sign Up - Confirm Email|Title|Yes|-|-|Pass|
 Sign Up - Confirm Email|Text|Yes|-|-|Pass|Correct email address shown in green.
 Sign Up - Confirm Email|Confirm Button|Yes|Yes|Yes|Pass|Links to Sign In page, with username and password populated.
@@ -376,7 +376,7 @@ Sign In|Sign In Button|Yes|Yes|Yes|Pass|Signs **User** in, links to the page the
 Sign In|Forgot Password Button|Yes|Yes|Yes|Pass|Links to the **Password Reset** page.
 Sign Out|Title|Yes|-|-|Pass|
 Sign Out|Text|Yes|-|-|Pass|
-Sign Out|Sign Out Button|Yes|Yes|Yes|Signs out **User**, links to the **Products** page.
+Sign Out|Sign Out Button|Yes|Yes|Yes|Pass|Signs out **User**, links to the **Products** page.
 Password Reset|Title|Yes|-|-|Pass|
 Password Reset|Text|Yes|-|-|Pass|
 Password Reset|Field Labels|Yes|-|-|Pass|Required fields denoted with *.
