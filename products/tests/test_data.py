@@ -61,6 +61,7 @@ def build_test_data():
         rating=4.50,
         image="jump-leads-front-transparent.webp",
         image_alt="jump-leads-front-transparent.png",
+        discontinued=False,
     )
     Type.objects.create(
         category=category,

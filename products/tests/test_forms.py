@@ -32,6 +32,7 @@ class TestProductForm(TestCase):
             'image': "",
             'image_alt': "",
             'rating': "",
+            'discontinued': False,
         })
         self.assertFalse(form.is_valid())
         self.assertIn('name', form.errors.keys())
@@ -56,6 +57,7 @@ class TestProductForm(TestCase):
             'image': "",
             'image_alt': "",
             'rating': "",
+            'discontinued': False,
         })
         self.assertFalse(form.is_valid())
         self.assertIn('friendly_name', form.errors.keys())
@@ -81,6 +83,7 @@ class TestProductForm(TestCase):
             'image': "",
             'image_alt': "",
             'rating': "",
+            'discontinued': False,
         })
         self.assertFalse(form.is_valid())
         self.assertIn('friendly_price', form.errors.keys())
@@ -103,6 +106,7 @@ class TestProductForm(TestCase):
             'image': "",
             'image_alt': "",
             'rating': "",
+            'discontinued': False,
         })
         self.assertFalse(form.is_valid())
         self.assertIn('description_full', form.errors.keys())
@@ -126,6 +130,7 @@ class TestProductForm(TestCase):
             'image': "",
             'image_alt': "",
             'rating': "",
+            'discontinued': False,
         })
         self.assertFalse(form.is_valid())
         self.assertIn('description_short', form.errors.keys())
@@ -150,6 +155,7 @@ class TestProductForm(TestCase):
             'image': "",
             'image_alt': "",
             'rating': "",
+            'discontinued': False,
         })
         self.assertFalse(form.is_valid())
         self.assertIn('description_delimiter', form.errors.keys())
@@ -175,6 +181,7 @@ class TestProductForm(TestCase):
             'image': "",
             'image_alt': "",
             'rating': "",
+            'discontinued': False,
         })
         self.assertTrue(form.is_valid())
 
@@ -197,6 +204,29 @@ class TestProductForm(TestCase):
             'image': "",
             'image_alt': "",
             'rating': "",
+            'discontinued': False,
+        })
+        self.assertTrue(form.is_valid())
+
+    def test_discontinued_is_not_required(self):
+        """Test to check discontinued is not required"""
+        category = get_object_or_404(Category, name="Coffee")
+        desc_full = ("Test Full Description Paragraph 1;"
+                     "Test Full Description Paragraph 2;"
+                     "Test Full Description Paragraph 3")
+        desc_short = ("Test Short Description Line 1;"
+                      "Test Short Description Line 2")
+        form = ProductForm({
+            'category': category,
+            'name': 'Test New Coffee',
+            'friendly_name': "Test New Coffee Friendly Name",
+            'friendly_price': "£7.50 - 250g",
+            'description_full': desc_full,
+            'description_short': desc_short,
+            'description_delimiter': ";",
+            'image': "",
+            'image_alt': "",
+            'rating': "4",
         })
         self.assertTrue(form.is_valid())
 
@@ -208,7 +238,7 @@ class TestProductForm(TestCase):
             'category', 'name', 'friendly_name',
             'friendly_price', 'description_full',
             'description_short', 'description_delimiter',
-            'image', 'image_alt'])
+            'image', 'image_alt', 'discontinued'])
 
     def test_fields_are_explicit_in_form_metaclass(self):
         """Test to check fields are explicit in form metaclass"""
@@ -217,7 +247,7 @@ class TestProductForm(TestCase):
             'category', 'name', 'friendly_name',
             'friendly_price', 'description_full',
             'description_short', 'description_delimiter',
-            'image', 'image_alt'))
+            'image', 'image_alt', 'discontinued'))
 
 
 class TestCoffeeForm(TestCase):
