@@ -42,7 +42,7 @@ All HTML code now passes validation with no errors or warnings. See [HTML Valida
 [products.css](products/static/products/css/products.css), and [profiles.css](profiles/static/profiles/css/profiles.css)
 was validated using the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/).  
 No errors were generated. Some *"Due to their dynamic nature, CSS variables are currently not statically checked"* 
-warnings were generated. See [CSS Validation Reports](/static/testing/validation/css).  
+warnings were generated. See [CSS Validation Reports](media/testing/validation/css).  
 These warnings are related to the global variables declared at the top of [base.css](/static/css/base.css). 
 The warnings are generated because the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) 
 does not currently support CSS global variable declaration, and are not considered to be an issue. 
@@ -54,7 +54,7 @@ the vendor extensions are to enable correct display of the **Background Image** 
 The custom [base.js](static/js/base.js), [basket.js](basket/static/basket/js/basket.js), [checkout.js](checkout/static/checkout/js/checkout.js), 
 [home.js](home/static/home/js/home.js), [products.js](products/static/products/js/products.js), and [profiles.js](profiles/static/profiles/js/profiles.js) 
 **JavaScript Code Libraries** were validated using the [JSHint](https://jshint.com/about/) static code analysis tool, and passed without errors or warnings.
-See [JavaScript Event Handler Module Validation](/static/testing/validation/js/events-jshint-validation.pdf). 
+See [JavaScript Validation Reports](media/testing/validation/js). 
 Due to the lack of complexity of **JavaScript** code implemented on the project, **Automated Unit Testing** 
 of the **JavaScript** code was considered unecessary. All **JavaScript** functions and event handlers in the custom **JavaScript Code Libraries** 
 have been thoroughly manually de-bugged and tested in the console as part of the [Manual Testing](#manual-testing) process.  

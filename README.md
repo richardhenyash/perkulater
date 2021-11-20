@@ -265,7 +265,7 @@ The [Responsive design wireframes](media/wireframes/rev1) for the **Products** a
 ### Design Choices ###
 
 #### Fonts ####
-[Teko](https://fonts.google.com/specimen/Teko) has been chosen as the logo font for the [perkulater logo](static/testing/logo.png).  
+[Teko](https://fonts.google.com/specimen/Teko) has been chosen as the logo font for the [perkulater logo](media/testing/perkulater-logo.png).  
 [Teko](https://fonts.google.com/specimen/Teko) looks modern and, attractive and chunky and fits well with the overall theme of the site.  
 * font-family: "Teko", sans-serif;
 
@@ -842,7 +842,7 @@ After initial early **User** feedback, the following design changes were made:
 * The **Product Summary** on the **Order History** page is shown as a 2 item wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. This is implemented using the **Bootstrap grid** system.  
 * Various **Text** elements, the **perkulater logo**, **Form Labels**, **Links**, **Toast Messages**, **Containers** and extra large **Button** elements are re-sized on very small devices less than 370px wide. This is achieved using CSS media queries located in the **perkulater Custom CSS**.
 
-See **Responsive Design** section in [TESTING.md](TESTING.md) for further information and [Responsive Testing](/static/testing/responsive) screen prints.
+See **Responsive Design** section in [TESTING.md](TESTING.md) for further information and [Responsive Testing](media/testing/responsive) screen prints.
 
 ### Python Code Logic ###
 The high level **Python** code logic for each **Django App** is explained in the [UML Logic Diagrams](media/wireframes/logic/python) below: 
