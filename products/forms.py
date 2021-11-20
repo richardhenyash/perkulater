@@ -17,7 +17,7 @@ class ProductForm(forms.ModelForm):
             'category', 'name', 'friendly_name',
             'friendly_price', 'description_full',
             'description_short', 'description_delimiter',
-            'image', 'image_alt',
+            'image', 'image_alt','discontinued',
         )
         # Set field labels
         labels = {
@@ -28,6 +28,7 @@ class ProductForm(forms.ModelForm):
             'description_delimiter': 'Description Delimiter',
             'image': 'Image',
             'image_alt': 'Alternative Image',
+            'discontinued': 'Discontinued',
         }
     # Set image field, use custom widget
     image = forms.ImageField(

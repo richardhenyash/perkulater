@@ -13,6 +13,7 @@ class ProductAdmin(admin.ModelAdmin):
         'rating',
         'image',
         'image_alt',
+        'discontinued',
     )
 
     ordering = ('name',)

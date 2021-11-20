@@ -13,7 +13,7 @@ from .helpers import get_product_offer_str
 def all_products(request):
     """ A view to show all products """
     # Get all Products
-    products = Product.objects.all()
+    products = Product.objects.filter(discontinued=False)
     query = None
     categories = None
     category = None
