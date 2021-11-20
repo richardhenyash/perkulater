@@ -17,7 +17,7 @@ class ProductForm(forms.ModelForm):
             'category', 'name', 'friendly_name',
             'friendly_price', 'description_full',
             'description_short', 'description_delimiter',
-            'image', 'image_alt','discontinued',
+            'image', 'image_alt', 'discontinued',
         )
         # Set field labels
         labels = {

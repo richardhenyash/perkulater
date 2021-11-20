@@ -61,7 +61,7 @@ def all_products(request):
         'category': category,
         'categories_all': categories_all,
     }
-    # Redner product page
+    # Render product page
     return render(request, 'products/products.html', context)
 
 
@@ -69,6 +69,7 @@ def product_detail(request, product_id):
     """ A view to show individual product details """
     # Get Product
     product = get_object_or_404(Product, pk=product_id)
+
     # Get Categories
     categories_all = Category.objects.all()
     # Get Product Category
@@ -117,7 +118,7 @@ def product_detail(request, product_id):
     if coffee_details:
         # Add Coffee details to context
         context['coffee_detail'] = coffee_details
-    # Redner Product detail page
+    # Render Product detail page
     return render(request, 'products/product_detail.html', context)
 
 

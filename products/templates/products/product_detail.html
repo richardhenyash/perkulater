@@ -179,23 +179,38 @@
                     <div class="divider-opaque px-3">
                         <hr>
                     </div>
-                    <div class="form-row p-3 pb-4">
-                        <div class="row px-3">
-                            <div class="col-6">
-                                <button type="submit" class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
-                                    Add To Basket
-                                </button>
-                            </div>
-                            <div class="col-6">
-                                <a class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100" 
-                                    id="createPlanBtn" href="#" role="button"
-                                    data-information-modal-title="Coming Soon!"
-                                    data-information-modal-content="Create a subscription plan to receive a regular delivery of your favourite coffee.">
-                                    Create Plan
-                                </a>
+                    {% if product.discontinued %}
+                        <div class="form-row p-3 pb-4">
+                            <div class="row px-3">
+                                <div class="col-12">
+                                    <p class="text-medium text-center fg-blue px-2 pt-0 pb-1">
+                                        <span class="icon">
+                                            <i class="fas fa-exclamation-circle"></i>
+                                        </span>
+                                        Product has been discontinued
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    {% else %}
+                        <div class="form-row p-3 pb-4">
+                            <div class="row px-3">
+                                <div class="col-6">
+                                    <button type="submit" class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
+                                        Add To Basket
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <a class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100" 
+                                        id="createPlanBtn" href="#" role="button"
+                                        data-information-modal-title="Coming Soon!"
+                                        data-information-modal-content="Create a subscription plan to receive a regular delivery of your favourite coffee.">
+                                        Create Plan
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
                     {% if request.user.is_superuser %}
                         <div class="form-row px-3 pb-4">
                             <div class="row px-3">
