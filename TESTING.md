@@ -48,7 +48,7 @@ The warnings are generated because the [W3C CSS Validation Service](https://jigs
 does not currently support CSS global variable declaration, and are not considered to be an issue. 
 See [Github Link](https://github.com/w3c/css-validator/pull/173).
 Some additional *"vendor extension"* warnings were also generated in **base.css**. These warnings are not considered to be an issue - 
-the vendor extensions are to enable correct display of the **Background Image** linear gradient and various **Form** elements.  
+the vendor extensions are to enable correct display of the **Background Image** linear gradient and various **Form** elements in different browsers.  
 
 ### JavaScript Code Testing ##
 The custom [base.js](static/js/base.js), [basket.js](basket/static/basket/js/basket.js), [checkout.js](checkout/static/checkout/js/checkout.js), 
@@ -69,16 +69,16 @@ exclude = */migrations/*.py, *__init__.py, *_pychache_*
 per-file-ignores = *apps.py:F401, *settings.py:E501
 ```
 The settings exclude **django** migrations, `__init__.py`, and `_pychache_` files, as these are system generated files and do not need to be checked.  
-*F401* (imported but unused) errors are ignored for *apps.py, as flake8 was generating an error on **Django** signals being imported but unused. 
+*F401* (imported but unused) errors are ignored for *apps.py, as **Flake8** was generating an error on **Django** signals being imported but unused. 
 Signals need to be imported into the **app** config files to ensure correct operation of the code.  
 *E501* (line too long) errors are ignored for `settings.py` as it is not possible to shorten the effected lines of code without causing application errors.  
 
 **Flake 8** output is shown here [Python Code Automated Testing And Flake8 Output](media/testing/validation/python/python-automated-testing-output.png).
 
-Python **Automated Unit Testing** was also implemented using the [Django Unit Testing](https://docs.djangoproject.com/en/3.2/topics/testing/overview/) framework.  
-. **Unit Tests** have been written for all **Forms**, **Model Methods**, **Signals** and **Views**, for each **Django App** in  the **perkulater** project. 
-A total of **137** **Unit Tests** have been written. Afetr **Unit Testing** was implemented, **Unit Tests** were run each time a feature was added or changed.  
-All **137** tests run successfully without errors or warnings, see [Python Code Automated Testing And Flake8 Output](media/testing/validation/python/python-automated-testing-output.png).  
+Python **Automated Unit Testing** was implemented using the [Django Unit Testing](https://docs.djangoproject.com/en/3.2/topics/testing/overview/) framework.  
+**Unit Tests** have been written for all **Forms**, **Model Methods**, **Signals** and **Views**, for each **Django App** in  the **perkulater** project. 
+A total of **138** **Unit Tests** have been written. After **Unit Testing** was implemented, **Unit Tests** were run each time a feature was added or changed.  
+All **138** tests run successfully without errors or warnings, see [Python Code Automated Testing And Flake8 Output](media/testing/validation/python/python-automated-testing-output.png).  
 
 ### Automated Performance And Quality Testing ###
 Performance and Quality was tested with the [Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en) 
@@ -90,26 +90,26 @@ Page|Performance|Accessiblity|Best Practices|SEO|
 ----|-----------|------------|--------------|---|
 Home|98|100|100|100
 Products|81|100|100|92
-Product Detail|85|91|100|92
+Product Detail|85|91|100|92flake8
 
 See [Initial Lighthouse Reports](media/testing/validation/performance/initial).
 
 To improve **Accesibility** and **SEO**, missing *href tags* and *aria-label* atttributes were added to the some of the buttons and links in the **HTML Templates**.
 
-To improve **Best Practices** and **Performance**, the **Product** images were resized to 317px x 422px (the maximum size the image is displyed at), 
+To improve **Best Practices** and **Performance**, the **Product** images were resized to 317px x 422px (this is the maximum size the image is displyed at), 
 and compressed using the [RIOT](https://riot-optimizer.com/) image optimisation tool.  
 The **Background** image was also re-sized to 2400px x 1600px and compressed using the [RIOT](https://riot-optimizer.com/) image optimisation tool.  
 [WebP](https://developers.google.com/speed/webp) versions of the **Product** and **Background** images were created, resulting in much smalller image files.  
 *Webp* images are implemented for the **Product** images with *png* fallback for browsers that do not support *Webp* using the html *picture* tag.  
-An additional field, *image_alt* was added to the **Product** model to enable the fallback inage to be specified for each product.  
-The **Product Add** and **Product Edit** pages were uopdated to include image file selectors for the new *image_alt* field.  
-This will enable the **perkulater** strore administrator to add a *Webp* image with *png* or *jpg* fallback for any future **Products**. 
+An additional field, *image_alt* was added to the **Product** model to enable the fallback image to be specified for each product.  
+The **Product Add** and **Product Edit** pages were updated to include image file selectors for the new *image_alt* field.  
+This will enable the **perkulater** stroe administrator to add a *Webp* image with *png* or *jpg* fallback for any future **Products**. 
 A *Webp* image with *png* fallback was also implemented for the **Background** image using the [Modernizr](https://modernizr.com/) browser detector tool.  
-A custom comfiguration of [Modernizr](https://modernizr.com/), customized to detect *WebP* image support, has been added to the **perkulater** code base: [libraries](static/js/libraries).  
+A custom configuration of [Modernizr](https://modernizr.com/), customized to detect *WebP* image support has been added to the **perkulater** [code base](static/js/libraries).  
 This detects if the browser has *Webp* support, and adds a css class (either *webp* or *no-webp*) to the *html* element.  
 The [base.css](static/css/base.css) was updated to test for *WebP* image support, and load the correct **Background Image**.  
 
-Loading of **Stripe JavaScript** was moved from the **base** template to the **checkout** template, to reduce overhead on pages where **Stripe** is not required.  
+Loading of **Stripe JavaScript** was moved from the **base** template to the **checkout** template, to reduce the **JavaScript** overhead on pages where **Stripe** is not required.  
 
 These changes resulted in a significant increase in **Performance**.  
 
@@ -143,16 +143,18 @@ See this [Link](https://getbootstrap.com/docs/5.0/customize/optimize/) for furth
 As a **Potential Customer**, I would like to be able to:  
 <br>
 * Immediately understand the intent of the site.  
-The **Home Page** explains the purpose of the **perkulater** site, in a simple and elegant way:    
+The **Home Page** explains the purpose of the **perkulater** site, in a simple and elegant way.  
+Functionality has been tested and works as expected:   
 <img src="media/testing/home.png" width="300px" style="margin: 20px;">  
 
 
 * View and navigate the site on all devices.  
 **Responsive Design** using **Bootstrap** has been implemented on the **perkulater** site, to enable the site to be viewed and navigated on all devices.  
-See [Responsive Design](#responsive-design) section.  
+See [Responsive Design Testing](#responsive-design-testing) section.  
 
 * Learn about the coffees on offer, including a description of the flavours, so I can make an informed purchasing decision.  
-The **Product Detail** page includes detailed information about the **Coffees** on offer:  
+The **Product Detail** page includes detailed information about the **Coffees** on offer.  
+Functionality has been tested and works as expected:   
 <img src="media/testing/product-detail.png" width="400px" style="margin: 20px;">  
 
 * Learn about where the coffee beans are sourced from, so I can make an informed purchasing decision.  
@@ -223,7 +225,7 @@ The **User Profile** page allows a registered **User** to update their personal 
 * See a summary of my previous orders.  
 The **User Profile** page allows a registered **User** to see a summary of their **Order History**.  
 Detailed information about each **Order** can be found on the **Order History** page, accessed by clicking on the **Order Number**.  
-The functionality has been tested and works as expected:  
+Functionality has been tested and works as expected:  
 <img src="media/testing/user-profile.png" width="600px" style="margin: 20px;">  
 <img src="media/testing/order-history.png" width="600px" style="margin: 20px;">  
 
@@ -257,7 +259,7 @@ Customers can edit existing reviews using the **Edit** link in the **Customer Re
 
 As a **Business Owner**, I would like to be able to:
 * Incentivise customers to add reviews to products, so that other customers will feel more confident about making a purchase.  
-A **Reward** system has been implemented, where a registered **User** can get 10% off their next **order** by adding a new **Review**. 
+A **Reward** system has been implemented, where a registered **User** can get 10% off their next **Order** by adding a new **Review**. 
 This is communicated to the **User** in the **Offer Banner**, and on the **Basket** and **Checkout** pages.  
 The functionality has been tested and works as expected:  
 <img src="media/testing/offer-banner.png" width="600px" style="margin: 20px;">  
@@ -273,7 +275,7 @@ The functionality has been tested and works as expected:
 * Add, edit and delete products.  
 **Products** may be added using the **Product Add** page, accessed from the **User Menu** if the **User** is signed in as a **Super User**.  
 **Products** may be edited using the **Product Edit** page, accessed from the **Product Detail** page if the **User** is signed in as a **Super User**.  
-**Products** may be edited using the **Product Delete** button, accessed from the **Product Detail** page if the **User** is signed in as a **Super User**.  
+**Products** may be deleted using the **Product Delete** button, accessed from the **Product Detail** page if the **User** is signed in as a **Super User**.  
 **Form Validation** and functionality has been tested and works as expected:  
 <p float="left">
     <img src="media/testing/product-add-1.png" width="300px" style="margin: 20px;">
@@ -815,10 +817,13 @@ Within the **Stripe** *Webhook* panel, the *Response* is shown as *200 OK* and t
 * **Review Product**, **User Profile**, **Order History** and **Order Contact** are all restricted to authenticated **Users**. If an unauthenticated **User** attemps to navigate to any of these pages by manually typing the *url* into the search bar, they are redirected to the **Sign In** page. This is accomplished by applying the **django** `@login_required` decorater on the **View** functions. This functionality has been checked and is working as expected.  
 
 ### Bugs Fixed During Testing ###
-* **Product Image** template logic was updated so that if **Product** *image_alt* is not specified, **Product Image** display defaults to the image specified in the *product.image* field.
+* **Product Image** template logic was updated so that if **Product** *image_alt* is not specified, **Product Image** display defaults to the image specified in the **Product** *image* field.
 * Placeholders were added to **Contact Form** and **Order Contact Form**, and *textarea* placeholder styling was added to **base** css.
 * Vendor specific *input* and *textarea* placeholder styling was added to the **base** css.
 * Custom container minumum height values and media queries were updated to calculated values, equal to the screen real estate available. This ensures that the footer is placed at the bottom of the screen with no overflow on pages where less information is displayed. 
+* It was noted during testing that if a **Product** is deleted, the **Order History** page will not display the **Product**, as it no longer exists in the database.  This is due to the relational design of the database. Past **Orders** are linked to the **Products** model. In order to fix this without a considerable redesign of the **Data Schema**, a *discontinued* field has been added to the **Product**, to indicate whether the product has been discontinued. Products on the **Products** page are now filtered to only display **Products** that are currently available for sale. The **Product Detail** template logic was also updated to hide the **Add To Basket** and **Create Plan** buttons for discontinued **Products**, and to display infomation text to inform the **User** that the **Product** has been discontinued. The *discontinued* field has been added to the **Product Add** and **Product Edit** forms as a checkbox, and is unticked as a default.  
+This change has enabled historical **Products** to remain in the database and to be viewed via the **Order History**, but not to be available to purchase:  
+<img src="media/testing/product-detail-discontinued.png" width="600px" style="margin: 20px;"> 
 
 ### Bugs Remaining ###
 * **Product Delete** - it should be noted that currently, if a **Product** is deleted, the **Order History** page will not display the **Product**, as it no longer exists in the database.  This is due to the relational design of the database. Past **Orders** are linked to the **Products** model. Fixing this problem would require a considerable redesign of the **Data Schema**. Logically, it would be best to add a *discontinued* field to the **Product** model in a **Future Devleopment Phase** to indicate whether the product is has been discontinued, and filter the products on the **Products** page to display only **Products** that are currently available for sale. This would enable historical **Products** to remain in the database, but not to be available to purchase.  
