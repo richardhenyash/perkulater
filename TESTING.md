@@ -9,7 +9,7 @@
     - [Automated Performance And Quality Testing](#automated-performance-and-quality-testing)
 - [User Stories Testing](#user-stories-testing)
 - [Manual Testing](#manual-testing)
-    - [Features](#form-validation)
+    - [Features](#features)
         - [Home](#home)
         - [Base Template](#base-template)
         - [User Authentication](#user-authentication)
@@ -358,7 +358,7 @@ Sign Up|E-mail (again)|Yes|Yes|Yes|Pass|Field required. Must match E-mail.
 Sign Up|Username|Yes|Yes|Yes|Pass|Field required. Must be fewer than 150 characters. Must be unique.
 Sign Up|Password|Yes|Yes|Yes|Pass|Must at least 8 characters.
 Sign Up|Password (again)|Yes|Yes|Yes|Pass|Must match password.
-Sign Up|Sign Up Button|Yes|Yes|Yes|Sends confirmation email to **User**.
+Sign Up|Sign Up Button|Yes|Yes|Yes|Pass|Sends confirmation email to **User**.
 Sign Up - Verify Email|Title|Yes|-|-|
 Sign Up - Verify Email|Test|Yes|-|-|
 Sign Up - Confirm Email|Title|Yes|-|-|Pass|
@@ -371,9 +371,9 @@ Sign In|Field Labels|Yes|-|-|Pass|Required fields denoted with *.
 Sign In|Field Placeholders|Yes|-|-|Pass|
 Sign In|Login|Yes|Yes|Yes|Pass|Field required. Must match username or email address stored in database
 Sign In|Password|Yes|Yes|Yes|Pass|Field required. Must match password stored in database.
-Sign In|Remember Me Checkbox|Yes|Yes|Yes|Autofills Login and Password if checked.
-Sign In|Sign In Button|Yes|Yes|Yes|Signs **User** in, links to the page the **User** was on previously.
-Sign In|Forgot Password Button|Yes|Yes|Yes|Links to the **Password Reset** page.
+Sign In|Remember Me Checkbox|Yes|Yes|Yes|Pass|Autofills Login and Password if checked.
+Sign In|Sign In Button|Yes|Yes|Yes|Pass|Signs **User** in, links to the page the **User** was on previously.
+Sign In|Forgot Password Button|Yes|Yes|Yes|Pass|Links to the **Password Reset** page.
 Sign Out|Title|Yes|-|-|Pass|
 Sign Out|Text|Yes|-|-|Pass|
 Sign Out|Sign Out Button|Yes|Yes|Yes|Signs out **User**, links to the **Products** page.
@@ -400,8 +400,8 @@ Contact|Field Placeholders|Yes|-|-|Pass|
 Contact|Email|Yes|Yes|Yes|Pass|Field required. Must be a valid email address.
 Contact|Subject|Yes|Yes|Yes|Pass|Field required.
 Contact|Message|Yes|Yes|Yes|Pass|Field required.
-Contact|Keep Shopping Button|Yes|Yes|Yes|Links to the **Products** page.
-Contact|Send Message Button|Yes|Yes|Yes|Sends contact message. Message received in **perkulater** email account inbox.
+Contact|Keep Shopping Button|Yes|Yes|Yes|Pass|Links to the **Products** page.
+Contact|Send Message Button|Yes|Yes|Yes|Pass|Sends contact message. Message received in **perkulater** email account inbox.
 
 #### Products ####
 Page or Section|Feature|Style Check|Hover, Focus Style Check|Functionality Check|Pass, Fail|Notes
@@ -611,15 +611,15 @@ User Profile|County, State Or Locality|Yes|Yes|Yes|Pass|Field not required.
 User Profile|Post Code|Yes|Yes|Yes|Pass|Field not required.
 User Profile|Country|Yes|Yes|Yes|Pass|Dropdown populated correctly.
 User Profile|Update Profile Button|Yes|Yes|Yes|Pass|Updates **UserProfile** in database.
-User Profile|Order History Title|-|-|Pass|
-User Profile|Order History Title|-|-|Pass|
-User Profile|Order History Accordion|-|Yes|Pass|Accordion items shown by date.
-User Profile|Order History Accordion - Open Accordion Button|-|Yes|Pass|Expoands accordion as expected.
-User Profile|Order History Accordion - Order Number Link|Yes|Yes|Pass|Links to **Order History**.
-User Profile|Order History Accordion - Product Name|-|-|Pass|
-User Profile|Order History Accordion - Product Review Link|Yes|Yes|Pass|Links to **Product Review**. Back button text in **Product Review** changed to **Back To Profile**. 
-User Profile|Order History Accordion - Product Quantity|-|-|Pass|
-User Profile|Order History Accordion - Grand Total|-|-|Pass|
+User Profile|Order History Title|Yes|-|-|Pass|
+User Profile|Order History Title|Yes|-|-|Pass|
+User Profile|Order History Accordion|Yes|-|Yes|Pass|Accordion items shown by date.
+User Profile|Order History Accordion - Open Accordion Button|Yes|-|Yes|Pass|Expands accordion as expected.
+User Profile|Order History Accordion - Order Number Link|Yes|Yes|Yes|Pass|Links to **Order History**.
+User Profile|Order History Accordion - Product Name|Yes|-|-|Pass|
+User Profile|Order History Accordion - Product Review Link|Yes|Yes|Yes|Pass|Links to **Product Review**. Back button text in **Product Review** changed to **Back To Profile**. 
+User Profile|Order History Accordion - Product Quantity|Yes|-|-|Pass|
+User Profile|Order History Accordion - Grand Total|Yes|-|-|Pass|
 Order History|Title|Yes|-|-|Pass|
 Order History|Horizontal Rule|Yes|-|-|Pass|
 Order History|Order Information Text|Yes|-|-|Pass|Email, Order Number, Order Date are correct.
@@ -647,8 +647,8 @@ Order Contact|Order Date|Yes|-|-|Pass|Populated correctly from database.
 Order Contact|Field Labels|Yes|-|-|Pass|Required fields denoted with *.
 Order Contact|Field Placeholders|Yes|-|-|Pass|
 Order Contact|Message|Yes|Yes|Yes|Pass|Field required.
-Order Contact|View Order Button|Yes|Yes|Yes|Links to the **Order History** page.
-Order Contact|Send Message Button|Yes|Yes|Yes|Sends contact message. Message received in **perkulater** email account inbox.
+Order Contact|View Order Button|Yes|Yes|Yes|Pass|Links to the **Order History** page.
+Order Contact|Send Message Button|Yes|Yes|Yes|Pass|Sends contact message. Message received in **perkulater** email account inbox.
 
 #### Toast Messages ####
 Page or Section|Feature|Style Check|Hover, Focus Style Check|Functionality Check|Pass, Fail|Notes
