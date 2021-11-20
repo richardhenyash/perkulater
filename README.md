@@ -393,9 +393,12 @@ custom models, fields, relationships and methods are explained below:
 can optionally split the *description_full* field into separate paragraphs for rendering in the **Product Information** pop up modal. The *description_short* field can also be 
 optionally split using the delimiter specified in the *description_delimiter* field - the first part of the short description is shown underneath the product name in the 
 **Product Detail** view, if the **Product** is not a **Coffee**.  
-The *friendly_name* and *friendly_price* fields are used to display the name and price on the **Product Summary** and **Product Detail** pages. 
-The *rating* field stores an automatically calculated average rating which is updated using a **Django** signal when a review is added, deleted or edited. There are currently 
-four **Products** defined - *Jump Leads*, *Morning Glory*, *Our House Is Your House* and *Unleaded*.
+The *friendly_name* and *friendly_price* fields are used to display the name and price on the **Product Summary** and **Product Detail** pages.  
+The *rating* field stores an automatically calculated average rating which is updated using a **Django** signal when a review is added, deleted or edited.  
+The *image* field stores the **Product** image. 
+The *image_alt* field stores an optional fallback image for the **Product**. 
+The *discontinued* field allows **Products** to be discontinued for sale by a **Super User**.  
+There are currently four **Products** defined - *Jump Leads*, *Morning Glory*, *Our House Is Your House* and *Unleaded*.
 
 * **Category** - related to **Product**, **Type** and **Size**. Each **Category** may have different **Types** and **Sizes** and is related back to the **Product**. 
 This relational structure allows for new product **Categories** with different **Sizes** and **Types** e.g. coffee equipment or cold brew cans to be added in a future development phase. 
@@ -565,8 +568,7 @@ The **Change Password** page is displayed to confirm to the **User** that their 
 
 #### Products #### 
 
- * **Products**, displays all products. Products can be searched using the **Product Search**. If more **Product Categories** are added in a future development phase, **Products** will 
- automatically be able to be filtered by **Category**, by selecting the **Category** from the **Navigation Menu**.
+ * **Products**, displays all products that are not *discontinued*. Products can be searched using the **Product Search**. If more **Product Categories** are added in a future development phase, **Products** will automatically be able to be filtered by **Category**, by selecting the **Category** from the **Navigation Menu**:  
 <img src="media/testing/products.png" width="600px" style="margin: 20px;"> 
 
 * **Offer Banner**, display offers read in from the **Offer** model, if the *display_in_banner* field is set to `True`:  
@@ -662,7 +664,10 @@ Note that **Create Plan** feature has not been implemented as part of the phase 
 <img src="media/testing/modal-review-delete-confirm.png" width="200px" style="margin: 20px;">  
 
 * **Product Add**, restricted to **Super Users**. Enables a new **Product** to be added. Required fields are denoted with a *.  
-**Select Image** button optionally allows an image to be selected. **View Products** button links back to **Products** page. **Add Product** button adds the new **Product** to the database. All form inputs include focus styling and validation, and all buttons include hover styling.  
+**Image** optionally allows the main image to be selected. The suggested format is *WebP* for better performance.  
+**Alternative Image** optionally allows a fallback *png* image to be selected, for additional browser support.  
+**Discontinued** check box optionally allows the **Product** to be discontinued and not displayed for sale and defaults to unchecked.  
+**View Products** button links back to **Products** page. **Add Product** button adds the new **Product** to the database. All form inputs include focus styling and validation, and all buttons include hover styling.  
 Displays **Toast Message** if product is added successfully:   
 <p float="left">
     <img src="media/testing/product-add-1.png" width="45%" style="margin: 20px;">
@@ -670,7 +675,10 @@ Displays **Toast Message** if product is added successfully:
 </p>
 
 * **Product Edit**, restricted to **Super Users**. Enables an existing **Product** to be edited. Required fields are denoted with a *.  
-**Select Image** button optionally allows an image to be selected. **Back To Product** button links back to **Product Detail** page. **Update Product** button updates the **Product** in the database.  All form inputs include focus styling and validation, and all buttons include hover styling.  
+**Image** optionally allows the main image to be selected. The suggested format is *WebP* for better performance.  
+**Alternative Image** optionally allows a fallback *png* image to be selected, for additional browser support.  
+**Discontinued** check box optionally allows the **Product** to be discontinued and not displayed for sale and defaults to unchecked.  
+**Back To Product** button links back to **Product Detail** page. **Update Product** button updates the **Product** in the database.  All form inputs include focus styling and validation, and all buttons include hover styling.  
 Displays **Toast Message** if product is updated successfully:
 <p float="left">   
     <img src="media/testing/product-edit-1.png" width="45%" style="margin: 20px;">
@@ -797,7 +805,7 @@ The following features have been identified to add in **Future Development Phase
 * **Create Plan** - to enable **Users** to subscribe to a regular delivery of their favourite coffee(s). 
 * **Create Customised Plan** - to enable **Users** to customise their **Plan** so that they can try a different coffee 
 each time their subscription is fulfilled, tailored to their specific taste preferences. 
-* **Pagination** buttons could be added to the **Products** page, to allow for more **Products** to be added and displayed neatly. 
+* **Pagination** buttons on to the **Products** page, to allow for more **Products** to be added and displayed neatly. 
 * **Gift Cards** - to enable **Users** to purchase **perkulater** gift cards for friends and family.
 * **Add Category** - to enable the **perkulater** store administrator to add new **Product** **Categories**.
 * **Edit Category** - to enable the **perkulater** store administrator to edit existing **Product** **Categories**.
