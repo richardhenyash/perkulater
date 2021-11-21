@@ -482,7 +482,9 @@ body {
 .form-user input:-webkit-autofill,
 .form-user input:-webkit-autofill:focus,
 .form-user textarea:-webkit-autofill,
-.form-user textarea:-webkit-autofill:focus {
+.form-user textarea:-webkit-autofill:focus,
+.form-user select:-webkit-autofill,
+.form-user select:-webkit-autofill:focus {
     -webkit-text-fill-color: var(--white);
     opacity: 1;
     transition: background-color 600000s 0s, color 600000s 0s;
