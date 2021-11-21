@@ -2,108 +2,125 @@
 {% load static %}
 
 {% block extracss %}
-    <!-- Link to Products Custom CSS -->
-    <link rel="stylesheet" href="{% static 'profiles/css/profiles.css' %}">
-    <!-- Link to Basket Custom CSS -->
-    <link rel="stylesheet" href="{% static 'basket/css/basket.css' %}">
+<!-- Link to Products Custom CSS -->
+<link rel="stylesheet" href="{% static 'profiles/css/profiles.css' %}">
+<!-- Link to Basket Custom CSS -->
+<link rel="stylesheet" href="{% static 'basket/css/basket.css' %}">
 {% endblock %}
 
 {% block page_header %}
 {% endblock %}
 
 {% block content %}
-    <section id="profile" class="container-sm container-custom pt-2">
-        <div class="row py-4">
-            <div class="col-12 container-dark pt-4 px-3">
-                <div class="row">
-                    <div class="col-12">
-                        <h6 class="title-text-large text-center pt-2">My Profile</h6>
-                    </div>
-                    <div class="divider-opaque">
-                        <hr>
-                    </div>
+<!-- User Profile Section -->
+<section id="profile" class="container-sm container-custom pt-2">
+    <div class="row py-4">
+        <div class="col-12 container-dark pt-4 px-3">
+            <!-- Title -->
+            <div class="row">
+                <div class="col-12">
+                    <h6 class="title-text-large text-center pt-2">My Profile</h6>
                 </div>
-                <div class="row">
-                    <div class="col-12 col-md-6 px-3 px-md-4">
-                        <form class="form-user dark" action="{% url 'profile' %}" method="POST" id="profile-form">
-                            {% csrf_token %}
-                            <fieldset class="pt-2">
-                                <legend class="field-label">Your Details</legend>
-                                {{ user_form.first_name | as_crispy_field }}
-                                {{ user_form.last_name | as_crispy_field }}
-                                {{ user_profile_form.phone_number | as_crispy_field }}
-                            </fieldset>
-                            <fieldset class="pt-2">
-                                <legend class="field-label">Delivery Details</legend>
-                                {{ user_profile_form.address_1 | as_crispy_field }}
-                                {{ user_profile_form.address_2 | as_crispy_field }}
-                                {{ user_profile_form.town_or_city | as_crispy_field }}
-                                {{ user_profile_form.county | as_crispy_field }}
-                                {{ user_profile_form.postcode | as_crispy_field }}
-                                {{ user_profile_form.country | as_crispy_field }}
-                            </fieldset>
-                            <div class="col-6 pt-2 pb-4">
-                                <div class="text-center py-2">
-                                    <button type="submit" id="profile-form-submit-button"
-                                        class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
-                                        Update Profile
-                                    </button>
-                                </div>
+                <!-- Divider -->
+                <div class="divider-opaque">
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6 px-3 px-md-4">
+                    <!-- User Profile Form -->
+                    <form class="form-user dark" action="{% url 'profile' %}" method="POST" id="profile-form">
+                        {% csrf_token %}
+                        <!-- Your Details -->
+                        <fieldset class="pt-2">
+                            <legend class="field-label">Your Details</legend>
+                            {{ user_form.first_name | as_crispy_field }}
+                            {{ user_form.last_name | as_crispy_field }}
+                            {{ user_profile_form.phone_number | as_crispy_field }}
+                        </fieldset>
+                        <!-- Delivery Details -->
+                        <fieldset class="pt-2">
+                            <legend class="field-label">Delivery Details</legend>
+                            {{ user_profile_form.address_1 | as_crispy_field }}
+                            {{ user_profile_form.address_2 | as_crispy_field }}
+                            {{ user_profile_form.town_or_city | as_crispy_field }}
+                            {{ user_profile_form.county | as_crispy_field }}
+                            {{ user_profile_form.postcode | as_crispy_field }}
+                            {{ user_profile_form.country | as_crispy_field }}
+                        </fieldset>
+                        <!-- Update Profile -->
+                        <div class="col-6 pt-2 pb-4">
+                            <div class="text-center py-2">
+                                <button type="submit" id="profile-form-submit-button"
+                                    class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
+                                    Update Profile
+                                </button>
                             </div>
-                        </form>
-                    </div>
-                    <div class="col-12 col-md-6 px-3 px-md-4">
-                        <h1 class="text-large text-bold">Order History</h1>
-                        <div class="accordion accordion-flush pt-2" id="accordionOrders">
-                            {% for order in orders %}
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header py-2 bg-black-3 fg-white" id="accordionOrderHeading{{ order.id }}">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#accordionOrder{{ order.id }}" aria-expanded="false"
-                                            aria-controls="accordionOrder{{ order.id }}">
-                                            {{ order.date }}
-                                        </button>
-                                    </h2>
-                                    <div id="accordionOrder{{ order.id }}" class="accordion-collapse collapse p-3"
-                                        aria-labelledby="accordionOrderHeading{{ order.id }}" data-bs-parent="#accordionOrders">
-                                        <div>
-                                            <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}" class="p-2">
-                                                {{ order.order_number|truncatechars:25 }}
-                                            </a>
-                                            <table class="table table-dark table-borderless text-medium">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col" class="text-bold pt-3 pb-1">Product</th>
-                                                        <th scope="col" class="text-bold py-1 text-center">Quantity</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                {% for lineitem in order.lineitems.all %}
-                                                    <tr>
-                                                        <td class="px-2 py-1 pb-0">{{ lineitem.product.name }}
-                                                            <a href="{% url 'review_product' lineitem.product.id %}" class="text-small px-2">Review</a>
-                                                        </td>
-                                                        <td class="px-2 py-1 pb-0 text-center">{{ lineitem.quantity }}</td>
-                                                    </tr>
-                                                {% endfor %}
-                                                    <tr>
-                                                        <td class="text-bold px-2 pt-3 pb-0 mb-0">Grand Total: £{{ order.grand_total }}</td>
-                                                        <td></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Order History -->
+                <div class="col-12 col-md-6 px-3 px-md-4">
+                    <!-- Title -->
+                    <h1 class="text-large text-bold">Order History</h1>
+                    <!-- Order History Accordion -->
+                    <div class="accordion accordion-flush pt-2" id="accordionOrders">
+                        {% for order in orders %}
+                            <div class="accordion-item">
+                                <!-- Order Date -->
+                                <h2 class="accordion-header py-2 bg-black-3 fg-white" id="accordionOrderHeading{{ order.id }}">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#accordionOrder{{ order.id }}" aria-expanded="false"
+                                        aria-controls="accordionOrder{{ order.id }}">
+                                        {{ order.date }}
+                                    </button>
+                                </h2>
+                                <div id="accordionOrder{{ order.id }}" class="accordion-collapse collapse p-3"
+                                    aria-labelledby="accordionOrderHeading{{ order.id }}" data-bs-parent="#accordionOrders">
+                                    <div>
+                                        <!-- Order Number -->
+                                        <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}" class="p-2">
+                                            {{ order.order_number|truncatechars:25 }}
+                                        </a>
+                                        <!-- Order Details -->
+                                        <table class="table table-dark table-borderless text-medium">
+                                            <thead>
+                                                <!-- Headings -->
+                                                <tr>
+                                                    <th scope="col" class="text-bold pt-3 pb-1">Product</th>
+                                                    <th scope="col" class="text-bold py-1 text-center">Quantity</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for lineitem in order.lineitems.all %}
+                                                <tr>
+                                                    <!-- Product Name -->
+                                                    <td class="px-2 py-1 pb-0">{{ lineitem.product.name }}
+                                                        <a href="{% url 'review_product' lineitem.product.id %}" class="text-small px-2">Review</a>
+                                                    </td>
+                                                    <!-- Product Quantity -->
+                                                    <td class="px-2 py-1 pb-0 text-center">{{ lineitem.quantity }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                                <!-- Order Grand Total -->
+                                                <tr>
+                                                    <td class="text-bold px-2 pt-3 pb-0 mb-0">Grand Total: £{{ order.grand_total }}</td>
+                                                    <td></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
-                            {% endfor %}
-                        </div>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 {% endblock %}
 {% block extrapostloadjs %}
-    <!-- Link to Profiles JavaScript -->
-    <script src="{% static 'profiles/js/profiles.js' %}"></script>
+<!-- Link to Profiles JavaScript -->
+<script src="{% static 'profiles/js/profiles.js' %}"></script>
 {% endblock %}

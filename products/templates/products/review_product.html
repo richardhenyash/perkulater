@@ -2,31 +2,37 @@
 {% load static %}
 
 {% block extracss %}
-    <!-- Link to Products Custom CSS -->
-    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+<!-- Link to Products Custom CSS -->
+<link rel="stylesheet" href="{% static 'products/css/products.css' %}">
 {% endblock %}
 
 {% block page_header %}
 {% endblock %}
 
 {% block content %}
+<!-- Product Review Section -->
 <section id="product-review" class="container-sm container-custom-sm pt-2">
     <div class="row py-4">
         <div class="col-12 container-dark pt-4 px-3">
+            <!-- Title -->
             <div class="row">
                 <div class="col-12">
                     <h6 class="title-text-large text-center pt-2">Review Product</h6>
                 </div>
+                <!-- Divider -->
                 <div class="divider-opaque">
                     <hr>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 px-3">
+                    <!-- Product Review Form -->
                     <form class="form-user" action="{% url 'review_product' product.id %}" method="POST" id="review-edit-form">
                         {% csrf_token %}
                         <fieldset class="pt-2 px-2" id="review-details">
+                            <!-- Product Name -->
                             <legend class="field-label py-1">{{product.friendly_name}}</legend>
+                            <!-- Product Rating -->
                             <label class="field-label pt-1">Rating*</label>
                             <div id="product-review-edit-stars" class="product-review-edit-stars pb-3"
                                 data-product-rating="{{ product_review.rating }}">
@@ -37,25 +43,29 @@
                                 <i id="star-5" class="fas fa-star"></i>
                             </div>
                             {{ review_form.rating.as_hidden }}
+                            <!-- Product Review -->
                             {{ review_form.review | as_crispy_field }}
                         </fieldset>
+                        <!-- Navigation Buttons -->
                         <div class="row pt-1">
                             <div class="col-6 p-3">
                                 <div class="py-2">
                                     {% if from_profile %}
+                                    <!-- Back To Profile -->
                                     <a href="{% url 'profile' %}"
                                         class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
                                         Back To Profile
                                     </a>
                                     {% else %}
+                                    <!-- Back To Product -->
                                     <a href="{% url 'product_detail' product.id %}"
                                         class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
                                         Back To Product
                                     </a>
                                     {% endif %}
-
                                 </div>
                             </div>
+                            <!-- Submit Review -->
                             <div class="col-6 p-3">
                                 <div class="py-2">
                                     <button id="product-add-submit-button" type="submit"
@@ -73,6 +83,6 @@
 </section>
 {% endblock %}
 {% block extrapostloadjs %}
-    <!-- Link to Products JavaScript -->
-    <script src="{% static 'products/js/products.js' %}"></script>
+<!-- Link to Products JavaScript -->
+<script src="{% static 'products/js/products.js' %}"></script>
 {% endblock %}

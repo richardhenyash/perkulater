@@ -2,21 +2,23 @@
 {% load static %}
 
 {% block extracss %}
-    <!-- Link to Products Custom CSS -->
-    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
-    <!-- Link to Basket Custom CSS -->
-    <link rel="stylesheet" href="{% static 'basket/css/basket.css' %}">
-    <!-- Link to Checkout Custom CSS -->
-    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+<!-- Link to Products Custom CSS -->
+<link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+<!-- Link to Basket Custom CSS -->
+<link rel="stylesheet" href="{% static 'basket/css/basket.css' %}">
+<!-- Link to Checkout Custom CSS -->
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
 {% block page_header %}
 {% endblock %}
 
 {% block content %}
-<section id="checkout" class="container-sm container-custom pt-2">
+<!-- Order Confirmation Section -->
+<section id="order-confirmation" class="container-sm container-custom pt-2">
     <div class="row py-4">
         <div class="col-12 container-dark pt-4 px-3">
+            <!-- Title -->
             <div class="row">
                 <div class="col-12">
                     {% if from_profile %} 
@@ -25,10 +27,12 @@
                         <h6 class="title-text-large text-center pt-2">Thank You For Your Order!</h6> 
                     {% endif %}
                 </div>
+                <!-- Divider -->
                 <div class="divider-opaque">
                     <hr>
                 </div>
             </div>
+            <!-- Order Information -->
             <div class="row">
                 <div class="col-12">
                     {% if from_profile %} 
@@ -61,10 +65,12 @@
                                 <td class="text-medium px-2 py-0">{{ order.date }}</td>
                             </tr>
                         </table>
-                    </div>                   
+                    </div>  
+                    <!-- Divider -->                 
                     <div class="divider-opaque">
                         <hr>
                     </div>
+                    <!-- Your Details -->
                     <div class="col-12 col-md-6 text-left">
                         <div class="col-12">
                             <table class="table table-dark table-borderless">
@@ -87,6 +93,7 @@
                             </table>
                         </div>
                     </div>
+                    <!-- Delivery Details -->
                     <div class="col-12 col-md-6 text-left">
                         <div class="col-12">
                             <table class="table table-dark table-borderless">
@@ -126,6 +133,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Divider -->
                 <div class="row">
                     <div class="divider-opaque">
                         <hr>
@@ -136,8 +144,10 @@
                     <div class="col-12 col-md-6">
                         <div class="card bg-black-3">
                             <div class="card-body">
+                                <!-- Product Name -->
                                 <h5 class="card-title text-center text-large text-bold">{{ lineitem.product.name }}</h5>
                                 <div class="row d-flex align-items-center">
+                                    <!-- Product Image -->
                                     <div class="col-4 p-3">
                                         <div class="product-container image-container">
                                             <a href="{% url 'product_detail' lineitem.product.id %}" aria-label="{{ lineitem.product.name }}">
@@ -155,20 +165,25 @@
                                             </a>                             
                                         </div>
                                     </div>
+                                    <!-- Product Options -->
                                     <div class="col-8 text-medium pt-4">
                                         <table class="table table-dark table-borderless text-medium">
+                                            <!-- Product Size -->
                                             <tr>
                                                 <td class="px-2 pt-3 pb-0 text-bold">{{ lineitem.size.category.size_description }}</td>
                                                 <td class="px-2 pt-3 pb-0">{{ lineitem.size.size }}</td>
                                             </tr>
+                                            <!-- Product Type -->
                                             <tr>
                                                 <td class="px-2 py-0 text-bold">{{ lineitem.type.category.type_description }}</td>
                                                 <td class="px-2 py-0">{{ lineitem.type.type }}</td>
                                             </tr>
+                                            <!-- Product Quantity -->
                                             <tr>
                                                 <td class="px-2 py-0 text-bold">Quantity</td>
                                                 <td class="px-2 py-0">{{ lineitem.quantity }}</td>
                                             </tr>
+                                            <!-- Product Subtotal -->
                                             <tr>
                                                 <td class="px-2 py-3 text-bold">Subtotal</td>
                                                 <td class="px-2 py-3 text-bold">£{{ lineitem.lineitem_total }}</td>
@@ -181,6 +196,7 @@
                     </div>
                 {% endfor %}
                 </div>
+                <!-- Divider -->
                 <div class="row pt-3">
                     <div class="divider-opaque">
                         <hr>
@@ -189,6 +205,7 @@
                 <div class="row">
                     <div class="col-12">
                         <table class="table table-dark table-borderless text-medium">
+                            <!-- Total -->
                             <tr>
                                 <td class="text-medium text-bold total-table-title px-2 pt-3 pb-1">Total</td>
                                 {% if order.discount > 0 %}
@@ -197,12 +214,14 @@
                                     <td class="text-bold pt-3 pb-1">£{{ order.order_total }}</td>
                                 {% endif %}
                             </tr>
+                            <!-- Discount -->
                             {% if order.discount > 0 %}
                                 <tr>
                                     <td class="text-medium text-bold total-table-title px-2 pt-0 pb-1">Discount</td>
                                     <td class="text-medium text-bold px-2 pt-0 pb-1">£{{ order.discount }}</td>
                                 </tr>
                             {% endif %}
+                            <!-- Delivery -->
                             <tr class="">
                                 <td class="text-bold checkout-table-title px-2 pt-0 pb-1">Delivery</td>                                
                                 {% if order.delivery_cost > 0 %}
@@ -211,6 +230,7 @@
                                     <td class="text-bold pt-0 pb-1">Free!</td>
                                 {% endif %}
                             </tr>
+                            <!-- Grand Total -->
                             <tr>
                                 <td class="text-large text-bold checkout-table-title p-2">Grand Total</td>
                                 <td class="text-large text-bold p-2">£{{ order.grand_total }}</td>
@@ -218,18 +238,21 @@
                         </table>
                     </div>
                 </div>
-            {% endif %}       
+            {% endif %}
+            <!-- Navigation Buttons -->
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-12 col-md-8">  
                     {% if from_profile %}  
                         <div class="row">
+                            <!-- Back To Profile -->
                             <div class="col-6 py-4">
                                 <a href="{% url 'profile' %}"
                                     class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
                                     Back To Profile
                                 </a>
                             </div>
+                            <!-- Contact -->
                             <div class="col-6 py-4">
                                 <a href="{% url 'order_contact' order.order_number %}"
                                     class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
@@ -238,6 +261,7 @@
                             </div>
                         </div>   
                     {% else %}
+                        <!-- Keep Shopping -->
                         <div class="text-center py-4">
                             <a href="{% url 'products' %}"
                                 class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-50">

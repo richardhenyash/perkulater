@@ -2,12 +2,12 @@
 {% load static %}
 
 {% block extracss %}
-    <!-- Link to Products Custom CSS -->
-    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
-    <!-- Link to Basket Custom CSS -->
-    <link rel="stylesheet" href="{% static 'basket/css/basket.css' %}">
-    <!-- Link to Checkout Custom CSS -->
-    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+<!-- Link to Products Custom CSS -->
+<link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+<!-- Link to Basket Custom CSS -->
+<link rel="stylesheet" href="{% static 'basket/css/basket.css' %}">
+<!-- Link to Checkout Custom CSS -->
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
 {% block page_header %}
@@ -15,26 +15,32 @@
 
 {% block content %}
 <div class="overlay"></div>
+<!-- Checkout Section -->
 <section id="checkout" class="container-sm container-custom pt-2">
     <div class="row py-4">
         <div class="col-12 container-dark pt-4 px-3">
+            <!-- Title -->
             <div class="row">
                 <div class="col-12">
                     <h6 class="title-text-large text-center pt-2">Checkout</h6>
                 </div>
+                <!-- Divider -->
                 <div class="divider-opaque">
                     <hr>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 col-md-6 px-3 px-md-4">
+                    <!-- Payment Form -->
                     <form class="form-user dark" action="{% url 'checkout' %}" method="POST" id="payment-form">
                         {% csrf_token %}
+                        <!-- Your Details -->
                         <fieldset class="pt-2">
                             <legend class="field-label">Your Details</legend>
                             {{ order_form.full_name | as_crispy_field }}
                             {{ order_form.email | as_crispy_field }}
                         </fieldset>
+                        <!-- Delivery -->
                         <fieldset class="pt-2">
                             <legend class="field-label">Delivery</legend>
                             {{ order_form.phone_number | as_crispy_field }}
@@ -58,6 +64,7 @@
                                 </div>
                              {% endif %}
                         </fieldset>
+                        <!-- Payment -->
                         <fieldset class="pt-3">
                             <legend class="field-label">Payment</legend>
                             <!-- Stripe card element -->
@@ -68,6 +75,7 @@
                             <input type="hidden" value="{{ client_secret}}" name="client_secret">
                         </fieldset>
                         <div class="row">
+                            <!-- Card Charge Information -->
                             <div class="col-12">
                                 <p class="fg-blue px-1">
                                     <span class="icon">
@@ -76,6 +84,7 @@
                                     <span>Your card will be charged <strong>£{{ grand_total|floatformat:2 }}</strong></span>
                                 </p>
                             </div>
+                            <!-- Edit Basket -->
                             <div class="col-6 pb-4">
                                 <div class="text-center py-2">
                                     <a href="{% url 'view_basket' %}"
@@ -85,6 +94,7 @@
                                     </a>
                                 </div>
                             </div>
+                            <!-- Pay -->
                             <div class="col-6 pb-4">
                                 <div class="text-center py-2">
                                     <button id="checkout-submit-button"
@@ -97,6 +107,7 @@
                         </div>
                     </form>                  
                 </div>
+                <!-- Product Summary -->
                 <div class="col-12 col-md-6 px-3 px-md-4 pt-2">
                     <p class="text-large text-bold text-center">Product Summary</p>
                     <div class="divider-opaque">
@@ -106,8 +117,10 @@
                     <div class="col-12">
                         <div class="card bg-black-3">
                             <div class="card-body">
+                                <!-- Product Name -->
                                 <h5 class="card-title text-center text-large text-bold">{{ basket_item.product.name }}</h5>
                                 <div class="row d-flex align-items-center">
+                                    <!-- Product Image -->
                                     <div class="col-4 p-3">
                                         <div class="product-container image-container">
                                             <a href="{% url 'product_detail' basket_item.product_id %}">
@@ -125,24 +138,29 @@
                                             </a>                           
                                         </div>
                                     </div>
+                                    <!-- Product Options -->
                                     <div class="col-8 text-medium pt-2">
                                         <table class="table table-dark table-borderless text-medium">
                                             <tr>
                                                 <th scope="col"></th>
                                                 <th scope="col"></th>
                                             </tr>
+                                            <!-- Product Quantity -->
                                             <tr>
                                                 <td class="text-medium text-bold basket-table-title px-2 py-0">Quantity</td>
                                                 <td class="text-medium py-0 pb-0">{{ basket_item.product_quantity }}</td>
                                             </tr>
+                                            <!-- Product Size -->
                                             <tr>
                                                 <td class="px-2 pt-2 pb-0 text-bold">{{ basket_item.product_category.size_description }}</td>
                                                 <td class="px-2 pt-2 pb-0">{{ basket_item.product_size.size }}</td>
                                             </tr>
+                                            <!-- Product Type -->
                                             <tr>
                                                 <td class="px-2 py-0 text-bold">{{ basket_item.product_category.type_description }}</td>
                                                 <td class="px-2 py-0">{{ basket_item.product_type.type }}</td>
                                             </tr>
+                                            <!-- Subtotal -->
                                             <tr>
                                                 <td class="px-2 py-3 text-bold">Subtotal</td>
                                                 <td class="px-2 py-3 text-bold">£{{ basket_item.line_item_price }}</td>
@@ -155,15 +173,18 @@
                     </div>                   
                     {% endfor %}
                 </div>
-            </div>     
+            </div>
+            <!-- Divider -->   
             <div class="row">
                 <div class="divider-opaque">
                     <hr>
                 </div>
             </div>
+            <!-- Totals -->
             <div class="row">
                 <div class="col-12">
                     <table class="table table-dark table-borderless">
+                        <!-- Total -->
                         <tr>
                             <td class="text-medium text-bold total-table-title px-2 pt-3 pb-1">Total</td>
                             {% if discount %}
@@ -172,6 +193,7 @@
                                 <td class="text-medium text-bold pt-3 pb-1">£{{ total }}</td>
                             {% endif %}
                         </tr>
+                        <!-- Discount -->
                         {% if discount %}
                             <tr>
                                 <td class="text-medium text-bold total-table-title px-2 pt-0 pb-1">Discount</td>
@@ -183,6 +205,7 @@
                                 <td id="discount" class="d-none" data-discount=0.00>0.00</td>
                             </tr>
                         {% endif %}
+                        <!-- Delivery -->
                         <tr>
                             <td class="text-medium text-bold total-table-title px-2 pt-0 pb-1">
                                 Delivery
@@ -201,12 +224,14 @@
                             {% else %}
                                 <td class="text-medium text-bold pt-0 pb-1">Free!</td>
                             {% endif %}
-                        </tr>                                
+                        </tr>  
+                        <!-- Grand Total -->                              
                         <tr>
                             <td class="text-large text-bold total-table-title p-2">Grand Total</td>
                             <td class="text-large text-bold p-2">£{{ grand_total }}</td>
                         </tr>
                     </table>
+                    <!-- Discount Information -->
                     {% if not discount %}
                         {% if user.is_authenticated %}
                             <p class="text-medium fg-blue px-2 py-0">
@@ -224,6 +249,7 @@
                             </p>
                         {% endif %}
                     {% endif %}
+                    <!-- Delivery Information -->
                     {% if delivery > 0 %}
                         <p class="text-medium fg-blue px-2 pt-0 pb-1">
                             <span class="icon">
@@ -238,9 +264,11 @@
             </div>
         </div>
     </div>
+    <!-- Include Information Modal -->
     {% include 'includes/information_modal.html' %}
 </section>
 
+<!-- Loader Overlay -->
 <div id="loader-overlay">
     <div class="row loader-container">
         <div class="col-12 text-center">
@@ -252,10 +280,10 @@
 {% endblock %}
 
 {% block extrapostloadjs %}
-    {{ block.super }}
-    <!-- Stripe JavaScript -->
-    <script src="https://js.stripe.com/v3/"></script>
-    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
-    {{ client_secret|json_script:"id_client_secret" }}
-    <script src="{% static 'checkout/js/checkout.js' %}"></script>
+{{ block.super }}
+<!-- Link to Stripe JavaScript -->
+<script src="https://js.stripe.com/v3/"></script>
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+{{ client_secret|json_script:"id_client_secret" }}
+<script src="{% static 'checkout/js/checkout.js' %}"></script>
 {% endblock %}

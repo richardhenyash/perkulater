@@ -1,30 +1,38 @@
+<!-- Success Toast -->
 <div class="toast-container">
     <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <!-- Toast Header -->
         <div class="toast-header toast-success bg-black-3">
             <i class="fas fa-square fa-xl me-2"></i>
             <h5 class="pt-1 me-auto">Success</h5>
             <button type="button" class="btn-close btn-lg btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
+        <!-- Toast Body -->
         <div class="toast-body bg-black-3 text-medium">
+            <!-- Message -->
             <div class="row">
                 <div class="col">                    
                     <p class="text-medium mb-0">{{ message }}</p>
                 </div>
             </div>
             {% if message.extra_tags != 'admin' and basket_items  %}
+                <!-- Divider -->
                 <div class="row">
                     <div class="divider-opaque">
                         <hr>
                     </div>
                 </div>
+                <!-- Basket Items -->
                 <div class="max-vh-50 basket-notification-container">
                     {% for basket_item in basket_items %}
                         <div class="row">
                             <div class="col-12">
                                 <div class="card bg-black-3">
                                     <div class="card-body">
+                                        <!-- Product Name -->
                                         <h6 class="card-title text-center text-medium text-bold">{{ basket_item.product.name }}</h6>
                                         <div class="row d-flex align-items-center">
+                                            <!-- Product Image -->
                                             <div class="col-4 p-3">
                                                 <div class="product-detail-container">
                                                     {% if  basket_item.product.image and basket_item.product.image_alt %}
@@ -38,24 +46,29 @@
                                                     {% endif %}                           
                                                 </div>
                                             </div>
+                                            <!-- Product Details -->
                                             <div class="col-8">
                                                 <table class="table table-dark table-borderless text-medium">
                                                     <tr>
                                                         <th scope="col"></th>
                                                         <th scope="col"></th>
                                                     </tr>
+                                                    <!-- Product Quantity -->
                                                     <tr>
                                                         <td class="text-bold basket-table-title px-2 py-0">Quantity</td>
                                                         <td class="py-0 pb-0">{{ basket_item.product_quantity }}</td>
                                                     </tr>
+                                                    <!-- Product Size -->
                                                     <tr>
                                                         <td class="px-2 py-0 text-bold">{{ basket_item.product_category.size_description }}</td>
                                                         <td class="px-2 py-0">{{ basket_item.product_size.size }}</td>
                                                     </tr>
+                                                    <!-- Product Type -->
                                                     <tr>
                                                         <td class="px-2 py-0 text-bold">{{ basket_item.product_category.type_description }}</td>
                                                         <td class="px-2 py-0">{{ basket_item.product_type.type }}</td>
                                                     </tr>
+                                                    <!-- Product Subtotal -->
                                                     <tr>
                                                         <td class="px-2 py-3 text-bold">Subtotal</td>
                                                         <td class="px-2 py-3 text-bold">£{{ basket_item.line_item_price }}</td>
@@ -68,15 +81,18 @@
                             </div>
                         </div>
                     {% endfor %}
-                </div>            
+                </div>
+                <!-- Divider -->
                 <div class="row">
                     <div class="divider-opaque">
                         <hr>
                     </div>
                 </div>
+                <!-- Totals -->
                 <div class="row">
                     <div class="col-12">
                         <table class="table table-dark table-borderless text-medium">
+                            <!-- Total -->
                             <tr>
                                 <td class="text-bold total-table-title px-2 py-0">Total</td>
                                 {% if discount %}
@@ -86,11 +102,13 @@
                                 {% endif %}
                             </tr>
                             {% if discount %}
+                                <!-- Discount -->
                                 <tr>
                                     <td class="text-bold total-table-title px-2 py-0">Discount</td>
                                     <td class="text-medium text-bold py-0">£{{ discount }}</td>
                                 </tr>
                             {% endif %}
+                            <!-- Delivery -->
                             <tr>
                                 <td class="text-bold total-table-title px-2 py-0">Delivery</td>
                                 {% if delivery > 0 %}
@@ -98,7 +116,8 @@
                                 {% else %}
                                     <td class="text-medium text-bold py-0">Free!</td>
                                 {% endif %}
-                            </tr>                                
+                            </tr>
+                            <!-- Grand Total -->                              
                             <tr>
                                 <td class="text-bold total-table-title p-2">Grand Total</td>
                                 <td class="text-bold p-2">£{{ grand_total }}</td>
@@ -106,6 +125,7 @@
                         </table>    
                         {% if not discount %}
                             {% if user.is_authenticated %}
+                                <!-- Discount Information -->
                                 <p class="text-medium fg-blue px-2 py-0">
                                     <span class="icon">
                                         <i class="fas fa-exclamation-circle"></i>
@@ -113,6 +133,7 @@
                                     Add a new review to qualify for a discount!
                                 </p>
                             {% else %}
+                                <!-- Discount Information -->
                                 <p class="text-medium fg-blue px-2 py-0">
                                     <span class="icon">
                                         <i class="fas fa-exclamation-circle"></i>
@@ -122,6 +143,7 @@
                             {% endif %}
                         {% endif %}                    
                         {% if delivery > 0 %}
+                            <!-- Delivery Information -->
                             <p class="text-medium fg-blue px-2 pt-0 pb-1">
                                 <span class="icon">
                                     <i class="fas fa-exclamation-circle"></i>
@@ -132,6 +154,7 @@
                             </p>
                         {% endif %}
                     </div>
+                    <!-- View Basket -->
                     <div class="col-12 pb-2">
                         <div class="text-center">
                             <a href="{% url 'view_basket' %}"

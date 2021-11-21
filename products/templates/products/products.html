@@ -2,19 +2,21 @@
 {% load static %}
 
 {% block extracss %}
-    <!-- Link to Products Custom CSS -->
-    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+<!-- Link to Products Custom CSS -->
+<link rel="stylesheet" href="{% static 'products/css/products.css' %}">
 {% endblock %}
 
 {% block page_header %}
 {% endblock %}
 
 {% block content %}
+<!-- Include Product Offers -->
 {% include 'products/includes/product_offers.html' %}
+<!-- Include Product Summary -->
 {% include 'products/includes/product_summary.html' %}
 {% endblock %}
 
 {% block extrapostloadjs %}
-    <!-- Link to Products JavaScript -->
-    <script src="{% static 'products/js/products.js' %}"></script>
+<!-- Link to Products JavaScript -->
+<script src="{% static 'products/js/products.js' %}"></script>
 {% endblock %}

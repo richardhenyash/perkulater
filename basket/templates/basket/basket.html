@@ -2,28 +2,32 @@
 {% load static %}
 
 {% block extracss %}
-    <!-- Link to Products Custom CSS -->
-    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
-    <!-- Link to Basket Custom CSS -->
-    <link rel="stylesheet" href="{% static 'basket/css/basket.css' %}">
+<!-- Link to Products Custom CSS -->
+<link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+<!-- Link to Basket Custom CSS -->
+<link rel="stylesheet" href="{% static 'basket/css/basket.css' %}">
 {% endblock %}
 
 {% block page_header %}
 {% endblock %}
 
 {% block content %}
+<!-- Basket Contents Section -->
 <section id="basket-contents" class="container-sm container-custom pt-2">
     <div class="row py-4">
         <div class="col-12 container-dark pt-4">
+            <!-- Title -->
             <div class="row">
                 <div class="col-12">
                     <h6 class="title-text-large text-center pt-2">Basket</h6>
                 </div>
+                <!-- Divider -->
                 <div class="divider-opaque">
                     <hr>
                 </div>
             </div>
             {% if basket_items %}
+                <!-- Basket Items -->
                 <div class="row">
                     {% for basket_item in basket_items %}
                         <div class="col-12 col-md-6">
@@ -31,6 +35,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title text-center text-large text-bold">{{ basket_item.product.name }}</h5>
                                     <div class="row d-flex align-items-center">
+                                        <!-- Product Image -->
                                         <div class="col-4 p-3">
                                             <div class="product-container image-container">
                                                 <a href="{% url 'product_detail' basket_item.product_id %}">
@@ -48,12 +53,14 @@
                                                 </a>
                                             </div>
                                         </div>
+                                        <!-- Product Options -->
                                         <div class="col-8 text-medium pt-2">
                                             <table class="table table-dark table-borderless text-medium">
                                                 <tr>
                                                     <th scope="col"></th>
                                                     <th scope="col"></th>
                                                 </tr>
+                                                <!-- Product Quantity -->
                                                 <tr>
                                                     <td class="text-medium text-bold basket-table-title pt-3 px-2 pb-1">Quantity</td>
                                                     <td class="text-medium">
@@ -70,14 +77,17 @@
                                                         <a id="{{ basket_item.product_key }}-remove" class="basket-link basket-remove px-1" data-product-key="{{ basket_item.product_key }}">Remove</a>
                                                     </td>
                                                 </tr>
+                                                <!-- Product Size -->
                                                 <tr>
                                                     <td class="px-2 pt-2 pb-0 text-bold">{{ basket_item.product_category.size_description }}</td>
                                                     <td class="px-2 pt-2 pb-0">{{ basket_item.product_size.size }}</td>
                                                 </tr>
+                                                <!-- Product Type -->
                                                 <tr>
                                                     <td class="px-2 py-0 text-bold">{{ basket_item.product_category.type_description }}</td>
                                                     <td class="px-2 py-0">{{ basket_item.product_type.type }}</td>
                                                 </tr>
+                                                <!-- Product Subtotal -->
                                                 <tr>
                                                     <td class="px-2 py-3 text-bold">Subtotal</td>
                                                     <td class="px-2 py-3 text-bold">£{{ basket_item.line_item_price }}</td>
@@ -90,6 +100,7 @@
                         </div>
                     {% endfor %}
                 </div>
+                <!-- Divider -->
                 <div class="row">
                     <div class="divider-opaque">
                         <hr>
@@ -97,7 +108,8 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <table class="table table-dark table-borderless">                                
+                        <table class="table table-dark table-borderless">
+                            <!-- Total -->
                             <tr>
                                 <td class="text-medium text-bold total-table-title px-2 pt-3 pb-1">Total</td>
                                 {% if discount %}
@@ -106,12 +118,14 @@
                                     <td class="text-medium text-bold pt-3 pb-1">£{{ total }}</td>
                                 {% endif %}
                             </tr>
+                            <!-- Discount -->
                             {% if discount %}
                                 <tr>
                                     <td class="text-medium text-bold total-table-title px-2 pt-0 pb-1">Discount</td>
                                     <td class="text-medium text-bold pt-0 pb-1">£{{ discount }}</td>
                                 </tr>
                             {% endif %}
+                            <!-- Delivery -->
                             <tr>
                                 <td class="text-medium text-bold total-table-title px-2 pt-0 pb-1">
                                     Delivery
@@ -132,12 +146,14 @@
                                 {% else %}
                                     <td class="text-medium text-bold pt-0 pb-1">Free!</td>
                                 {% endif %}
-                            </tr>                                
+                            </tr>
+                            <!-- Grand Total -->                              
                             <tr>
                                 <td class="text-large text-bold total-table-title px-2 py-2">Grand Total</td>
                                 <td class="text-large text-bold py-2">£{{ grand_total }}</td>
                             </tr>
                         </table>
+                        <!-- Discount --> 
                         {% if not discount %}
                             {% if user.is_authenticated %}
                                 <p class="text-medium fg-blue px-2 py-0">
@@ -155,6 +171,7 @@
                                 </p>
                             {% endif %}
                         {% endif %}
+                        <!-- Delivery --> 
                         {% if delivery > 0 %}
                             <p class="text-medium fg-blue px-2 py-0">
                                 <span class="icon">
@@ -168,15 +185,18 @@
                     </div>
                 </div>
             {% else %}
+                <!-- Basket Empty --> 
                 <div class="row">
                     <div class="col-12">
                         <p class="title-text-large text-center pt-2">Your basket is currrently empty</p>
                     </div>
                 </div>
             {% endif %}
+            <!-- Navigation Buttons -->
             <div class="row">
                 {% if basket_items %}
                     <div class="col-md-2"></div>
+                    <!-- Keep Shopping -->
                     <div class="col-6 col-md-4 pb-4">           
                         <div class="text-center py-2">
                             <a href="{% url 'products' %}"
@@ -185,6 +205,7 @@
                             </a>
                         </div>
                     </div>
+                    <!-- Checkout -->
                     <div class="col-6 col-md-4 pb-4">
                         <div class="text-center py-2">
                             <a href="{% url 'checkout' %}"
@@ -196,6 +217,7 @@
                     </div>
                     <div class="col-md-2"></div>
                 {% else %}
+                    <!-- Keep Shopping -->
                     <div class="col-12 pb-4">                        
                         <div class="text-center py-2">
                             <a href="{% url 'products' %}"
@@ -208,30 +230,31 @@
             </div>
         </div>
     </div>
+    <!-- Include Information Modal -->
     {% include 'includes/information_modal.html' %}
 </section>
 {% endblock %}
 
 {% block extrapostloadjs %}
-    <!-- Link to Basket JavaScript -->
-    <script src="{% static 'basket/js/basket.js' %}"></script>
-    <!-- Link to Products JavaScript -->
-    <script src="{% static 'products/js/products.js' %}"></script>
-    <!-- JavaScript function added to basket remove links -->
-    <!-- Added in basket.html due to csrf token -->
-    <script>
-        // Remove product and reload on click
-        $('.basket-remove').each(function (e) {
-            $(this).click(function() {
-                let csrfToken = "{{ csrf_token }}";
-                let productKey = $(this).data('product-key');
-                let url = `/basket/remove/${productKey}/`;
-                let data = {'csrfmiddlewaretoken': csrfToken};
-                $.post(url, data)
-                    .done(function() {
-                        location.reload();
-                    });
-            });
-        })
-    </script>
+<!-- Link to Basket JavaScript -->
+<script src="{% static 'basket/js/basket.js' %}"></script>
+<!-- Link to Products JavaScript -->
+<script src="{% static 'products/js/products.js' %}"></script>
+<!-- JavaScript function added to basket remove links -->
+<!-- Added in basket.html due to csrf token -->
+<script>
+    // Remove product and reload on click
+    $('.basket-remove').each(function (e) {
+        $(this).click(function() {
+            let csrfToken = "{{ csrf_token }}";
+            let productKey = $(this).data('product-key');
+            let url = `/basket/remove/${productKey}/`;
+            let data = {'csrfmiddlewaretoken': csrfToken};
+            $.post(url, data)
+                .done(function() {
+                    location.reload();
+                });
+        });
+    })
+</script>
 {% endblock %}

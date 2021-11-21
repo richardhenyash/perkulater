@@ -1,9 +1,13 @@
+<!-- Custom Clearable File Input -->
 {% if widget.is_initial %}
+    <!-- Title -->
     <h2 class="py-2">{{ widget.initial_text }}:</h2>
+    <!-- Image Preview -->
     <a href="{{ widget.value.url }}">
         <img class="product-detail-container" width="87" height="115" src="{{ widget.value.url }}" alt="{{ widget.value.name }}">
     </a>
     {% if not widget.required %}
+        <!-- Remove checkbox -->
         <div class="pt-3 px-2">
             <input class="form-check-input mt-2" type="checkbox" name="{{ widget.checkbox_name }}" id="{{ widget.checkbox_id }}">
             <label class="form-check-label" for="{{ widget.checkbox_id }}">{{ widget.clear_checkbox_label }}</label>
@@ -11,11 +15,13 @@
     {% endif %}
     {{ widget.input_text }}    
 {% endif %}
+<!-- Select Image Button -->
 <div class="py-2 mt-2">
     <span class="btn btn-outline-light btn-lg btn-outline-green btn-file px-4">
         Select Image <input id="new_{{ widget.name }}" type="{{ widget.type }}" name="{{ widget.name }}" accept="image/*">
     </span>
 </div>
+<!-- Filename -->
 <div class="py-1">
     <strong><span class="text-small text-bold fg-blue" id="filename_{{ widget.name }}"></span></strong>
 </div>

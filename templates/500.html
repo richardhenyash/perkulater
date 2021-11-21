@@ -8,9 +8,11 @@
 {% endblock %}
 
 {% block content %}
+<!-- 500 Error Section -->
 <section id="500-error" class="container-sm container-custom pt-2">
     <div class="row py-4">
         <div class="col-12 container-dark pt-4">
+            <!-- Title -->
             <div class="row">
                 <div class="col-12">
                     <h6 class="title-text-large text-center pt-2">Error</h6>
@@ -19,6 +21,7 @@
                     <hr>
                 </div>
             </div>
+            <!-- Content -->
             <div class="row pt-3">
                 <div class="col-12">
                     <p class="text-medium text-center">
@@ -34,6 +37,7 @@
                     </p>
                 </div>
             </div>
+            <!-- Keep Shopping -->
             <div class="row">
                 <div class="col-12 pb-4">                        
                     <div class="text-center py-2">
@@ -42,10 +46,12 @@
                             Keep Shopping
                         </a>
                     </div>
+                </div>
             </div>               
         </div>
     </div>
 </section>
+<!-- Include Information Modal -->
 {% include 'includes/information_modal.html' %}
 </section>
 {% endblock %}

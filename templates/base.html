@@ -8,14 +8,16 @@
     {% endblock %}
 
     {% block corecss %}
-        {% include 'includes/externalcss.html' %}
-        <!-- Link to Custom CSS -->
-        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <!-- Include External CSSl -->
+    {% include 'includes/externalcss.html' %}
+    <!-- Link to Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
     {% block extracss %}
     {% endblock %}
 
+    <!-- Include Core JavaScript -->
     {% include 'includes/corejs.html' %}
 
     {% block extra_js %}
@@ -26,9 +28,9 @@
     <body>
         <header>
             <!-- Bootstrap Collapsing Navbar -->
-            <!-- Note - change class navbar-expand to navbar-expand-sm to collapse menu on small devices if required -->
             <nav class="navbar navbar-expand-sm navbar-dark bg-black-1 pb-0">
                 <div class="container-fluid">
+                    <!-- perkulater Logo -->
                     <a class="navbar-brand logo-text px-3 pb-0" href="{% url 'products' %}">perkulater<img src="{{ MEDIA_URL }}coffee-cup-icon-white.png" alt="Coffee Cup Icon" class="logo-image pl-1 pb-1"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown"
@@ -46,17 +48,20 @@
                                 </li>
                                 {% endfor %}
                             {% endif %}
+                            <!-- Search Products -->
                             <li>
                                 <form method="GET" action="{% url 'products' %}"  class="d-flex p-1">
                                     <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search Products">
                                     <button class="btn btn-outline-light btn-outline-green" type="submit" aria-label="Search Products"><i class="fas fa-search"></i></button>
                                 </form>
                             </li>
+                            <!-- Basket -->
                             <li class="nav-item dropdown">
                                 <a href="{% url 'view_basket' %}" class="nav-link" aria-label="View Basket">
                                     <i class="fas fa-lg fa-shopping-basket"></i>
                                 </a>
                             </li>
+                            <!-- User Menu -->
                             <li class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" id="navbarUserMenu"
                                     data-bs-toggle="dropdown" aria-expanded="false" aria-label="User dropdown menu">
@@ -82,9 +87,11 @@
                     </div>                
                 </div>
             </nav>
+            <!-- Tagline -->
             <div class="col-12">
                 <div class="tagline-text text-center bg-black-1 px-3 pb-1">
                     <p>Ethically sourced and expertly roasted coffee beans and ground coffee, delivered to your home</p>
+                    <!-- Divider -->
                     <div class="divider-solid">
                         <hr>
                     </div>
@@ -92,17 +99,22 @@
             </div>
         </header>
 
+        <!-- Toast Messages -->
         {% if messages %}
             <aside class="message-container">
                 {% for message in messages %}
                     {% with message.level as level %}
                         {% if level == 40 %}
+                            <!-- Include Error Toast -->
                             {% include 'includes/toasts/toast_error.html' %}
                         {% elif level == 30 %}
+                            <!-- Include Warning Toast -->
                             {% include 'includes/toasts/toast_warning.html' %}
                         {% elif level == 25 %}
+                            <!-- Include Success Toast -->
                             {% include 'includes/toasts/toast_success.html' %}
                         {% else %}
+                            <!-- Include Information Toast -->
                             {% include 'includes/toasts/toast_info.html' %}
                         {% endif %}
                     {% endwith %}
@@ -118,9 +130,11 @@
 
         <!-- Footer -->
         <footer class="container-sm">
+            <!-- Divider -->
             <div class="divider-opaque">
                 <hr>
             </div>
+            <!-- Tagline -->
             <div class="row py-3">
                 <p class="tagline-text footer-text text-center">
                     perkulater is a small batch, artisan coffee roaster based in South London. 
@@ -128,9 +142,11 @@
                     All of our beans are ethically sourced direct from the growers.
                 </p>
             </div>
+            <!-- Divider -->
             <div class="divider-opaque">
                 <hr>
             </div>
+            <!-- Social Media Links -->
             <div class="pt-3 pb-4 text-center footer-links">
                 <a href="https://en-gb.facebook.com/" aria-label="Link to perkulater facebook page" 
                     rel="noreferrer noopener" target="_blank"><i class="fab fa-facebook-square fa-2x px-2"></i></a>
@@ -144,11 +160,12 @@
         </footer>
 
         {% block postloadjs %}
-            {% include 'includes/externaljs.html' %}            
-            <!-- Link to Base JavaScript -->
-            <script src="{% static 'js/base.js' %}"></script>
-            <!-- Link to Custom Modernizr JavaScript -->
-            <script src="{% static 'js/libraries/modernizr-custom.js' %}"></script>
+        <!-- Include External JavaScript -->
+        {% include 'includes/externaljs.html' %}            
+        <!-- Link to Base JavaScript -->
+        <script src="{% static 'js/base.js' %}"></script>
+        <!-- Link to Custom Modernizr JavaScript -->
+        <script src="{% static 'js/libraries/modernizr-custom.js' %}"></script>
         {% endblock %}
         {% block extrapostloadjs %}
         {% endblock %}

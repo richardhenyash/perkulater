@@ -2,21 +2,24 @@
 {% load static %}
 
 {% block extracss %}
-    <!-- Link to Products Custom CSS -->
-    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
-    <!-- Link to Basket Custom CSS -->
-    <link rel="stylesheet" href="{% static 'basket/css/basket.css' %}">
+<!-- Link to Products Custom CSS -->
+<link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+<!-- Link to Basket Custom CSS -->
+<link rel="stylesheet" href="{% static 'basket/css/basket.css' %}">
 {% endblock %}
 
 {% block page_header %}
 {% endblock %}
 
 {% block content %}
+<!-- Include Product Offers -->
 {% include 'products/includes/product_offers.html' %}
 
+<!-- Product Detail Section -->
 <section id="product-detail" class="container-sm container-custom">
     <div class="row py-4">
         <div class="col-sm-12 col-md-6 p-3">
+            <!-- Product Image -->
             <div class="div p-5 p-md-0">
                 <div class="product-container px-3">
                     <a id="productInformationImgLink" href="#" role="button"
@@ -36,12 +39,16 @@
                     </a>
                 </div>
             </div>
+            <!-- Product Title -->
             <h6 class="title-text-large text-center pt-2">{{ product.friendly_name }}</h6>
             {% if coffee_detail %}
+                <!-- Coffee Flavour Profile -->
                 <h6 class="title-text-medium text-center pt-2">{{ coffee_detail.flavour_profile }}</h6>
             {% else %}
+                <!-- Product Short Description -->
                 <h6 class="title-text-medium text-center pt-2">{{ product.get_short_description }}</h6>
             {% endif %}
+            <!-- Product Rating -->
             <div id="product-rating-stars" class="product-rating-stars text-center" data-product-rating="{{ product.rating }}">
                 <i id="star-1" class="fas fa-star"></i>
                 <i id="star-2" class="fas fa-star"></i>
@@ -49,6 +56,7 @@
                 <i id="star-4" class="fas fa-star"></i>
                 <i id="star-5" class="fas fa-star"></i>
             </div>
+            <!-- Product Price -->
             <h6 class="text-medium text-bold text-center pt-2">{{ product.friendly_price }}</h6>
             <div class="text-center pt-3">
                 <a href="{% url 'products' %}"
@@ -58,6 +66,7 @@
             </div>
         </div>
         <div class="col-sm-12 col-md-6 p-3">
+            <!-- Product Details -->
             <div class="product-detail-container px-3">
                 <table class="table table-dark table-borderless text-medium">
                     <thead>
@@ -65,10 +74,12 @@
                           <th scope="col"></th>
                           <th scope="col"></th>
                         </tr>
-                      </thead>
+                    </thead>
                     <tr>
                         {{ product.get_description_array|json_script:"product-description-array" }}
+                        <!-- Product Category -->
                         <td class="text-bold px-3 text-nowrap pt-1 pb-0">{{ product_category.friendly_name }}
+                            <!-- Product Information Button -->
                             <a class="button-info" id="productInformationBtn" href="#" role="button"
                                 aria-label="Product Informaton Button"
                                 data-information-modal-size="modal-xl"
@@ -76,21 +87,27 @@
                                 <i class="fas fa-lg fa-info-circle px-1"></i>
                             </a>
                         </td>
+                        <!-- Product Name -->
                         <td class="text-bold pt-1 pb-0">{{ product.friendly_name }}</td>
                     </tr>
+                    <!-- Product Short Description -->
                     <tr>
                         <td class="px-3 pt-0 pb-1"></td>
                         <td class="pt-0 pb-1">{{ product.get_short_description }}</td>
                     </tr>
                     {% if coffee_detail %}
+                        <!-- Include Coffee Details -->
                         {% include 'products/includes/coffee_detail.html' %}
                     {% endif %}
                 </table>
             </div>
             <div class="p-3"></div>
+            <!-- Product Options -->
             <div class="product-detail-container">
+                <!-- Product OPtions Form -->
                 <form action="{% url 'add_to_basket' product.id %}" method="POST">
                     {% csrf_token %}
+                    <!-- Product Size -->
                     <div class="form-row">
                         <div id="product-size-selector" class="input-group col-12 p-3">
                             <div class="col-4">
@@ -104,6 +121,7 @@
                                     </a>
                                 </p>
                             </div>
+                            <!-- Product Size Select -->
                             <div class="col-8 px-2">
                                 <select id="product-size" name="product-size" class="custom-select btn btn-lg btn-outline-light btn-outline-green">
                                     {% for product_size in product_sizes %}
@@ -113,6 +131,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Product Type -->
                     <div class="form-row">
                         <div id="product-type-selector" class="input-group col-12 px-3">
                             <div class="col-4">
@@ -126,6 +145,7 @@
                                     </a>
                                 </p>
                             </div>
+                            <!-- Product Type Select -->
                             <div class="col-8 px-2">
                                 <select id="product-type" name="product-type" class="custom-select btn btn-lg btn-outline-light btn-outline-green">
                                     {% for product_type in product_types %}
@@ -135,6 +155,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Product Quantity -->
                     <div class="form-row">
                         <div id="product-quantity-selector" class="input-group col-12 p-3">
                             <div class="col-4">
@@ -154,6 +175,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Product Price -->
                     <div class="form-row">
                         <div class="col-12 px-3">
                             <div class="row d-flex align-items-center">
@@ -165,6 +187,7 @@
                                     <span id="product-price" class="text-medium text-bold">
                                         £{{ product_prices.0.get_price }}   
                                     </span>
+                                    <!-- Edit Price -->
                                     <span>
                                         {% if request.user.is_superuser %}
                                         <a href="{% url 'edit_prices' product.id %}"
@@ -176,10 +199,12 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Divider -->
                     <div class="divider-opaque px-3">
                         <hr>
                     </div>
                     {% if product.discontinued %}
+                        <!-- Product Discontinued Information -->
                         <div class="form-row p-3 pb-4">
                             <div class="row px-3">
                                 <div class="col-12">
@@ -195,11 +220,13 @@
                     {% else %}
                         <div class="form-row p-3 pb-4">
                             <div class="row px-3">
+                                <!-- Add To Basket -->
                                 <div class="col-6">
                                     <button type="submit" class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100">
                                         Add To Basket
                                     </button>
                                 </div>
+                                <!-- Create Plan -->
                                 <div class="col-6">
                                     <a class="btn btn-outline-light btn-lg btn-outline-green rounded-pill px-2 w-100" 
                                         id="createPlanBtn" href="#" role="button"
@@ -214,11 +241,13 @@
                     {% if request.user.is_superuser %}
                         <div class="form-row px-3 pb-4">
                             <div class="row px-3">
+                                <!-- Product Edit -->
                                 <div class="col-6">
                                     <a href="{% url 'edit_product' product.id %}"
                                         class="btn btn-lg btn-outline-light rounded-pill btn-lg btn-outline-green w-100">Edit
                                     </a>
                                 </div>
+                                <!-- Product Delete -->
                                 <div class="col-6">
                                     <a id="productDeleteBtn" href="#" role="button"
                                         class="btn btn-lg btn-outline-light rounded-pill btn-lg btn-outline-green w-100"
@@ -231,14 +260,17 @@
                             </div>
                         </div>
                     {% endif %}
+                    <!-- Redirect URL -->
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </form>
             </div>
         </div>
+        <!-- Customer Reviews -->
         <div class="col-12 p-3">
             <div class="product-detail-container p-3">
                 <h1 class="title-text-large text-bold">Customer Reviews
                     {% if not user_review %}
+                    <!-- Add Review -->
                     <span class="mb-2 pb-2">
                         <a href="{% url 'review_product' product.id %}"
                             class="link-small px-1">Add Review
@@ -250,7 +282,9 @@
                     {% if product_reviews %}
                         {% for product_review in product_reviews %}
                             <div class="col-12 col-md-6 py-1">
+                                <!-- Username -->
                                 <span class="text-small text-bold px-1">{{ product_review.user.username }}</span>
+                                <!-- Rating -->
                                 <span id="product-rating-stars_{{ product_review.id }}" class="product-rating-stars text-center px-1" data-product-rating="{{ product_review.rating}}">
                                     <i id="{{ product_review.id }}_star-1" class="fas fa-star fa-sm"></i>
                                     <i id="{{ product_review.id }}_star-2" class="fas fa-star fa-sm"></i>
@@ -258,8 +292,10 @@
                                     <i id="{{ product_review.id }}_star-4" class="fas fa-star fa-sm"></i>
                                     <i id="{{ product_review.id }}_star-5" class="fas fa-star fa-sm"></i>
                                 </span>
+                                <!-- Review -->
                                 <div class="text-medium px-1">{{ product_review.review }}
                                 {% if request.user.username == product_review.user.username %}
+                                    <!-- Review Link -->
                                     <span>
                                         <a href="{% url 'review_product' product.id %}"
                                             class="link-small px-1">Edit
@@ -267,6 +303,7 @@
                                     </span>
                                 {% endif %}
                                 {% if request.user.is_superuser %}
+                                    <!-- Delete Review -->
                                     <span>
                                         <a id="reviewDeleteBtn{{product_review.user.id}}" href="#" role="button"
                                             class="reviewDeleteBtn link-small px-1"
@@ -281,6 +318,7 @@
                             </div>
                         {% endfor %}
                     {% else %}
+                        <!-- Product Not Yet Reviewed -->
                         <div class="col-12">
                             <span class="text-small px-1"><i>Product not yet reviewed</i></span>
                         </div>  
@@ -288,13 +326,16 @@
                 </div>
             </div>
         </div>
+        <!-- Product Price Dictionary -->
         {{ product_price_dict|json_script:"product-price-dict" }}
     </div>
+    <!-- Include Information Modal -->
     {% include 'includes/information_modal.html' %}
+    <!-- Include Confirm Modal -->
     {% include 'includes/confirm_modal.html' %}
 </section>
 {% endblock %}
 {% block extrapostloadjs %}
-    <!-- Link to Products JavaScript -->
-    <script src="{% static 'products/js/products.js' %}"></script>
+<!-- Link to Products JavaScript -->
+<script src="{% static 'products/js/products.js' %}"></script>
 {% endblock %}

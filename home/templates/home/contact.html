@@ -9,25 +9,31 @@
 {% endblock %}
 
 {% block content %}
+    <!-- Contact Section -->
     <section id="contact" class="container-sm container-custom-sm pt-2">
         <div class="row py-4">
             <div class="col-12 container-dark pt-4 px-3">
+                <!-- Title -->
                 <div class="row">
                     <div class="col-12">
                         <h6 class="title-text-large text-center pt-2">Contact Us</h6>
                     </div>
+                    <!-- Divider -->
                     <div class="divider-opaque">
                         <hr>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12 px-3">
+                        <!-- Contact Form -->
                         <form class="form-user dark" action="{% url 'contact' %}" method="POST" id="contact-form">
                             {% csrf_token %}
                             <fieldset class="pt-2 px-2">
                                 {{ contact_form | crispy }}
-                             </fieldset>    
+                             </fieldset>  
+                             <!-- Navigation Buttons -->  
                              <div class="row">
+                                <!-- Keep Shopping -->
                                 <div class="col-6 p-3">
                                     <div class="py-2">
                                         <a href="{% url 'products' %}"
@@ -36,6 +42,7 @@
                                         </a>
                                     </div>
                                 </div>
+                                <!-- Send Message -->
                                 <div class="col-6 p-3">
                                     <div class="py-2">
                                         <button type="submit" id="contact-form-submit-button"
@@ -53,6 +60,6 @@
     </section>
 {% endblock %}
 {% block extrapostloadjs %}
-    <!-- Link to Home JavaScript -->
-    <script src="{% static 'home/js/home.js' %}"></script>
+<!-- Link to Home JavaScript -->
+<script src="{% static 'home/js/home.js' %}"></script>
 {% endblock %}

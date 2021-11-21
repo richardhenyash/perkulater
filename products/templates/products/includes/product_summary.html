@@ -1,14 +1,18 @@
+<!-- Product Summary Section -->
 <section id="product-summary" class="container-sm container-custom pt-2">
     {% if category %}
+    <!-- Product Category -->
     <div class="row pt-3">
         <div class="col-12">
             <h6 class="title-text-medium text-center pt-2">{{ category.get_description }}</h6>
         </div>
     </div>
     {% endif %}
+    <!-- Products -->
     <div class="row py-4">
         {% for product in products %}
         <div class="col-sm-12 col-md-6 text-center pt-4 px-5">
+            <!-- Product Image -->
             <div class="px-4">
                 <div class="product-container">
                     <div class="image-container px-5">
@@ -28,7 +32,9 @@
                     </div>
                 </div>
             </div>
+            <!-- Product Name -->
             <h6 class="title-text-medium pt-2">{{ product.friendly_name }}</h6>
+            <!-- Product Rating -->
             <div id="product-rating-stars-{{ product.id }}" class="product-rating-stars"
                 data-product-rating="{{ product.rating }}">
                 <i id="{{ product.id }}_star-1" class="fas fa-star"></i>
@@ -36,8 +42,10 @@
                 <i id="{{ product.id }}_star-3" class="fas fa-star"></i>
                 <i id="{{ product.id }}_star-4" class="fas fa-star"></i>
                 <i id="{{ product.id }}_star-5" class="fas fa-star"></i>
-            </div>           
+            </div>
+            <!-- Product Price -->        
             <p class="my-0 pb-1 text-medium text-bold">{{ product.friendly_price }}</p>
+            <!-- Buy Button -->
             <div class="row pb-4 px-3 py-1">
                 <div class="col-3"></div>
                 <div class="col-6 text-center">

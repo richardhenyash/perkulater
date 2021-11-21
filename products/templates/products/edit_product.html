@@ -2,29 +2,34 @@
 {% load static %}
 
 {% block extracss %}
-    <!-- Link to Products Custom CSS -->
-    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+<!-- Link to Products Custom CSS -->
+<link rel="stylesheet" href="{% static 'products/css/products.css' %}">
 {% endblock %}
 
 {% block page_header %}
 {% endblock %}
 
 {% block content %}
+<!-- Edit Product Section -->
 <section id="product-edit" class="container-sm container-custom pt-2">
     <div class="row py-4">
         <div class="col-12 container-dark pt-4 px-3">
+            <!-- Title -->
             <div class="row">
                 <div class="col-12">
                     <h6 class="title-text-large text-center pt-2">Edit Product</h6>
                 </div>
+                <!-- Divider -->
                 <div class="divider-opaque">
                     <hr>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 px-3 px-md-4">
+                    <!-- Product Edit Form -->
                     <form class="form-user dark" action="{% url 'edit_product' product.id %}" method="POST" enctype="multipart/form-data" id="product-edit-form">
                         {% csrf_token %}
+                        <!-- Product Details -->
                         <fieldset class="pt-2">
                             <legend class="field-label">Product Details</legend>
                             {% for field in product_form %}
@@ -36,11 +41,14 @@
                                 {% endif %}
                             {% endfor %}
                         </fieldset>
+                        <!-- Coffee Details -->
                         <fieldset class="pt-2" id="coffee-details">
                             <legend class="field-label">Coffee Details</legend>
                             {{ coffee_form | crispy }}
                         </fieldset>
+                        <!-- Navigation Buttons -->
                         <div class="row pt-3">
+                            <!-- Back To Product -->
                             <div class="col-6 pb-4">
                                 <div class="text-center py-2">
                                     <a href="{% url 'product_detail' product.id %}"
@@ -49,6 +57,7 @@
                                     </a>
                                 </div>
                             </div>
+                            <!-- Update Product -->
                             <div class="col-6 pb-4">
                                 <div class="text-center py-2">
                                     <button id="product-add-submit-button" type="submit"
@@ -67,6 +76,6 @@
 {% endblock %}
 
 {% block extrapostloadjs %}
-    <!-- Link to Products JavaScript -->
-    <script src="{% static 'products/js/products.js' %}"></script>
+<!-- Link to Products JavaScript -->
+<script src="{% static 'products/js/products.js' %}"></script>
 {% endblock %}

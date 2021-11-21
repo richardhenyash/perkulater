@@ -2,8 +2,10 @@
 <!doctype html>
 <html lang="en">
     <head>
+        <!-- Include Metadata -->
         {% include 'includes/meta.html' %}
         {% block corecss %}
+        <!-- Include External CSS -->
         {% include 'includes/externalcss.html' %}
         <!-- Link to Custom CSS -->
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
@@ -13,7 +15,8 @@
         <!-- Link to Home Custom CSS -->
         <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
         {% endblock %}
-    
+
+        <!-- Include Core JS -->
         {% include 'includes/corejs.html' %} 
     
         {% block extra_js %}
@@ -22,16 +25,22 @@
         <title>perkulater {% block extra_title %}{% endblock %}</title>
     </head>
     <body>
+        <!-- Home Section -->
         <section id="perkulater-home" class="container-sm">
             <div class="container-sm d-flex justify-content-center">
                 <div class="row">
-                    <div class="col-12 vertical-center pb-5">                           
+                    <div class="col-12 vertical-center pb-5">   
+                        <!-- Jumbotron -->                        
                         <div id="perkulater-jumbotron" class="jumbotron text-center pb-5">
+                            <!-- Logo -->
                             <h1 id="splash-logo" class="logo-text-large">perkulater<img src="{{ MEDIA_URL }}coffee-cup-icon-white.png" alt="Coffee Cup Icon" class="logo-image pl-1 pb-1"></h1>
+                            <!-- Divider -->
                             <div id="splash-divider" class="divider-opaque">
                                 <hr>
                             </div>
+                            <!-- Text -->
                             <p id="splash-text" class="title-text-medium text-bold splash-text text-center pt-1 pt-md-2 pb-2 pb-md-3" >Coffee roasted with passion</p>
+                            <!-- Shop -->
                             <a id="splash-button" href="{% url 'products' %}" class="btn btn-lg btn-xl btn-outline-light btn-outline-green px-4" role="button">Shop</a>
                         </div>
                     </div>
@@ -39,6 +48,7 @@
             </div> 
         </section>       
         {% block extrapostloadjs %}
+        <!-- Include External JavaScript -->
         {% include 'includes/externaljs.html' %}  
         <!-- Link to Home JavaScript -->
         <script src="{% static 'home/js/home.js' %}"></script>
