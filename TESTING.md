@@ -71,7 +71,7 @@ per-file-ignores = *apps.py:F401, *settings.py:E501
 The settings exclude **django** migrations, `__init__.py`, and `_pychache_` files, as these are system generated files and do not need to be checked.  
 *F401* (imported but unused) errors are ignored for *apps.py, as **Flake8** was generating an error on **Django** signals being imported but unused. 
 Signals need to be imported into the **app** config files to ensure correct operation of the code.  
-*E501* (line too long) errors are ignored for `settings.py` as it is not possible to shorten the effected lines of code without causing application errors.  
+*E501* (line too long) errors are ignored for `settings.py` as it is not possible to shorten the affected lines of code without causing application errors.  
 
 **Flake 8** output is shown here [Python Code Automated Testing And Flake8 Output](media/testing/validation/python/python-automated-testing-output.png).
 
@@ -90,7 +90,7 @@ Page|Performance|Accessiblity|Best Practices|SEO|
 ----|-----------|------------|--------------|---|
 Home|98|100|100|100
 Products|81|100|100|92
-Product Detail|85|91|100|92flake8
+Product Detail|85|91|100|92
 
 See [Initial Lighthouse Reports](media/testing/validation/performance/initial).
 
@@ -103,7 +103,7 @@ The **Background** image was also re-sized to 2400px x 1600px and compressed usi
 *Webp* images are implemented for the **Product** images with *png* fallback for browsers that do not support *Webp* using the html *picture* tag.  
 An additional field, *image_alt* was added to the **Product** model to enable the fallback image to be specified for each product.  
 The **Product Add** and **Product Edit** pages were updated to include image file selectors for the new *image_alt* field.  
-This will enable the **perkulater** stroe administrator to add a *Webp* image with *png* or *jpg* fallback for any future **Products**. 
+This will enable the **perkulater** store administrator to add a *Webp* image with *png* or *jpg* fallback for any future **Products**. 
 A *Webp* image with *png* fallback was also implemented for the **Background** image using the [Modernizr](https://modernizr.com/) browser detector tool.  
 A custom configuration of [Modernizr](https://modernizr.com/), customized to detect *WebP* image support has been added to the **perkulater** [code base](static/js/libraries).  
 This detects if the browser has *Webp* support, and adds a css class (either *webp* or *no-webp*) to the *html* element.  
@@ -180,13 +180,13 @@ Functionality has been tested and works as expected:
 <img src="media/testing/order-confirmation-email.png" width="500px" style="margin: 20px;">  
 
 * Register on the site, so I can make a repeat purchase more easily and get access to any rewards on offer.  
-The **Sign Up** page allows an unautheticated user to register for an account.  
-**Form Validation** and functionality has been tested and works as expected:  
+The **Sign Up** page allows an unauthenticated user to register for an account.  
+**Form Validation** and functionality have been tested and work as expected:  
 <img src="media/testing/sign-up.png" width="500px" style="margin: 20px;">  
 
 * Contact the business with a general query.  
 The **Contact** page allows any **User** of the site to contact the business.  
-**Form Validation** and functionality has been tested and works as expected:  
+**Form Validation** and functionality have been tested and work as expected:  
 <img src="media/testing/contact.png" width="500px" style="margin: 20px;">  
 
 * Subscribe for a regular purchase of a product.  
@@ -196,7 +196,7 @@ As a **Registered User**, I would like to be able to:
 <br>
 * Sign in to my account. 
 The **Sign In** page allows a registered user to **Sign In** to their account.  
-**Form Validation** and functionality has been tested and works as expected:  
+**Form Validation** and functionality have been tested and work as expected:  
 <img src="media/testing/sign-in.png" width="500px" style="margin: 20px;">  
 
 * Sign out of my account.  
@@ -206,7 +206,7 @@ Functionality has been tested and works as expected:
 
 * Recover a forgotten password.
 The **Forgot Password** page allows a registered user to reset their password.  
-**Form Validation** and functionality has been tested and works as expected:  
+**Form Validation** and functionality have been tested and work as expected:  
 <p float="left">
     <img src="media/testing/password-reset.png" width="300px" style="margin: 20px;">
     <img src="media/testing/password-reset-email-sent.png" width="300px" style="margin: 20px;">
@@ -219,7 +219,7 @@ The **Forgot Password** page allows a registered user to reset their password.
 
 * View and update my personal profile, including default delivery details.  
 The **User Profile** page allows a registered **User** to update their personal profile and default delivery information.  
-**Form Validation** and functionality has been tested and works as expected:  
+**Form Validation** and functionality have been tested and work as expected:  
 <img src="media/testing/user-profile.png" width="600px" style="margin: 20px;">  
 
 * See a summary of my previous orders.  
@@ -231,7 +231,7 @@ Functionality has been tested and works as expected:
 
 * Contact the business about a specific order.  
 The business can be contacted about a specific order using the **Order Contact** page, accessed from the **Order History** page.  
-**Form Validation** and functionality has been tested and works as expected:  
+**Form Validation** and functionality have been tested and work as expected:  
 <p float="left">
     <img src="media/testing/order-contact.png" width="300px" style="margin: 20px;">
     <img src="media/testing/order-contact-email.png" width="300px" style="margin: 20px;">
@@ -240,7 +240,7 @@ The business can be contacted about a specific order using the **Order Contact**
 * Add reviews to products, to help other customers make informed purchasing decisions.  
 Customers can add a new **review** using the **Add Review** link in the **Customer Review** section of the **Product Detail** page.  
 **Reviews** may also be added using the **Review** links in the **Order History** section of the **User Profile** page.  
-**Form Validation** and functionality has been tested and works as expected:  
+**Form Validation** and functionality have been tested and work as expected:  
 <img src="media/testing/product-reviews.png" width="500px" style="margin: 20px;">  
 <p float="left">
     <img src="media/testing/order-history-links.png" width="200px" style="margin: 20px;"> 
@@ -250,7 +250,7 @@ Customers can add a new **review** using the **Add Review** link in the **Custom
 * Edit previous reviews.  
 Customers can edit existing reviews using the **Edit** link in the **Customer Review** section of the **Product Detail** page.  
 **Reviews** may also be edited using the **Review** links in the **Order History** section of the **User Profile** page.  
-**Form Validation** and functionality has been tested and works as expected:  
+**Form Validation** and functionality have been tested and work as expected:  
 <img src="media/testing/product-reviews.png" width="500px" style="margin: 20px;">  
 <p float="left">
     <img src="media/testing/order-history-links.png" width="200px" style="margin: 20px;"> 
@@ -275,15 +275,18 @@ The functionality has been tested and works as expected:
 * Add, edit and delete products.  
 **Products** may be added using the **Product Add** page, accessed from the **User Menu** if the **User** is signed in as a **Super User**.  
 **Products** may be edited using the **Product Edit** page, accessed from the **Product Detail** page if the **User** is signed in as a **Super User**.  
+**Products** may be discontinued using the **Discontinued** check box on the **Product Add** and **Product Edit** page if the **User** is signed in as a **Super User**. 
 **Products** may be deleted using the **Product Delete** button, accessed from the **Product Detail** page if the **User** is signed in as a **Super User**.  
-**Form Validation** and functionality has been tested and works as expected:  
+**Form Validation** and functionality have been tested and work as expected:  
 <p float="left">
-    <img src="media/testing/product-add-1.png" width="300px" style="margin: 20px;">
-    <img src="media/testing/product-add-2.png" width="300px" style="margin: 20px;"> 
+    <img src="media/testing/product-add-1.png" width="40%" style="margin: 20px;">
+    <img src="media/testing/product-add-image-select.png" width="10%" style="margin: 20px;">
+    <img src="media/testing/product-add-2.png" width="40%" style="margin: 20px;"> 
 </p>
 <p float="left">
-    <img src="media/testing/product-edit-1.png" width="300px" style="margin: 20px;">
-    <img src="media/testing/product-edit-2.png" width="300px" style="margin: 20px;"> 
+    <img src="media/testing/product-edit-1.png" width="40%" style="margin: 20px;">
+    <img src="media/testing/product-edit-image-select.png" width="10%" style="margin: 20px;">
+    <img src="media/testing/product-edit-2.png" width="40%" style="margin: 20px;"> 
 </p>
 <p float="left">
     <img src="media/testing/product-delete-button.png" width="100px" style="margin: 20px;">
@@ -292,7 +295,7 @@ The functionality has been tested and works as expected:
 
 * Edit product prices.  
 **Product** **Prices** can be edited using the **Edit Prices** page, accessed from the **Product Detail** page **Price Edit** link if the **User** is signed in as a **Super User**.  
-**Form Validation** and functionality has been tested and works as expected:  
+**Form Validation** and functionality have been tested and work as expected:  
 <p float="left">
     <img src="media/testing/product-price.png" width="200px" style="margin: 20px;">
     <img src="media/testing/product-prices-edit.png" width="300px" style="margin: 20px;">
@@ -337,11 +340,11 @@ Navigation Menu|Tagline|Yes|-|-|Pass|-
 Navigation Menu|Search Input|Yes|Yes|Yes|Pass|-
 Navigation Menu|Search Button|Yes|Yes|Yes|Pass|Returns search results
 Navigation Menu|Basket Icon|Yes|Yes|Yes|Pass|-
-Navigation Menu|User Droppdown Menu - Contact|Yes|Yes|Yes|Pass|-
-Navigation Menu|User Droppdown Menu - Sign In|Yes|Yes|Yes|Pass|-
-Navigation Menu|User Droppdown Menu - Profile|Yes|Yes|Yes|Pass|Only shown if signed-in
-Navigation Menu|User Droppdown Menu - Sign Out|Yes|Yes|Yes|Pass|Only shown if signed-in
-Navigation Menu|User Droppdown Menu - Add Product|Yes|Yes|Yes|Pass|Only shown if signed-in as super-user
+Navigation Menu|User Dropdown Menu - Contact|Yes|Yes|Yes|Pass|-
+Navigation Menu|User Dropdown Menu - Sign In|Yes|Yes|Yes|Pass|-
+Navigation Menu|User Dropdown Menu - Profile|Yes|Yes|Yes|Pass|Only shown if signed-in
+Navigation Menu|User Dropdown Menu - Sign Out|Yes|Yes|Yes|Pass|Only shown if signed-in
+Navigation Menu|User Dropdown Menu - Add Product|Yes|Yes|Yes|Pass|Only shown if signed-in as super-user
 Navigation Menu|Horizontal Rule|Yes|-|-|Pass|-
 Footer|Horizontal Rule|Yes|-|-|Pass|-
 Footer|Tagline|Yes|-|Yes|Pass|-
@@ -387,7 +390,7 @@ Password Reset|E-mail|Yes|Yes|Yes|Pass|Field required. Must be a valid, register
 Password Reset - Email Sent|Title|Yes|-|-|Pass|
 Password Reset - Email Sent|Text|Yes|-|-|Pass|
 Password Reset - Change Password|Title|Yes|-|-|Pass|
-Password Reset - Change Password|New Password|Yes|Yes|Yes|Pass|Must at least 8 characters.
+Password Reset - Change Password|New Password|Yes|Yes|Yes|Pass|Must be at least 8 characters.
 Password Reset - Change Password|Mew Password (again)|Yes|Yes|Yes|Pass|Must match password.
 Password Reset - Success|Title|Yes|-|-|Pass|
 Password Reset - Success|Text|Yes|-|-|Pass|
@@ -821,10 +824,14 @@ Within the **Stripe** *Webhook* panel, the *Response* is shown as *200 OK* and t
 * Placeholders were added to **Contact Form** and **Order Contact Form**, and *textarea* placeholder styling was added to **base** css.
 * Vendor specific *input* and *textarea* placeholder styling was added to the **base** css.
 * Custom container minumum height values and media queries were updated to calculated values, equal to the screen real estate available. This ensures that the footer is placed at the bottom of the screen with no overflow on pages where less information is displayed. 
+* The background colour of the **Country Selector** on the **Checkout** page was incorrectly showing as white when the form was auto-populated by **Google Chrome** for unauthenticated **Users**. Additional vendor specific css was added to the **base** css to fix the problem. 
 * It was noted during testing that if a **Product** is deleted, the **Order History** page will not display the **Product**, as it no longer exists in the database.  This is due to the relational design of the database. Past **Orders** are linked to the **Products** model. In order to fix this without a considerable redesign of the **Data Schema**, a *discontinued* field has been added to the **Product**, to indicate whether the product has been discontinued. Products on the **Products** page are now filtered to only display **Products** that are currently available for sale. The **Product Detail** template logic was also updated to hide the **Add To Basket** and **Create Plan** buttons for discontinued **Products**, and to display infomation text to inform the **User** that the **Product** has been discontinued. The *discontinued* field has been added to the **Product Add** and **Product Edit** forms as a checkbox, and is unticked as a default.  
 This change has enabled historical **Products** to remain in the database and to be viewed via the **Order History**, but not to be available to purchase:  
-<img src="media/testing/product-detail-discontinued.png" width="600px" style="margin: 20px;"> 
+<img src="media/testing/product-detail-discontinued.png" width="600px" style="margin: 20px;">  
+
 
 ### Bugs Remaining ###
-* **Product Delete** - it should be noted that currently, if a **Product** is deleted, the **Order History** page will not display the **Product**, as it no longer exists in the database.  This is due to the relational design of the database. Past **Orders** are linked to the **Products** model. Fixing this problem would require a considerable redesign of the **Data Schema**. Logically, it would be best to add a *discontinued* field to the **Product** model in a **Future Devleopment Phase** to indicate whether the product is has been discontinued, and filter the products on the **Products** page to display only **Products** that are currently available for sale. This would enable historical **Products** to remain in the database, but not to be available to purchase.  
-* **Country** dropdown select - If the **User** is not signed in and auto-populates the form fields using **Google Chrome**, select colour is changed to white. 
+* **Select** hover colour is showing as the default *blue* colour in **Google Chrome**. After extensive searching on **Google**, it currently appears to require quite a 
+complex work-around to style the *blue* hover colour on a *select* element in **Google Chrome**, see this [link](https://stackoverflow.com/questions/52467570/how-to-remove-blue-highlight-on-hover-in-select-option-inputs-html-for-chrome/54107955). It was decided not to implement this work around at this stage due to time constraints, and to leave 
+the hover colour as the default *blue*:  
+<img src="media/testing/select-background-colour.png" width="150px" style="margin: 20px;">  

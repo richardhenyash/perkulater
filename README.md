@@ -666,23 +666,25 @@ Note that **Create Plan** feature has not been implemented as part of the phase 
 * **Product Add**, restricted to **Super Users**. Enables a new **Product** to be added. Required fields are denoted with a *.  
 **Image** optionally allows the main image to be selected. The suggested format is *WebP* for better performance.  
 **Alternative Image** optionally allows a fallback *png* image to be selected, for additional browser support.  
-**Discontinued** check box optionally allows the **Product** to be discontinued and not displayed for sale and defaults to unchecked.  
+**Discontinued** check box optionally allows the **Product** to be discontinued and not displayed for sale - defaults to unchecked.  
 **View Products** button links back to **Products** page. **Add Product** button adds the new **Product** to the database. All form inputs include focus styling and validation, and all buttons include hover styling.  
 Displays **Toast Message** if product is added successfully:   
 <p float="left">
-    <img src="media/testing/product-add-1.png" width="45%" style="margin: 20px;">
-    <img src="media/testing/product-add-2.png" width="45%" style="margin: 20px;">
+    <img src="media/testing/product-add-1.png" width="40%" style="margin: 20px;">
+    <img src="media/testing/product-add-image-select.png" width="10%" style="margin: 20px;">
+    <img src="media/testing/product-add-2.png" width="40%" style="margin: 20px;">
 </p>
 
 * **Product Edit**, restricted to **Super Users**. Enables an existing **Product** to be edited. Required fields are denoted with a *.  
 **Image** optionally allows the main image to be selected. The suggested format is *WebP* for better performance.  
 **Alternative Image** optionally allows a fallback *png* image to be selected, for additional browser support.  
-**Discontinued** check box optionally allows the **Product** to be discontinued and not displayed for sale and defaults to unchecked.  
+**Discontinued** check box optionally allows the **Product** to be discontinued and not displayed for sale - defaults to unchecked.  
 **Back To Product** button links back to **Product Detail** page. **Update Product** button updates the **Product** in the database.  All form inputs include focus styling and validation, and all buttons include hover styling.  
 Displays **Toast Message** if product is updated successfully:
 <p float="left">   
-    <img src="media/testing/product-edit-1.png" width="45%" style="margin: 20px;">
-    <img src="media/testing/product-edit-2.png" width="45%" style="margin: 20px;">
+    <img src="media/testing/product-edit-1.png" width="40%" style="margin: 20px;">
+    <img src="media/testing/product-edit-image-select.png" width="10%" style="margin: 20px;">
+    <img src="media/testing/product-edit-2.png" width="40%" style="margin: 20px;">
 </p> 
 
 * **Edit Prices**, restricted to **Super Users**. Enables **Product Prices** to be edited. Required fields are denoted with a *.  
