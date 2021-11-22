@@ -24,9 +24,9 @@
     
         <title>perkulater {% block extra_title %}{% endblock %}</title>
     </head>
-    <body>
+    <body class="body-home">
         <!-- Home Section -->
-        <section id="perkulater-home" class="container-sm">
+        <section id="perkulater-home">
             <div class="container-sm d-flex justify-content-center">
                 <div class="row">
                     <div class="col-12 vertical-center pb-5">   
@@ -46,7 +46,7 @@
                     </div>
                 </div>
             </div> 
-        </section>       
+        </section>
         {% block extrapostloadjs %}
         <!-- Include External JavaScript -->
         {% include 'includes/externaljs.html' %}  

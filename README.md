@@ -38,7 +38,7 @@
     - [Information Architecture](#information-architecture)
         - [Products Models](#products-models)
         - [Checkout Models](#checkout-models)
-        - [Profile Models](#profile-models)
+        - [Profiles Models](#profiles-models)
         - [Basket Models](#basket-models)
     - [Features Implemented](#features-implemented)
         - [Features Implemented in Phase 1](#features-implemented-in-phase-1)
