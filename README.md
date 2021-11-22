@@ -145,10 +145,10 @@ See **perkulater** strategy chart below. Opportunities to be included for phase 
 ### Project Scope ###
 #### User Demographics ####
 * The primary users of the site will be consumers who are looking for high quality, ethically sourced coffee beans and ground coffee for home delivery. 
-* A simple, clean and modern looking, well layed out site with the key information being easy to find and purchases being easy to make in a few clicks would suit this demographic.
+* A simple, clean and modern looking, well laid out site with the key information being easy to find and purchases being easy to make in a few clicks would suit this demographic.
 
 #### User Requirements ####
-* Simple and well layed out.
+* Simple and well laid out.
 * Visually appealing.
 * Intuitive.
 * Clean and modern looking.
@@ -408,7 +408,7 @@ The *type_description* field stores the **Type** descriptor, which is displayed 
 The *type_information* field stores information about the related **Types** which is displayed to the user in the **Type Information** modal. 
 Both the *size_information* and *type_information* fields are split into paragraphs for display using the delimiter specified in the *information_delimiter* field.
 There is currently only one **Category**, called **Coffee**. If more **Categories** are added in future development phases, the *friendly_name* field will be automatically 
-shown in the **Navigation Menu**, and the user will be able to filter by **Category** using the **Navigation Nenu** links.
+shown in the **Navigation Menu**, and the user will be able to filter by **Category** using the **Navigation Menu** links.
 
 * **Coffee** - related to **Product**. Stores additional information which is only relevant to products with **Category** set to **Coffee**. If the **Product** is a **Coffee**, 
 the *flavour_profile* is shown underneath the product name in the **Product Detail** view.  
@@ -479,7 +479,7 @@ Includes hover and focus styling:
  * **Basket Link**, links to the **Basket** page. Includes hover styling:  
  <img src="media/testing/basket-link.png" width="50px" style="margin: 20px;">  
 
- * **User Menu**, opens a dropdown menu. For non authenticated users, menu items are *Contact*, *Sign In* and *Sign Up*. For signed in users, menu items are *Contact*, *Profile* and *Sign Out*. 
+ * **User Menu**, opens a dropdown menu. For non-authenticated users, menu items are *Contact*, *Sign In* and *Sign Up*. For signed in users, menu items are *Contact*, *Profile* and *Sign Out*. 
  For signed in super users, menu items are *Add Product*, *Contact*, *Profile* and *Sign Out*. Includes hover styling:
   <img src="media/testing/user-menu.png" width="100px" style="margin: 20px;">  
 
@@ -744,7 +744,7 @@ If delivery charges are going to be applied at checkout, another information mes
 * **Checkout**, accessed from **Checkout** button on **Basket** page. Form to enable checkout using **Stripe**. **Your Details** and **Delivery** fields are automatically populated from **UserProfile** model for signed in users. Required fields are denoted with a *. All input fields include focus styling and validation.  
 Non authenticated **Users** are also permitted to check out, as from a business perspective it could dissuade potential customers from making a purchase if they are required to **Sign Up** for a **User** account in order to complete a purchase.  
 Non authenticated **Users** are encouraged to **Sign Up** or **Sign In** with text and links shown under the **Country** field.  
-If **Save this delivery information to my profile** is checked, valid information given in the **Checkout** form is saved to the **User** and  **UserProfile** models on checkout.  
+If **Save this delivery information to my profile** is checked, valid information given in the **Checkout** form is saved to the **User** and **UserProfile** models on checkout.  
 The **Payment** input allows credit card number to be input. Any card errors are displayed below the **Payment** input.  
 Information text is displayed below the **Payment** input explaining how much the **User's** card will be charged.
 **Total**, **Delivery** and **Grand Total** are shown underneath. The **Delivery Information Button** opens the **Delivery Information Modal**, 
@@ -1042,7 +1042,7 @@ your *Dashboard* and selecting *Create new app*. Give the new **App** a name and
 then click *Create app*.
 * Provision a new **POSTGRES** database from the *Resources* tab.
 * Confirm that the **App** is connected to the correct **GitHub** repository.
-* Install `dj_database_url` and  `psycopg2-binary`.
+* Install `dj_database_url` and `psycopg2-binary`.
 * Use the `pip3 freeze > requirements.txt` terminal command to to create a `requirements.txt` file, 
 which lists all the **Python** dependencies.
 * Import dj_database_url in settings.py.
@@ -1140,13 +1140,13 @@ onto the end of the *Resource* line, as per the example below, where `bucketname
         "arn:aws:s3:::bucketname/*"
     ]
 ```
-* Click `Review Policy`, give the policy a name and decription amd click *Create Policy*.
+* Click `Review Policy`, give the policy a name and description and click *Create Policy*.
 * Attach the policy to the group created earlier by selecting the group in *Groups* under *Access Management*, 
 clicking *Attach Policy* in the *Permissions* tab and selecting the policy created in the previous step.
 * Create a user by selecting *Add User* in *Policies* under *Access Management* and select *Programmatic access*.
 * Assign the user to the use group created earlier, and check that the group has the policy created earlier attached.
 * Download the .csv file containing the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`.
-* Install `boto3` and  `django-storages`.
+* Install `boto3` and `django-storages`.
 * Freeze requirements using `pip3 freeze > requirements.txt`.
 * Add `'storages'` to `INSTALLED_APPS` in `settings.py`.
 * Add the following settings to `settings.py`, where `bucketname` is the Amazon S3 bucket name (e.g. `perkulater`) and `region` is the bucket region name (e.g. `'eu-west-2'` for the currently deployed perkulater site):

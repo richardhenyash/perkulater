@@ -56,7 +56,7 @@ The custom [base.js](static/js/base.js), [basket.js](basket/static/basket/js/bas
 **JavaScript Code Libraries** were validated using the [JSHint](https://jshint.com/about/) static code analysis tool, and passed without errors or warnings.
 See [JavaScript Validation Reports](media/testing/validation/js). 
 Due to the lack of complexity of **JavaScript** code implemented on the project, **Automated Unit Testing** 
-of the **JavaScript** code was considered unecessary. All **JavaScript** functions and event handlers in the custom **JavaScript Code Libraries** 
+of the **JavaScript** code was considered unnecessary. All **JavaScript** functions and event handlers in the custom **JavaScript Code Libraries** 
 have been thoroughly manually de-bugged and tested in the console as part of the [Manual Testing](#manual-testing) process.  
 
 ### Python Code Testing ##
@@ -94,7 +94,7 @@ Product Detail|85|91|100|92
 
 See [Initial Lighthouse Reports](media/testing/validation/performance/initial).
 
-To improve **Accesibility** and **SEO**, missing *href tags* and *aria-label* atttributes were added to the some of the buttons and links in the **HTML Templates**.
+To improve **Accessibility** and **SEO**, missing *href tags* and *aria-label* attributes were added to the some of the buttons and links in the **HTML Templates**.
 
 To improve **Best Practices** and **Performance**, the **Product** images were resized to 317px x 422px (this is the maximum size the image is displyed at), 
 and compressed using the [RIOT](https://riot-optimizer.com/) image optimisation tool.  
@@ -809,23 +809,23 @@ Placeholder text for the *textarea* input on the **Contact** and **Order Contact
 
 ### Stripe Webhook Handler Testing ###
 The following tests have been run on the **Stripe** webhook handler:  
-* Checkout a purchase succesfully, and check the **Stripe** *Webhook* panel. The *Response* is shown as *200 OK* and the *webhook* has correctly returned `SUCCESS: Verified order already in database`.
+* Checkout a purchase successfully, and check the **Stripe** *Webhook* panel. The *Response* is shown as *200 OK* and the *webhook* has correctly returned `SUCCESS: Verified order already in database`.
 * Comment out **Payment Form** submission in [checkout.js](checkout/static/checkout/js/checkout.js) to simulate a form submission error, and checkout a purchase.
-Within the **Stripe** *Webhook* panel, the *Response* is shown as *200 OK* and the *webhook* has correcty returned `SUCCESS: Created order in webhook`. The database was also checked to confirm that the **Order** has been added correctly by the *webhook*.  
+Within the **Stripe** *Webhook* panel, the *Response* is shown as *200 OK* and the *webhook* has correctly returned `SUCCESS: Created order in webhook`. The database was also checked to confirm that the **Order** has been added correctly by the *webhook*.  
 <img src="media/testing/stripe-webhook-handler-1.png" width="600px" style="margin: 20px;">  
 <img src="media/testing/stripe-webhook-handler-2.png" width="600px" style="margin: 20px;">
 
 ### Restricted Features Security Testing ###
-* **Product Add**, **Product Edit**, **Product Delete**, **Edit Prices** and **Delete Review** are all restricted to **Super Users**. If an unauthenticated **User** attemps to navigate to any of these pages by manually typing the *url* into the search bar, they are redirected to the **Sign In** page. This is accomplished by applying the **django** `@login_required` decorater on the **View** functions.  If an authenticated **User** who is not a **Super User** attemps to navigate to any of these pages by manually typing the *url* into the search bar, they are redirected to the **Products** page and a **Toast Message** is shown. This functionality has been checked and is working as expected. 
-* **Review Product**, **User Profile**, **Order History** and **Order Contact** are all restricted to authenticated **Users**. If an unauthenticated **User** attemps to navigate to any of these pages by manually typing the *url* into the search bar, they are redirected to the **Sign In** page. This is accomplished by applying the **django** `@login_required` decorater on the **View** functions. This functionality has been checked and is working as expected.  
+* **Product Add**, **Product Edit**, **Product Delete**, **Edit Prices** and **Delete Review** are all restricted to **Super Users**. If an unauthenticated **User** attempts to navigate to any of these pages by manually typing the *url* into the search bar, they are redirected to the **Sign In** page. This is accomplished by applying the **django** `@login_required` decorator on the **View** functions.  If an authenticated **User** who is not a **Super User** attempts to navigate to any of these pages by manually typing the *url* into the search bar, they are redirected to the **Products** page and a **Toast Message** is shown. This functionality has been checked and is working as expected. 
+* **Review Product**, **User Profile**, **Order History** and **Order Contact** are all restricted to authenticated **Users**. If an unauthenticated **User** attempts to navigate to any of these pages by manually typing the *url* into the search bar, they are redirected to the **Sign In** page. This is accomplished by applying the **django** `@login_required` decorator on the **View** functions. This functionality has been checked and is working as expected.  
 
 ### Bugs Fixed During Testing ###
 * **Product Image** template logic was updated so that if **Product** *image_alt* is not specified, **Product Image** display defaults to the image specified in the **Product** *image* field.
 * Placeholders were added to **Contact Form** and **Order Contact Form**, and *textarea* placeholder styling was added to **base** css.
 * Vendor specific *input* and *textarea* placeholder styling was added to the **base** css.
-* Custom container minumum height values and media queries were updated to calculated values, equal to the screen real estate available. This ensures that the footer is placed at the bottom of the screen with no overflow on pages where less information is displayed. 
+* Footer position was fixed to the bottom of the page for all pages by adding the *fixed-bottom* class to **base** css.
 * The background colour of the **Country Selector** on the **Checkout** page was incorrectly showing as white when the form was auto-populated by **Google Chrome** for unauthenticated **Users**. Additional vendor specific css was added to the **base** css to fix the problem. 
-* It was noted during testing that if a **Product** is deleted, the **Order History** page will not display the **Product**, as it no longer exists in the database.  This is due to the relational design of the database. Past **Orders** are linked to the **Products** model. In order to fix this without a considerable redesign of the **Data Schema**, a *discontinued* field has been added to the **Product**, to indicate whether the product has been discontinued. Products on the **Products** page are now filtered to only display **Products** that are currently available for sale. The **Product Detail** template logic was also updated to hide the **Add To Basket** and **Create Plan** buttons for discontinued **Products**, and to display infomation text to inform the **User** that the **Product** has been discontinued. The *discontinued* field has been added to the **Product Add** and **Product Edit** forms as a checkbox, and is unticked as a default.  
+* It was noted during testing that if a **Product** is deleted, the **Order History** page will not display the **Product**, as it no longer exists in the database.  This is due to the relational design of the database. Past **Orders** are linked to the **Products** model. In order to fix this without a considerable redesign of the **Data Schema**, a *discontinued* field has been added to the **Product**, to indicate whether the product has been discontinued. Products on the **Products** page are now filtered to only display **Products** that are currently available for sale. The **Product Detail** template logic was also updated to hide the **Add To Basket** and **Create Plan** buttons for discontinued **Products**, and to display information  text to inform the **User** that the **Product** has been discontinued. The *discontinued* field has been added to the **Product Add** and **Product Edit** forms as a checkbox, and is unticked as a default.  
 This change has enabled historical **Products** to remain in the database and to be viewed via the **Order History**, but not to be available to purchase:  
 <img src="media/testing/product-detail-discontinued.png" width="600px" style="margin: 20px;">  
 
