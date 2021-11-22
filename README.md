@@ -480,7 +480,8 @@ Includes hover and focus styling:
  <img src="media/testing/basket-link.png" width="50px" style="margin: 20px;">  
 
  * **User Menu**, opens a dropdown menu. For non authenticated users, menu items are *Contact*, *Sign In* and *Sign Up*. For signed in users, menu items are *Contact*, *Profile* and *Sign Out*. 
- For signed in super users, menu items are *Add Product*, *Contact*, *Profile* and *Sign Out*. Includes hover styling.
+ For signed in super users, menu items are *Add Product*, *Contact*, *Profile* and *Sign Out*. Includes hover styling:
+  <img src="media/testing/user-menu.png" width="100px" style="margin: 20px;">  
 
  * **Category** menu, only shown if there is more than one **Product Category** present in the database (there is only currently one category - Coffee).
  Allows **Products** to be filtered by **Category** and includes hover styling:  
@@ -825,11 +826,12 @@ After initial early **User** feedback, the following design changes were made:
 
 * **Sign In** and **Sign Out** functionality was updated to route the user to the page they were previously on after successful **Sign In** or **Sign Out**. The **User** was previously rerouted to the **Home** page. This improves the navigational flow and overall **User Experience**. 
 * An additional view was added so that if the **User** is reviewing a product, then deletes the last part of the *review_product* url (resulting in a url of `products/review_product/`), they are redirected to the **Products** view. 
+* Font size was increased to for **Product Search** and **User Menu** in the **Bootstrap Collapsing Navigation Menu**. 
 * **Delivery Information Button** and **Delivery Information Modal** were added to the **Basket** andd **Checkout** pages to clearly explain how the **Delivery** charges are calculated. This information will help the **User** to make an informed purchase:  
 <p float="left">
     <img src="media/testing/delivery-information-button.png" width="200px" style="margin: 20px;">  
     <img src="media/testing/delivery-information-modal.png" width="300px" style="margin: 20px;">  
-</p>
+</p>  
 
 ### Responsive Styling ###
 * The Navigation Menu is collapsible, and collapses to an icon on small devices less than 576 pixels wide. This is implemented using the **Bootstrap Navbar** component.  

@@ -151,6 +151,10 @@ body {
     min-height: calc(100vh - 36rem);
 }
 
+.container-custom-with-banner {
+    min-height: calc(100vh - 39.5rem);
+}
+
 .container-dark {
     background-color: rgba(41, 41, 41, 0.8);
 }
@@ -638,7 +642,8 @@ body {
 
 /*-- Custom Containers--*/
 @media (min-width: 768px) {
-    .container-custom {
+    .container-custom,
+    .container-custom-with-banner {
         width: 720px;
     }
     .container-custom-sm {
@@ -648,10 +653,13 @@ body {
 
 @media (max-width: 767px) {
     .container-custom {
-        min-height: calc(100vh - 40rem);
+        min-height: calc(100vh - 42rem);
     }
     .container-custom-sm {
-        min-height: calc(100vh - 40rem);
+        min-height: calc(100vh - 42rem);
+    }
+    .container-custom-with-banner {
+        min-height: calc(100vh - 38rem);
     }
 }
 
