@@ -624,7 +624,7 @@ Includes hover styling:
 <img src="media/testing/size-selector.png" width="100px" style="margin: 20px;">  
 
 * **Type Selector**, allows **Type** read from the **Type** model to be selected, includes hover styling:  
-<img src="media/testing/type-selector.png" width="100px" style="margin: 20px;">  
+<img src="media/testing/type-selector.png" width="200px" style="margin: 20px;">  
 
 * **Type Information Button**, displays **Information Modal**.  
 Detailed **Type** information will give the **User** a much better understanding of the **Product Types** available, and make the **User** more comfortable making a purchase.  
@@ -656,7 +656,7 @@ Note that **Create Plan** feature has not been implemented as part of the phase 
 
 * **Delete**, opens **Confirm Modal**, asking user to confirm deletion of **Product**. Restricted to **Super Users**. Button includes hover styling:  
 <img src="media/testing/product-delete-button.png" width="200px" style="margin: 20px;">  
-<img src="media/testing/modal-product-delete-confirm.png" width="300px" style="margin: 20px;">  
+<img src="media/testing/modal-product-delete-confirm.png" width="400px" style="margin: 20px;">  
 
 * **Customer Reviews**, displays **Reviews** for the **Product**, read from the **Review** model. **Add Review** link is shown if the **User** has not reviewed the **Product**.
  If the **User** is not signed in, **Add Review** links to the **Sign In** page. If the user is signed in, links to the **Add Review** page. If the user has reviewed the **Product** before, 
