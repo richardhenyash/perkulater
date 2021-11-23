@@ -172,6 +172,7 @@ As a **Potential Customer**, I would like to be able to:
 * Receive confirmation of my purchase via email, so I can be confident that the purchase has been made successfully.
 * Register on the site, so I can make a repeat purchase more easily and get access to any rewards on offer.
 * Contact the business with a general query.
+* Subscribe for a regular purchase of a product (this feature will be added in a future development phase).
 
 As a **Registered User**, I would like to be able to:
 * Sign in to my account.
@@ -188,6 +189,8 @@ As a **Business Owner**, I would like to be able to:
 * Add, edit and delete products.
 * Edit product prices.
 * Delete user reviews, in case malicious reviews are added.
+* Add, edit and delete product categories (this feature will be added in a future development phase).
+* Track sales data, to inform future purchasing decisions (this feature will be added in a future development phase).
 
 #### Constraints #####
 * Developer skill set - the Developer is currently learning **Python** and **Django**. 
@@ -211,8 +214,8 @@ F02|Purchase Products|Enables users to purchase a product, including secure card
 F03|Registration Form|User registration form|5|4|Op-2|1
 F04|Sign In|Sign in to User Profile|5|4|Op-2|1
 F05|Sign Out|Sign out of User Profile|5|4|Op-2|1
-F06|Update Profile|Update user profile|5|4|Op-2|1
-F07|Recover Password|Recover a forgotten user profile password|5|4|Op-2|1
+F06|Update Profile|Update User Profile|5|4|Op-2|1
+F07|Recover Password|Recover a forgotten User Profile password|5|4|Op-2|1
 F08|Order Summary|See a summary of previous orders|5|4|Op-2|1
 F09|Order Contact|Contact the business owner about a specific order|5|4|Op-2|1
 F10|Review Product|Review a product I have purchased|5|4|Op-2|1
@@ -329,7 +332,7 @@ is shown below:
 * [MindMup](https://www.mindmup.com/) - used to produce the **Site Map**.
 * [Balsamiq](https://balsamiq.com/) - used to produce **Wireframes**.
 * [dbdiagram](https://dbdiagram.io/home) - used to plan and visualise the data schema prior to and during development.
-* [Modernizr](https://modernizr.com/docs) - used to provide support for **Web3** ccompressed images with fallback, to increase performance.  
+* [Modernizr](https://modernizr.com/docs) - used to provide support for **Web3** compressed images with fallback, to increase performance.  
 * [Font Awesome](https://fontawesome.com/)
 * [Google Fonts](https://fonts.google.com/)
 * [django-allauth](https://django-allauth.readthedocs.io/en/latest/index.html) - user authentication and account management.
@@ -370,13 +373,13 @@ The **perkulater** code base has been developed using the **Django** framework, 
 * **Products**
 * **Profiles**
 
-The project data schema was initially planned using [dbdiagram.io](https://dbdiagram.io/home). The schema model was regularly updated during the development process and is shown below. 
+The project data schema was initially planned using [dbdiagram.io](https://dbdiagram.io/home). The [schema model](media/wireframes/perkulater-data-model-planned.png) was regularly updated during the development process and is shown below. 
 Please note that the planned schema includes the table **Subscription** which was added for planning purposes. **Subscriptions** do not form part of the phase 1 development but may be 
 implemented in a future development phase.  
 
 <img src="media/wireframes/perkulater-data-model-planned.png" width="100%" style="margin: 20px;"> 
 
-The final data schema was exported directly fom the **Django** model using [django-extensions](https://django-extensions.readthedocs.io/en/latest/), [pydot](https://github.com/pydot/pydot) 
+The [final data schema](media/wireframes/perkulater-data-model-final.svg) was exported directly fom the **Django** model using [django-extensions](https://django-extensions.readthedocs.io/en/latest/), [pydot](https://github.com/pydot/pydot) 
 and [GraphViz](https://graphviz.org/). The final data schema is shown below:  
 
 <img src="media/wireframes/perkulater-data-model-final.svg" width="100%" style="margin: 20px;"> 
@@ -428,7 +431,7 @@ The value of the *discount* field on the *Review* offer (expressed as a percenta
 * **Review** - related to **Product** and **User**. Stores **Product Reviews**. A **Django** signal updates the **Product** *rating* field when a review is added, deleted or edited.
 
 #### Checkout Models ####
-* **Order** - related to **OrderLineItem** abd **UserProfile**. Stores **Orders** after successful checkout. **Order** *order_number* field is automatically added on save. 
+* **Order** - related to **OrderLineItem** and **UserProfile**. Stores **Orders** after successful checkout. **Order** *order_number* field is automatically added on save. 
 **Order** *discount*, *order_total*, *previous_total*, *delivery* and *grand_total* fields are automatically updated using a **Django** signal when an **OrderLineItem** 
 is added or deleted.
 
