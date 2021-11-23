@@ -347,7 +347,6 @@ is shown below:
 * [psycopg2](https://pypi.org/project/psycopg2/) - **PostgreSQL** database adapter for Python. Used as part of the **Heroku** deployment process.
 * [pydot](https://github.com/pydot/pydot) - **Graphviz** interface used to parse the **Django** data model into a .dot file using *django-extensions*.
 * [flake8-django](https://pypi.org/project/flake8-django/) - **Flake 8** plug-in for **Django**.
-* [pylint-django](https://pypi.org/project/pylint-django/) - **Pylint** plug-in for **Django**.
 
 ### Browser Support ###
 The following browsers are all supported by **perkulater**.
