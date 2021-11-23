@@ -244,14 +244,14 @@ route is also shown. This feature will be implemented in a later development pha
 <img src="media/wireframes/perkulater-site-map.svg" width="600px" style="margin: 20px;">
 
 ### Wireframes ### 
-[Initial Wireframes](media/wireframes/rev0) were produced showing the **Products**, **Product Detail**, **Basket**, **Checkout**, **Sign Up**, **Sign In**, **User Profile**, **Order Detail**, **Order Contact** and **Product Review** page layouts. Note that a wireframe has also been created for the **Create Plan** page layout, which will be implemented in a future development phase.
+[Initial Wireframes](media/wireframes/rev0) were produced showing the **Products**, **Product Detail**, **Basket**, **Checkout**, **Sign Up**, **Sign In**, **User Profile**, **and**, **Order Contact** and **Product Review** page layouts. Note that a wireframe has also been created for the **Create Plan** page layout, which will be implemented in a future development phase.
 The **Products** and **Product Detail** page layouts are shown below:  
 
 <img src="media/wireframes/rev0/products.png" width="600px" style="margin: 20px;">  
 
 <img src="media/wireframes/rev0/product-detail.png" width="600px" style="margin: 20px;">
 
-[Responsive design wireframes](media/wireframes/rev1) were then produced showing the **Products**, **Product Detail**, **Basket**, **Checkout**, **Create Plan** and **Order Detail** page layouts on **Tablet** and **Phone**. Note that wireframes have also been created for the **Create Plan** page layout, which will be implemented in a future development phase.
+[Responsive design wireframes](media/wireframes/rev1) were then produced showing the **Products**, **Product Detail**, **Basket**, **Checkout**, **Create Plan** and **and** page layouts on **Tablet** and **Phone**. Note that wireframes have also been created for the **Create Plan** page layout, which will be implemented in a future development phase.
 The [Responsive design wireframes](media/wireframes/rev1) for the **Products** and **Product Detail** page layouts are shown below: 
 <p float="left">
     <img src="media/wireframes/rev1/products-tablet.png" width="400px" style="margin: 20px;">
@@ -463,16 +463,17 @@ features which require **Super User** privileges. The *username* and *password* 
 #### Features Included in Base Template ##### 
 The following features are included in the **Base** template, and are shown an all pages except for the **Home** page:
 
-* **Background Image**, an attractive image of coffee beans being processed, masked with a an opaque linear gradient mask in the *Background Level 1* colour, to give the image a dark, faded look.
+* **Background Image**, an attractive image of coffee beans being processed, masked with a an opaque linear gradient mask in the *Background Level 1* colour, to give the image a dark, faded look:  
+<img src="media/testing/background-image.png" width="600px" style="margin: 20px;">
 
 * **Bootstrap Collapsing Navigation Menu**, navigation menu featuring **perkulater logo**, **Product Search**, **Basket Link**, **User Menu** and **Tagline**. 
-Collapses to **Menu Icon** on smaller devices.  
- <img src="media/testing/navigation-menu.png" width="800px" style="margin: 20px;"> 
+Collapses to **Menu Icon** on smaller devices:   
+<img src="media/testing/navigation-menu.png" width="800px" style="margin: 20px;"> 
 
 * **perkulater logo**, links to **Products** page if clicked.  
- <img src="media/testing/perkulater-logo.png" width="200px" style="margin: 20px;">  
+<img src="media/testing/perkulater-logo.png" width="200px" style="margin: 20px;">  
 
-* **Product Search**, enables the user to search for **Products**. Returns the **Products** page with any products that contain the search string entered in the **Product** model *name* or *description_short* fields. 
+* **Product Search**, enables the user to search for **Products**. Returns the **Products** page with any products that contain the search string entered in the **Product** model *name* or *description_short* fields.  
 Includes hover and focus styling:  
  <img src="media/testing/product-search.png" width="200px" style="margin: 20px;">   
 
@@ -496,12 +497,12 @@ Includes hover and focus styling:
  <img src="media/testing/footer-tagline.png" width="600px" style="margin: 20px;">  
 
  * **Social Media Links**, links to **perkulater** social media sites, including hover styling. 
- Please note that as **perkulater** is not a real store at this stage, the **Social Media Links** do not link to **Perkulater** specific pages.   
+ Please note that as **perkulater** is not a real store at this stage, the **Social Media Links** do not link to **perkulater** specific pages.   
  <img src="media/testing/social-media-links.png" width="200px" style="margin: 20px;">  
 
 #### Contact ####
 
-* **Contact** may be accessed from **User Menu** if the **User** is signed in. Enables the **User** to contact **perkulater** using the form. If the **User** is signed in, populates email address. 
+* **Contact** may be accessed from **User Menu**. Enables the **User** to contact **perkulater** using the form. If the **User** is signed in, populates email address. 
 Required fields are denoted with a *. Form includes input focus styling. **Keep Shopping** button links to **Products** page, and **Send Message** button submits message. 
 Buttons include hover styling. If message is sent successfully, a toast message is displayed:  
 <img src="media/testing/contact.png" width="300px" style="margin: 20px;">
@@ -511,7 +512,7 @@ Buttons include hover styling. If message is sent successfully, a toast message 
 The **User** authentication system is implemented using [django allauth](https://django-allauth.readthedocs.io/en/latest/installation.html). **allauth** templates have been customised to fit the look and feel of the **perkulater** site.  
 
  * **Sign In**, enables registered **Users** to **Sign In**, accessed from **User Menu**. Required fields are denoted with a *.  
- **Sign Up** links to **Sign Up**, **Sign In** button submits **Sign Up** form and **Forgot Password** button links to **Password Reset**. Buttons and link include hover styling. Form errors are shown above the **Login** field. A **Toast Message** is shown on successful sign in:  
+ **Sign Up** links to **Sign Up**, **Sign In** button submits **Sign In** form and **Forgot Password** button links to **Password Reset**. Buttons and link include hover styling. Form errors are shown above the **Login** field. A **Toast Message** is shown on successful sign in:  
 <p float="left">
     <img src="media/testing/sign-in.png" width="300px" style="margin: 20px;">
     <img src="media/testing/sign-in-error.png" width="300px" style="margin: 20px;">
@@ -519,7 +520,7 @@ The **User** authentication system is implemented using [django allauth](https:/
 <img src="media/testing/toast-success-sign-in.png" width="300px" style="margin: 20px;">  
 
  * **Sign Out**, enables signed in **Users** to **Sign Out**, accessed from **User Menu**.  
- **Sign Out** button submits sign out form. A **Toast Message** is shown on successful sign out: 
+ **Sign Out** button submits **Sign Out** form. A **Toast Message** is shown on successful sign out: 
  <p float="left">
     <img src="media/testing/sign-out.png" width="300px" style="margin: 20px;">
     <img src="media/testing/toast-success-sign-out.png" width="300px" style="margin: 20px;">
@@ -573,7 +574,7 @@ The **Change Password** page is displayed to confirm to the **User** that their 
 <img src="media/testing/products.png" width="600px" style="margin: 20px;"> 
 
 * **Offer Banner**, display offers read in from the **Offer** model, if the *display_in_banner* field is set to `True`:  
- <img src="media/testing/offer-banner.png" width="400px" style="margin: 20px;">   
+ <img src="media/testing/offer-banner.png" width="600px" style="margin: 20px;">   
 
  * **Product Image**, links to **Product Detail** page if clicked. Includes hover styling:  
  <img src="media/testing/product-image.png" width="200px" style="margin: 20px;">  
@@ -596,10 +597,10 @@ Includes hover styling:
 <img src="media/testing/product-detail-summary.png" width="200px" style="margin: 20px;">  
 
 * **Keep Shopping Button**, links to **Products** page. Includes hover styling:  
-<img src="media/testing/keep-shopping-button.png" width="100px" style="margin: 20px;"> 
+<img src="media/testing/keep-shopping-button.png" width="200px" style="margin: 20px;"> 
 
 * **Coffee Details**, if the product if a **Coffee**:  
-<img src="media/testing/coffee-details.png" width="300px" style="margin: 20px;"> 
+<img src="media/testing/coffee-details.png" width="400px" style="margin: 20px;"> 
 
 * **Product Information Button**, displays **Information Modal** for the **Product**.  
 Detailed **Product** information will give the **User** a much better understanding of the **Products** available, and make the **User** more comfortable making a purchase.  
@@ -636,33 +637,33 @@ Includes hover styling:
 </p>
 
 * **Product Quantity**, allows product quantity to be selected. Minus button is greyed out and disabled when quantity is 1, Plus button is greyed out and disabled when quantity is 99. Includes hover styling:  
-<img src="media/testing/product-detail-quantity.png" width="100px" style="margin: 20px;">  
+<img src="media/testing/product-detail-quantity.png" width="200px" style="margin: 20px;">  
 
-* **Product Price**, automatically updated on change of **Size**. Includes **Edit** link to edit prices if user is a **Super User**.
-<img src="media/testing/product-price.png" width="100px" style="margin: 20px;">  
+* **Product Price**, automatically updated on change of **Size**. Includes **Edit** link to edit prices if user is a **Super User**:  
+<img src="media/testing/product-price.png" width="200px" style="margin: 20px;">  
 
-* **Add To Basket**, adds **Product** with selected Size, Type and Quantity to basket, and displays a **Toast** message. Includes hover styling.
-<img src="media/testing/product-add-to-basket-button.png" width="100px" style="margin: 20px;">  
+* **Add To Basket**, adds **Product** with selected Size, Type and Quantity to basket, and displays a **Toast** message. Includes hover styling:  
+<img src="media/testing/product-add-to-basket-button.png" width="200px" style="margin: 20px;">  
 <img src="media/testing/toast-success-add-to-basket.png" width="300px" style="margin: 20px;">  
 
 * **Create Plan**, displays **Information Modal** explaining that **Create Plan** feature is coming soon.  
 Note that **Create Plan** feature has not been implemented as part of the phase 1 development. Button includes hover styling:  
-<img src="media/testing/product-create-plan-button.png" width="100px" style="margin: 20px;">  
-<img src="media/testing/modal-create-plan.png" width="200px" style="margin: 20px;">  
+<img src="media/testing/product-create-plan-button.png" width="200px" style="margin: 20px;">  
+<img src="media/testing/modal-create-plan.png" width="300px" style="margin: 20px;">  
 
 * **Edit**, links to **Product Edit** page. Only visible to **Super Users**. Includes hover styling:  
-<img src="media/testing/product-edit-button.png" width="100px" style="margin: 20px;">  
+<img src="media/testing/product-edit-button.png" width="200px" style="margin: 20px;">  
 
 * **Delete**, opens **Confirm Modal**, asking user to confirm deletion of **Product**. Restricted to **Super Users**. Button includes hover styling:  
-<img src="media/testing/product-delete-button.png" width="100px" style="margin: 20px;">  
-<img src="media/testing/modal-product-delete-confirm.png" width="200px" style="margin: 20px;">  
+<img src="media/testing/product-delete-button.png" width="200px" style="margin: 20px;">  
+<img src="media/testing/modal-product-delete-confirm.png" width="300px" style="margin: 20px;">  
 
 * **Customer Reviews**, displays **Reviews** for the **Product**, read from the **Review** model. **Add Review** link is shown if the **User** has not reviewed the **Product**.
  If the **User** is not signed in, **Add Review** links to the **Sign In** page. If the user is signed in, links to the **Add Review** page. If the user has reviewed the **Product** before, 
  **Edit** link is shown to allow the **User** to edit their **Review**.
  If the **User** is signed in as a **Super User**, **Delete** link is also shown. If **Delete** link is clicked, **Review Delete Confirm** modal is shown. All links include hover styling:  
-<img src="media/testing/product-reviews.png" width="100px" style="margin: 20px;">  
-<img src="media/testing/modal-review-delete-confirm.png" width="200px" style="margin: 20px;">  
+<img src="media/testing/product-reviews.png" width="600px" style="margin: 20px;">  
+<img src="media/testing/modal-review-delete-confirm.png" width="300px" style="margin: 20px;">  
 
 * **Product Add**, restricted to **Super Users**. Enables a new **Product** to be added. Required fields are denoted with a *.  
 **Image** optionally allows the main image to be selected. The suggested format is *WebP* for better performance.  
@@ -779,7 +780,7 @@ A **Product Summary** including **Product** name, preview image, quantity, size,
 
 #### User Profile #### 
 
-* **User Profile** may be accessed from **User Menu** if the **User** is signed in. Enables the **User** to update their default delivery information, and displays the **User's** **Order** history in a **Bootstrap** accordion to the right of the screen.  
+* **User Profile** may be accessed from **User Menu** if the **User** is signed in. Enables the **User** to update their default delivery information, and displays the **User's** **Order History** in a **Bootstrap** accordion to the right of the screen.  
 **Update Profile** button saves any valid updated information to the **User** and **UserProfile** models in the database and displays a **Toast** message. Button includes hover styling.  
 **Orders** are shown by date, and expand when clicked. The **Order Number** links to the **Order History** page when clicked and includes hover styling.  
 A table showing **Product** name and quantity and **Order** grand total is also shown.  
@@ -826,8 +827,8 @@ After initial early **User** feedback, the following design changes were made:
 
 * **Sign In** and **Sign Out** functionality was updated to route the user to the page they were previously on after successful **Sign In** or **Sign Out**. The **User** was previously rerouted to the **Home** page. This improves the navigational flow and overall **User Experience**. 
 * An additional view was added so that if the **User** is reviewing a product, then deletes the last part of the *review_product* url (resulting in a url of `products/review_product/`), they are redirected to the **Products** view. 
-* Font size was increased to for **Product Search** and **User Menu** in the **Bootstrap Collapsing Navigation Menu**. 
-* **Delivery Information Button** and **Delivery Information Modal** were added to the **Basket** andd **Checkout** pages to clearly explain how the **Delivery** charges are calculated. This information will help the **User** to make an informed purchase:  
+* Font size was increased for **Product Search** and **User Menu** in the **Bootstrap Collapsing Navigation Menu**. 
+* **Delivery Information Button** and **Delivery Information Modal** were added to the **Basket** and **Checkout** pages to clearly explain how the **Delivery** charges are calculated. This information will help the **User** to make an informed purchase:  
 <p float="left">
     <img src="media/testing/delivery-information-button.png" width="200px" style="margin: 20px;">  
     <img src="media/testing/delivery-information-modal.png" width="300px" style="margin: 20px;">  
@@ -839,10 +840,10 @@ After initial early **User** feedback, the following design changes were made:
 * The **Product Detail** page stacks logically on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
 * The **Product Summary** on the **Basket** page is shown as a 2 item wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
 * The **Product Summary** on the checkout page stacks underneath the **Payment Form** on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
-* **Delivery Details** on the **Checkout Success** page stacks underneath the **Your Details** on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
+* **Delivery Details** on the **Checkout Success** page stacks underneath **Your Details** on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
 * The **Product Summary** on the **Checkout Success** page is shown as a 2 item wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system.  
 * The **Order History** on the **User Profile** page stacks underneath the **User Profile Form** on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system. 
-* **Delivery Details** on the **Order History** page stacks underneath the **Your Details** on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system. 
+* **Delivery Details** on the **Order History** page stacks underneath **Your Details** on devices less than 768 pixels wide. This is implemented using the **Bootstrap** grid system. 
 * The **Product Summary** on the **Order History** page is shown as a 2 item wide grid, and stacks to a 1 item wide grid on devices less than 768 pixels wide. This is implemented using the **Bootstrap grid** system.  
 * Various **Text** elements, the **perkulater logo**, **Form Labels**, **Links**, **Toast Messages**, **Containers** and extra large **Button** elements are re-sized on very small devices less than 370px wide. This is achieved using CSS media queries located in the **perkulater Custom CSS**.
 
@@ -851,7 +852,7 @@ See **Responsive Design** section in [TESTING.md](TESTING.md) for further inform
 ### Python Code Logic ###
 The high level **Python** code logic for each **Django App** is explained in the [UML Logic Diagrams](media/wireframes/logic/python) below: 
 
-[Home](media/wireframes/logic/python/home-logic.png)  
+[Home Python Logic](media/wireframes/logic/python/home-logic.png)  
 <img src="media/wireframes/logic/python/home-logic.png" width="800px" style="margin: 20px;">
 
 [Products Python Logic Part 1](media/wireframes/logic/python/products-1-logic.png)  
@@ -1035,7 +1036,7 @@ Note that the *Scope* for each variable should be set to the correct repository 
 <details>
 <summary>To deploy the website to Heroku:</summary>
 
-* To dump the data from your mysql development database to a json file, use following command at the terminal *note - manage.py must be connected to your local mysql development database*:
+* To dump the data from your mysql development database to a json file, use the following command at the terminal *note - manage.py must be connected to your local mysql development database*:
 `python3 manage.py dumpdata --exclude auth.permission --exclude contenttypes > db.json`
 * Log in to **Heroku**, and create a new **App** by clicking the *New* button in the top right of 
 your *Dashboard* and selecting *Create new app*. Give the new **App** a name and set the region to your closest geographical region, 
@@ -1069,8 +1070,8 @@ repository using the `git add`, `git commit` and `git push` commands.
 * Set the git remote using `heroku git:remote -a appname`, where `appname` is the application name.
 * Deploy the app to heroku using `git push heroku branchname`, where `branchname` is the github branch name.
 * In the *Dashboard* for the new application, click on *Settings* menu > *Reveal Config Vars*.
-* Generate a Django secret key and add it to the environment variables, using [miniwebtool.com](https://miniwebtool.com/django-secret-key-generator/).
-* The following **Config Vars** should be set.
+* Generate a Django secret key using [miniwebtool.com](https://miniwebtool.com/django-secret-key-generator/) and add it to the environment variables.
+* The following **Config Vars** should be set:
 
 Variable|Value|
 --------|-----|
@@ -1099,7 +1100,7 @@ will be automatically pushed to **Heroku**.
 * Open S3 and create a bucket in S3 (select region closest to your location) - note, uncheck *Block Public Access* and acknowledge that the bucket will be public.
 * Open the bucket settings.
 * On *Properties* tab, turn on static website hosting (use index.html for Index document and error.html for Error document).
-* On *Permissions* tab, paste the following Cross-origin resource sharing (CORS) cofiguration:
+* On *Permissions* tab, paste in the following Cross-origin resource sharing (CORS) cofiguration:
 ```
     [
         {
@@ -1117,15 +1118,19 @@ will be automatically pushed to **Heroku**.
     ]
 ```
 * On *Bucket Policy* tab, go to *Policy Generator* and use the following settings:
-Type of Policy: *S3 Bucket Policy*
-Effect: *Allow*
-Principal: *
-AWS Service: *Amazon S3*
-Actions: *GetObject*
-Amazon Resource Name (ARN): *Use ARN from bucket policy tab*
+```
+    Type of Policy: *S3 Bucket Policy*
+    Effect: *Allow*
+    Principal: *
+    AWS Service: *Amazon S3*
+    Actions: *GetObject*
+    Amazon Resource Name (ARN): *Use ARN from bucket policy tab*
+```
 * Generate the policy, copy the policy into the bucket policy editor, and add `/*`
 onto the end of the *Resource* line, as per the example below, where `bucketname` is the Amazon S3 bucket name:
-`"Resource": "arn:aws:s3:::bucketname/*`.
+```
+    "Resource": "arn:aws:s3:::bucketname/*
+```
 * Save the policy.
 * Go to the `Access Control List` tab and set the *Objects* permissions to `List` for *Everyone (public access)*.
 * The bucket is now set up.
@@ -1178,7 +1183,7 @@ clicking *Attach Policy* in the *Permissions* tab and selecting the policy creat
 
 * **Important** - make sure that the amazon access key and secret access keys are kept secret, as these keys could be used to charge amazon services to your account!
 * In the *Dashboard* for the new application, click on *Settings* menu > *Reveal Config Vars*.
-* Set the following **Config Vars**, and remove the preiously set `DISABLE_COLLECTSTATIC` variable:
+* Set the following **Config Vars**, and remove the previously set `DISABLE_COLLECTSTATIC` variable:
 
 Variable|Value|
 --------|-----|
@@ -1204,9 +1209,9 @@ USE_AWS|`True`
 * Update, commit and push the code to **GitHub** and **Heroku** using the 
 `git add`, `git commit` and `git push` commands.
 * **Heroku** will receive the code from **GitHub** and build the **App** with the required packages and dependencies.
-* Once complete, you should see the message *Your app was successfully deployed* inm **Heroku**.
+* Once complete, you should see the message *Your app was successfully deployed* in **Heroku**.
 * Confirm that the static files have been collected successfully by checking the *Build Log* in the *Activity* tab in **Heroku**.
-* Open go to the **Amazon S3** management console and open the bucket.
+* Go to the **Amazon S3** management console and open the bucket.
 * The static files should now be present in the directory `static/`.
 * Create a new folder in the bucket called `media/`.
 * Click *Upload* and select all of the required images.
@@ -1218,7 +1223,7 @@ USE_AWS|`True`
 <summary>To Configure Stripe for the deployed site :</summary>
 
 * Go to the [Webhook Admin](https://dashboard.stripe.com/test/webhooks) area within **Stripe**.
-* Click *Add Endpoint*, and enter the deployed **Heroku** site url followed by `/checkout/wh/`, e.g. `https//appname.herokuapp.com/checkout.wh/` where `appname` is the application name, and add all events.
+* Click *Add Endpoint*, and enter the deployed **Heroku** site url followed by `/checkout/wh/`, e.g. `https//appname.herokuapp.com/checkout/wh/` where `appname` is the application name, and add all events.
 * Click on the endpoint, and click *Reveal* to reveal the *Webhook Secret Key*. Add the key to the **Heroku** environment variables as per the table below.
 * Add stripe keys to environment variables as per the table below. **Stripe** keys can be found in the [Developer Dashboard](https://dashboard.stripe.com/test/apikeys) area within **Stripe**.
 
@@ -1258,7 +1263,7 @@ STRIPE_WH_SECRET|`your_stripe_webhook_secret_key`
 * The excellent [Code Institute](https://codeinstitute.net/) course material which enabled me to successfully implement the project. I have lent on the **Boutique Ado** example project for guidance on how to implement the **Basket**, **Checkout** and **Stripe** payment system including **Webhooks**.  
 * [Coolors](https://coolors.co/) for the colour ideas generated using the colour palette generator.
 * [favicon.io](https://favicon.io/favicon-converter/) for the favicon conversion tool.
-* [Multi Device Website Mockup Generator](https://techsini.com/multi-mockup/index.php) for the responsive mock-up.
+* [Multi Device Website Mockup Generator](https://techsini.com/multi-mockup/index.php) for the responsive mock-ups.
 
 ## Acknowledgements ##
 
