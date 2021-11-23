@@ -189,9 +189,6 @@ The **Contact** page allows any **User** of the site to contact the business.
 **Form Validation** and functionality have been tested and work as expected:  
 <img src="media/testing/contact.png" width="500px" style="margin: 20px;">  
 
-* Subscribe for a regular purchase of a product.  
-This feature does not form part of the **Phase 1 Development**, and will be added in a future development phase.  
-
 As a **Registered User**, I would like to be able to:  
 <br>
 * Sign in to my account. 
@@ -306,13 +303,6 @@ The functionality has been tested and works as expected:
 The functionality has been tested and works as expected:  
 <img src="media/testing/product-reviews.png" width="500px" style="margin: 20px;">  
 <img src="media/testing/modal-review-delete-confirm.png" width="300px" style="margin: 20px;"> 
-
-
-* Add, edit and delete product categories.  
-This feature does not form part of the **Phase 1 Development**, and will be added in a future development phase.  
-* Track sales data, to inform future purchasing decisions.  
-This feature does not form part of the **Phase 1 Development**, and will be added in a future development phase.  
-
 
 ## Manual Testing ##
 The site has been manually tested thoroughly over a 3 week period. See [Bugs Fixed During Testing](#bugs-fixed-during-testing) 
@@ -835,3 +825,6 @@ This change has enabled historical **Products** to remain in the database and to
 complex work-around to style the *blue* hover colour on a *select* element in **Google Chrome**, see this [link](https://stackoverflow.com/questions/52467570/how-to-remove-blue-highlight-on-hover-in-select-option-inputs-html-for-chrome/54107955). It was decided not to implement this work around at this stage due to time constraints, and to leave 
 the hover colour as the default *blue*:  
 <img src="media/testing/select-background-colour.png" width="150px" style="margin: 20px;">  
+
+* On the **Checkout** page, the **Country Select** down arrow icon is not shown if the **User** is not signed in and **Google Chrome** is used to auto-populate the form fields. Despite extensive searching on google, the developer has been unable to rectify this minor issue at this stage due to time constraints.  
+<img src="media/testing/country-select-autofill-issue.png" width="250px" style="margin: 20px;">  

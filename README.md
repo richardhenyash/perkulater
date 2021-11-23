@@ -172,7 +172,6 @@ As a **Potential Customer**, I would like to be able to:
 * Receive confirmation of my purchase via email, so I can be confident that the purchase has been made successfully.
 * Register on the site, so I can make a repeat purchase more easily and get access to any rewards on offer.
 * Contact the business with a general query.
-* Subscribe for a regular purchase of a product (this feature will be added in a future development phase).
 
 As a **Registered User**, I would like to be able to:
 * Sign in to my account.
@@ -189,8 +188,6 @@ As a **Business Owner**, I would like to be able to:
 * Add, edit and delete products.
 * Edit product prices.
 * Delete user reviews, in case malicious reviews are added.
-* Add, edit and delete product categories (this feature will be added in a future development phase).
-* Track sales data, to inform future purchasing decisions (this feature will be added in a future development phase).
 
 #### Constraints #####
 * Developer skill set - the Developer is currently learning **Python** and **Django**. 
@@ -238,7 +235,7 @@ See **perkulater** scope chart below. Opportunities to be included for phase 1 a
 <img src="media/wireframes/perkulater-scope-chart.png" width="600px" style="margin: 20px;">
 
 ### Site Map ###
-A preliminary [Site Map](media/wireframes/perkulater-site-map.png) was produced for the **Phase 1** development, and is shown below. Note that the **Create Plan** 
+A preliminary [Site Map](media/wireframes/perkulater-site-map.svg) was produced for the **Phase 1** development, and is shown below. Note that the **Create Plan** 
 route is also shown. This feature will be implemented in a later development phase, but has been included in the **Site Map** for planning purposes. 
 
 <img src="media/wireframes/perkulater-site-map.svg" width="600px" style="margin: 20px;">
@@ -939,7 +936,7 @@ Profiles|-|OrderContactForm|message|CharField|Yes|-|TextArea widget
 
 * [Basket JavaScript Library](basket/static/basket/js/basket.js) - Product quantity plus and minus buttons and update link.
 
-* [Checkout JavaScript Library](basket/static/checkout/js/checkout.js) - Stripe card element and payment form submission.
+* [Checkout JavaScript Library](checkout/static/checkout/js/checkout.js) - Stripe card element and payment form submission.
 
 * [Products JavaScript Library](products/static/products/js/products.js) - Product rating stars, Product review rating stars, 
 Product quantity plus and minus buttons, Product price set, on-click event handlers to build information and confirm modals,
