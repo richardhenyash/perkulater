@@ -1,3 +1,6 @@
+"""
+Basket application model configuration module
+"""
 from django.db import models
 from django.contrib.auth.models import User
 

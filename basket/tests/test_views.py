@@ -1,3 +1,6 @@
+"""
+Basket application view tests
+"""
 from django.test import TestCase
 from django.urls import resolve
 from django.shortcuts import get_object_or_404

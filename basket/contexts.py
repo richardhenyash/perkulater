@@ -1,3 +1,6 @@
+"""
+Basket application contexts module
+"""
 from decimal import Decimal
 from django.shortcuts import get_object_or_404
 from products.models import Category, Product, Price, Offer, Size, Type
@@ -13,17 +16,18 @@ def basket_contents(request):
     basket_items = []
     total = 0
     # Clear basket if flag has been set by webhook handler
-    if request.user.is_authenticated:
-        # Get user's Basket object
-        basketobj = Basket.objects.filter(user=request.user).first()
-        if basketobj:
-            # Check if clear_basket is set
-            if basketobj.clear_basket:
-                if 'basket' in request.session:
-                    # clear basket
-                    del request.session['basket']
-                    basketobj.clear_basket = False
-                    basketobj.save()
+    clear_basket(request)
+    #if request.user.is_authenticated:
+    #    # Get user's Basket object
+    #    basketobj = Basket.objects.filter(user=request.user).first()
+    #    if basketobj:
+    #        # Check if clear_basket is set
+    #        if basketobj.clear_basket:
+    #            if 'basket' in request.session:
+    #                # clear basket
+    #                del request.session['basket']
+    #                basketobj.clear_basket = False
+    #                basketobj.save()
 
     # Get basket from session
     basket = request.session.get('basket', {})
@@ -71,7 +75,7 @@ def basket_contents(request):
             delete_array.append(product_key)
     # If products have been deleted from database, remove from the basket
     if len(delete_array) > 0:
-        for product_id in delete_array:
+        for product_key in delete_array:
             # Remove product from basket
             basket.pop(product_key)
         # Update basket in session
@@ -125,3 +129,21 @@ def basket_contents(request):
         'grand_total': grand_total,
     }
     return context
+
+
+def clear_basket(request):
+    """
+    Clear the basket if the clear_basket flag has been set by webhook handler
+    """
+    # Clear basket if flag has been set by webhook handler
+    if request.user.is_authenticated:
+        # Get user's Basket object
+        basketobj = Basket.objects.filter(user=request.user).first()
+        if basketobj:
+            # Check if clear_basket is set
+            if basketobj.clear_basket:
+                if 'basket' in request.session:
+                    # clear basket
+                    del request.session['basket']
+                    basketobj.clear_basket = False
+                    basketobj.save()

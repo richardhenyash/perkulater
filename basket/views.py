@@ -1,3 +1,6 @@
+"""
+Basket application views module
+"""
 from django.shortcuts import (
     get_object_or_404, HttpResponse, redirect,
     render, reverse)
@@ -114,5 +117,5 @@ def remove_from_basket(request, product_key):
         return HttpResponse(status=200)
     # Return error if there is an exception
     except Exception as e:
-        return HttpResponse(status=500)
         messages.error(request, f'Error removing item: {e}')
+        return HttpResponse(status=500)
