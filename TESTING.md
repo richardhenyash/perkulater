@@ -96,7 +96,7 @@ See [Initial Lighthouse Reports](media/testing/validation/performance/initial).
 
 To improve **Accessibility** and **SEO**, missing *href tags* and *aria-label* attributes were added to the some of the buttons and links in the **HTML Templates**.
 
-To improve **Best Practices** and **Performance**, the **Product** images were resized to 317px x 422px (this is the maximum size the image is displyed at), 
+To improve **Best Practices** and **Performance**, the **Product** images were resized to 317px x 422px (this is the maximum size the image is displayed at), 
 and compressed using the [RIOT](https://riot-optimizer.com/) image optimisation tool.  
 The **Background** image was also re-sized to 2400px x 1600px and compressed using the [RIOT](https://riot-optimizer.com/) image optimisation tool.  
 [WebP](https://developers.google.com/speed/webp) versions of the **Product** and **Background** images were created, resulting in much smalller image files.  
@@ -140,6 +140,7 @@ To further improve performance, consideration should be given in a **Future Deve
 See this [Link](https://getbootstrap.com/docs/5.0/customize/optimize/) for further information.
 
 ## User Stories Testing ###
+<br>
 As a **Potential Customer**, I would like to be able to:  
 <br>
 * Immediately understand the intent of the site.  
@@ -189,8 +190,10 @@ The **Contact** page allows any **User** of the site to contact the business.
 **Form Validation** and functionality have been tested and work as expected:  
 <img src="media/testing/contact.png" width="500px" style="margin: 20px;">  
 
+<br>
 As a **Registered User**, I would like to be able to:  
 <br>
+
 * Sign in to my account. 
 The **Sign In** page allows a registered user to **Sign In** to their account.  
 **Form Validation** and functionality have been tested and work as expected:  
@@ -254,7 +257,10 @@ Customers can edit existing reviews using the **Edit** link in the **Customer Re
     <img src="media/testing/product-review-edit.png" width="300px" style="margin: 20px;">
 </p>
 
+<br>
 As a **Business Owner**, I would like to be able to:
+<br>
+
 * Incentivise customers to add reviews to products, so that other customers will feel more confident about making a purchase.  
 A **Reward** system has been implemented, where a registered **User** can get 10% off their next **Order** by adding a new **Review**. 
 This is communicated to the **User** in the **Offer Banner**, and on the **Basket** and **Checkout** pages.  
