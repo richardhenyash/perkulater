@@ -1,3 +1,6 @@
+"""
+Home application url configuration module
+"""
 from django.urls import path
 from . import views
 

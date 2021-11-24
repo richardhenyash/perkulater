@@ -1,3 +1,6 @@
+"""
+Checkout application configuration module
+"""
 from django.apps import AppConfig
 
 

@@ -1,3 +1,6 @@
+"""
+Products application views module
+"""
 from django.shortcuts import get_object_or_404, redirect, render, reverse
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required

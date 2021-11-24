@@ -1,3 +1,6 @@
+"""
+Checkout application form tests
+"""
 from django.test import TestCase
 
 from checkout.forms import OrderForm

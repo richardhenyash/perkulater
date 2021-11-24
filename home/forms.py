@@ -1,3 +1,6 @@
+"""
+Home application form configuration module
+"""
 from django import forms
 
 

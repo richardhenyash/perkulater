@@ -1,3 +1,6 @@
+"""
+Home application view tests
+"""
 from django.test import TestCase
 from django.urls import resolve
 from django.contrib.messages import get_messages

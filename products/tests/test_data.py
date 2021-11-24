@@ -1,3 +1,6 @@
+"""
+Module to populute test database
+"""
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
 
@@ -10,7 +13,7 @@ from products.models import (
 
 
 def build_test_data():
-    """Function to buld the test database, run before unit tests"""
+    """Function to build the test database, run before unit tests"""
     # Create admin user for unit tests
     adminuser = User.objects.create_superuser(
         'unittestadmin', 'unittestadmin@test.com', 'unittestadminpassword')

@@ -1,3 +1,6 @@
+"""
+Home application views module
+"""
 from django.shortcuts import redirect, render, reverse, get_list_or_404
 from django.core.mail import EmailMessage
 from django.contrib.auth.models import User

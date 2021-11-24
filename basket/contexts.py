@@ -3,6 +3,7 @@ Basket application contexts module
 """
 from decimal import Decimal
 from django.shortcuts import get_object_or_404
+from django.contrib import messages
 from products.models import Category, Product, Price, Offer, Size, Type
 from profiles.models import Reward
 from .models import Basket
@@ -12,23 +13,10 @@ def basket_contents(request):
     """
     Context processor for Basket
     """
-
     basket_items = []
     total = 0
-    # Clear basket if flag has been set by webhook handler
+    # Clear basket
     clear_basket(request)
-    #if request.user.is_authenticated:
-    #    # Get user's Basket object
-    #    basketobj = Basket.objects.filter(user=request.user).first()
-    #    if basketobj:
-    #        # Check if clear_basket is set
-    #        if basketobj.clear_basket:
-    #            if 'basket' in request.session:
-    #                # clear basket
-    #                del request.session['basket']
-    #                basketobj.clear_basket = False
-    #                basketobj.save()
-
     # Get basket from session
     basket = request.session.get('basket', {})
     # Initialise array of products to be deleted from basket
@@ -39,7 +27,6 @@ def basket_contents(request):
         product_id = product_info_array[0]
         product_size_id = product_info_array[1]
         product_type_id = product_info_array[2]
-        # product = get_object_or_404(Product, pk=product_id)
         product = Product.objects.filter(pk=product_id).first()
         # If product exists in database
         if product:
@@ -78,6 +65,14 @@ def basket_contents(request):
         for product_key in delete_array:
             # Remove product from basket
             basket.pop(product_key)
+            # Warning message
+            messages.warning(
+                request,
+                'One or more of the products in your basket has been \
+                removed as it is no longer available for purchase.',
+                extra_tags='admin'
+            )
+
         # Update basket in session
         request.session['basket'] = basket
     # Get delivery Offer object
@@ -133,7 +128,8 @@ def basket_contents(request):
 
 def clear_basket(request):
     """
-    Clear the basket if the clear_basket flag has been set by webhook handler
+    Clear basket if the clear_basket flag in the Basket model
+    has been set by webhook handler
     """
     # Clear basket if flag has been set by webhook handler
     if request.user.is_authenticated:

@@ -116,6 +116,6 @@ def remove_from_basket(request, product_key):
     try:
         return HttpResponse(status=200)
     # Return error if there is an exception
-    except Exception as e:
-        messages.error(request, f'Error removing item: {e}')
+    except Exception as basket_error:
+        messages.error(request, f'Error removing item: {basket_error}')
         return HttpResponse(status=500)

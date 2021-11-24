@@ -1,3 +1,6 @@
+"""
+Checkout application form configuration module
+"""
 from django import forms
 from .models import Order
 

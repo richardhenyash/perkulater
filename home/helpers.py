@@ -1,3 +1,8 @@
+"""
+Home application helpers module
+"""
+
+
 def keyvalue_to_delimited_string(objcoll, key, delim):
     """
     Function to convert a key value to a delimeted string,

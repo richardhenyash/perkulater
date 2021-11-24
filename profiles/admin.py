@@ -1,3 +1,6 @@
+"""
+Profiles application administration module
+"""
 from django.contrib import admin
 
 from.models import UserProfile, Reward

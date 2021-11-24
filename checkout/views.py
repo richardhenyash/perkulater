@@ -1,3 +1,6 @@
+"""
+Checkout application views module
+"""
 import json
 from django.shortcuts import (
     get_object_or_404, HttpResponse, render, redirect, reverse)

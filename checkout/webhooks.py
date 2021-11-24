@@ -1,3 +1,6 @@
+"""
+Checkout application webhook module
+"""
 # Stripe webhook code referenced from:
 # https://stripe.com/docs/payments/handling-payment-events
 

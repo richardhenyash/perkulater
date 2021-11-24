@@ -1,3 +1,6 @@
+"""
+Home application form tests
+"""
 from django.test import TestCase
 from products.tests.test_data import build_test_data
 from home.forms import ContactForm

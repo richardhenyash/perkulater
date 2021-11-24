@@ -1,3 +1,6 @@
+"""
+Checkout application model tests
+"""
 from decimal import Decimal
 from django.test import TestCase
 from django.shortcuts import get_object_or_404
