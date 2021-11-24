@@ -273,7 +273,7 @@ The functionality has been tested and works as expected:
 * Add, edit and delete products.  
 **Products** may be added using the **Product Add** page, accessed from the **User Menu** if the **User** is signed in as a **Super User**.  
 **Products** may be edited using the **Product Edit** page, accessed from the **Product Detail** page if the **User** is signed in as a **Super User**.  
-**Products** may be discontinued using the **Discontinued** check box on the **Product Add** and **Product Edit** page if the **User** is signed in as a **Super User**. 
+**Products** may be discontinued using the **Discontinued** check box on the **Product Add** and **Product Edit** page if the **User** is signed in as a **Super User**.  
 **Products** may be deleted using the **Product Delete** button, accessed from the **Product Detail** page if the **User** is signed in as a **Super User**.  
 **Form Validation** and functionality have been tested and work as expected:  
 <p float="left">
