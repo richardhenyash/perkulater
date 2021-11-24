@@ -112,7 +112,7 @@ def checkout(request):
                 # If product does not exist
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your cart wasn't found \
+                        "One of the products in your basket wasn't found \
                         in our database. Please call for assistance!")
                     )
                     # Delete Order

@@ -169,7 +169,7 @@ Functionality has been tested and works as expected:
 <img src="media/testing/delivery-information-modal.png" width="300px" style="margin: 20px;">  
 <img src="media/testing/offer-banner.png" width="600px" style="margin: 20px;">  
 
-* Add products to my cart, so I can make a purchase.  
+* Add products to my basket, so I can make a purchase.  
 Products can be added to the **Basket** using the **Add To Basket** button on the **Product Detail** page.  
 Functionality has been tested and works as expected:  
 <img src="media/testing/product-add-to-basket-button.png" width="150px" style="margin: 20px;">  

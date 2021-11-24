@@ -168,7 +168,7 @@ As a **Potential Customer**, I would like to be able to:
 * Learn about the coffees on offer, including a description of the flavours, so I can make an informed purchasing decision.
 * Learn about where the coffee beans are sourced from, so I can make an informed purchasing decision.
 * Understand the delivery charges, and how much I need to spend to get free delivery, so I can make an informed purchasing decision.
-* Add products to my cart, so I can make a purchase.
+* Add products to my basket, so I can make a purchase.
 * Receive confirmation of my purchase via email, so I can be confident that the purchase has been made successfully.
 * Register on the site, so I can make a repeat purchase more easily and get access to any rewards on offer.
 * Contact the business with a general query.
