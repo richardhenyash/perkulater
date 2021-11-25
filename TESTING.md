@@ -62,7 +62,7 @@ have been thoroughly manually de-bugged and tested in the console as part of the
 ### Python Code Testing ##
 All **Python Code** was thoroughly de-bugged and tested at the command line during the development process, and has been validated 
 using [Flake8](https://flake8.pycqa.org/en/latest/). [flake8-django](https://pypi.org/project/flake8-django/) was also installed to assist with validation.  
-**Flake 8** was configured for **perkulater** by creating a `setup.cfg` file in the root of the project, which contains the following settings:
+**Flake8** was configured for **perkulater** by creating a `setup.cfg` file in the root of the project, which contains the following settings:
 ```
 [flake8]
 exclude = */migrations/*.py, *__init__.py, *_pychache_*
@@ -187,7 +187,10 @@ The **Sign Up** page allows an unauthenticated user to register for an account.
 * Contact the business with a general query.  
 The **Contact** page allows any **User** of the site to contact the business.  
 **Form Validation** and functionality have been tested and work as expected:  
-<img src="media/testing/contact.png" width="500px" style="margin: 20px;">  
+<p float="left">
+    <img src="media/testing/contact.png" width="300px" style="margin: 20px;">
+    <img src="media/testing/contact-email.png" width="300px" style="margin: 20px;">
+</p> 
 
 As a **Registered User**, I would like to be able to:  
 
@@ -235,7 +238,7 @@ The business can be contacted about a specific order using the **Order Contact**
 </p>
 
 * Add reviews to products, to help other customers make informed purchasing decisions.  
-Customers can add a new **review** using the **Add Review** link in the **Customer Review** section of the **Product Detail** page.  
+Customers can add a new **review** using the **Add Review** link in the **Customer Reviews** section of the **Product Detail** page.  
 **Reviews** may also be added using the **Review** links in the **Order History** section of the **User Profile** page.  
 **Form Validation** and functionality have been tested and work as expected:  
 <img src="media/testing/product-reviews.png" width="500px" style="margin: 20px;">  
@@ -245,7 +248,7 @@ Customers can add a new **review** using the **Add Review** link in the **Custom
 </p>
 
 * Edit previous reviews.  
-Customers can edit existing reviews using the **Edit** link in the **Customer Review** section of the **Product Detail** page.  
+Customers can edit existing reviews using the **Edit** link in the **Customer Reviews** section of the **Product Detail** page.  
 **Reviews** may also be edited using the **Review** links in the **Order History** section of the **User Profile** page.  
 **Form Validation** and functionality have been tested and work as expected:  
 <img src="media/testing/product-reviews.png" width="500px" style="margin: 20px;">  
