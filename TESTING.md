@@ -329,20 +329,20 @@ Home|Shop Button|Yes|Yes|Yes|Pass|Links to **Products**
 #### Base Template ####
 Page or Section|Feature|Style Check|Hover, Focus Style Check|Functionality Check|Pass, Fail|Notes
 ---------------|-------|-----------|------------------------|-------------------|----------|-----
-Navigation Menu|Logo|Yes|-|Yes|Pass|-
-Navigation Menu|Tagline|Yes|-|-|Pass|-
-Navigation Menu|Search Input|Yes|Yes|Yes|Pass|-
+Navigation Menu|Logo|Yes|-|Yes|Pass|
+Navigation Menu|Tagline|Yes|-|-|Pass|
+Navigation Menu|Search Input|Yes|Yes|Yes|Pass|
 Navigation Menu|Search Button|Yes|Yes|Yes|Pass|Returns search results
-Navigation Menu|Basket Icon|Yes|Yes|Yes|Pass|-
-Navigation Menu|User Dropdown Menu - Contact|Yes|Yes|Yes|Pass|-
-Navigation Menu|User Dropdown Menu - Sign In|Yes|Yes|Yes|Pass|-
+Navigation Menu|Basket Icon|Yes|Yes|Yes|Pass|
+Navigation Menu|User Dropdown Menu - Contact|Yes|Yes|Yes|Pass|
+Navigation Menu|User Dropdown Menu - Sign In|Yes|Yes|Yes|Pass|
 Navigation Menu|User Dropdown Menu - Profile|Yes|Yes|Yes|Pass|Only shown if signed-in
 Navigation Menu|User Dropdown Menu - Sign Out|Yes|Yes|Yes|Pass|Only shown if signed-in
 Navigation Menu|User Dropdown Menu - Add Product|Yes|Yes|Yes|Pass|Only shown if signed-in as super-user
-Navigation Menu|Horizontal Rule|Yes|-|-|Pass|-
-Footer|Horizontal Rule|Yes|-|-|Pass|-
-Footer|Tagline|Yes|-|Yes|Pass|-
-Footer|Horizontal Rule|Yes|-|-|Pass|-
+Navigation Menu|Horizontal Rule|Yes|-|-|Pass|
+Footer|Horizontal Rule|Yes|-|-|Pass|
+Footer|Tagline|Yes|-|Yes|Pass|
+Footer|Horizontal Rule|Yes|-|-|Pass|
 Footer|Social Media Links|Yes|Yes|Yes|Pass|perkulater social media accounts not created at this stage
 
 #### User Authentication ####
@@ -393,7 +393,7 @@ Password Reset - Success|Text|Yes|-|-|Pass|
 Page or Section|Feature|Style Check|Hover, Focus Style Check|Functionality Check|Pass, Fail|Notes
 ---------------|-------|-----------|------------------------|-------------------|----------|-----
 Contact|Title|Yes|-|-|Pass|
-Contact|Horizontal Rule|Yes|-|-|Pass|-
+Contact|Horizontal Rule|Yes|-|-|Pass|
 Contact|Field Labels|Yes|-|-|Pass|Required fields denoted with *.
 Contact|Field Placeholders|Yes|-|-|Pass|
 Contact|Email|Yes|Yes|Yes|Pass|Field required. Must be a valid email address.
@@ -405,12 +405,12 @@ Contact|Send Message Button|Yes|Yes|Yes|Pass|Sends contact message. Message rece
 #### Products ####
 Page or Section|Feature|Style Check|Hover, Focus Style Check|Functionality Check|Pass, Fail|Notes
 ---------------|-------|-----------|------------------------|-------------------|----------|-----
-Products|Offer Banner|Yes|-|-|Pass|-
+Products|Offer Banner|Yes|-|-|Pass|
 Products|Product Image Link|Yes|Yes|Yes|Pass|Links to **Product Detail**
-Products|Product Name|Yes|-|-|Pass|-
-Products|Product Rating Stars|Yes|-|Yes|Pass|-
-Products|Product Price|Yes|-|-|Pass|-
-Products|Buy Button|Yes|Yes|Yes|Pass|-
+Products|Product Name|Yes|-|-|Pass|
+Products|Product Rating Stars|Yes|-|Yes|Pass|
+Products|Product Price|Yes|-|-|Pass|
+Products|Buy Button|Yes|Yes|Yes|Pass|
 Product Detail|Product Image Link|Yes|Yes|Yes|Pass|Links to **Product Information Modal**
 Product Detail|Product Name|Yes|-|-|Pass|
 Product Detail|Coffee Flavour Profile|Yes|-|-|Pass|
@@ -420,7 +420,7 @@ Product Detail|Keep Shopping Button|Yes|Yes|Yes|Pass|Links to **Products**.
 Product Detail|Coffee Information Link|Yes|Yes|Yes|Pass|Links to **Product Information Modal**
 Product Detail|Product Information Modal|Yes|Yes|Yes|Pass|Information correctly split into paragraphs with delimiter.
 Product Detail|Coffee Details - Container|Yes|-|-|Pass
-Product Detail|Coffee Details - Text|Yes|-|-|Pass|-
+Product Detail|Coffee Details - Text|Yes|-|-|Pass|
 Product Detail|Coffee Options - Container|Yes|-|-|Pass
 Product Detail|Size Information Link|Yes|Yes|Yes|Pass|Links to **Size Information Modal**.
 Product Detail|Size Information Modal|Yes|Yes|Yes|Pass|Title and content of modal correctly set.
@@ -640,7 +640,7 @@ Order History|Grand Total|Yes|-|-|Pass|
 Order History|Back To Profile Button|Yes|Yes|Yes|Pass|Links to **User Profile**.
 Order History|Contact Button|Yes|Yes|Yes|Pass|Links to **Order Contact**.
 Order Contact|Title|Yes|-|-|Pass|
-Order Contact|Horizontal Rule|Yes|-|-|Pass|-
+Order Contact|Horizontal Rule|Yes|-|-|Pass|
 Order Contact|Order Number|Yes|-|-|Pass|Populated correctly from database.
 Order Contact|Order Date|Yes|-|-|Pass|Populated correctly from database.
 Order Contact|Field Labels|Yes|-|-|Pass|Required fields denoted with *.
