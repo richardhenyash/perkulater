@@ -639,7 +639,7 @@ Includes hover styling:
 * **Product Quantity**, allows product quantity to be selected. Minus button is greyed out and disabled when quantity is 1, Plus button is greyed out and disabled when quantity is 99. Includes hover styling:  
 <img src="media/testing/product-detail-quantity.png" width="200px" style="margin: 20px;">  
 
-* **Product Price**, automatically updated on change of **Size**. Includes **Edit** link to edit prices if user is a **Super User**:  
+* **Product Price**, automatically updated on change of **Size**. Includes **Edit** link to **Edit Prices** if user is a **Super User**:  
 <img src="media/testing/product-price.png" width="200px" style="margin: 20px;">  
 
 * **Add To Basket**, adds **Product** with selected Size, Type and Quantity to basket, and displays a **Toast** message. Includes hover styling:  
@@ -730,9 +730,11 @@ Also includes **Quantity Selector**, **Update** and **Remove** links to enable t
 **Size** description, **Type** description and **Subtotal** are also shown for each **Product** in the **Basket**.  
 **Total**, **Delivery** and **Grand Total** are shown underneath. The **Delivery Information Button** opens the **Delivery Information Modal**, 
 which explains how the delivery charges are calculated, enabling the **User** to make an informed purchase.   
-If the **User** has a **Reward** to be applied at checkout, the **Discount** is also shown. 
-If the **User** is not signed in, information text is displayed encouraging the **User** to sign in and add a new review to qualify for a discount. If the **User** is signed in but does not currently have a **Reward** to be applied, information text is displayed encouraging the **User** to add a new review to qualify for a discount. 
-If delivery charges are going to be applied at checkout, another information message explains how much more the user needs to spend in order to qualify for free UK delivery. **Keep Shopping** button links back to **Product** page, and **Checkout** button links to **Checkout** page. Buttons include hover styling:  
+If the **User** has a **Reward** to be applied at checkout, the **Discount** is also shown.  
+If the **User** is not signed in, information text is displayed encouraging the **User** to sign in and add a new review to qualify for a discount.  
+If the **User** is signed in but does not currently have a **Reward** to be applied, information text is displayed encouraging the **User** to add a new review to qualify for a discount.  
+If delivery charges are going to be applied at checkout, another information message explains how much more the user needs to spend in order to qualify for free UK delivery.  
+**Keep Shopping** button links back to **Product** page, and **Checkout** button links to **Checkout** page. Buttons include hover styling:  
 <p float="left">
     <img src="media/testing/basket.png" width="300px" style="margin: 20px;">
     <img src="media/testing/basket-discount.png" width="300px" style="margin: 20px;">
@@ -742,7 +744,7 @@ If delivery charges are going to be applied at checkout, another information mes
 
 #### Checkout #### 
 
-* **Checkout**, accessed from **Checkout** button on **Basket** page. Form to enable checkout using **Stripe**. **Your Details** and **Delivery** fields are automatically populated from **UserProfile** model for signed in users. Required fields are denoted with a *. All input fields include focus styling and validation.  
+* **Checkout**, accessed from **Checkout** button on **Basket** page. Form to enable checkout using **Stripe**. **Your Details** and **Delivery** fields are automatically populated from the **UserProfile** model for signed in users. Required fields are denoted with a *. All input fields include focus styling and validation.  
 Non authenticated **Users** are also permitted to check out, as from a business perspective it could dissuade potential customers from making a purchase if they are required to **Sign Up** for a **User** account in order to complete a purchase.  
 Non authenticated **Users** are encouraged to **Sign Up** or **Sign In** with text and links shown under the **Country** field.  
 If **Save this delivery information to my profile** is checked, valid information given in the **Checkout** form is saved to the **User** and **UserProfile** models on checkout.  
@@ -751,8 +753,10 @@ Information text is displayed below the **Payment** input explaining how much th
 **Total**, **Delivery** and **Grand Total** are shown underneath. The **Delivery Information Button** opens the **Delivery Information Modal**, 
 which explains how the delivery charges are calculated, enabling the **User** to make an informed purchase.   
 If the **User** has a **Reward**, the **Discount** is also shown.  
-If the **User** is not authenticated, information text is displayed encouraging the **User** to sign in and add a new review to qualify for a discount. If the **User** is signed in but does not currently have a **Reward** to be applied, information text is displayed encouraging the **User** to add a new **Review** to qualify for a discount.  
-If delivery charges have been applied, another information message explains how much more the user needs to spend in order to qualify for free UK delivery. **Edit Basket** button links back to **Basket** page, and **Pay** button submits the payment via **Stripe**. Buttons include hover styling.  
+If the **User** is not authenticated, information text is displayed encouraging the **User** to sign in and add a new review to qualify for a discount.  
+If the **User** is signed in but does not currently have a **Reward** to be applied, information text is displayed encouraging the **User** to add a new **Review** to qualify for a discount.  
+If delivery charges have been applied, another information message explains how much more the user needs to spend in order to qualify for free UK delivery.  
+**Edit Basket** button links back to **Basket** page, and **Pay** button submits the payment via **Stripe**. Buttons include hover styling.  
 A **Product Summary** including **Product** name, preview image, quantity, size and type is also shown. The **Product** image links to the **Product Detail** page and includes hover styling.  
 After the **Pay** button is clicked, a the **Payment Form** is faded out and a **Loading Overlay** is shown while the payment is processed.  
 If **Checkout** is successful, **Checkout Success** page is displayed:  
@@ -1217,6 +1221,7 @@ USE_AWS|`True`
 * Click *Upload* and select all of the required images.
 * Under *Permissions* set *Grant Public Read Access* and confirm.
 * Click *Next* and then *Upload* to complete upload of images.
+* The deployment to **Heroku** and **Amazon Web Services S3** is now complete.
 </details>
 
 <details>
@@ -1234,7 +1239,6 @@ STRIPE_SECRET_KEY|`your_stripe_secret_key`
 STRIPE_WH_SECRET|`your_stripe_webhook_secret_key`
 
 * In the **Webhook Admin** area of **Stripe**, select the new *Webhook Endpoint* and test it by hitting the *Send Test Event* button and selecting the `payment_intent.created` event. Stripe should display message `Webhook received from Stripe: payment_intent.created`.
-* The deployment to **Heroku** and **Amazon Web Services S3** is now complete.
 </details>
 
 ## Credits ##
