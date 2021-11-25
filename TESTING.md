@@ -61,7 +61,7 @@ have been thoroughly manually de-bugged and tested in the console as part of the
 
 ### Python Code Testing ##
 All **Python Code** was thoroughly de-bugged and tested at the command line during the development process, and has been validated 
-using [Flake 8](https://pypi.org/project/flake8/). [flake8-django](https://pypi.org/project/flake8-django/) was installed to assist with validation.  
+using [Flake8](https://flake8.pycqa.org/en/latest/). [flake8-django](https://pypi.org/project/flake8-django/) was also installed to assist with validation.  
 **Flake 8** was configured for **perkulater** by creating a `setup.cfg` file in the root of the project, which contains the following settings:
 ```
 [flake8]
@@ -73,7 +73,7 @@ The settings exclude **django** migrations, `__init__.py`, and `_pychache_` file
 Signals need to be imported into the **app** config files to ensure correct operation of the code.  
 *E501* (line too long) errors are ignored for `settings.py` as it is not possible to shorten the affected lines of code without causing application errors.  
 
-**Flake 8** output is shown here [Python Code Automated Testing And Flake8 Output](media/testing/validation/python/python-automated-testing-output.png).
+**Flake8** output is shown here [Python Code Automated Testing And Flake8 Output](media/testing/validation/python/python-automated-testing-output.png).
 
 Python **Automated Unit Testing** was implemented using the [Django Unit Testing](https://docs.djangoproject.com/en/3.2/topics/testing/overview/) framework.  
 **Unit Tests** have been written for all **Forms**, **Model Methods**, **Signals** and **Views**, for each **Django App** in  the **perkulater** project. 
@@ -787,7 +787,7 @@ The following **Responsive** features were specifically tested:
 
 ### Browser Compatibility Testing ###
 The website was tested on the following browsers and operating systems, 
-using a combination of manual testing across various devices and the [Browserstack](https://www.browserstack.com/) emulator:
+using a combination of manual testing across various devices and the [LAMBDATEST](https://www.lambdatest.com/) cross browser testing cloud:
 * [Google Chrome](https://www.google.com/intl/en_uk/chrome/) ([Windows 10](https://www.microsoft.com/en-us/windows), [Android 11](https://www.android.com/android-11/) and [Mac OS Big Sur](https://www.apple.com/uk/macos/big-sur/)).
 * [Microsoft Edge](https://www.microsoft.com/en-us/edge) ([Windows 10](https://www.microsoft.com/en-us/windows) and [Mac OS Big Sur](https://www.apple.com/uk/macos/big-sur/)).
 * [Microsoft Internet Explorer 11](https://support.microsoft.com/en-us/topic/internet-explorer-downloads-d49e1f0d-571c-9a7b-d97e-be248806ca70#ID0EBBD=Windows_10) ([Windows 10](https://www.microsoft.com/en-us/windows)).

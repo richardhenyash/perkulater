@@ -340,13 +340,15 @@ is shown below:
 * [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - enables enhanced rendering of Django forms including integration with **Bootstrap**.
 * [dj-database-url](https://pypi.org/project/dj-database-url/) - Django database configuration utility. Used to configure connection to the **Heroku** deployed postgres database.
 * [django-countries](https://pypi.org/project/django-countries/) - Django application providing country choices for use with forms etc. Used to populate country choices on the **Country** dropdowns.
-* [django-extensions](https://django-extensions.readthedocs.io/en/latest/) - Collection of custom extensions for **Django**. Used to automatically create data schema diagram for the **Django** model.
+* [django-extensions](https://django-extensions.readthedocs.io/en/latest/) - Collection of custom extensions for **Django**. Used to automatically export the final data schema diagram for the **Django** model.
 * [django-storages](https://django-storages.readthedocs.io/en/latest/) - Custom storage backends for **Django**. Used to configure **Amazon Web Services S3** storage of static files.
 * [gunicorn](https://gunicorn.org/) - Python WSGI HTTP Server for UNIX. Used as part of the **Heroku** deployment process.
 * [pillow](https://pillow.readthedocs.io/en/stable/) - Python imaging library.
 * [psycopg2](https://pypi.org/project/psycopg2/) - **PostgreSQL** database adapter for Python. Used as part of the **Heroku** deployment process.
 * [pydot](https://github.com/pydot/pydot) - **Graphviz** interface used to parse the **Django** data model into a .dot file using *django-extensions*.
-* [flake8-django](https://pypi.org/project/flake8-django/) - **Flake 8** plug-in for **Django**.
+* [Flake8](https://flake8.pycqa.org/en/latest/) - for python code validation.  
+* [flake8-django](https://pypi.org/project/flake8-django/) - **Flake8** plug-in for **Django**, for python code validation.  
+* [LAMBDATEST](https://www.lambdatest.com/) - cross browser testing cloud, for testing across multiple browsers and operating systems.  
 
 ### Browser Support ###
 The following browsers are all supported by **perkulater**.
@@ -400,53 +402,53 @@ The *discontinued* field allows **Products** to be discontinued for sale by a **
 There are currently four **Products** defined - *Jump Leads*, *Morning Glory*, *Our House Is Your House* and *Unleaded*.
 
 * **Category** - related to **Product**, **Type** and **Size**. Each **Category** may have different **Types** and **Sizes** and is related back to the **Product**. 
-This relational structure allows for new product **Categories** with different **Sizes** and **Types** e.g. coffee equipment or cold brew cans to be added in a future development phase. 
-The *size_description* field stores the **Size** descriptor, which is displayed to the user in the **Product Detail** view and is currently set to *Size*.
-The *size_information* field stores information about the related **Sizes** which is displayed to the user in the **Size Information** modal. 
-The *type_description* field stores the **Type** descriptor, which is displayed to the user in the **Product Detail** view and is currently set to *Type*.
-The *type_information* field stores information about the related **Types** which is displayed to the user in the **Type Information** modal. 
-Both the *size_information* and *type_information* fields are split into paragraphs for display using the delimiter specified in the *information_delimiter* field.
+This relational structure allows for new product **Categories** with different **Sizes** and **Types** e.g. coffee equipment or cold brew cans to be added in a future development phase.  
+The *size_description* field stores the **Size** descriptor, which is displayed to the user in the **Product Detail** view and is currently set to *Size*.  
+The *size_information* field stores information about the related **Sizes** which is displayed to the user in the **Size Information** modal.  
+The *type_description* field stores the **Type** descriptor, which is displayed to the user in the **Product Detail** view and is currently set to *Type*.  
+The *type_information* field stores information about the related **Types** which is displayed to the user in the **Type Information** modal.  
+Both the *size_information* and *type_information* fields are split into paragraphs for display using the delimiter specified in the *information_delimiter* field.  
 There is currently only one **Category**, called **Coffee**. If more **Categories** are added in future development phases, the *friendly_name* field will be automatically 
 shown in the **Navigation Menu**, and the user will be able to filter by **Category** using the **Navigation Menu** links.
 
-* **Coffee** - related to **Product**. Stores additional information which is only relevant to products with **Category** set to **Coffee**. If the **Product** is a **Coffee**, 
-the *flavour_profile* is shown underneath the product name in the **Product Detail** view.  
+* **Coffee** - related to **Product**. Stores additional information which is only relevant to products with **Category** set to **Coffee**.  
+If the **Product** is a **Coffee**, the *flavour_profile* is shown underneath the product name in the **Product Detail** view.  
 
 * **Type** - related to **Category** and **OrderLineItem**. Product **Types** are stored in a separate model - this allows for different **Types** to be applied as 
-required to each **Category**. **Coffee** currently has four **Types** defined, *Coarse*, *Medium*, *Fine* and *Whole Bean*.
+required to each **Category**.  
+The **Coffee** **Category** currently has four **Types** defined, *Coarse*, *Medium*, *Fine* and *Whole Bean*.
 
-* **Price** - related to **Product** and **Size**. Product **Prices** are stored in a separate model - this allows for a different **Price** to be applied to each product and 
-related to the **Size** table. Each Product **Size** has a default price, which is applied by default but may be subsequently updated by the **Store Owner** using the 
+* **Price** - related to **Product** and **Size**. Product **Prices** are stored in a separate model - this allows for a different **Price** to be applied to each product and related to the **Size** table.  
+Each Product **Size** has a default price, which is applied by default but may be subsequently updated by the **Store Owner** using the 
 **Edit Prices** functionality. The product *sku* is unique to the **Price** and is stored in this model.
 
 * **Size** - related to **Category**, **Type** , **Price** and **OrderLineItem**. Each Product **Category** may have different sizes, specified in the **Size** model. 
 Each Product **Size** has a default price, which is applied by default but may be subsequently updated by the **Store Owner** using the **Edit Prices** functionality. 
 **Coffee** currently has two **Sizes** defined, *250g* and *1kg*. 
 
-* **Offer** - optionally related to **Product**. Stores **Offers**. If *display_in_banner* field is set to `True`, displays the value of the *description_full* field in the **Offer Banner**.
-The values of the fields *free_delivery_amount*, *delivery_minimum* and *delivery_percentage* on the *Delivery* offer are used to calculate delivery costs. 
+* **Offer** - optionally related to **Product**. Stores **Offers**. If *display_in_banner* field is set to `True`, displays the value of the *description_full* field in the **Offer Banner**.  
+The values of the fields *free_delivery_amount*, *delivery_minimum* and *delivery_percentage* on the *Delivery* offer are used to calculate delivery costs.  
 The value of the *discount* field on the *Review* offer (expressed as a percentage) is used to calculate the discount given as a **Reward** on the next order for leaving a **Review**.
 
 * **Review** - related to **Product** and **User**. Stores **Product Reviews**. A **Django** signal updates the **Product** *rating* field when a review is added, deleted or edited.
 
 #### Checkout Models ####
-* **Order** - related to **OrderLineItem** and **UserProfile**. Stores **Orders** after successful checkout. **Order** *order_number* field is automatically added on save. 
+* **Order** - related to **OrderLineItem** and **UserProfile**. Stores **Orders** after successful checkout. **Order** *order_number* field is automatically added on save.  
 **Order** *discount*, *order_total*, *previous_total*, *delivery* and *grand_total* fields are automatically updated using a **Django** signal when an **OrderLineItem** 
 is added or deleted.
 
-* **OrderLineItem** - related to **Order**, **Type**, **Product** and **Size**. Stores each **OrderLineItem** after successful checkout. 
+* **OrderLineItem** - related to **Order**, **Type**, **Product** and **Size**. Stores each **OrderLineItem** after successful checkout.  
 **OrderLineItem** *line_item_total* field is automatically calculated on save.
 
 #### Profiles Models ####
 * **UserProfile** - related to **Order** and **User**. Stores default delivery information. **UserProfile** is automatically created or updated using a **Django** 
 receiver when a **User** object is updated or created.
 
-* **Reward** - related to **User**. Stores **Rewards** that a **User** has earned. The *discount* field is used to store any discount that the **User** has earned 
-(expressed as a percentage), and is applied the user's next order. After the user's next order is placed with the *discount* applied, the *discount* field is reset.
+* **Reward** - related to **User**. Stores **Rewards** that a **User** has earned. The *discount* field is used to store any discount that the **User** has earned (expressed as a percentage), and is applied the user's next order.  
+After the user's next order is placed with the *discount* applied, the *discount* field is reset.
 
 #### Basket Models ####
-* **Basket** - related to **User**. The *clear_basket* field is set by the **Stripe** webhook handler function to indicate that the order was successfully created 
-in the webhook handler and that the **Basket** can be cleared. 
+* **Basket** - related to **User**. The *clear_basket* field is set by the **Stripe** webhook handler function to indicate that the order was successfully created in the webhook handler and that the **Basket** can be cleared. 
 
 [perkulater](https://perkulater.herokuapp.com/) is deployed using [Heroku](https://dashboard.heroku.com/). 
 For further information see [Deployment](#deployment).
