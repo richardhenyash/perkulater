@@ -621,10 +621,7 @@ Includes hover styling:
 </p>
 
 * **Size Selector**, allows **Size** read from the **Size** model to be selected, includes hover styling:  
-<img src="media/testing/size-selector.png" width="100px" style="margin: 20px;">  
-
-* **Type Selector**, allows **Type** read from the **Type** model to be selected, includes hover styling:  
-<img src="media/testing/type-selector.png" width="200px" style="margin: 20px;">  
+<img src="media/testing/size-selector.png" width="150px" style="margin: 20px;">  
 
 * **Type Information Button**, displays **Information Modal**.  
 Detailed **Type** information will give the **User** a much better understanding of the **Product Types** available, and make the **User** more comfortable making a purchase.  
@@ -635,6 +632,9 @@ Includes hover styling:
     <img src="media/testing/type-info.png" width="100px" style="margin: 20px;">
     <img src="media/testing/modal-type-info.png" width="300px" style="margin: 20px;">
 </p>
+
+* **Type Selector**, allows **Type** read from the **Type** model to be selected, includes hover styling:  
+<img src="media/testing/type-selector.png" width="200px" style="margin: 20px;">  
 
 * **Product Quantity**, allows product quantity to be selected. Minus button is greyed out and disabled when quantity is 1, Plus button is greyed out and disabled when quantity is 99. Includes hover styling:  
 <img src="media/testing/product-detail-quantity.png" width="200px" style="margin: 20px;">  
