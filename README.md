@@ -411,8 +411,7 @@ Both the *size_information* and *type_information* fields are split into paragra
 There is currently only one **Category**, called **Coffee**. If more **Categories** are added in future development phases, the *friendly_name* field will be automatically 
 shown in the **Navigation Menu**, and the user will be able to filter by **Category** using the **Navigation Menu** links.
 
-* **Coffee** - related to **Product**. Stores additional information which is only relevant to products with **Category** set to **Coffee**.  
-If the **Product** is a **Coffee**, the *flavour_profile* is shown underneath the product name in the **Product Detail** view.  
+* **Coffee** - related to **Product**. Stores additional information which is only relevant to products with **Category** set to **Coffee**. If the **Product** is a **Coffee**, the *flavour_profile* is shown underneath the product name in the **Product Detail** view.  
 
 * **Type** - related to **Category** and **OrderLineItem**. Product **Types** are stored in a separate model - this allows for different **Types** to be applied as 
 required to each **Category**.  
@@ -465,7 +464,7 @@ features which require **Super User** privileges. The *username* and *password* 
 The following features are included in the **Base** template, and are shown an all pages except for the **Home** page:
 
 * **Background Image**, an attractive image of coffee beans being processed, masked with a an opaque linear gradient mask in the *Background Level 1* colour, to give the image a dark, faded look:  
-<img src="media/testing/background-image.png" width="600px" style="margin: 20px;">
+<img src="media/testing/background-image.png" width="800px" style="margin: 20px;">
 
 * **Bootstrap Collapsing Navigation Menu**, navigation menu featuring **perkulater logo**, **Product Search**, **Basket Link**, **User Menu** and **Tagline**. 
 Collapses to **Menu Icon** on smaller devices:   
