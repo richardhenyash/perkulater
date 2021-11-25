@@ -320,10 +320,10 @@ The following **Features** have been explicitly tested:
 #### Home ####
 Page or Section|Feature|Style Check|Hover, Focus Style Check|Functionality Check|Pass, Fail|Notes
 ---------------|-------|-----------|------------------------|-------------------|----------|-----
-Home|Fade-in Animation|Yes|-|Yes|Pass|-
-Home|Logo|Yes|-|-|Pass|-
-Home|Horizontal Rule|Yes|-|-|Pass|-
-Home|Tagline|Yes|-|Yes|Pass|-
+Home|Fade-in Animation|Yes|-|Yes|Pass|
+Home|Logo|Yes|-|-|Pass|
+Home|Horizontal Rule|Yes|-|-|Pass|
+Home|Tagline|Yes|-|Yes|Pass|
 Home|Shop Button|Yes|Yes|Yes|Pass|Links to **Products**
 
 #### Base Template ####
