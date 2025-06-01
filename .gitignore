@@ -5,7 +5,9 @@ env.py
 __pycache__/
 *.py[cod]
 node_modules/
+staticfiles/
 .github/
 *.sqlite3
 *.pyc
 *.dump
+*.env
